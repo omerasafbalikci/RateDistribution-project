@@ -13,6 +13,7 @@
 	<groupId>com.ratedistribution</groupId>
 	<artifactId>ratedistribution</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
 	<name>rate-distribution</name>
 	<description>Rate Distribution Project</description>
 
@@ -23,6 +24,9 @@
 	<developers>
 		<developer/>
 	</developers>
+	<modules>
+		<module>rest-data-provider-service</module>
+	</modules>
 	<scm>
 		<connection/>
 		<developerConnection/>
