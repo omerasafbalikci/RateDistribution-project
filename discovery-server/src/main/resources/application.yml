@@ -1,5 +1,5 @@
 spring:
   application:
-    name: rest-data-provider-service
+    name: discovery-server
   config:
     import: "configserver:http://localhost:8888"
