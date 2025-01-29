@@ -7,6 +7,7 @@ import com.ratedistribution.rdp.model.ShockState;
 import com.ratedistribution.rdp.service.abstracts.RateService;
 import com.ratedistribution.rdp.utilities.exceptions.RateNotFoundException;
 import jakarta.annotation.PostConstruct;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.math3.distribution.NormalDistribution;
 import org.springframework.data.redis.core.HashOperations;
@@ -46,7 +47,6 @@ public class RateServiceImpl implements RateService {
 
     @PostConstruct
     public void init() {
-        log.info("Initializing RateService with OU + dynamic shock + dynamic spread...");
 
         if (simulatorProperties.getRates() != null) {
             simulatorProperties.getRates().forEach(def -> {
@@ -67,8 +67,7 @@ public class RateServiceImpl implements RateService {
                 ShockState state = new ShockState(false, 0, 1.0);
                 shockOps.put("shockStates", def.getRateName(), state);
 
-                log.debug("Initialized rate={} with mid={}, bid={}, ask={}",
-                        def.getRateName(), initialMid, bid, ask);
+
             });
         }
     }
@@ -77,7 +76,7 @@ public class RateServiceImpl implements RateService {
     public void updateRates() {
         // maxUpdates kontrolü
         if (simulatorProperties.getMaxUpdates() > 0 && updateCount >= simulatorProperties.getMaxUpdates()) {
-            log.debug("Max updates reached. No further updates.");
+
             return;
         }
 
@@ -127,8 +126,6 @@ public class RateServiceImpl implements RateService {
             rateOps.put("rates", rateName, updatedData);
             midOps.put("midPrices", rateName, X_t_next);
 
-            log.debug("rate={} OU-> midOld={} midNew={} bid={} ask={} shockLevel={}",
-                    rateName, oldMid, X_t_next, newBid, newAsk, shockLevel);
         });
 
         updateCount++;

@@ -1,50 +1,20 @@
 package com.ratedistribution.rdp.dto.responses;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class RateDataResponse implements Serializable {
     private String rateName;
     private double bid;
     private double ask;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime timestamp;
-
-    public RateDataResponse(String rateName, double bid, double ask, LocalDateTime timestamp) {
-        this.rateName = rateName;
-        this.bid = bid;
-        this.ask = ask;
-        this.timestamp = timestamp;
-    }
-
-    public String getRateName() {
-        return rateName;
-    }
-
-    public void setRateName(String rateName) {
-        this.rateName = rateName;
-    }
-
-    public double getBid() {
-        return bid;
-    }
-
-    public void setBid(double bid) {
-        this.bid = bid;
-    }
-
-    public double getAsk() {
-        return ask;
-    }
-
-    public void setAsk(double ask) {
-        this.ask = ask;
-    }
-
-    public LocalDateTime getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(LocalDateTime timestamp) {
-        this.timestamp = timestamp;
-    }
 }
