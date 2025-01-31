@@ -9,9 +9,9 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>rest-data-provider-service</artifactId>
-	<name>rest-data-provider-service</name>
-	<description>Rest Data Provider Service</description>
+	<artifactId>rest-data-provider</artifactId>
+	<name>rest-data-provider</name>
+	<description>Rest Data Provider</description>
 
 	<url/>
 	<licenses>
