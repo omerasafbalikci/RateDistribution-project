@@ -7,16 +7,16 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class RateDefinition {
+public class MultiRateDefinition {
     private String rateName;
-    private double basePrice;
+    private double initialPrice;
+    private GarchParams garchParams;
+    private double jumpIntensity;
+    private double jumpMean;
+    private double jumpVol;
     private double drift;
-    private double volatility;
     private double baseSpread;
-    private double shockProbability;
-    private double shockMultiplier;
-    private int shockDuration;   // update cycle sayısı
-    private double shockDecayRate;
+    private boolean useMeanReversion;
     private double kappa;
     private double theta;
 }
