@@ -21,7 +21,6 @@ public class RedisConfig {
 
         Jackson2JsonRedisSerializer<AssetState> serializer =
                 new Jackson2JsonRedisSerializer<>(AssetState.class);
-        // Opsiyonel: objectMapper ile JavaTimeModule ekleme
         template.setKeySerializer(new StringRedisSerializer());
         template.setValueSerializer(serializer);
 
