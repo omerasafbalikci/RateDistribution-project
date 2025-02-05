@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
 public class PriceSerializer extends StdSerializer<BigDecimal> {
-    private static final DecimalFormat df = new DecimalFormat("#.#############"); // 5 ondalık mesela
+    private static final DecimalFormat df = new DecimalFormat("#.#############");
 
     public PriceSerializer() {
         super(BigDecimal.class);

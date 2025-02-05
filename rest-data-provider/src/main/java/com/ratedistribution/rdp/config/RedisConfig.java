@@ -2,7 +2,6 @@ package com.ratedistribution.rdp.config;
 
 import com.ratedistribution.rdp.dto.responses.RateDataResponse;
 import com.ratedistribution.rdp.model.AssetState;
-import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -11,9 +10,7 @@ import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 @Configuration
-@RequiredArgsConstructor
 public class RedisConfig {
-
     @Bean
     public RedisTemplate<String, AssetState> assetStateRedisTemplate(RedisConnectionFactory connectionFactory) {
         RedisTemplate<String, AssetState> template = new RedisTemplate<>();

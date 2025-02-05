@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
 public class PercentSerializer extends StdSerializer<BigDecimal> {
-    private static final DecimalFormat df = new DecimalFormat("#.####'%'"); // 4 ondalık + %
+    private static final DecimalFormat df = new DecimalFormat("#.####'%'");
 
     public PercentSerializer() {
         super(BigDecimal.class);

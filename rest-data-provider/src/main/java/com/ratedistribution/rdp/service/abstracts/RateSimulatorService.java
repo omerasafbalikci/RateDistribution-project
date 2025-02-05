@@ -2,8 +2,8 @@ package com.ratedistribution.rdp.service.abstracts;
 
 import com.ratedistribution.rdp.dto.responses.RateDataResponse;
 
-public interface RateService {
-    void updateRates();
+import java.util.List;
 
-    RateDataResponse getRate(String rateName);
+public interface RateSimulatorService {
+    List<RateDataResponse> updateAllRates();
 }

@@ -28,9 +28,8 @@ public class RateUpdateScheduler {
             return;
         }
 
-        List<RateDataResponse> updatedRates = rateEngine.updateAllRates();
-        // Kaydet
-        HashOperations<String, String, RateDataResponse> ops = rateResponseRedisTemplate.opsForHash();
+        List<RateDataResponse> updatedRates = this.rateEngine.updateAllRates();
+        HashOperations<String, String, RateDataResponse> ops = this.rateResponseRedisTemplate.opsForHash();
         for (RateDataResponse r : updatedRates) {
             ops.put("RATES", r.getRateName(), r);
         }

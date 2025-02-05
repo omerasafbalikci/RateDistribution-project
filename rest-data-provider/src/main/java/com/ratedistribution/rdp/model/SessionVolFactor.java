@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SessionVolFactor {
-    private int startHour;       // 0-23
-    private int endHour;         // 1-24
+    private int startHour;
+    private int endHour;
     private double volMultiplier;
 }

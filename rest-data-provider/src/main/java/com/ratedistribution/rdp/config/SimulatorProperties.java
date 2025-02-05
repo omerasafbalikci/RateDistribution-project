@@ -18,18 +18,10 @@ import java.util.List;
 public class SimulatorProperties {
     private long updateIntervalMillis;
     private int maxUpdates;
-
-    // korelasyon
     private List<List<Double>> correlationMatrix;
     private List<MultiRateDefinition> rates;
-
-    // session-based vol
     private List<SessionVolFactor> sessionVolFactors;
-
-    // weekend
     private WeekendHandling weekendHandling;
-
-    // regime switching
     private boolean enableRegimeSwitching;
     private RegimeDefinition regimeLowVol;
     private RegimeDefinition regimeHighVol;

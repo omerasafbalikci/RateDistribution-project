@@ -11,5 +11,5 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class RegimeStatus implements Serializable {
     private VolRegime currentRegime;
-    private int stepsInRegime;  // bu rejimde kaç adım kalındı?
+    private int stepsInRegime;
 }

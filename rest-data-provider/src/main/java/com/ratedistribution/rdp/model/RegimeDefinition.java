@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RegimeDefinition {
-    private double volScale;     // bu rejimde sigma'ya çarpan
-    private int meanDuration;    // ortalama adım
-    private double transitionProb; // rejim değişim olasılığı
+    private double volScale;
+    private int meanDuration;
+    private double transitionProb;
 }

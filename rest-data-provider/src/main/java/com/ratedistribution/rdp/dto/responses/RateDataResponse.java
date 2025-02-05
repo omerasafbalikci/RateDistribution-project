@@ -25,27 +25,16 @@ public class RateDataResponse implements Serializable {
     private BigDecimal ask;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     private LocalDateTime timestamp;
-
     @JsonSerialize(using = PriceSerializer.class)
     private BigDecimal dayOpen;
-
     @JsonSerialize(using = PriceSerializer.class)
     private BigDecimal dayHigh;
-
     @JsonSerialize(using = PriceSerializer.class)
     private BigDecimal dayLow;
-
-    // Gün içi mutlak fark (mid - dayOpen)
     @JsonSerialize(using = PriceSerializer.class)
     private BigDecimal dayChange;
-
-    // Gün içi yüzde değişim
     @JsonSerialize(using = PercentSerializer.class)
     private BigDecimal dayChangePercent;
-
-    // Günlük kümülatif hacim
     private Long dayVolume;
-
-    // Opsiyonel: Son tick hacmi
     private Long lastTickVolume;
 }
