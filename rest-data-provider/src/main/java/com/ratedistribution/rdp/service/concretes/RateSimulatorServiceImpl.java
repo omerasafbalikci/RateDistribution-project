@@ -4,6 +4,8 @@ import com.ratedistribution.rdp.config.SimulatorProperties;
 import com.ratedistribution.rdp.dto.RateUpdateResult;
 import com.ratedistribution.rdp.dto.responses.RateDataResponse;
 import com.ratedistribution.rdp.model.*;
+import com.ratedistribution.rdp.service.abstracts.HolidayCalendarService;
+import com.ratedistribution.rdp.service.abstracts.RateSimulatorService;
 import com.ratedistribution.rdp.utilities.CorrelatedRandomVectorGenerator;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
@@ -21,9 +23,10 @@ import java.util.concurrent.ThreadLocalRandom;
 @Service
 @RequiredArgsConstructor
 @Log4j2
-public class RateSimulatorServiceImpl {
+public class RateSimulatorServiceImpl implements RateSimulatorService {
     private final SimulatorProperties simulatorProperties;
     private final RedisTemplate<String, AssetState> assetStateRedisTemplate;
+    private final HolidayCalendarService holidayCalendarService;
     private HashOperations<String, String, AssetState> stateOps;
     private CorrelatedRandomVectorGenerator correlatedRng;
 
@@ -63,6 +66,7 @@ public class RateSimulatorServiceImpl {
         });
     }
 
+    @Override
     public List<RateDataResponse> updateAllRates() {
         List<MultiRateDefinition> definitions = simulatorProperties.getRates();
         int n = definitions.size();
@@ -97,7 +101,7 @@ public class RateSimulatorServiceImpl {
             LocalDateTime nowLdt = LocalDateTime.ofInstant(
                     Instant.ofEpochMilli(nowMillis), ZoneOffset.UTC);
 
-            AssetState modState = handleWeekendGap(oldState, nowMillis, nowLdt);
+            AssetState modState = handleMarketCloseScenarios(oldState, nowMillis, nowLdt);
 
             RegimeStatus newRegimeStatus = updateRegime(modState.getCurrentRegime(),
                     modState.getStepsInRegime());
@@ -110,44 +114,48 @@ public class RateSimulatorServiceImpl {
         return responseList;
     }
 
-    private AssetState handleWeekendGap(AssetState oldState, long nowMillis, LocalDateTime nowLdt) {
-        if (!simulatorProperties.getWeekendHandling().isEnabled()) {
-            return oldState;
-        }
+    private AssetState handleMarketCloseScenarios(AssetState oldState, long nowMillis, LocalDateTime nowLdt) {
+        boolean isHolidayNow = holidayCalendarService.isHoliday(nowLdt);
+        boolean isWeekendNow = isWeekend(nowLdt.getDayOfWeek());
 
         long lastMillis = oldState.getLastUpdateEpochMillis();
-        LocalDateTime lastLdt = LocalDateTime.ofInstant(
-                Instant.ofEpochMilli(lastMillis), ZoneOffset.UTC);
+        LocalDateTime lastLdt = LocalDateTime.ofInstant(Instant.ofEpochMilli(lastMillis), ZoneOffset.UTC);
+        boolean wasWeekend = isWeekend(lastLdt.getDayOfWeek());
+        boolean wasHoliday = holidayCalendarService.isHoliday(lastLdt);
 
-        DayOfWeek lastDow = lastLdt.getDayOfWeek();
-        DayOfWeek nowDow = nowLdt.getDayOfWeek();
-
-        if (isWeekendRange(lastDow) && !isWeekendRange(nowDow)) {
+        if ((wasWeekend || wasHoliday) && (!isWeekendNow && !isHolidayNow)) {
             double gapMean = simulatorProperties.getWeekendHandling().getWeekendGapJumpMean();
             double gapVol = simulatorProperties.getWeekendHandling().getWeekendGapJumpVol();
             double jump = ThreadLocalRandom.current().nextGaussian() * gapVol + gapMean;
-            AssetState gapState = getAssetState(oldState, nowMillis, jump);
-            return gapState;
+            return applyGapJump(oldState, nowMillis, jump);
+        } else if (isWeekendNow || isHolidayNow) {
+            return oldState;
+        } else {
+            oldState.setLastUpdateEpochMillis(nowMillis);
+            return oldState;
         }
-        oldState.setLastUpdateEpochMillis(nowMillis);
-        return oldState;
     }
 
-    private static AssetState getAssetState(AssetState oldState, long nowMillis, double jump) {
+    private AssetState applyGapJump(AssetState oldState, long nowMillis, double jump) {
         double newPrice = oldState.getCurrentPrice() * Math.exp(jump);
         if (newPrice < 0.0001) newPrice = 0.0001;
 
-        AssetState gapState = new AssetState(
-                newPrice, oldState.getCurrentSigma(), 0.0,
-                newPrice, newPrice, newPrice, 0L,
-                oldState.getCurrentRegime(), oldState.getStepsInRegime(),
+        return new AssetState(
+                newPrice,
+                oldState.getCurrentSigma(),
+                0.0,
+                newPrice,
+                newPrice,
+                newPrice,
+                0L,
+                oldState.getCurrentRegime(),
+                oldState.getStepsInRegime(),
                 nowMillis,
                 oldState.getCurrentDay()
         );
-        return gapState;
     }
 
-    private boolean isWeekendRange(DayOfWeek dow) {
+    private boolean isWeekend(DayOfWeek dow) {
         return (dow == DayOfWeek.SATURDAY || dow == DayOfWeek.SUNDAY);
     }
 

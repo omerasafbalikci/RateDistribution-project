@@ -1,9 +1,6 @@
 package com.ratedistribution.rdp.config;
 
-import com.ratedistribution.rdp.model.MultiRateDefinition;
-import com.ratedistribution.rdp.model.RegimeDefinition;
-import com.ratedistribution.rdp.model.SessionVolFactor;
-import com.ratedistribution.rdp.model.WeekendHandling;
+import com.ratedistribution.rdp.model.*;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -25,4 +22,5 @@ public class SimulatorProperties {
     private boolean enableRegimeSwitching;
     private RegimeDefinition regimeLowVol;
     private RegimeDefinition regimeHighVol;
+    private List<HolidayDefinition> holidays;
 }
