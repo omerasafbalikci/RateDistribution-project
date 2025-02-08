@@ -1,14 +1,10 @@
-package com.ratedistribution.rdp.model;
+package com.ratedistribution.rdp.config;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.time.Instant;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class HolidayDefinition {
     private String name;
     private Instant startDateTime;
