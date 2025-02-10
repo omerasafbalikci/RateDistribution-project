@@ -1,4 +1,4 @@
-package com.ratedistribution.rdp.config;
+package com.ratedistribution.rdp.model;
 
 import lombok.Data;
 

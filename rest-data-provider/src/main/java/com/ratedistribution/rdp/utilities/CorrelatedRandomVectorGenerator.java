@@ -13,7 +13,7 @@ public class CorrelatedRandomVectorGenerator {
     public CorrelatedRandomVectorGenerator(double[][] corrMatrix) {
         this.dimension = corrMatrix.length;
         RealMatrix corr = MatrixUtils.createRealMatrix(corrMatrix);
-        CholeskyDecomposition decomposition = new CholeskyDecomposition(corr, 1.0e-10, 1.0e-10);
+        CholeskyDecomposition decomposition = new CholeskyDecomposition(corr, 1.0e-12, 1.0e-12);
         this.L = decomposition.getL();
     }
 
@@ -22,7 +22,6 @@ public class CorrelatedRandomVectorGenerator {
         for (int i = 0; i < dimension; i++) {
             y[i] = ThreadLocalRandom.current().nextGaussian();
         }
-
         RealMatrix vecY = MatrixUtils.createColumnRealMatrix(y);
         RealMatrix correlated = L.multiply(vecY);
         return correlated.getColumn(0);

@@ -1,7 +1,7 @@
 package com.ratedistribution.rdp.service.concretes;
 
 import com.ratedistribution.rdp.config.SimulatorProperties;
-import com.ratedistribution.rdp.config.HolidayDefinition;
+import com.ratedistribution.rdp.model.HolidayDefinition;
 import com.ratedistribution.rdp.service.abstracts.HolidayCalendarService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,6 +17,8 @@ public class HolidayCalendarServiceImpl implements HolidayCalendarService {
 
     @Override
     public boolean isHoliday(LocalDateTime dateTime) {
+        if (simulatorProperties.getHolidays() == null) return false;
+
         Instant instant = dateTime.toInstant(ZoneOffset.UTC);
         for (HolidayDefinition holiday : simulatorProperties.getHolidays()) {
             Instant start = holiday.getStartDateTime();
