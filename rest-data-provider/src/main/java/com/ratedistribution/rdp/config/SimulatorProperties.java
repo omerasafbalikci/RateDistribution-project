@@ -30,4 +30,6 @@ public class SimulatorProperties {
     private List<MultiRateDefinition> rates;
     private List<EventShockDefinition> eventShocks;
     private List<MacroIndicatorDefinition> macroIndicators;
+    private String macroDataApiUrl;
+    private String historicalDataPath;
 }
