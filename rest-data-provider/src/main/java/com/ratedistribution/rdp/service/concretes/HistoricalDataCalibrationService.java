@@ -18,7 +18,6 @@ import java.util.Random;
  */
 @Service
 @RequiredArgsConstructor
-@Log4j2
 public class HistoricalDataCalibrationService {
 
     private final SimulatorProperties simulatorProperties;
@@ -32,14 +31,12 @@ public class HistoricalDataCalibrationService {
     public GarchParams calibrateGarchParams(String rateName) {
         String csvPath = simulatorProperties.getHistoricalDataPath();
         if (csvPath == null || csvPath.isEmpty()) {
-            log.warn("No historicalDataPath set. Returning default GarchParams.");
             return new GarchParams(0.000001, 0.1, 0.85);
         }
 
         // 1) CSV'den price serisi oku
         List<Double> priceList = readPriceSeriesFromCsv(csvPath, rateName);
         if (priceList.size() < 2) {
-            log.warn("Not enough historical data for {}. Returning fallback GARCH params.", rateName);
             return new GarchParams(0.000001, 0.05, 0.90);
         }
 
@@ -77,8 +74,7 @@ public class HistoricalDataCalibrationService {
             }
         }
 
-        log.info("MLE done for {} => best omega={}, alpha={}, beta={} with LL={}",
-                rateName, bestParams.getOmega(), bestParams.getAlpha(), bestParams.getBeta(), bestLL);
+
         return bestParams;
     }
 
@@ -92,7 +88,6 @@ public class HistoricalDataCalibrationService {
         matrix.add(List.of(0.80, 0.15, 0.05));
         matrix.add(List.of(0.10, 0.75, 0.15));
         matrix.add(List.of(0.05, 0.15, 0.80));
-        log.info("Calibrated Markov matrix 3x3 (placeholder).");
         return matrix;
     }
 
@@ -146,7 +141,6 @@ public class HistoricalDataCalibrationService {
                 }
             }
             if (rateColIndex == -1) {
-                log.warn("Column {} not found in CSV. Returning empty prices list.", rateName);
                 return prices;
             }
 
@@ -159,7 +153,6 @@ public class HistoricalDataCalibrationService {
                 prices.add(val);
             }
         } catch (Exception e) {
-            log.error("Error reading CSV for {} => {}", rateName, e.getMessage());
         }
         return prices;
     }

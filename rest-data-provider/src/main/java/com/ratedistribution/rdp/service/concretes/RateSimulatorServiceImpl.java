@@ -4,7 +4,6 @@ import com.ratedistribution.rdp.config.SimulatorProperties;
 import com.ratedistribution.rdp.dto.RateUpdateResult;
 import com.ratedistribution.rdp.dto.responses.RateDataResponse;
 import com.ratedistribution.rdp.model.*;
-import com.ratedistribution.rdp.service.abstracts.HolidayCalendarService;
 import com.ratedistribution.rdp.service.abstracts.RateSimulatorService;
 import com.ratedistribution.rdp.utilities.CorrelatedRandomVectorGenerator;
 import jakarta.annotation.PostConstruct;
@@ -22,7 +21,6 @@ import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 @RequiredArgsConstructor
-@Log4j2
 public class RateSimulatorServiceImpl implements RateSimulatorService {
 
     private final SimulatorProperties simulatorProperties;
@@ -30,6 +28,8 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
     private final HolidayCalendarService holidayCalendarService;
     private final HistoricalDataCalibrationService historicalDataCalibrationService;
     private final MacroDataService macroDataService;
+    private final NewsApiService newsApiService;
+    private final AdvancedNlpService advancedNlpService;
 
     private HashOperations<String, String, AssetState> stateOps;
     private CorrelatedRandomVectorGenerator correlatedRng;
@@ -38,13 +38,13 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
     public void init() {
         this.stateOps = assetStateRedisTemplate.opsForHash();
 
-        // MLE tabanlı GARCH param. kalibrasyonu
+        // 1) MLE tabanlı GARCH parametre kalibrasyonu
         for (MultiRateDefinition def : simulatorProperties.getRates()) {
             GarchParams calibrated = historicalDataCalibrationService.calibrateGarchParams(def.getRateName());
             def.setGarchParams(calibrated);
         }
 
-        // NxN Markov matris kalibrasyonu
+        // 2) NxN Markov matris kalibrasyonu
         if (simulatorProperties.isUseMarkovSwitching()) {
             List<List<Double>> matrix = historicalDataCalibrationService.calibrateMarkovMatrix();
             if (matrix != null && !matrix.isEmpty()) {
@@ -52,11 +52,11 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
             }
         }
 
-        // Korelasyon matris -> rng
+        // 3) Korelasyon matrisinden correlated RNG
         double[][] corrArray = to2DArray(simulatorProperties.getCorrelationMatrix());
         correlatedRng = new CorrelatedRandomVectorGenerator(corrArray);
 
-        // Redis'te yoksa initial state
+        // 4) Redis'te yoksa initial state oluştur
         simulatorProperties.getRates().forEach(def -> {
             AssetState existing = stateOps.get("ASSET_STATES", def.getRateName());
             if (existing == null) {
@@ -71,7 +71,7 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         List<RateDataResponse> responseList = new ArrayList<>();
         List<MultiRateDefinition> definitions = simulatorProperties.getRates();
 
-        // dt: updateIntervalMillis / (1 günlük milis)
+        // dt: updateIntervalMillis / 1 gün
         double dt = simulatorProperties.getUpdateIntervalMillis() / (1000.0 * 3600.0 * 24.0);
 
         // Korelasyonlu normal rastgele sayılar
@@ -88,10 +88,10 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
             long nowMillis = System.currentTimeMillis();
             LocalDateTime nowLdt = LocalDateTime.ofInstant(Instant.ofEpochMilli(nowMillis), ZoneOffset.UTC);
 
-            // Hafta sonu/tatil durumu
+            // Hafta sonu / tatil durumu
             AssetState modState = handleMarketCloseScenarios(oldState, nowMillis, nowLdt);
 
-            // NxN Markov mu, yoksa basit Low/High mı?
+            // Rejim güncellemesi (NxN Markov veya basit)
             RegimeStatus newRegimeStatus;
             if (simulatorProperties.isUseMarkovSwitching()) {
                 newRegimeStatus = updateRegimeMarkovN(modState.getCurrentRegime(), modState.getStepsInRegime());
@@ -99,10 +99,10 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
                 newRegimeStatus = updateRegimeSimple(modState.getCurrentRegime(), modState.getStepsInRegime());
             }
 
-            // Kur hesaplaması
+            // Asıl kur hesaplaması
             RateUpdateResult result = updateRate(def, modState, dt, epsVector[i], nowLdt, newRegimeStatus);
 
-            // Yeni state'i Redis'e yaz
+            // Redis'e kaydet & listeye ekle
             stateOps.put("ASSET_STATES", def.getRateName(), result.newState());
             responseList.add(result.response());
         }
@@ -110,9 +110,7 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         return responseList;
     }
 
-    // --------------------------------------------------
-    // Yardımcı metotlar
-    // --------------------------------------------------
+    // ------------------- Yardımcı Metotlar ----------------------------
 
     private double[][] to2DArray(List<List<Double>> mat) {
         int n = mat.size();
@@ -129,14 +127,14 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         long nowEpoch = System.currentTimeMillis();
         return new AssetState(
                 def.getInitialPrice(),
-                0.01,
-                0.0,
+                0.01, // sigma
+                0.0,  // lastRet
                 def.getInitialPrice(),
                 def.getInitialPrice(),
                 def.getInitialPrice(),
-                0L,
+                0L, // dayVolume
                 VolRegime.LOW_VOL,
-                0,
+                0, // stepsInRegime
                 nowEpoch,
                 LocalDate.now(ZoneOffset.UTC)
         );
@@ -152,7 +150,7 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         boolean wasWeekend = isWeekend(lastLdt.getDayOfWeek());
         boolean wasHoliday = holidayCalendarService.isHoliday(lastLdt);
 
-        // Seans yeni açılıyorsa gap
+        // Gap jump
         if ((wasWeekend || wasHoliday) && (!isWeekendNow && !isHolidayNow)) {
             if (simulatorProperties.getWeekendHandling().isEnabled()) {
                 double gapMean = simulatorProperties.getWeekendHandling().getWeekendGapJumpMean();
@@ -161,13 +159,12 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
                 return applyGapJump(oldState, nowMillis, jump);
             }
         }
-
-        // Piyasa kapalıysa update yok
+        // Piyasa kapalıysa güncelleme yok
         if (isWeekendNow || isHolidayNow) {
             return oldState;
         }
 
-        // Normal piyasa
+        // Normal piyasa açık
         oldState.setLastUpdateEpochMillis(nowMillis);
         return oldState;
     }
@@ -178,8 +175,9 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
 
     private AssetState applyGapJump(AssetState oldState, long nowMillis, double jump) {
         double newPrice = oldState.getCurrentPrice() * Math.exp(jump);
-        if (newPrice < 0.0001) newPrice = 0.0001;
-
+        if (newPrice < 0.0001) {
+            newPrice = 0.0001;
+        }
         return new AssetState(
                 newPrice,
                 oldState.getCurrentSigma(),
@@ -195,9 +193,7 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         );
     }
 
-    /**
-     * Basit "low/high" rejim geçişi (2 rejim)
-     */
+    // Basit low/high rejim geçişi
     private RegimeStatus updateRegimeSimple(VolRegime currentRegime, int stepsInRegime) {
         if (!simulatorProperties.isEnableRegimeSwitching()) {
             return new RegimeStatus(currentRegime, stepsInRegime + 1);
@@ -224,9 +220,7 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         return new RegimeStatus(newRegime, newSteps);
     }
 
-    /**
-     * NxN Markov rejim geçişi (örneğin 3 rejim: LOW_VOL, MID_VOL, HIGH_VOL).
-     */
+    // NxN Markov
     private RegimeStatus updateRegimeMarkovN(VolRegime currentRegime, int stepsInRegime) {
         if (!simulatorProperties.isEnableRegimeSwitching()
                 || simulatorProperties.getRegimeTransitionMatrix() == null) {
@@ -234,12 +228,10 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         }
 
         List<List<Double>> matrix = simulatorProperties.getRegimeTransitionMatrix();
-        int n = matrix.size(); // NxN matris
+        int n = matrix.size();
 
         int currentIndex = currentRegime.getIndex();
-        // (VolRegime.fromIndex(...) / getIndex() metodlarıyla 0,1,2 vs. tabanlı)
         if (currentIndex < 0 || currentIndex >= n) {
-            // fallback
             return updateRegimeSimple(currentRegime, stepsInRegime);
         }
 
@@ -256,14 +248,10 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
 
         VolRegime newRegime = VolRegime.fromIndex(newIndex);
         int newSteps = (newRegime == currentRegime) ? (stepsInRegime + 1) : 0;
-
         return new RegimeStatus(newRegime, newSteps);
     }
 
-    /**
-     * Asıl çekirdek hesaplama:
-     * GARCH / EGARCH / GJR-EGARCH + jump + event + meanReversion + makro + ...
-     */
+    // ------------------- Asıl Kur Hesaplaması -------------------------
     private RateUpdateResult updateRate(MultiRateDefinition def,
                                         AssetState oldState,
                                         double dt,
@@ -271,6 +259,17 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
                                         LocalDateTime nowLdt,
                                         RegimeStatus regimeStatus) {
 
+        // 0) Haber Analizi => NLP
+        // Query: "forex OR interest OR inflation" (isteğe göre)
+        List<String> headlines = newsApiService.fetchNewsHeadlines("forex OR interest OR inflation");
+        AdvancedNlpService.NlpAnalysisResult nlpResult = advancedNlpService.analyzeNewsBatch(headlines);
+
+        // Sentiment (0..4) => 2=neutral
+        double sentimentScore = nlpResult.getSentimentScore();
+        // Anlam (ör. FED_RATE_CUT, FED_RATE_HIKE)
+        AdvancedNlpService.NewsTrigger trigger = nlpResult.getTrigger();
+
+        // 1) Eski state verileri
         double oldPrice = oldState.getCurrentPrice();
         double oldSigma = oldState.getCurrentSigma();
         double oldRet   = oldState.getLastReturn();
@@ -283,7 +282,7 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         double dayLow  = oldState.getDayLow();
         long   dayVol  = oldState.getDayVolume();
 
-        // Yeni gün reset
+        // Yeni gün?
         if (!nowDate.equals(oldDay)) {
             dayOpen = oldPrice;
             dayHigh = oldPrice;
@@ -291,7 +290,7 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
             dayVol  = 0L;
         }
 
-        // 1) Volatilite modeli
+        // 2) Volatilite modeli (GARCH/EGARCH/GJR-EGARCH)
         double newSigma;
         switch (simulatorProperties.getModelType()) {
             case "EGARCH":
@@ -305,7 +304,7 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
                 newSigma = calculateGarchVolatility(def, oldRet, oldSigma);
         }
 
-        // 2) Rejim, seans, hacim çarpanları
+        // 3) Rejim, seans, hacim, makroVol
         double volScale = getVolScaleFromRegime(regimeStatus.getCurrentRegime());
         double sessionMult = getSessionVolMultiplier(nowLdt);
         double macroVolFactor = computeMacroVolAdjustment();
@@ -315,43 +314,54 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
             volumeScale += (dayVol * simulatorProperties.getVolumeVolatilityFactor());
         }
 
+        // Haber bazlı volatilite ek kural:
+        // Örnek => negatif sentiment => vol artar
+        double newsVolFactor = 1.0;
+        if (sentimentScore < 1.9) {
+            // “kötü haber” sayalım
+            newsVolFactor = 1.05;
+        }
+
         double effectiveSigma = newSigma * Math.sqrt(dt)
-                * volScale * sessionMult
-                * volumeScale * (1.0 + macroVolFactor);
+                * volScale
+                * sessionMult
+                * volumeScale
+                * (1.0 + macroVolFactor)
+                * newsVolFactor;
 
         double normShock = effectiveSigma * z;
 
-        // 3) Drift + makro drift
+        // 4) Drift:
         double baseDrift = def.getDrift() * dt;
         double macroDrift = computeMacroDriftAdjustment();
-        double driftPart = baseDrift + macroDrift;
+        double newsDrift = sentimentToDriftDelta(sentimentScore);
+        double driftPart = baseDrift + macroDrift + newsDrift;
 
-        // 4) Jump
-        double jumpPart = calculateJump(def, dt);
+        // 5) Jump
+        // => trigger'a göre factor
+        double jumpPart = calculateJumpWithTrigger(def, dt, trigger);
 
-        // 5) Event shock
+        // 6) Event shock
         double eventShockPart = checkEventShocks(nowLdt);
 
-        // 6) Mean reversion
-        double mrPart = def.isUseMeanReversion()
-                ? calculateMeanReversion(oldPrice, def, dt)
-                : 0.0;
+        // 7) Mean reversion
+        double mrPart = def.isUseMeanReversion() ? calculateMeanReversion(oldPrice, def, dt) : 0.0;
 
-        // 7) Log-return
+        // 8) Log-return
         double logReturn = driftPart + normShock + jumpPart + eventShockPart + mrPart;
         double newPrice = oldPrice * Math.exp(logReturn);
         if (newPrice < 0.0001) newPrice = 0.0001;
 
-        // 8) Spread
+        // 9) Spread, mid
         double spr = def.getBaseSpread();
         double bid = Math.max(newPrice - spr / 2.0, 0.0001);
         double ask = bid + spr;
         double mid = (bid + ask) / 2.0;
 
-        // 9) Hacim
+        // 10) Hacim
         long nowMillis = System.currentTimeMillis();
         long timeDiffMs = nowMillis - oldState.getLastUpdateEpochMillis();
-        double ratio = timeDiffMs / (double) simulatorProperties.getUpdateIntervalMillis();
+        double ratio = (double) timeDiffMs / (double) simulatorProperties.getUpdateIntervalMillis();
         ratio = Math.min(Math.max(ratio, 1.0), 5.0);
 
         long tickVol = ThreadLocalRandom.current().nextInt(10, 50);
@@ -362,9 +372,7 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         dayLow  = Math.min(dayLow, mid);
 
         double dayChangeVal = mid - dayOpen;
-        double changePct = (dayOpen > 0.0)
-                ? (dayChangeVal / dayOpen) * 100.0
-                : 0.0;
+        double changePct = (dayOpen > 0.0) ? (dayChangeVal / dayOpen) * 100.0 : 0.0;
 
         // Response
         RateDataResponse resp = new RateDataResponse();
@@ -398,16 +406,56 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         return new RateUpdateResult(newState, resp);
     }
 
-    // -----------------------------
-    // GJR-EGARCH / EGARCH / GARCH
-    // -----------------------------
+    // ---------------- NLP Tetikleyicisi Ek Fonksiyonlar ----------------
+
+    /**
+     * Örnek sentiment => drift eklemesi.
+     * 2.0 => nötr => 0.0
+     * >2.1 => hafif pozitif => +0.0001
+     * <1.9 => negatif => -0.0002 vs.
+     */
+    private double sentimentToDriftDelta(double sentimentScore) {
+        if (sentimentScore > 2.1) {
+            return 0.00005;
+        } else if (sentimentScore < 1.9) {
+            return -0.0001;
+        }
+        return 0.0;
+    }
+
+    /**
+     * Trigger'a göre jumpIntensity factor.
+     * Örn: FED_RATE_HIKE => 2x jump
+     *      FED_RATE_CUT => yarısı
+     */
+    private double calculateJumpWithTrigger(MultiRateDefinition def, double dt, AdvancedNlpService.NewsTrigger trig) {
+        double factor = 1.0;
+        if (trig == AdvancedNlpService.NewsTrigger.FED_RATE_HIKE) {
+            factor = 1.5;
+        } else if (trig == AdvancedNlpService.NewsTrigger.FED_RATE_CUT) {
+            factor = 0.8;
+        }
+        return applyJumpFactor(def, dt, factor);
+    }
+
+    private double applyJumpFactor(MultiRateDefinition def, double dt, double factor) {
+        double lambda = def.getJumpIntensity() * factor;
+        double probJump = 1.0 - Math.exp(-lambda * dt);
+        if (Math.random() < probJump) {
+            double jumpMean = def.getJumpMean();
+            double jumpVol  = def.getJumpVol() * factor;
+            return ThreadLocalRandom.current().nextGaussian() * jumpVol + jumpMean;
+        }
+        return 0.0;
+    }
+
+    // ---------------- GARCH / EGARCH / GJR-EGARCH Metotları ----------------
+
     private double calculateGjrEgarchVolatility(MultiRateDefinition def, double oldRet, double oldSigma) {
-        // GarchParams'e gamma eklenmedi ise sabit varsayalım
         double omega = def.getGarchParams().getOmega();
         double alpha = def.getGarchParams().getAlpha();
         double beta  = def.getGarchParams().getBeta();
-        // Sabit gamma
-        double gamma = 0.1;
+        double gamma = 0.1; // sabit
 
         double logSigmaSqOld = Math.log(oldSigma * oldSigma);
         double zT_1 = (oldSigma > 1e-16) ? (oldRet / oldSigma) : 0.0;
@@ -439,7 +487,9 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
                 + alpha * (Math.abs(zT_1) - meanAbsZ);
 
         double newSigma = Math.exp(updatedLogSigmaSq / 2.0);
-        if (newSigma < 1e-16) newSigma = 1e-16;
+        if (newSigma < 1e-16) {
+            newSigma = 1e-16;
+        }
         return newSigma;
     }
 
@@ -452,6 +502,8 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         if (newSigmaSq < 1e-16) newSigmaSq = 1e-16;
         return Math.sqrt(newSigmaSq);
     }
+
+    // ---------------- Jump / Event / MeanReversion ----------------
 
     private double calculateJump(MultiRateDefinition def, double dt) {
         double lambda = def.getJumpIntensity();
@@ -468,9 +520,9 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         Instant now = nowLdt.toInstant(ZoneOffset.UTC);
         for (EventShockDefinition shock : simulatorProperties.getEventShocks()) {
             Instant eventTime = shock.getDateTime();
+            // 30 saniye aralığında
             if (!now.isBefore(eventTime.minusSeconds(30)) && !now.isAfter(eventTime.plusSeconds(30))) {
                 double jump = ThreadLocalRandom.current().nextGaussian() * shock.getJumpVol() + shock.getJumpMean();
-                log.info("Event Shock Triggered: {} at {}", shock.getName(), nowLdt);
                 return jump;
             }
         }
@@ -485,9 +537,10 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         return kappa * (logT - logP) * dt;
     }
 
+    // ---------------- Macro Param Adjust ----------------
+
     private double computeMacroDriftAdjustment() {
         if (macroDataService.getMacroIndicators() == null) return 0.0;
-
         double totalAdj = 0.0;
         for (MacroIndicatorDefinition mid : macroDataService.getMacroIndicators()) {
             totalAdj += mid.getValue() * mid.getSensitivityToDrift() * 1e-4;
@@ -497,7 +550,6 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
 
     private double computeMacroVolAdjustment() {
         if (macroDataService.getMacroIndicators() == null) return 0.0;
-
         double totalAdj = 0.0;
         for (MacroIndicatorDefinition mid : macroDataService.getMacroIndicators()) {
             totalAdj += mid.getValue() * mid.getSensitivityToVol() * 1e-3;
@@ -505,19 +557,14 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         return totalAdj;
     }
 
-    /**
-     * Rejime göre volScale belirlemek (örnek 3 rejim: LOW_VOL=0, MID_VOL=1, HIGH_VOL=2)
-     * Fallback: eğer 3. rejimin parametresi yoksa, basitçe LOW/HIGH'e yönlendirebilirsiniz.
-     */
     private double getVolScaleFromRegime(VolRegime regime) {
-        // Örneğin, regime.getIndex()==1 -> "MID" vol => 2.0 vs.
         switch (regime) {
             case LOW_VOL:
                 return simulatorProperties.getRegimeLowVol().getVolScale();
             case HIGH_VOL:
                 return simulatorProperties.getRegimeHighVol().getVolScale();
             case MID_VOL:
-                // Bu sizin ekleyeceğiniz parametre olabilir
+                // 3 rejim varsa.
                 return 2.0;
             default:
                 return 1.0;
