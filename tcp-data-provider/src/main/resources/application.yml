@@ -2,7 +2,7 @@ tcpServer:
   port: 8084
 
 simulator:
-  update-interval-millis: 5000
+  update-interval-millis: 1000
   max-updates: 0
   correlationMatrix:
     - [1.0, 0.20, 0.10]

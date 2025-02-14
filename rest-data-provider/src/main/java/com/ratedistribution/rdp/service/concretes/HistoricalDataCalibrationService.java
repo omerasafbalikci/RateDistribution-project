@@ -31,7 +31,7 @@ public class HistoricalDataCalibrationService {
     public GarchParams calibrateGarchParams(String rateName) {
         String csvPath = simulatorProperties.getHistoricalDataPath();
         if (csvPath == null || csvPath.isEmpty()) {
-            return new GarchParams(0.000001, 0.1, 0.85);
+            return new GarchParams(0.0000000001, 0.0005, 0.85);
         }
 
         // 1) CSV'den price serisi oku

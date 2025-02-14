@@ -1,10 +1,9 @@
 package com.ratedistribution.rdp.service.concretes;
 
-import edu.stanford.nlp.pipeline.*;
-import edu.stanford.nlp.ling.CoreAnnotations.*;
-import edu.stanford.nlp.sentiment.SentimentCoreAnnotations;
+import edu.stanford.nlp.pipeline.CoreDocument;
+import edu.stanford.nlp.pipeline.CoreSentence;
+import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.util.PropertiesUtils;
-import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;

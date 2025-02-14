@@ -22,7 +22,7 @@ import java.util.concurrent.ThreadLocalRandom;
 @Service
 @RequiredArgsConstructor
 public class RateSimulatorServiceImpl implements RateSimulatorService {
-
+    private static final double EPS = 1e-16;
     private final SimulatorProperties simulatorProperties;
     private final RedisTemplate<String, AssetState> assetStateRedisTemplate;
     private final HolidayCalendarService holidayCalendarService;
@@ -127,7 +127,7 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         long nowEpoch = System.currentTimeMillis();
         return new AssetState(
                 def.getInitialPrice(),
-                0.01, // sigma
+                0.001, // sigma
                 0.0,  // lastRet
                 def.getInitialPrice(),
                 def.getInitialPrice(),
@@ -294,24 +294,24 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         double newSigma;
         switch (simulatorProperties.getModelType()) {
             case "EGARCH":
-                newSigma = calculateEgarchVolatility(def, oldRet, oldSigma);
+                newSigma = calculateEgarchVolatility(def, oldRet, oldSigma, dt);
                 break;
             case "GJR-EGARCH":
-                newSigma = calculateGjrEgarchVolatility(def, oldRet, oldSigma);
+                newSigma = calculateGjrEgarchVolatility(def, oldRet, oldSigma, dt);
                 break;
             case "GARCH11":
             default:
-                newSigma = calculateGarchVolatility(def, oldRet, oldSigma);
+                newSigma = calculateGarchVolatility(def, oldRet, oldSigma, dt);
         }
 
         // 3) Rejim, seans, hacim, makroVol
         double volScale = getVolScaleFromRegime(regimeStatus.getCurrentRegime());
         double sessionMult = getSessionVolMultiplier(nowLdt);
-        double macroVolFactor = computeMacroVolAdjustment();
+        double macroVolFactor = computeMacroVolAdjustment() * dt;
 
         double volumeScale = 1.0;
         if (simulatorProperties.isVolumeVolatilityScalingEnabled()) {
-            volumeScale += (dayVol * simulatorProperties.getVolumeVolatilityFactor());
+            volumeScale += (dayVol * simulatorProperties.getVolumeVolatilityFactor() * dt);
         }
 
         // Haber bazlı volatilite ek kural:
@@ -319,7 +319,7 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         double newsVolFactor = 1.0;
         if (sentimentScore < 1.9) {
             // “kötü haber” sayalım
-            newsVolFactor = 1.05;
+            newsVolFactor = 1.0;
         }
 
         double effectiveSigma = newSigma * Math.sqrt(dt)
@@ -333,8 +333,8 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
 
         // 4) Drift:
         double baseDrift = def.getDrift() * dt;
-        double macroDrift = computeMacroDriftAdjustment();
-        double newsDrift = sentimentToDriftDelta(sentimentScore);
+        double macroDrift = computeMacroDriftAdjustment() * dt;
+        double newsDrift = sentimentToDriftDelta(sentimentScore) * dt;
         double driftPart = baseDrift + macroDrift + newsDrift;
 
         // 5) Jump
@@ -362,9 +362,9 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         long nowMillis = System.currentTimeMillis();
         long timeDiffMs = nowMillis - oldState.getLastUpdateEpochMillis();
         double ratio = (double) timeDiffMs / (double) simulatorProperties.getUpdateIntervalMillis();
-        ratio = Math.min(Math.max(ratio, 1.0), 5.0);
+        ratio = Math.max(1.0, ratio);
 
-        long tickVol = ThreadLocalRandom.current().nextInt(10, 50);
+        long tickVol = ThreadLocalRandom.current().nextInt(5, 15);
         long scaledTickVol = (long) (tickVol * ratio);
         long newDayVol = dayVol + scaledTickVol;
 
@@ -431,7 +431,7 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
     private double calculateJumpWithTrigger(MultiRateDefinition def, double dt, AdvancedNlpService.NewsTrigger trig) {
         double factor = 1.0;
         if (trig == AdvancedNlpService.NewsTrigger.FED_RATE_HIKE) {
-            factor = 1.5;
+            factor = 1.2;
         } else if (trig == AdvancedNlpService.NewsTrigger.FED_RATE_CUT) {
             factor = 0.8;
         }
@@ -451,68 +451,59 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
 
     // ---------------- GARCH / EGARCH / GJR-EGARCH Metotları ----------------
 
-    private double calculateGjrEgarchVolatility(MultiRateDefinition def, double oldRet, double oldSigma) {
+    private double calculateGjrEgarchVolatility(MultiRateDefinition def, double oldRet, double oldSigma, double dt) {
         double omega = def.getGarchParams().getOmega();
         double alpha = def.getGarchParams().getAlpha();
         double beta  = def.getGarchParams().getBeta();
         double gamma = 0.1; // sabit
 
         double logSigmaSqOld = Math.log(oldSigma * oldSigma);
-        double zT_1 = (oldSigma > 1e-16) ? (oldRet / oldSigma) : 0.0;
+        double zT_1 = (oldSigma > EPS) ? (oldRet / oldSigma) : 0.0;
         double meanAbsZ = 0.798;
 
         double negativePart = Math.min(zT_1, 0.0);
 
-        double updatedLogSigmaSq = omega
+        double updatedLogSigmaSq = (omega * dt)
                 + beta  * logSigmaSqOld
                 + alpha * (Math.abs(zT_1) - meanAbsZ)
                 + gamma * negativePart;
 
         double newSigma = Math.exp(updatedLogSigmaSq / 2.0);
-        if (newSigma < 1e-16) newSigma = 1e-16;
+        if (newSigma < EPS) newSigma = EPS;
         return newSigma;
     }
 
-    private double calculateEgarchVolatility(MultiRateDefinition def, double oldRet, double oldSigma) {
+    private double calculateEgarchVolatility(MultiRateDefinition def, double oldRet, double oldSigma, double dt) {
         double omega = def.getGarchParams().getOmega();
         double alpha = def.getGarchParams().getAlpha();
         double beta  = def.getGarchParams().getBeta();
 
         double logSigmaSqOld = Math.log(oldSigma * oldSigma);
-        double zT_1 = (oldSigma > 1e-16) ? (oldRet / oldSigma) : 0.0;
+        double zT_1 = (oldSigma > EPS) ? (oldRet / oldSigma) : 0.0;
         double meanAbsZ = 0.798;
 
-        double updatedLogSigmaSq = omega
+        double updatedLogSigmaSq = (omega * dt)
                 + beta  * logSigmaSqOld
                 + alpha * (Math.abs(zT_1) - meanAbsZ);
 
         double newSigma = Math.exp(updatedLogSigmaSq / 2.0);
-        if (newSigma < 1e-16) {
-            newSigma = 1e-16;
+        if (newSigma < EPS) {
+            newSigma = EPS;
         }
         return newSigma;
     }
 
-    private double calculateGarchVolatility(MultiRateDefinition def, double oldRet, double oldSigma) {
+    private double calculateGarchVolatility(MultiRateDefinition def, double oldRet, double oldSigma, double dt) {
         double omega = def.getGarchParams().getOmega();
         double alpha = def.getGarchParams().getAlpha();
         double beta  = def.getGarchParams().getBeta();
 
-        double newSigmaSq = omega + alpha * (oldRet * oldRet) + beta * (oldSigma * oldSigma);
-        if (newSigmaSq < 1e-16) newSigmaSq = 1e-16;
+        double newSigmaSq = omega * dt + alpha * (oldRet * oldRet) + beta * (oldSigma * oldSigma);
+        if (newSigmaSq < EPS) newSigmaSq = EPS;
         return Math.sqrt(newSigmaSq);
     }
 
     // ---------------- Jump / Event / MeanReversion ----------------
-
-    private double calculateJump(MultiRateDefinition def, double dt) {
-        double lambda = def.getJumpIntensity();
-        double probJump = 1.0 - Math.exp(-lambda * dt);
-        if (Math.random() < probJump) {
-            return ThreadLocalRandom.current().nextGaussian() * def.getJumpVol() + def.getJumpMean();
-        }
-        return 0.0;
-    }
 
     private double checkEventShocks(LocalDateTime nowLdt) {
         if (simulatorProperties.getEventShocks() == null) return 0.0;
@@ -543,7 +534,7 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         if (macroDataService.getMacroIndicators() == null) return 0.0;
         double totalAdj = 0.0;
         for (MacroIndicatorDefinition mid : macroDataService.getMacroIndicators()) {
-            totalAdj += mid.getValue() * mid.getSensitivityToDrift() * 1e-4;
+            totalAdj += mid.getValue() * mid.getSensitivityToDrift() * 1e-3;
         }
         return totalAdj;
     }
@@ -552,7 +543,7 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         if (macroDataService.getMacroIndicators() == null) return 0.0;
         double totalAdj = 0.0;
         for (MacroIndicatorDefinition mid : macroDataService.getMacroIndicators()) {
-            totalAdj += mid.getValue() * mid.getSensitivityToVol() * 1e-3;
+            totalAdj += mid.getValue() * mid.getSensitivityToVol() * 1e-2;
         }
         return totalAdj;
     }
