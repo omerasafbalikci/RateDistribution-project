@@ -15,22 +15,12 @@ import java.util.List;
 public class SimulatorProperties {
     private long updateIntervalMillis;
     private int maxUpdates;
-    private List<List<Double>> correlationMatrix;
     private String modelType;
-    private boolean enableRegimeSwitching;
-    private boolean useMarkovSwitching;
-    private List<List<Double>> regimeTransitionMatrix;
-    private RegimeDefinition regimeLowVol;
-    private RegimeDefinition regimeHighVol;
-    private WeekendHandling weekendHandling;
-    private List<SessionVolFactor> sessionVolFactors;
-    private boolean volumeVolatilityScalingEnabled;
-    private double volumeVolatilityFactor;
-    private List<HolidayDefinition> holidays;
-    private List<MultiRateDefinition> rates;
+    private List<List<Double>> correlationMatrix;
+    private ShockConfigDefinition shockConfig;
     private List<EventShockDefinition> eventShocks;
     private List<MacroIndicatorDefinition> macroIndicators;
-    private String newsApiKey;
-    private String macroDataApiUrl;
-    private String historicalDataPath;
+    private List<SessionVolFactor> sessionVolFactors;
+    private List<HolidayDefinition> holidays;
+    private List<MultiRateDefinition> rates;
 }
