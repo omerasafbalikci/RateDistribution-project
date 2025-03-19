@@ -24,11 +24,15 @@ public class ShockServiceImpl implements ShockService {
 
     @Override
     public void processAutomaticShocks(AssetState state, LocalDateTime now) {
+        log.trace("Entering processAutomaticShocks method in ShockServiceImpl.");
         double dtSeconds = 1.0;
         ShockConfigDefinition shockCfg = this.simulatorProperties.getShockConfig();
         double smallShockPerSec  = shockCfg.getSmallShockWeekly()  / (7 * 24 * 3600.0);
         double mediumShockPerSec = shockCfg.getMediumShockMonthly() / (30 * 24 * 3600.0);
         double bigShockPerSec    = shockCfg.getBigShockYearly()    / (365 * 24 * 3600.0);
+
+        log.debug("Shock probabilities (per sec) => Small: {}, Medium: {}, Big: {}",
+                smallShockPerSec, mediumShockPerSec, bigShockPerSec);
 
         if (ThreadLocalRandom.current().nextDouble() < smallShockPerSec * dtSeconds) {
             applyRandomShock(state, ShockType.SMALL);
@@ -37,9 +41,11 @@ public class ShockServiceImpl implements ShockService {
         } else if (ThreadLocalRandom.current().nextDouble() < bigShockPerSec * dtSeconds) {
             applyRandomShock(state, ShockType.BIG);
         }
+        log.trace("Exiting processAutomaticShocks method in ShockServiceImpl.");
     }
 
     private void applyRandomShock(AssetState state, ShockType shockType) {
+        log.trace("Entering applyRandomShock method in ShockServiceImpl.");
         ShockConfigDefinition cfg = this.simulatorProperties.getShockConfig();
         double minPct;
         double maxPct;
@@ -58,43 +64,39 @@ public class ShockServiceImpl implements ShockService {
                 maxPct = cfg.getBigShockMaxPct();
             }
             default -> {
-                minPct = 0.0;
-                maxPct = 0.0;
+                log.error("Unknown ShockType encountered: {}", shockType);
+                return;
             }
         }
 
         double shockMagnitude = ThreadLocalRandom.current().nextDouble(minPct, maxPct);
-        // +/- rastgele
         shockMagnitude *= (ThreadLocalRandom.current().nextBoolean() ? 1 : -1);
-
         double newPrice = state.getCurrentPrice() * (1.0 + shockMagnitude);
         state.setCurrentPrice(newPrice);
 
-        log.info("Applying {} shock => magnitude: {}, newPrice: {}", shockType, shockMagnitude, newPrice);
+        log.debug("Applying {} shock => magnitude: {}, newPrice: {}", shockType, shockMagnitude, newPrice);
+        log.trace("Exiting applyRandomShock method in ShockServiceImpl.");
     }
 
     @Override
     public void checkAndApplyCriticalShocks(AssetState state, LocalDateTime now) {
+        log.trace("Entering checkAndApplyCriticalShocks method in ShockServiceImpl.");
         if (simulatorProperties.getEventShocks() != null) {
             for (EventShockDefinition es : simulatorProperties.getEventShocks()) {
                 LocalDateTime eventTime = LocalDateTime.ofInstant(es.getDateTime(), ZoneOffset.UTC);
 
-                // Örnek: eventTime ile şu an arasında 1 dakika (abs) fark varsa tetikle
                 if (Math.abs(Duration.between(now, eventTime).toMinutes()) < 1) {
-                    // jumpMean ve jumpVol'u kullan:
-                    // Normal dağılımdan bir rastgele shock: N(jumpMean, jumpVol^2)
                     double randomShock = ThreadLocalRandom.current().nextGaussian() * es.getJumpVol()
                             + es.getJumpMean();
-
-                    // Bu randomShock’u (ör. 0.02 ise %2) +1 şeklinde çarparak fiyatı etkileyelim
                     double newPrice = state.getCurrentPrice() * (1.0 + randomShock);
                     state.setCurrentPrice(newPrice);
 
-                    log.info("Critical event shock '{}' applied => jumpMean: {}, jumpVol: {}, newPrice: {}",
+                    log.debug("Critical event shock '{}' applied => jumpMean: {}, jumpVol: {}, newPrice: {}",
                             es.getName(), es.getJumpMean(), es.getJumpVol(), newPrice);
                 }
             }
         }
+        log.trace("Exiting checkAndApplyCriticalShocks method in ShockServiceImpl.");
     }
 
     private enum ShockType { SMALL, MEDIUM, BIG }

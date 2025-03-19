@@ -18,7 +18,6 @@ public class CorrelatedRandomVectorGenerator {
 
     @Autowired
     public CorrelatedRandomVectorGenerator(SimulatorProperties simulatorProperties) {
-        // SimulatorProperties'ten correlationMatrix al
         List<List<Double>> listOfLists = simulatorProperties.getCorrelationMatrix();
         if (listOfLists == null || listOfLists.isEmpty()) {
             throw new IllegalArgumentException("correlationMatrix is empty or not configured!");

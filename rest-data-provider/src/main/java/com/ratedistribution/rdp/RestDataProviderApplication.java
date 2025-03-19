@@ -15,8 +15,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableCaching
 public class RestDataProviderApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(RestDataProviderApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(RestDataProviderApplication.class, args);
+    }
 
 }

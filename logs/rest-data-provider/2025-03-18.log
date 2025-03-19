@@ -1,0 +1,525 @@
+2025-03-18 17:38:32.017 [] [main] INFO  RestDataProviderApplication - Starting RestDataProviderApplication using Java 21.0.6 with PID 5240 (C:\Users\omera\Desktop\ratedistribution\rest-data-provider\target\classes started by asaf in C:\Users\omera\Desktop\ratedistribution)
+2025-03-18 17:38:32.033 [] [main] DEBUG RestDataProviderApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-03-18 17:38:32.035 [] [main] INFO  RestDataProviderApplication - No active profile set, falling back to 1 default profile: "default"
+2025-03-18 17:38:32.166 [] [main] INFO  ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+2025-03-18 17:38:32.221 [] [main] INFO  ConfigServerConfigDataLoader - Located environment: name=rest-data-provider, profiles=[default], label=null, version=38080dff423719dcfa5866f46b3c65124aa991db, state=
+2025-03-18 17:38:36.418 [] [main] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-03-18 17:38:36.422 [] [main] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-03-18 17:38:36.497 [] [main] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 36 ms. Found 0 Redis repository interfaces.
+2025-03-18 17:38:36.855 [] [main] INFO  GenericScope - BeanFactory id=a4655aae-4fcb-3e9c-ac03-fb72d8cb5af5
+2025-03-18 17:38:37.655 [] [main] INFO  TomcatWebServer - Tomcat initialized with port 8083 (http)
+2025-03-18 17:38:37.669 [] [main] INFO  Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8083"]
+2025-03-18 17:38:37.671 [] [main] INFO  StandardService - Starting service [Tomcat]
+2025-03-18 17:38:37.671 [] [main] INFO  StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-03-18 17:38:37.738 [] [main] INFO  [/] - Initializing Spring embedded WebApplicationContext
+2025-03-18 17:38:37.739 [] [main] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5509 ms
+2025-03-18 17:38:39.151 [] [main] INFO  RateUpdateScheduler - Rate update scheduler started with interval: 1000 ms
+2025-03-18 17:38:39.152 [] [RateScheduler-1] INFO  RateUpdateScheduler - Starting rate update process... Iteration: 1
+2025-03-18 17:38:39.154 [] [ForkJoinPool.commonPool-worker-1] TRACE RateSimulatorServiceImpl - Entering updateAllRates method in RateSimulatorServiceImpl.
+2025-03-18 17:38:39.154 [] [ForkJoinPool.commonPool-worker-1] DEBUG RateSimulatorServiceImpl - Starting rate update process at: 2025-03-18T14:38:39.154772300
+2025-03-18 17:38:39.155 [] [ForkJoinPool.commonPool-worker-1] DEBUG RateSimulatorServiceImpl - Computed delta time in seconds: 1.0
+2025-03-18 17:38:39.155 [] [ForkJoinPool.commonPool-worker-1] TRACE HolidayCalendarService - Checking holiday for 2025-03-18T14:38:39.154772300
+2025-03-18 17:38:39.156 [] [ForkJoinPool.commonPool-worker-1] DEBUG RateSimulatorServiceImpl - Checked if date 2025-03-18T14:38:39.154772300 is weekend: false
+2025-03-18 17:38:39.156 [] [ForkJoinPool.commonPool-worker-1] DEBUG RateSimulatorServiceImpl - Market status - isWeekend: false, isHoliday: false
+2025-03-18 17:38:39.156 [] [ForkJoinPool.commonPool-worker-1] DEBUG RateSimulatorServiceImpl - Weekend gap adjustment required: false
+2025-03-18 17:38:39.163 [USDTRY] [RateUpdate-2] INFO  RateSimulatorServiceImpl - Processing rate update: USDTRY
+2025-03-18 17:38:39.163 [EURUSD] [RateUpdate-1] INFO  RateSimulatorServiceImpl - Processing rate update: EURUSD
+2025-03-18 17:38:39.163 [XAUUSD] [RateUpdate-3] INFO  RateSimulatorServiceImpl - Processing rate update: XAUUSD
+2025-03-18 17:38:39.163 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-03-18 17:38:39.163 [XAUUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Entering getOrInitAssetState method in RateSimulatorServiceImpl: XAUUSD
+2025-03-18 17:38:39.163 [USDTRY] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Entering getOrInitAssetState method in RateSimulatorServiceImpl: USDTRY
+2025-03-18 17:38:40.121 [USDTRY] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Exiting getOrInitAssetState method in RateSimulatorServiceImpl: USDTRY
+2025-03-18 17:38:40.121 [XAUUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Exiting getOrInitAssetState method in RateSimulatorServiceImpl: XAUUSD
+2025-03-18 17:38:40.121 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-03-18 17:38:40.121 [XAUUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Entering updatePriceAndVolatility method in RateSimulatorServiceImpl: XAUUSD
+2025-03-18 17:38:40.121 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-03-18 17:38:40.121 [USDTRY] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Entering updatePriceAndVolatility method in RateSimulatorServiceImpl: USDTRY
+2025-03-18 17:38:40.122 [USDTRY] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Old price: 18.50000263984017, Old sigma: 0.0, Old return: 0.0
+2025-03-18 17:38:40.122 [XAUUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Old price: 1850.000000000837, Old sigma: 0.0, Old return: 0.0
+2025-03-18 17:38:40.122 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Old price: 1.0481381491697115, Old sigma: 0.0, Old return: -3.586216687968069E-8
+2025-03-18 17:38:40.122 [USDTRY] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Entering computeVolatility method in RateSimulatorServiceImpl: USDTRY
+2025-03-18 17:38:40.122 [XAUUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Entering computeVolatility method in RateSimulatorServiceImpl: XAUUSD
+2025-03-18 17:38:40.122 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering computeVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-03-18 17:38:40.122 [USDTRY] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Using EGARCH
+2025-03-18 17:38:40.122 [XAUUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Using EGARCH
+2025-03-18 17:38:40.122 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Using EGARCH
+2025-03-18 17:38:40.122 [XAUUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Entering eGarchUpdate method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.122 [USDTRY] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Entering eGarchUpdate method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.122 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering eGarchUpdate method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.122 [XAUUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - EGARCH nextLogSigmaSq: -Infinity, sigma: 0.0
+2025-03-18 17:38:40.122 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - EGARCH nextLogSigmaSq: -Infinity, sigma: 0.0
+2025-03-18 17:38:40.122 [USDTRY] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - EGARCH nextLogSigmaSq: -Infinity, sigma: 0.0
+2025-03-18 17:38:40.122 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting eGarchUpdate method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.122 [XAUUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Exiting eGarchUpdate method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.122 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting computeVolatility method in RateSimulatorServiceImpl-> newSigma: 0.0 rate: EURUSD
+2025-03-18 17:38:40.122 [USDTRY] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Exiting eGarchUpdate method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.122 [XAUUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Exiting computeVolatility method in RateSimulatorServiceImpl-> newSigma: 0.0 rate: XAUUSD
+2025-03-18 17:38:40.122 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - New sigma computed: 0.0
+2025-03-18 17:38:40.123 [XAUUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - New sigma computed: 0.0
+2025-03-18 17:38:40.123 [USDTRY] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Exiting computeVolatility method in RateSimulatorServiceImpl-> newSigma: 0.0 rate: USDTRY
+2025-03-18 17:38:40.123 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.123 [USDTRY] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - New sigma computed: 0.0
+2025-03-18 17:38:40.123 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.123 [XAUUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Entering getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.123 [USDTRY] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Entering getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.123 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Drift adjustment: 6.341958396752917E-10
+2025-03-18 17:38:40.123 [XAUUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Exiting getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.123 [USDTRY] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Exiting getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.123 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Price updated from 1.0481381491697115 to 1.0481381498344362 (pre-session adjustments)
+2025-03-18 17:38:40.123 [XAUUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Drift adjustment: 0.0
+2025-03-18 17:38:40.123 [USDTRY] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Drift adjustment: 1.5854895991882295E-9
+2025-03-18 17:38:40.123 [XAUUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Price updated from 1850.000000000837 to 1850.000000000837 (pre-session adjustments)
+2025-03-18 17:38:40.123 [USDTRY] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Price updated from 18.50000263984017 to 18.500002669171728 (pre-session adjustments)
+2025-03-18 17:38:40.123 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Applied session volatility multiplier for hour 14: 1.3
+2025-03-18 17:38:40.124 [XAUUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Applied session volatility multiplier for hour 14: 1.3
+2025-03-18 17:38:40.124 [USDTRY] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Applied session volatility multiplier for hour 14: 1.3
+2025-03-18 17:38:40.124 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Session vol multiplier: 1.3, final newPrice: 1.0481381500338536
+2025-03-18 17:38:40.124 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering applyMeanReversion method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.124 [XAUUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Session vol multiplier: 1.3, final newPrice: 1850.000000000837
+2025-03-18 17:38:40.124 [USDTRY] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Session vol multiplier: 1.3, final newPrice: 18.500002677971196
+2025-03-18 17:38:40.124 [USDTRY] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Entering applyMeanReversion method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.124 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting applyMeanReversion method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.124 [XAUUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Entering applyMeanReversion method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.124 [USDTRY] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Exiting applyMeanReversion method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.124 [XAUUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Exiting applyMeanReversion method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.124 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Applied mean reversion, New price: 1.048138111884684
+2025-03-18 17:38:40.124 [USDTRY] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Applied mean reversion, New price: 18.500002651572792
+2025-03-18 17:38:40.124 [XAUUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Applied mean reversion, New price: 1850.000000000837
+2025-03-18 17:38:40.124 [XAUUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Entering checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.124 [USDTRY] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Entering checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.124 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.124 [XAUUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Determined volatility regime: LOW_VOL
+2025-03-18 17:38:40.124 [XAUUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Exiting checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.124 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Determined volatility regime: LOW_VOL
+2025-03-18 17:38:40.124 [USDTRY] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Determined volatility regime: LOW_VOL
+2025-03-18 17:38:40.124 [XAUUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Determined new volatility regime: LOW_VOL
+2025-03-18 17:38:40.124 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.124 [USDTRY] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Exiting checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.124 [XAUUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Entering createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.124 [USDTRY] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Determined new volatility regime: LOW_VOL
+2025-03-18 17:38:40.124 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Determined new volatility regime: LOW_VOL
+2025-03-18 17:38:40.125 [XAUUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Computed return: 0.0
+2025-03-18 17:38:40.125 [USDTRY] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Entering createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.125 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.125 [XAUUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Generated random volume: 6
+2025-03-18 17:38:40.125 [USDTRY] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Computed return: 6.341958067799949E-10
+2025-03-18 17:38:40.125 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Computed return: -3.557262769892191E-8
+2025-03-18 17:38:40.125 [USDTRY] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Generated random volume: 6
+2025-03-18 17:38:40.125 [XAUUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Exiting createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.125 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Generated random volume: 8
+2025-03-18 17:38:40.125 [USDTRY] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Exiting createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.125 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.125 [XAUUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Exiting updatePriceAndVolatility method in RateSimulatorServiceImpl: XAUUSD
+2025-03-18 17:38:40.125 [USDTRY] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Exiting updatePriceAndVolatility method in RateSimulatorServiceImpl: USDTRY
+2025-03-18 17:38:40.125 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-03-18 17:38:40.125 [USDTRY] [RateUpdate-2] INFO  RateSimulatorServiceImpl - Updated price and volatility for rate: USDTRY
+2025-03-18 17:38:40.125 [XAUUSD] [RateUpdate-3] INFO  RateSimulatorServiceImpl - Updated price and volatility for rate: XAUUSD
+2025-03-18 17:38:40.125 [EURUSD] [RateUpdate-1] INFO  RateSimulatorServiceImpl - Updated price and volatility for rate: EURUSD
+2025-03-18 17:38:40.125 [USDTRY] [RateUpdate-2] TRACE MacroDataServiceImpl - Entering applyMacroData method in MacroDataServiceImpl.
+2025-03-18 17:38:40.125 [EURUSD] [RateUpdate-1] TRACE MacroDataServiceImpl - Entering applyMacroData method in MacroDataServiceImpl.
+2025-03-18 17:38:40.125 [XAUUSD] [RateUpdate-3] TRACE MacroDataServiceImpl - Entering applyMacroData method in MacroDataServiceImpl.
+2025-03-18 17:38:40.125 [USDTRY] [RateUpdate-2] DEBUG MacroDataServiceImpl - No macro indicators to apply.
+2025-03-18 17:38:40.125 [EURUSD] [RateUpdate-1] DEBUG MacroDataServiceImpl - No macro indicators to apply.
+2025-03-18 17:38:40.125 [XAUUSD] [RateUpdate-3] DEBUG MacroDataServiceImpl - No macro indicators to apply.
+2025-03-18 17:38:40.125 [USDTRY] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Applied macro data adjustments for rate: USDTRY
+2025-03-18 17:38:40.126 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Applied macro data adjustments for rate: EURUSD
+2025-03-18 17:38:40.126 [XAUUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Applied macro data adjustments for rate: XAUUSD
+2025-03-18 17:38:40.126 [EURUSD] [RateUpdate-1] TRACE ShockServiceImpl - Entering processAutomaticShocks method in ShockServiceImpl.
+2025-03-18 17:38:40.126 [USDTRY] [RateUpdate-2] TRACE ShockServiceImpl - Entering processAutomaticShocks method in ShockServiceImpl.
+2025-03-18 17:38:40.126 [XAUUSD] [RateUpdate-3] TRACE ShockServiceImpl - Entering processAutomaticShocks method in ShockServiceImpl.
+2025-03-18 17:38:40.126 [USDTRY] [RateUpdate-2] DEBUG ShockServiceImpl - Shock probabilities (per sec) => Small: 4.133597883597884E-6, Medium: 5.787037037037037E-7, Big: 3.1709791983764586E-8
+2025-03-18 17:38:40.126 [EURUSD] [RateUpdate-1] DEBUG ShockServiceImpl - Shock probabilities (per sec) => Small: 4.133597883597884E-6, Medium: 5.787037037037037E-7, Big: 3.1709791983764586E-8
+2025-03-18 17:38:40.126 [XAUUSD] [RateUpdate-3] DEBUG ShockServiceImpl - Shock probabilities (per sec) => Small: 4.133597883597884E-6, Medium: 5.787037037037037E-7, Big: 3.1709791983764586E-8
+2025-03-18 17:38:40.126 [XAUUSD] [RateUpdate-3] TRACE ShockServiceImpl - Exiting processAutomaticShocks method in ShockServiceImpl.
+2025-03-18 17:38:40.126 [USDTRY] [RateUpdate-2] TRACE ShockServiceImpl - Exiting processAutomaticShocks method in ShockServiceImpl.
+2025-03-18 17:38:40.126 [EURUSD] [RateUpdate-1] TRACE ShockServiceImpl - Exiting processAutomaticShocks method in ShockServiceImpl.
+2025-03-18 17:38:40.126 [USDTRY] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Processed automatic shocks for rate: USDTRY
+2025-03-18 17:38:40.126 [XAUUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Processed automatic shocks for rate: XAUUSD
+2025-03-18 17:38:40.126 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Processed automatic shocks for rate: EURUSD
+2025-03-18 17:38:40.126 [USDTRY] [RateUpdate-2] TRACE ShockServiceImpl - Entering checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-03-18 17:38:40.126 [XAUUSD] [RateUpdate-3] TRACE ShockServiceImpl - Entering checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-03-18 17:38:40.126 [EURUSD] [RateUpdate-1] TRACE ShockServiceImpl - Entering checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-03-18 17:38:40.127 [EURUSD] [RateUpdate-1] TRACE ShockServiceImpl - Exiting checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-03-18 17:38:40.127 [XAUUSD] [RateUpdate-3] TRACE ShockServiceImpl - Exiting checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-03-18 17:38:40.127 [USDTRY] [RateUpdate-2] TRACE ShockServiceImpl - Exiting checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-03-18 17:38:40.127 [XAUUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Checked and applied critical shocks for rate: XAUUSD
+2025-03-18 17:38:40.127 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Checked and applied critical shocks for rate: EURUSD
+2025-03-18 17:38:40.127 [USDTRY] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Checked and applied critical shocks for rate: USDTRY
+2025-03-18 17:38:40.127 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Saving asset state for rate: EURUSD
+2025-03-18 17:38:40.127 [XAUUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Saving asset state for rate: XAUUSD
+2025-03-18 17:38:40.127 [USDTRY] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Saving asset state for rate: USDTRY
+2025-03-18 17:38:40.137 [XAUUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Saved asset state for rate: XAUUSD
+2025-03-18 17:38:40.138 [USDTRY] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Saved asset state for rate: USDTRY
+2025-03-18 17:38:40.137 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Saved asset state for rate: EURUSD
+2025-03-18 17:38:40.138 [USDTRY] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Entering buildRateDataResponse method in RateSimulatorServiceImpl: USDTRY
+2025-03-18 17:38:40.138 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-03-18 17:38:40.138 [XAUUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Entering buildRateDataResponse method in RateSimulatorServiceImpl: XAUUSD
+2025-03-18 17:38:40.139 [USDTRY] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Computed bid: 18.490002651572792, ask: 18.510002651572792 for rate: USDTRY
+2025-03-18 17:38:40.139 [XAUUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Computed bid: 1849.800000000837, ask: 1850.200000000837 for rate: XAUUSD
+2025-03-18 17:38:40.139 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Computed bid: 1.048088111884684, ask: 1.048188111884684 for rate: EURUSD
+2025-03-18 17:38:40.140 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Generated random volume: 7
+2025-03-18 17:38:40.140 [XAUUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Generated random volume: 2
+2025-03-18 17:38:40.140 [USDTRY] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Generated random volume: 2
+2025-03-18 17:38:40.140 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-03-18 17:38:40.140 [XAUUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Exiting buildRateDataResponse method in RateSimulatorServiceImpl: XAUUSD
+2025-03-18 17:38:40.140 [USDTRY] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Exiting buildRateDataResponse method in RateSimulatorServiceImpl: USDTRY
+2025-03-18 17:38:40.140 [XAUUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Saving rate data response for rate: XAUUSD
+2025-03-18 17:38:40.140 [USDTRY] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Saving rate data response for rate: USDTRY
+2025-03-18 17:38:40.140 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Saving rate data response for rate: EURUSD
+2025-03-18 17:38:40.154 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Saved rate data response for rate: EURUSD
+2025-03-18 17:38:40.154 [USDTRY] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Saved rate data response for rate: USDTRY
+2025-03-18 17:38:40.154 [XAUUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Saved rate data response for rate: XAUUSD
+2025-03-18 17:38:40.154 [] [ForkJoinPool.commonPool-worker-1] TRACE RateSimulatorServiceImpl - Exiting updateAllRates method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.154 [] [ForkJoinPool.commonPool-worker-1] INFO  RateUpdateScheduler - Rates updated => iteration=1 totalUpdated=3
+2025-03-18 17:38:40.155 [] [RateScheduler-1] INFO  RateUpdateScheduler - Starting rate update process... Iteration: 2
+2025-03-18 17:38:40.155 [] [ForkJoinPool.commonPool-worker-1] TRACE RateSimulatorServiceImpl - Entering updateAllRates method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.155 [] [ForkJoinPool.commonPool-worker-1] DEBUG RateSimulatorServiceImpl - Starting rate update process at: 2025-03-18T14:38:40.155767300
+2025-03-18 17:38:40.155 [] [ForkJoinPool.commonPool-worker-1] DEBUG RateSimulatorServiceImpl - Computed delta time in seconds: 1.0
+2025-03-18 17:38:40.155 [] [ForkJoinPool.commonPool-worker-1] TRACE HolidayCalendarService - Checking holiday for 2025-03-18T14:38:40.155767300
+2025-03-18 17:38:40.155 [] [ForkJoinPool.commonPool-worker-1] DEBUG RateSimulatorServiceImpl - Checked if date 2025-03-18T14:38:40.155767300 is weekend: false
+2025-03-18 17:38:40.156 [] [ForkJoinPool.commonPool-worker-1] DEBUG RateSimulatorServiceImpl - Market status - isWeekend: false, isHoliday: false
+2025-03-18 17:38:40.156 [] [ForkJoinPool.commonPool-worker-1] DEBUG RateSimulatorServiceImpl - Checked if date 2025-03-18T14:38:39.154772300 is weekend: false
+2025-03-18 17:38:40.156 [] [ForkJoinPool.commonPool-worker-1] DEBUG RateSimulatorServiceImpl - Weekend gap detected: false
+2025-03-18 17:38:40.156 [] [ForkJoinPool.commonPool-worker-1] DEBUG RateSimulatorServiceImpl - Weekend gap adjustment required: false
+2025-03-18 17:38:40.156 [EURUSD] [RateUpdate-4] INFO  RateSimulatorServiceImpl - Processing rate update: EURUSD
+2025-03-18 17:38:40.156 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Entering getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-03-18 17:38:40.157 [USDTRY] [RateUpdate-5] INFO  RateSimulatorServiceImpl - Processing rate update: USDTRY
+2025-03-18 17:38:40.157 [USDTRY] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Entering getOrInitAssetState method in RateSimulatorServiceImpl: USDTRY
+2025-03-18 17:38:40.157 [XAUUSD] [RateUpdate-6] INFO  RateSimulatorServiceImpl - Processing rate update: XAUUSD
+2025-03-18 17:38:40.157 [XAUUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Entering getOrInitAssetState method in RateSimulatorServiceImpl: XAUUSD
+2025-03-18 17:38:40.158 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Exiting getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-03-18 17:38:40.158 [USDTRY] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Exiting getOrInitAssetState method in RateSimulatorServiceImpl: USDTRY
+2025-03-18 17:38:40.158 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Entering updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-03-18 17:38:40.158 [XAUUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Exiting getOrInitAssetState method in RateSimulatorServiceImpl: XAUUSD
+2025-03-18 17:38:40.158 [USDTRY] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Entering updatePriceAndVolatility method in RateSimulatorServiceImpl: USDTRY
+2025-03-18 17:38:40.158 [XAUUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Entering updatePriceAndVolatility method in RateSimulatorServiceImpl: XAUUSD
+2025-03-18 17:38:40.158 [USDTRY] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Old price: 18.500002651572792, Old sigma: 0.0, Old return: 6.341958067799949E-10
+2025-03-18 17:38:40.158 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Old price: 1.048138111884684, Old sigma: 0.0, Old return: -3.557262769892191E-8
+2025-03-18 17:38:40.158 [XAUUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Old price: 1850.000000000837, Old sigma: 0.0, Old return: 0.0
+2025-03-18 17:38:40.158 [USDTRY] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Entering computeVolatility method in RateSimulatorServiceImpl: USDTRY
+2025-03-18 17:38:40.158 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Entering computeVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-03-18 17:38:40.158 [XAUUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Entering computeVolatility method in RateSimulatorServiceImpl: XAUUSD
+2025-03-18 17:38:40.158 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Using EGARCH
+2025-03-18 17:38:40.158 [USDTRY] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Using EGARCH
+2025-03-18 17:38:40.158 [XAUUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Using EGARCH
+2025-03-18 17:38:40.158 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Entering eGarchUpdate method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.158 [USDTRY] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Entering eGarchUpdate method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.158 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - EGARCH nextLogSigmaSq: -Infinity, sigma: 0.0
+2025-03-18 17:38:40.158 [XAUUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Entering eGarchUpdate method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.159 [XAUUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - EGARCH nextLogSigmaSq: -Infinity, sigma: 0.0
+2025-03-18 17:38:40.159 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Exiting eGarchUpdate method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.159 [USDTRY] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - EGARCH nextLogSigmaSq: -Infinity, sigma: 0.0
+2025-03-18 17:38:40.159 [USDTRY] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Exiting eGarchUpdate method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.159 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Exiting computeVolatility method in RateSimulatorServiceImpl-> newSigma: 0.0 rate: EURUSD
+2025-03-18 17:38:40.159 [XAUUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Exiting eGarchUpdate method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.159 [USDTRY] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Exiting computeVolatility method in RateSimulatorServiceImpl-> newSigma: 0.0 rate: USDTRY
+2025-03-18 17:38:40.159 [XAUUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Exiting computeVolatility method in RateSimulatorServiceImpl-> newSigma: 0.0 rate: XAUUSD
+2025-03-18 17:38:40.159 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - New sigma computed: 0.0
+2025-03-18 17:38:40.159 [XAUUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - New sigma computed: 0.0
+2025-03-18 17:38:40.159 [USDTRY] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - New sigma computed: 0.0
+2025-03-18 17:38:40.159 [XAUUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Entering getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.159 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Entering getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.159 [USDTRY] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Entering getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.159 [XAUUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Exiting getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.159 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Exiting getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.159 [USDTRY] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Exiting getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.159 [XAUUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Drift adjustment: 0.0
+2025-03-18 17:38:40.159 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Drift adjustment: 6.341958396752917E-10
+2025-03-18 17:38:40.159 [USDTRY] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Drift adjustment: 1.5854895991882295E-9
+2025-03-18 17:38:40.159 [XAUUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Price updated from 1850.000000000837 to 1850.000000000837 (pre-session adjustments)
+2025-03-18 17:38:40.159 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Price updated from 1.048138111884684 to 1.0481381125494087 (pre-session adjustments)
+2025-03-18 17:38:40.159 [USDTRY] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Price updated from 18.500002651572792 to 18.500002680904352 (pre-session adjustments)
+2025-03-18 17:38:40.159 [XAUUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Applied session volatility multiplier for hour 14: 1.3
+2025-03-18 17:38:40.159 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Applied session volatility multiplier for hour 14: 1.3
+2025-03-18 17:38:40.159 [XAUUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Session vol multiplier: 1.3, final newPrice: 1850.000000000837
+2025-03-18 17:38:40.159 [USDTRY] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Applied session volatility multiplier for hour 14: 1.3
+2025-03-18 17:38:40.159 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Session vol multiplier: 1.3, final newPrice: 1.048138112748826
+2025-03-18 17:38:40.160 [XAUUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Entering applyMeanReversion method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.160 [USDTRY] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Session vol multiplier: 1.3, final newPrice: 18.50000268970382
+2025-03-18 17:38:40.160 [XAUUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Exiting applyMeanReversion method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.160 [XAUUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Applied mean reversion, New price: 1850.000000000837
+2025-03-18 17:38:40.160 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Entering applyMeanReversion method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.160 [USDTRY] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Entering applyMeanReversion method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.160 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Exiting applyMeanReversion method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.160 [XAUUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Entering checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.160 [USDTRY] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Exiting applyMeanReversion method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.160 [XAUUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Determined volatility regime: LOW_VOL
+2025-03-18 17:38:40.160 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Applied mean reversion, New price: 1.0481380746369413
+2025-03-18 17:38:40.160 [USDTRY] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Applied mean reversion, New price: 18.50000266318809
+2025-03-18 17:38:40.160 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Entering checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.160 [XAUUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Exiting checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.160 [USDTRY] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Entering checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.160 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Determined volatility regime: LOW_VOL
+2025-03-18 17:38:40.160 [XAUUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Determined new volatility regime: LOW_VOL
+2025-03-18 17:38:40.160 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Exiting checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.160 [XAUUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Entering createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.160 [USDTRY] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Determined volatility regime: LOW_VOL
+2025-03-18 17:38:40.160 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Determined new volatility regime: LOW_VOL
+2025-03-18 17:38:40.160 [USDTRY] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Exiting checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.160 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Entering createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.160 [XAUUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Computed return: 0.0
+2025-03-18 17:38:40.160 [USDTRY] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Determined new volatility regime: LOW_VOL
+2025-03-18 17:38:40.160 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Computed return: -3.55370564850151E-8
+2025-03-18 17:38:40.161 [XAUUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Generated random volume: 1
+2025-03-18 17:38:40.161 [USDTRY] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Entering createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.161 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Generated random volume: 2
+2025-03-18 17:38:40.161 [XAUUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Exiting createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.161 [USDTRY] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Computed return: 6.27853990822733E-10
+2025-03-18 17:38:40.161 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Exiting createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.161 [XAUUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Exiting updatePriceAndVolatility method in RateSimulatorServiceImpl: XAUUSD
+2025-03-18 17:38:40.161 [USDTRY] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Generated random volume: 8
+2025-03-18 17:38:40.161 [USDTRY] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Exiting createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.161 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Exiting updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-03-18 17:38:40.161 [XAUUSD] [RateUpdate-6] INFO  RateSimulatorServiceImpl - Updated price and volatility for rate: XAUUSD
+2025-03-18 17:38:40.161 [XAUUSD] [RateUpdate-6] TRACE MacroDataServiceImpl - Entering applyMacroData method in MacroDataServiceImpl.
+2025-03-18 17:38:40.161 [EURUSD] [RateUpdate-4] INFO  RateSimulatorServiceImpl - Updated price and volatility for rate: EURUSD
+2025-03-18 17:38:40.161 [USDTRY] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Exiting updatePriceAndVolatility method in RateSimulatorServiceImpl: USDTRY
+2025-03-18 17:38:40.161 [XAUUSD] [RateUpdate-6] DEBUG MacroDataServiceImpl - No macro indicators to apply.
+2025-03-18 17:38:40.161 [EURUSD] [RateUpdate-4] TRACE MacroDataServiceImpl - Entering applyMacroData method in MacroDataServiceImpl.
+2025-03-18 17:38:40.161 [USDTRY] [RateUpdate-5] INFO  RateSimulatorServiceImpl - Updated price and volatility for rate: USDTRY
+2025-03-18 17:38:40.161 [XAUUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Applied macro data adjustments for rate: XAUUSD
+2025-03-18 17:38:40.161 [USDTRY] [RateUpdate-5] TRACE MacroDataServiceImpl - Entering applyMacroData method in MacroDataServiceImpl.
+2025-03-18 17:38:40.161 [XAUUSD] [RateUpdate-6] TRACE ShockServiceImpl - Entering processAutomaticShocks method in ShockServiceImpl.
+2025-03-18 17:38:40.161 [EURUSD] [RateUpdate-4] DEBUG MacroDataServiceImpl - No macro indicators to apply.
+2025-03-18 17:38:40.161 [USDTRY] [RateUpdate-5] DEBUG MacroDataServiceImpl - No macro indicators to apply.
+2025-03-18 17:38:40.161 [USDTRY] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Applied macro data adjustments for rate: USDTRY
+2025-03-18 17:38:40.161 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Applied macro data adjustments for rate: EURUSD
+2025-03-18 17:38:40.161 [USDTRY] [RateUpdate-5] TRACE ShockServiceImpl - Entering processAutomaticShocks method in ShockServiceImpl.
+2025-03-18 17:38:40.161 [XAUUSD] [RateUpdate-6] DEBUG ShockServiceImpl - Shock probabilities (per sec) => Small: 4.133597883597884E-6, Medium: 5.787037037037037E-7, Big: 3.1709791983764586E-8
+2025-03-18 17:38:40.161 [EURUSD] [RateUpdate-4] TRACE ShockServiceImpl - Entering processAutomaticShocks method in ShockServiceImpl.
+2025-03-18 17:38:40.161 [USDTRY] [RateUpdate-5] DEBUG ShockServiceImpl - Shock probabilities (per sec) => Small: 4.133597883597884E-6, Medium: 5.787037037037037E-7, Big: 3.1709791983764586E-8
+2025-03-18 17:38:40.161 [XAUUSD] [RateUpdate-6] TRACE ShockServiceImpl - Exiting processAutomaticShocks method in ShockServiceImpl.
+2025-03-18 17:38:40.161 [USDTRY] [RateUpdate-5] TRACE ShockServiceImpl - Exiting processAutomaticShocks method in ShockServiceImpl.
+2025-03-18 17:38:40.162 [XAUUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Processed automatic shocks for rate: XAUUSD
+2025-03-18 17:38:40.162 [USDTRY] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Processed automatic shocks for rate: USDTRY
+2025-03-18 17:38:40.162 [XAUUSD] [RateUpdate-6] TRACE ShockServiceImpl - Entering checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-03-18 17:38:40.162 [USDTRY] [RateUpdate-5] TRACE ShockServiceImpl - Entering checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-03-18 17:38:40.161 [EURUSD] [RateUpdate-4] DEBUG ShockServiceImpl - Shock probabilities (per sec) => Small: 4.133597883597884E-6, Medium: 5.787037037037037E-7, Big: 3.1709791983764586E-8
+2025-03-18 17:38:40.162 [EURUSD] [RateUpdate-4] TRACE ShockServiceImpl - Exiting processAutomaticShocks method in ShockServiceImpl.
+2025-03-18 17:38:40.162 [XAUUSD] [RateUpdate-6] TRACE ShockServiceImpl - Exiting checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-03-18 17:38:40.162 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Processed automatic shocks for rate: EURUSD
+2025-03-18 17:38:40.162 [USDTRY] [RateUpdate-5] TRACE ShockServiceImpl - Exiting checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-03-18 17:38:40.162 [EURUSD] [RateUpdate-4] TRACE ShockServiceImpl - Entering checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-03-18 17:38:40.162 [XAUUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Checked and applied critical shocks for rate: XAUUSD
+2025-03-18 17:38:40.162 [XAUUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Saving asset state for rate: XAUUSD
+2025-03-18 17:38:40.162 [USDTRY] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Checked and applied critical shocks for rate: USDTRY
+2025-03-18 17:38:40.162 [EURUSD] [RateUpdate-4] TRACE ShockServiceImpl - Exiting checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-03-18 17:38:40.162 [USDTRY] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Saving asset state for rate: USDTRY
+2025-03-18 17:38:40.162 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Checked and applied critical shocks for rate: EURUSD
+2025-03-18 17:38:40.162 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Saving asset state for rate: EURUSD
+2025-03-18 17:38:40.174 [USDTRY] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Saved asset state for rate: USDTRY
+2025-03-18 17:38:40.174 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Saved asset state for rate: EURUSD
+2025-03-18 17:38:40.174 [XAUUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Saved asset state for rate: XAUUSD
+2025-03-18 17:38:40.174 [USDTRY] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Entering buildRateDataResponse method in RateSimulatorServiceImpl: USDTRY
+2025-03-18 17:38:40.174 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Entering buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-03-18 17:38:40.174 [XAUUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Entering buildRateDataResponse method in RateSimulatorServiceImpl: XAUUSD
+2025-03-18 17:38:40.174 [USDTRY] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Computed bid: 18.49000266318809, ask: 18.51000266318809 for rate: USDTRY
+2025-03-18 17:38:40.174 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Computed bid: 1.0480880746369413, ask: 1.0481880746369413 for rate: EURUSD
+2025-03-18 17:38:40.174 [XAUUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Computed bid: 1849.800000000837, ask: 1850.200000000837 for rate: XAUUSD
+2025-03-18 17:38:40.174 [USDTRY] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Generated random volume: 6
+2025-03-18 17:38:40.174 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Generated random volume: 5
+2025-03-18 17:38:40.174 [XAUUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Generated random volume: 4
+2025-03-18 17:38:40.174 [USDTRY] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Exiting buildRateDataResponse method in RateSimulatorServiceImpl: USDTRY
+2025-03-18 17:38:40.174 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Exiting buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-03-18 17:38:40.174 [XAUUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Exiting buildRateDataResponse method in RateSimulatorServiceImpl: XAUUSD
+2025-03-18 17:38:40.174 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Saving rate data response for rate: EURUSD
+2025-03-18 17:38:40.174 [XAUUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Saving rate data response for rate: XAUUSD
+2025-03-18 17:38:40.174 [USDTRY] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Saving rate data response for rate: USDTRY
+2025-03-18 17:38:40.177 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Saved rate data response for rate: EURUSD
+2025-03-18 17:38:40.177 [USDTRY] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Saved rate data response for rate: USDTRY
+2025-03-18 17:38:40.177 [XAUUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Saved rate data response for rate: XAUUSD
+2025-03-18 17:38:40.177 [] [ForkJoinPool.commonPool-worker-1] TRACE RateSimulatorServiceImpl - Exiting updateAllRates method in RateSimulatorServiceImpl.
+2025-03-18 17:38:40.177 [] [ForkJoinPool.commonPool-worker-1] INFO  RateUpdateScheduler - Rates updated => iteration=2 totalUpdated=3
+2025-03-18 17:38:40.600 [] [main] INFO  DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-03-18 17:38:40.666 [] [main] WARN  LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-03-18 17:38:40.678 [] [main] INFO  EndpointLinksResolver - Exposing 18 endpoints beneath base path '/actuator'
+2025-03-18 17:38:40.774 [] [main] INFO  InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-03-18 17:38:40.809 [] [main] INFO  DiscoveryClient - Initializing Eureka in region us-east-1
+2025-03-18 17:38:40.818 [] [main] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-03-18 17:38:40.832 [] [main] INFO  DiscoveryClient - Disable delta property : false
+2025-03-18 17:38:40.832 [] [main] INFO  DiscoveryClient - Single vip registry refresh property : null
+2025-03-18 17:38:40.832 [] [main] INFO  DiscoveryClient - Force full registry fetch : false
+2025-03-18 17:38:40.832 [] [main] INFO  DiscoveryClient - Application is null : false
+2025-03-18 17:38:40.832 [] [main] INFO  DiscoveryClient - Registered Applications size is zero : true
+2025-03-18 17:38:40.832 [] [main] INFO  DiscoveryClient - Application version is -1: true
+2025-03-18 17:38:40.832 [] [main] INFO  DiscoveryClient - Getting all instance registry info from the eureka server
+2025-03-18 17:38:41.163 [] [RateScheduler-2] INFO  RateUpdateScheduler - Starting rate update process... Iteration: 3
+2025-03-18 17:38:41.163 [] [ForkJoinPool.commonPool-worker-1] TRACE RateSimulatorServiceImpl - Entering updateAllRates method in RateSimulatorServiceImpl.
+2025-03-18 17:38:41.163 [] [ForkJoinPool.commonPool-worker-1] DEBUG RateSimulatorServiceImpl - Starting rate update process at: 2025-03-18T14:38:41.163042600
+2025-03-18 17:38:41.164 [] [ForkJoinPool.commonPool-worker-1] DEBUG RateSimulatorServiceImpl - Computed delta time in seconds: 1.0
+2025-03-18 17:38:41.164 [] [ForkJoinPool.commonPool-worker-1] TRACE HolidayCalendarService - Checking holiday for 2025-03-18T14:38:41.163042600
+2025-03-18 17:38:41.164 [] [ForkJoinPool.commonPool-worker-1] DEBUG RateSimulatorServiceImpl - Checked if date 2025-03-18T14:38:41.163042600 is weekend: false
+2025-03-18 17:38:41.164 [] [ForkJoinPool.commonPool-worker-1] DEBUG RateSimulatorServiceImpl - Market status - isWeekend: false, isHoliday: false
+2025-03-18 17:38:41.164 [] [ForkJoinPool.commonPool-worker-1] DEBUG RateSimulatorServiceImpl - Checked if date 2025-03-18T14:38:40.155767300 is weekend: false
+2025-03-18 17:38:41.164 [] [ForkJoinPool.commonPool-worker-1] DEBUG RateSimulatorServiceImpl - Weekend gap detected: false
+2025-03-18 17:38:41.164 [] [ForkJoinPool.commonPool-worker-1] DEBUG RateSimulatorServiceImpl - Weekend gap adjustment required: false
+2025-03-18 17:38:41.165 [XAUUSD] [RateUpdate-1] INFO  RateSimulatorServiceImpl - Processing rate update: XAUUSD
+2025-03-18 17:38:41.165 [XAUUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering getOrInitAssetState method in RateSimulatorServiceImpl: XAUUSD
+2025-03-18 17:38:41.165 [EURUSD] [RateUpdate-7] INFO  RateSimulatorServiceImpl - Processing rate update: EURUSD
+2025-03-18 17:38:41.165 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Entering getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-03-18 17:38:41.165 [USDTRY] [RateUpdate-8] INFO  RateSimulatorServiceImpl - Processing rate update: USDTRY
+2025-03-18 17:38:41.165 [USDTRY] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Entering getOrInitAssetState method in RateSimulatorServiceImpl: USDTRY
+2025-03-18 17:38:41.166 [USDTRY] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Exiting getOrInitAssetState method in RateSimulatorServiceImpl: USDTRY
+2025-03-18 17:38:41.166 [XAUUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting getOrInitAssetState method in RateSimulatorServiceImpl: XAUUSD
+2025-03-18 17:38:41.166 [XAUUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering updatePriceAndVolatility method in RateSimulatorServiceImpl: XAUUSD
+2025-03-18 17:38:41.166 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Exiting getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-03-18 17:38:41.166 [USDTRY] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Entering updatePriceAndVolatility method in RateSimulatorServiceImpl: USDTRY
+2025-03-18 17:38:41.166 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Entering updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-03-18 17:38:41.166 [XAUUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Old price: 1850.000000000837, Old sigma: 0.0, Old return: 0.0
+2025-03-18 17:38:41.167 [USDTRY] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Old price: 18.50000266318809, Old sigma: 0.0, Old return: 6.27853990822733E-10
+2025-03-18 17:38:41.167 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Old price: 1.0481380746369413, Old sigma: 0.0, Old return: -3.55370564850151E-8
+2025-03-18 17:38:41.167 [XAUUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering computeVolatility method in RateSimulatorServiceImpl: XAUUSD
+2025-03-18 17:38:41.167 [XAUUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Using EGARCH
+2025-03-18 17:38:41.167 [USDTRY] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Entering computeVolatility method in RateSimulatorServiceImpl: USDTRY
+2025-03-18 17:38:41.167 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Entering computeVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-03-18 17:38:41.167 [USDTRY] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Using EGARCH
+2025-03-18 17:38:41.167 [XAUUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering eGarchUpdate method in RateSimulatorServiceImpl.
+2025-03-18 17:38:41.167 [USDTRY] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Entering eGarchUpdate method in RateSimulatorServiceImpl.
+2025-03-18 17:38:41.167 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Using EGARCH
+2025-03-18 17:38:41.167 [XAUUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - EGARCH nextLogSigmaSq: -Infinity, sigma: 0.0
+2025-03-18 17:38:41.167 [USDTRY] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - EGARCH nextLogSigmaSq: -Infinity, sigma: 0.0
+2025-03-18 17:38:41.167 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Entering eGarchUpdate method in RateSimulatorServiceImpl.
+2025-03-18 17:38:41.167 [XAUUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting eGarchUpdate method in RateSimulatorServiceImpl.
+2025-03-18 17:38:41.167 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - EGARCH nextLogSigmaSq: -Infinity, sigma: 0.0
+2025-03-18 17:38:41.167 [USDTRY] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Exiting eGarchUpdate method in RateSimulatorServiceImpl.
+2025-03-18 17:38:41.167 [XAUUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting computeVolatility method in RateSimulatorServiceImpl-> newSigma: 0.0 rate: XAUUSD
+2025-03-18 17:38:41.167 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Exiting eGarchUpdate method in RateSimulatorServiceImpl.
+2025-03-18 17:38:41.167 [XAUUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - New sigma computed: 0.0
+2025-03-18 17:38:41.167 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Exiting computeVolatility method in RateSimulatorServiceImpl-> newSigma: 0.0 rate: EURUSD
+2025-03-18 17:38:41.167 [USDTRY] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Exiting computeVolatility method in RateSimulatorServiceImpl-> newSigma: 0.0 rate: USDTRY
+2025-03-18 17:38:41.167 [XAUUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-03-18 17:38:41.167 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - New sigma computed: 0.0
+2025-03-18 17:38:41.167 [USDTRY] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - New sigma computed: 0.0
+2025-03-18 17:38:41.167 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Entering getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-03-18 17:38:41.167 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Exiting getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-03-18 17:38:41.167 [XAUUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-03-18 17:38:41.167 [USDTRY] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Entering getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-03-18 17:38:41.168 [USDTRY] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Exiting getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-03-18 17:38:41.168 [XAUUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Drift adjustment: 0.0
+2025-03-18 17:38:41.167 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Drift adjustment: 6.341958396752917E-10
+2025-03-18 17:38:41.168 [USDTRY] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Drift adjustment: 1.5854895991882295E-9
+2025-03-18 17:38:41.168 [USDTRY] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Price updated from 18.50000266318809 to 18.50000269251965 (pre-session adjustments)
+2025-03-18 17:38:41.168 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Price updated from 1.0481380746369413 to 1.048138075301666 (pre-session adjustments)
+2025-03-18 17:38:41.168 [XAUUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Price updated from 1850.000000000837 to 1850.000000000837 (pre-session adjustments)
+2025-03-18 17:38:41.168 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Applied session volatility multiplier for hour 14: 1.3
+2025-03-18 17:38:41.168 [USDTRY] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Applied session volatility multiplier for hour 14: 1.3
+2025-03-18 17:38:41.168 [XAUUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Applied session volatility multiplier for hour 14: 1.3
+2025-03-18 17:38:41.168 [USDTRY] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Session vol multiplier: 1.3, final newPrice: 18.50000270131912
+2025-03-18 17:38:41.168 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Session vol multiplier: 1.3, final newPrice: 1.0481380755010834
+2025-03-18 17:38:41.168 [XAUUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Session vol multiplier: 1.3, final newPrice: 1850.000000000837
+2025-03-18 17:38:41.168 [USDTRY] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Entering applyMeanReversion method in RateSimulatorServiceImpl.
+2025-03-18 17:38:41.168 [XAUUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering applyMeanReversion method in RateSimulatorServiceImpl.
+2025-03-18 17:38:41.168 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Entering applyMeanReversion method in RateSimulatorServiceImpl.
+2025-03-18 17:38:41.168 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Exiting applyMeanReversion method in RateSimulatorServiceImpl.
+2025-03-18 17:38:41.168 [XAUUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting applyMeanReversion method in RateSimulatorServiceImpl.
+2025-03-18 17:38:41.168 [USDTRY] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Exiting applyMeanReversion method in RateSimulatorServiceImpl.
+2025-03-18 17:38:41.168 [XAUUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Applied mean reversion, New price: 1850.000000000837
+2025-03-18 17:38:41.168 [USDTRY] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Applied mean reversion, New price: 18.500002674687238
+2025-03-18 17:38:41.168 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Applied mean reversion, New price: 1.0481380374264464
+2025-03-18 17:38:41.168 [XAUUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-03-18 17:38:41.168 [USDTRY] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Entering checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-03-18 17:38:41.168 [USDTRY] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Determined volatility regime: LOW_VOL
+2025-03-18 17:38:41.168 [USDTRY] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Exiting checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-03-18 17:38:41.168 [XAUUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Determined volatility regime: LOW_VOL
+2025-03-18 17:38:41.168 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Entering checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-03-18 17:38:41.169 [USDTRY] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Determined new volatility regime: LOW_VOL
+2025-03-18 17:38:41.169 [XAUUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-03-18 17:38:41.169 [USDTRY] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Entering createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-03-18 17:38:41.169 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Determined volatility regime: LOW_VOL
+2025-03-18 17:38:41.169 [USDTRY] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Computed return: 6.215754575777951E-10
+2025-03-18 17:38:41.169 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Exiting checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-03-18 17:38:41.169 [XAUUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Determined new volatility regime: LOW_VOL
+2025-03-18 17:38:41.169 [USDTRY] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Generated random volume: 7
+2025-03-18 17:38:41.169 [XAUUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-03-18 17:38:41.169 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Determined new volatility regime: LOW_VOL
+2025-03-18 17:38:41.169 [USDTRY] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Exiting createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-03-18 17:38:41.169 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Entering createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-03-18 17:38:41.169 [USDTRY] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Exiting updatePriceAndVolatility method in RateSimulatorServiceImpl: USDTRY
+2025-03-18 17:38:41.169 [XAUUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Computed return: 0.0
+2025-03-18 17:38:41.169 [USDTRY] [RateUpdate-8] INFO  RateSimulatorServiceImpl - Updated price and volatility for rate: USDTRY
+2025-03-18 17:38:41.169 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Computed return: -3.55015206872253E-8
+2025-03-18 17:38:41.169 [XAUUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Generated random volume: 4
+2025-03-18 17:38:41.169 [USDTRY] [RateUpdate-8] TRACE MacroDataServiceImpl - Entering applyMacroData method in MacroDataServiceImpl.
+2025-03-18 17:38:41.169 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Generated random volume: 9
+2025-03-18 17:38:41.169 [XAUUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-03-18 17:38:41.169 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Exiting createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-03-18 17:38:41.169 [USDTRY] [RateUpdate-8] DEBUG MacroDataServiceImpl - No macro indicators to apply.
+2025-03-18 17:38:41.169 [XAUUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting updatePriceAndVolatility method in RateSimulatorServiceImpl: XAUUSD
+2025-03-18 17:38:41.169 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Exiting updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-03-18 17:38:41.169 [USDTRY] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Applied macro data adjustments for rate: USDTRY
+2025-03-18 17:38:41.169 [XAUUSD] [RateUpdate-1] INFO  RateSimulatorServiceImpl - Updated price and volatility for rate: XAUUSD
+2025-03-18 17:38:41.170 [USDTRY] [RateUpdate-8] TRACE ShockServiceImpl - Entering processAutomaticShocks method in ShockServiceImpl.
+2025-03-18 17:38:41.170 [EURUSD] [RateUpdate-7] INFO  RateSimulatorServiceImpl - Updated price and volatility for rate: EURUSD
+2025-03-18 17:38:41.170 [EURUSD] [RateUpdate-7] TRACE MacroDataServiceImpl - Entering applyMacroData method in MacroDataServiceImpl.
+2025-03-18 17:38:41.170 [XAUUSD] [RateUpdate-1] TRACE MacroDataServiceImpl - Entering applyMacroData method in MacroDataServiceImpl.
+2025-03-18 17:38:41.170 [USDTRY] [RateUpdate-8] DEBUG ShockServiceImpl - Shock probabilities (per sec) => Small: 4.133597883597884E-6, Medium: 5.787037037037037E-7, Big: 3.1709791983764586E-8
+2025-03-18 17:38:41.170 [EURUSD] [RateUpdate-7] DEBUG MacroDataServiceImpl - No macro indicators to apply.
+2025-03-18 17:38:41.170 [XAUUSD] [RateUpdate-1] DEBUG MacroDataServiceImpl - No macro indicators to apply.
+2025-03-18 17:38:41.170 [USDTRY] [RateUpdate-8] TRACE ShockServiceImpl - Exiting processAutomaticShocks method in ShockServiceImpl.
+2025-03-18 17:38:41.170 [XAUUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Applied macro data adjustments for rate: XAUUSD
+2025-03-18 17:38:41.170 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Applied macro data adjustments for rate: EURUSD
+2025-03-18 17:38:41.170 [USDTRY] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Processed automatic shocks for rate: USDTRY
+2025-03-18 17:38:41.170 [XAUUSD] [RateUpdate-1] TRACE ShockServiceImpl - Entering processAutomaticShocks method in ShockServiceImpl.
+2025-03-18 17:38:41.170 [EURUSD] [RateUpdate-7] TRACE ShockServiceImpl - Entering processAutomaticShocks method in ShockServiceImpl.
+2025-03-18 17:38:41.170 [USDTRY] [RateUpdate-8] TRACE ShockServiceImpl - Entering checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-03-18 17:38:41.170 [XAUUSD] [RateUpdate-1] DEBUG ShockServiceImpl - Shock probabilities (per sec) => Small: 4.133597883597884E-6, Medium: 5.787037037037037E-7, Big: 3.1709791983764586E-8
+2025-03-18 17:38:41.170 [XAUUSD] [RateUpdate-1] TRACE ShockServiceImpl - Exiting processAutomaticShocks method in ShockServiceImpl.
+2025-03-18 17:38:41.170 [USDTRY] [RateUpdate-8] TRACE ShockServiceImpl - Exiting checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-03-18 17:38:41.170 [XAUUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Processed automatic shocks for rate: XAUUSD
+2025-03-18 17:38:41.170 [EURUSD] [RateUpdate-7] DEBUG ShockServiceImpl - Shock probabilities (per sec) => Small: 4.133597883597884E-6, Medium: 5.787037037037037E-7, Big: 3.1709791983764586E-8
+2025-03-18 17:38:41.170 [USDTRY] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Checked and applied critical shocks for rate: USDTRY
+2025-03-18 17:38:41.170 [XAUUSD] [RateUpdate-1] TRACE ShockServiceImpl - Entering checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-03-18 17:38:41.170 [EURUSD] [RateUpdate-7] TRACE ShockServiceImpl - Exiting processAutomaticShocks method in ShockServiceImpl.
+2025-03-18 17:38:41.170 [USDTRY] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Saving asset state for rate: USDTRY
+2025-03-18 17:38:41.170 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Processed automatic shocks for rate: EURUSD
+2025-03-18 17:38:41.171 [XAUUSD] [RateUpdate-1] TRACE ShockServiceImpl - Exiting checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-03-18 17:38:41.171 [EURUSD] [RateUpdate-7] TRACE ShockServiceImpl - Entering checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-03-18 17:38:41.171 [XAUUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Checked and applied critical shocks for rate: XAUUSD
+2025-03-18 17:38:41.171 [XAUUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Saving asset state for rate: XAUUSD
+2025-03-18 17:38:41.171 [EURUSD] [RateUpdate-7] TRACE ShockServiceImpl - Exiting checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-03-18 17:38:41.171 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Checked and applied critical shocks for rate: EURUSD
+2025-03-18 17:38:41.171 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Saving asset state for rate: EURUSD
+2025-03-18 17:38:41.172 [XAUUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Saved asset state for rate: XAUUSD
+2025-03-18 17:38:41.172 [USDTRY] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Saved asset state for rate: USDTRY
+2025-03-18 17:38:41.172 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Saved asset state for rate: EURUSD
+2025-03-18 17:38:41.172 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Entering buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-03-18 17:38:41.172 [USDTRY] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Entering buildRateDataResponse method in RateSimulatorServiceImpl: USDTRY
+2025-03-18 17:38:41.172 [XAUUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering buildRateDataResponse method in RateSimulatorServiceImpl: XAUUSD
+2025-03-18 17:38:41.173 [USDTRY] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Computed bid: 18.490002674687238, ask: 18.510002674687238 for rate: USDTRY
+2025-03-18 17:38:41.173 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Computed bid: 1.0480880374264464, ask: 1.0481880374264464 for rate: EURUSD
+2025-03-18 17:38:41.173 [XAUUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Computed bid: 1849.800000000837, ask: 1850.200000000837 for rate: XAUUSD
+2025-03-18 17:38:41.173 [XAUUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Generated random volume: 7
+2025-03-18 17:38:41.173 [XAUUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting buildRateDataResponse method in RateSimulatorServiceImpl: XAUUSD
+2025-03-18 17:38:41.173 [USDTRY] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Generated random volume: 1
+2025-03-18 17:38:41.173 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Generated random volume: 3
+2025-03-18 17:38:41.173 [USDTRY] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Exiting buildRateDataResponse method in RateSimulatorServiceImpl: USDTRY
+2025-03-18 17:38:41.173 [XAUUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Saving rate data response for rate: XAUUSD
+2025-03-18 17:38:41.173 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Exiting buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-03-18 17:38:41.173 [USDTRY] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Saving rate data response for rate: USDTRY
+2025-03-18 17:38:41.173 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Saving rate data response for rate: EURUSD
+2025-03-18 17:38:41.174 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Saved rate data response for rate: EURUSD
+2025-03-18 17:38:41.174 [XAUUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Saved rate data response for rate: XAUUSD
+2025-03-18 17:38:41.174 [USDTRY] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Saved rate data response for rate: USDTRY
+2025-03-18 17:38:41.175 [] [ForkJoinPool.commonPool-worker-1] TRACE RateSimulatorServiceImpl - Exiting updateAllRates method in RateSimulatorServiceImpl.
+2025-03-18 17:38:41.175 [] [ForkJoinPool.commonPool-worker-1] INFO  RateUpdateScheduler - Rates updated => iteration=3 totalUpdated=3
+2025-03-18 17:38:41.202 [] [main] INFO  DiscoveryClient - The response status is 200
+2025-03-18 17:38:41.203 [] [main] INFO  DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-03-18 17:38:41.205 [] [main] INFO  InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-03-18 17:38:41.206 [] [main] INFO  DiscoveryClient - Discovery Client initialized at timestamp 1742308721206 with initial instances count: 0
+2025-03-18 17:38:41.209 [] [main] INFO  EurekaServiceRegistry - Registering application REST-DATA-PROVIDER with eureka with status UP
+2025-03-18 17:38:41.211 [] [main] INFO  DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1742308721211, current=UP, previous=STARTING]
+2025-03-18 17:38:41.214 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083: registering service...
+2025-03-18 17:38:41.230 [] [main] INFO  TomcatWebServer - Tomcat started on port 8083 (http) with context path '/'
+2025-03-18 17:38:41.232 [] [main] INFO  EurekaAutoServiceRegistration - Updating port to 8083
+2025-03-18 17:38:41.270 [] [main] INFO  RestDataProviderApplication - Started RestDataProviderApplication in 12.369 seconds (process running for 15.617)
+2025-03-18 17:38:41.272 [] [SpringApplicationShutdownHook] INFO  EurekaServiceRegistry - Unregistering application REST-DATA-PROVIDER with eureka with status DOWN
+2025-03-18 17:38:41.272 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1742308721272, current=DOWN, previous=UP]
+2025-03-18 17:38:41.283 [] [SpringApplicationShutdownHook] INFO  GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-03-18 17:38:41.295 [] [tomcat-shutdown] INFO  GracefulShutdown - Graceful shutdown complete
+2025-03-18 17:38:41.391 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083 - registration status: 204
+2025-03-18 17:38:41.391 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083: registering service...
+2025-03-18 17:38:41.402 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083 - registration status: 204
+2025-03-18 17:38:42.377 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Shutting down DiscoveryClient ...
+2025-03-18 17:38:45.391 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Unregistering ...
+2025-03-18 17:38:45.449 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - DiscoveryClient_REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083 - deregister  status: 200
+2025-03-18 17:38:45.450 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Completed shut down of DiscoveryClient

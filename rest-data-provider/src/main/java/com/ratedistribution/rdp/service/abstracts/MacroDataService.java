@@ -7,6 +7,4 @@ import java.util.List;
 
 public interface MacroDataService {
     void applyMacroData(AssetState state);
-
-    List<MacroIndicatorDefinition> getAllMacroIndicators();
 }

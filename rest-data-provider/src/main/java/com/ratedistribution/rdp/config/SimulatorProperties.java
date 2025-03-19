@@ -4,12 +4,10 @@ import com.ratedistribution.rdp.model.*;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
 
 @Data
-@Configuration
 @ConfigurationProperties(prefix = "simulator")
 @RefreshScope
 public class SimulatorProperties {
@@ -20,6 +18,8 @@ public class SimulatorProperties {
     private ShockConfigDefinition shockConfig;
     private List<EventShockDefinition> eventShocks;
     private List<MacroIndicatorDefinition> macroIndicators;
+    private double weekendGapVolatility;
+    private double weekendShockFactor;
     private List<SessionVolFactor> sessionVolFactors;
     private List<HolidayDefinition> holidays;
     private List<MultiRateDefinition> rates;

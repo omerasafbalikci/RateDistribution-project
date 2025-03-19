@@ -18,41 +18,30 @@ public class MacroDataServiceImpl implements MacroDataService {
         this.simulatorProperties = simulatorProperties;
     }
 
-    /**
-     * Bu metot, her güncelleme döngüsünde çağrılacak.
-     * Mevcut makro indikatörleri okuyarak varlık fiyatına veya volatilitesine etki uygular.
-     */
     @Override
     public void applyMacroData(AssetState state) {
+        log.trace("Entering applyMacroData method in MacroDataServiceImpl.");
         List<MacroIndicatorDefinition> macroIndicators = simulatorProperties.getMacroIndicators();
         if (macroIndicators == null || macroIndicators.isEmpty()) {
+            log.debug("No macro indicators to apply.");
             return;
         }
 
         double price = state.getCurrentPrice();
         double sigma = state.getCurrentSigma();
 
-        // Tüm indikatörler üzerinden birikimli etki uygula (örnek basit bir model)
         for (MacroIndicatorDefinition indicator : macroIndicators) {
-            // Örneğin drift etkisini, currentPrice'a minik bir exponential faktör olarak ekle
-            // (Birebir real bir formül değil, sadece basit bir yaklaşım örneği)
             double driftFactor = Math.exp(-indicator.getSensitivityToDrift() * (indicator.getValue() / 100.0));
             double volFactor = 1.0 + indicator.getSensitivityToVol() * (indicator.getValue() / 1000.0);
 
-            // Price ve sigma üzerinde küçük düzeltme
             price = price * driftFactor;
             sigma = sigma * volFactor;
         }
 
-        // Yeni değerleri geri yaz
         state.setCurrentPrice(price);
         state.setCurrentSigma(sigma);
 
         log.debug("MacroData applied -> newPrice: {}, newSigma: {}", price, sigma);
-    }
-
-    @Override
-    public List<MacroIndicatorDefinition> getAllMacroIndicators() {
-        return simulatorProperties.getMacroIndicators();
+        log.trace("Exiting applyMacroData method in MacroDataServiceImpl.");
     }
 }

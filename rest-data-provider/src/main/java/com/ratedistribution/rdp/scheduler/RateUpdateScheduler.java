@@ -1,17 +1,16 @@
 package com.ratedistribution.rdp.scheduler;
 
 import com.ratedistribution.rdp.config.SimulatorProperties;
-import com.ratedistribution.rdp.dto.responses.RateDataResponse;
 import com.ratedistribution.rdp.service.abstracts.RateSimulatorService;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
+import java.time.Instant;
+import java.util.concurrent.CompletableFuture;
 
 @Component
 @RequiredArgsConstructor
@@ -19,32 +18,34 @@ import java.util.concurrent.TimeUnit;
 public class RateUpdateScheduler {
     private final RateSimulatorService rateSimulatorService;
     private final SimulatorProperties simulatorProperties;
-
-    private ScheduledExecutorService executor;
+    private final ThreadPoolTaskScheduler taskScheduler;
     private int updateCount = 0;
 
     @PostConstruct
     public void startScheduler() {
-        executor = Executors.newSingleThreadScheduledExecutor();
-        long interval = simulatorProperties.getUpdateIntervalMillis();
+        long intervalMillis = simulatorProperties.getUpdateIntervalMillis();
+        Duration interval = Duration.ofMillis(intervalMillis);
 
-        executor.scheduleAtFixedRate(() -> {
-            try {
-                performUpdate();
-            } catch (Exception e) {
-                log.error("Error in scheduled update => ", e);
-            }
-        }, 0, interval, TimeUnit.MILLISECONDS);
+        taskScheduler.scheduleAtFixedRate(this::performUpdate, Instant.now(), interval);
+        log.info("Rate update scheduler started with interval: {} ms", intervalMillis);
     }
 
     private void performUpdate() {
         if (simulatorProperties.getMaxUpdates() > 0 && updateCount >= simulatorProperties.getMaxUpdates()) {
             log.info("Max updates reached => stopping...");
-            executor.shutdown();
+            taskScheduler.shutdown();
             return;
         }
-        List<RateDataResponse> updatedRates = rateSimulatorService.updateAllRates();
-        updateCount++;
-        log.info("Rates updated => iteration={} totalUpdated={}", updateCount, updatedRates.size());
+        log.info("Starting rate update process... Iteration: {}", updateCount + 1);
+
+        CompletableFuture.supplyAsync(rateSimulatorService::updateAllRates)
+                .thenAccept(updatedRates -> {
+                    updateCount++;
+                    log.info("Rates updated => iteration={} totalUpdated={}", updateCount, updatedRates.size());
+                })
+                .exceptionally(ex -> {
+                    log.error("Error during rate update process", ex);
+                    return null;
+                });
     }
 }
