@@ -1,7 +1,8 @@
 package com.ratedistribution.rdp.utilities;
 
 import com.ratedistribution.rdp.config.SimulatorProperties;
-import lombok.RequiredArgsConstructor;
+import com.ratedistribution.rdp.utilities.exceptions.CorrelationMatrixException;
+import lombok.extern.log4j.Log4j2;
 import org.apache.commons.math3.linear.CholeskyDecomposition;
 import org.apache.commons.math3.linear.MatrixUtils;
 import org.apache.commons.math3.linear.RealMatrix;
@@ -12,15 +13,18 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Component
+@Log4j2
 public class CorrelatedRandomVectorGenerator {
     private final RealMatrix L;
     private final int dimension;
 
     @Autowired
     public CorrelatedRandomVectorGenerator(SimulatorProperties simulatorProperties) {
+        log.trace("Entering CorrelatedRandomVectorGenerator method in CorrelatedRandomVectorGenerator.");
         List<List<Double>> listOfLists = simulatorProperties.getCorrelationMatrix();
         if (listOfLists == null || listOfLists.isEmpty()) {
-            throw new IllegalArgumentException("correlationMatrix is empty or not configured!");
+            log.error("Correlation matrix is empty or not configured!");
+            throw new CorrelationMatrixException("correlationMatrix is empty or not configured!");
         }
         double[][] corrMatrix = convertTo2DArray(listOfLists);
 
@@ -28,6 +32,7 @@ public class CorrelatedRandomVectorGenerator {
         RealMatrix corr = MatrixUtils.createRealMatrix(corrMatrix);
         CholeskyDecomposition decomposition = new CholeskyDecomposition(corr, 1.0e-12, 1.0e-12);
         this.L = decomposition.getL();
+        log.trace("Exiting CorrelatedRandomVectorGenerator method in CorrelatedRandomVectorGenerator.");
     }
 
     private double[][] convertTo2DArray(List<List<Double>> listOfLists) {

@@ -22,4 +22,5 @@ public class AssetState implements Serializable {
     private int stepsInRegime;
     private long lastUpdateEpochMillis;
     private LocalDate currentDay;
+    private String configSignature;
 }

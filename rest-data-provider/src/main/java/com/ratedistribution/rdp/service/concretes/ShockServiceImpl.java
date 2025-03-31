@@ -27,9 +27,9 @@ public class ShockServiceImpl implements ShockService {
         log.trace("Entering processAutomaticShocks method in ShockServiceImpl.");
         double dtSeconds = 1.0;
         ShockConfigDefinition shockCfg = this.simulatorProperties.getShockConfig();
-        double smallShockPerSec  = shockCfg.getSmallShockWeekly()  / (7 * 24 * 3600.0);
+        double smallShockPerSec = shockCfg.getSmallShockWeekly() / (7 * 24 * 3600.0);
         double mediumShockPerSec = shockCfg.getMediumShockMonthly() / (30 * 24 * 3600.0);
-        double bigShockPerSec    = shockCfg.getBigShockYearly()    / (365 * 24 * 3600.0);
+        double bigShockPerSec = shockCfg.getBigShockYearly() / (365 * 24 * 3600.0);
 
         log.debug("Shock probabilities (per sec) => Small: {}, Medium: {}, Big: {}",
                 smallShockPerSec, mediumShockPerSec, bigShockPerSec);
@@ -99,5 +99,5 @@ public class ShockServiceImpl implements ShockService {
         log.trace("Exiting checkAndApplyCriticalShocks method in ShockServiceImpl.");
     }
 
-    private enum ShockType { SMALL, MEDIUM, BIG }
+    private enum ShockType {SMALL, MEDIUM, BIG}
 }

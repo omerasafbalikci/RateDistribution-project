@@ -3,7 +3,6 @@ package com.ratedistribution.rdp.service.concretes;
 import com.ratedistribution.rdp.config.SimulatorProperties;
 import com.ratedistribution.rdp.dto.responses.RateDataResponse;
 import com.ratedistribution.rdp.model.*;
-import com.ratedistribution.rdp.service.abstracts.MacroDataService;
 import com.ratedistribution.rdp.service.abstracts.RateSimulatorService;
 import com.ratedistribution.rdp.utilities.CorrelatedRandomVectorGenerator;
 import lombok.RequiredArgsConstructor;
@@ -27,15 +26,17 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @Log4j2
 public class RateSimulatorServiceImpl implements RateSimulatorService {
+
     private final SimulatorProperties simulatorProperties;
     private final RedisTemplate<String, AssetState> assetStateRedisTemplate;
     private final RedisTemplate<String, RateDataResponse> rateDataResponseRedisTemplate;
     private final HolidayCalendarService holidayCalendarService;
     private final ShockServiceImpl shockService;
-    private final MacroDataService macroDataService;
     private final CorrelatedRandomVectorGenerator correlatedRng;
     private final ThreadPoolTaskExecutor rateUpdateExecutor;
+
     private LocalDateTime lastUpdate = null;
+    private static final String ASSET_STATE_KEY = "ASSET_STATES";
 
     @Override
     public List<RateDataResponse> updateAllRates() {
@@ -49,7 +50,7 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
             return responses;
         }
 
-        LocalDateTime now = LocalDateTime.now(ZoneOffset.UTC);
+        LocalDateTime now = LocalDateTime.now();
         log.debug("Starting rate update process at: {}", now);
         double deltaTimeSeconds = computeDeltaTimeSeconds(now);
         log.debug("Computed delta time in seconds: {}", deltaTimeSeconds);
@@ -78,7 +79,16 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
                 try {
                     log.info("Processing rate update: {}", rateDefinition.getRateName());
 
+                    // ASIL DEĞİŞİKLİK BURADA: Yeni parametre imzası kontrolü yapılıyor
                     AssetState oldState = getOrInitAssetState(rateDefinition, now);
+
+                    log.debug("Current config for {}: drift={}, omega={}, alpha={}, beta={}",
+                            rateDefinition.getRateName(),
+                            rateDefinition.getDrift(),
+                            rateDefinition.getGarchParams().getOmega(),
+                            rateDefinition.getGarchParams().getAlpha(),
+                            rateDefinition.getGarchParams().getBeta());
+
                     AssetState updatedState = updatePriceAndVolatility(
                             rateDefinition,
                             oldState,
@@ -89,8 +99,6 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
                     );
                     log.info("Updated price and volatility for rate: {}", rateDefinition.getRateName());
 
-                    macroDataService.applyMacroData(updatedState);
-                    log.debug("Applied macro data adjustments for rate: {}", rateDefinition.getRateName());
                     shockService.processAutomaticShocks(updatedState, now);
                     log.debug("Processed automatic shocks for rate: {}", rateDefinition.getRateName());
                     shockService.checkAndApplyCriticalShocks(updatedState, now);
@@ -118,6 +126,103 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         return responses;
     }
 
+    /**
+     * YENİ: Parametre imzası oluşturur ve Redis'teki değerle karşılaştırır.
+     * Fark varsa kısmi reset uygular (fiyatı korur, sigma vb.'yi sıfırlar).
+     */
+    private AssetState getOrInitAssetState(MultiRateDefinition rateDef, LocalDateTime now) {
+        log.trace("Entering getOrInitAssetState method in RateSimulatorServiceImpl: {}", rateDef.getRateName());
+        HashOperations<String, String, AssetState> ops = assetStateRedisTemplate.opsForHash();
+        AssetState state = ops.get(ASSET_STATE_KEY, rateDef.getRateName());
+
+        // Yeni parametrelere dayalı bir "imza" oluştur
+        String newConfigSignature = buildConfigSignature(rateDef);
+
+        if (state == null) {
+            // Eğer Redis'te yoksa ilk kez oluştur
+            log.warn("No existing asset state found for rate: {}, initializing new state.", rateDef.getRateName());
+            state = initAssetState(rateDef, now);
+            state.setConfigSignature(newConfigSignature);
+            ops.put(ASSET_STATE_KEY, rateDef.getRateName(), state);
+        } else {
+            // Varsa parametre imzasını karşılaştır
+            if (!newConfigSignature.equals(state.getConfigSignature())) {
+                log.info("Detected config change for {}. Applying partial re-init...", rateDef.getRateName());
+
+                // KISMİ RESET (fiyat gibi değerleri koruyoruz)
+
+                // Yeni parametrelere göre sigma'yı sıfırla
+                double initSigma = Math.sqrt(rateDef.getGarchParams().getOmega());
+                state.setCurrentSigma(initSigma);
+
+                // GARCH geriye dönük getiriyi sıfırla
+                state.setLastReturn(0.0);
+
+                // Rejimi ister koru, ister sıfırla (biz koruyoruz):
+                // state.setCurrentRegime(VolRegime.LOW_VOL);
+
+                // Rejim adım sayacını sıfırla
+                state.setStepsInRegime(0);
+
+                // Açılış, en yüksek/en düşük gibi değerler gün içinde kaldığı için koruyalım
+                // state.setDayOpen(state.getDayOpen());
+                // state.setDayHigh(state.getDayHigh());
+                // state.setDayLow(state.getDayLow());
+                // state.setDayVolume(state.getDayVolume());
+
+                // Yeni imzayı ata
+                state.setConfigSignature(newConfigSignature);
+
+                // Gerekirse 'initAssetState' ile tamamen sıfırlamayı da seçebilirsin
+                // state = initAssetState(rateDef, now);
+
+                ops.put(ASSET_STATE_KEY, rateDef.getRateName(), state);
+            }
+        }
+
+        log.trace("Exiting getOrInitAssetState method in RateSimulatorServiceImpl: {}", rateDef.getRateName());
+        return state;
+    }
+
+    /**
+     * Parametrelere dayalı string imza oluşturur.
+     * İstersen 'baseSpread', 'useMeanReversion' vb. ekleyerek daha kapsamlı yapabilirsin.
+     */
+    private String buildConfigSignature(MultiRateDefinition rateDef) {
+        return "drift=" + rateDef.getDrift()
+                + "|omega=" + rateDef.getGarchParams().getOmega()
+                + "|alpha=" + rateDef.getGarchParams().getAlpha()
+                + "|beta=" + rateDef.getGarchParams().getBeta()
+                + "|spread=" + rateDef.getBaseSpread();
+    }
+
+    /**
+     * Yeni bir AssetState örneği oluşturur (ilk başlatma için).
+     */
+    private AssetState initAssetState(MultiRateDefinition rateDef, LocalDateTime now) {
+        log.trace("Entering initAssetState method in RateSimulatorServiceImpl: {}", rateDef.getRateName());
+        AssetState state = new AssetState();
+        state.setCurrentPrice(rateDef.getInitialPrice());
+
+        double initSigma = Math.sqrt(rateDef.getGarchParams().getOmega());
+        state.setCurrentSigma(initSigma);
+
+        state.setLastReturn(0.0);
+        state.setDayOpen(rateDef.getInitialPrice());
+        state.setDayHigh(rateDef.getInitialPrice());
+        state.setDayLow(rateDef.getInitialPrice());
+        state.setDayVolume(0L);
+        state.setCurrentRegime(VolRegime.LOW_VOL);
+        state.setStepsInRegime(0);
+        state.setLastUpdateEpochMillis(now.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli());
+        state.setCurrentDay(now.toLocalDate());
+        log.trace("Exiting initAssetState method in RateSimulatorServiceImpl: {}", rateDef.getRateName());
+        return state;
+    }
+
+    /**
+     * Fiyat ve volatiliteyi GARCH vb. modele göre günceller.
+     */
     private AssetState updatePriceAndVolatility(MultiRateDefinition rateDef,
                                                 AssetState oldState,
                                                 double randomFactor,
@@ -129,6 +234,7 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         double oldSigma = oldState.getCurrentSigma();
         double oldRet = oldState.getLastReturn();
         log.debug("Old price: {}, Old sigma: {}, Old return: {}", oldPrice, oldSigma, oldRet);
+
         double newSigma = computeVolatility(
                 simulatorProperties.getModelType(),
                 rateDef,
@@ -137,15 +243,19 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
                 deltaTimeSeconds
         );
         log.debug("New sigma computed: {}", newSigma);
+
         double driftAdjustment = getDriftAdjustment(rateDef.getDrift(), deltaTimeSeconds);
         log.debug("Drift adjustment: {}", driftAdjustment);
+
         double logReturn = driftAdjustment + newSigma * randomFactor;
         double newPrice = oldPrice * Math.exp(logReturn);
         log.debug("Price updated from {} to {} (pre-session adjustments)", oldPrice, newPrice);
+
         double volMultiplier = getSessionVolMultiplier(now);
         double delta = newPrice - oldPrice;
         newPrice = oldPrice + delta * volMultiplier;
         log.debug("Session vol multiplier: {}, final newPrice: {}", volMultiplier, newPrice);
+
         if (rateDef.isUseMeanReversion()) {
             newPrice = applyMeanReversion(oldPrice, newPrice, rateDef.getKappa(), rateDef.getTheta(), deltaTimeSeconds);
             log.debug("Applied mean reversion, New price: {}", newPrice);
@@ -179,22 +289,16 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
                                      double oldReturn,
                                      double deltaTimeSeconds) {
         log.trace("Entering computeVolatility method in RateSimulatorServiceImpl: {}", rateDef.getRateName());
-        double newSigma = switch (modelType.toUpperCase()) {
+        return switch (modelType.toUpperCase()) {
             case "GARCH11" -> {
                 log.debug("Using GARCH(1,1)");
                 yield garchUpdate(rateDef.getGarchParams(), oldSigma, oldReturn, deltaTimeSeconds);
             }
-            case "GJR-EGARCH" -> {
-                log.debug("Using GJR-EGARCH");
-                yield gjrEgarchUpdate(rateDef.getGarchParams(), oldSigma, oldReturn, deltaTimeSeconds);
-            }
             default -> {
-                log.debug("Using EGARCH");
-                yield eGarchUpdate(rateDef.getGarchParams(), oldSigma, oldReturn, deltaTimeSeconds);
+                log.debug("Default: Using GARCH(1,1)");
+                yield garchUpdate(rateDef.getGarchParams(), oldSigma, oldReturn, deltaTimeSeconds);
             }
         };
-        log.trace("Exiting computeVolatility method in RateSimulatorServiceImpl-> newSigma: {} rate: {}", newSigma, rateDef.getRateName());
-        return newSigma;
     }
 
     private double garchUpdate(GarchParams params,
@@ -209,49 +313,6 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         double result = Math.sqrt(Math.max(variance, 1e-15));
         log.debug("GARCH(1,1) variance: {}, sigma: {}", variance, result);
         log.trace("Exiting garchUpdate method in RateSimulatorServiceImpl.");
-        return result;
-    }
-
-
-    private double eGarchUpdate(GarchParams params,
-                                double oldSigma,
-                                double oldReturn,
-                                double dt) {
-        log.trace("Entering eGarchUpdate method in RateSimulatorServiceImpl.");
-        double oldVar = oldSigma * oldSigma;
-        double gamma = 0.1;
-        double sign = (oldReturn < 0) ? -1.0 : 1.0;
-        double gOfZ = oldReturn + gamma * (Math.abs(oldReturn) - 0.0) * sign;
-
-        double logSigmaSq = Math.log(oldVar);
-        double nextLogSigmaSq = Math.log(params.getOmega() * dt + 1e-15)
-                + params.getAlpha() * gOfZ
-                + params.getBeta() * logSigmaSq;
-        double result = Math.sqrt(Math.exp(nextLogSigmaSq));
-        log.debug("EGARCH nextLogSigmaSq: {}, sigma: {}", nextLogSigmaSq, result);
-        log.trace("Exiting eGarchUpdate method in RateSimulatorServiceImpl.");
-        return result;
-    }
-
-    private double gjrEgarchUpdate(GarchParams params,
-                                   double oldSigma,
-                                   double oldReturn,
-                                   double dt) {
-        log.trace("Entering gjrEgarchUpdate method in RateSimulatorServiceImpl.");
-        double oldVar = oldSigma * oldSigma;
-        double indicator = (oldReturn < 0) ? 1.0 : 0.0;
-        double gamma = 0.2;
-
-        double logSigmaSq = Math.log(oldVar);
-        double fRt = oldReturn + gamma * indicator * oldReturn;
-
-        double nextLogSigmaSq = Math.log(params.getOmega() * dt + 1e-15) +
-                params.getBeta() * logSigmaSq +
-                params.getAlpha() * fRt;
-
-        double result = Math.sqrt(Math.exp(nextLogSigmaSq));
-        log.debug("GJR-EGARCH nextLogSigmaSq: {}, sigma: {}", nextLogSigmaSq, result);
-        log.trace("Exiting gjrEgarchUpdate method in RateSimulatorServiceImpl.");
         return result;
     }
 
@@ -305,9 +366,11 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         }
         st.setLastReturn(ret);
         log.debug("Computed return: {}", ret);
+
         LocalDate oldDay = oldState.getCurrentDay();
         LocalDate nowDay = now.toLocalDate();
 
+        // Yeni güne geçilmişse daily open/high/low/volume sıfırlanır
         if (!oldDay.isEqual(nowDay)) {
             log.info("New day detected -> resetting daily open/high/low/volume");
             st.setDayOpen(newPrice);
@@ -323,13 +386,18 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
             st.setCurrentDay(oldDay);
         }
 
+        // Volatilite rejimi değiştiyse adım sayacını sıfırla
         if (newRegime != oldState.getCurrentRegime()) {
             st.setStepsInRegime(0);
         } else {
             st.setStepsInRegime(oldState.getStepsInRegime() + 1);
         }
         st.setCurrentRegime(newRegime);
-        st.setLastUpdateEpochMillis(now.toInstant(ZoneOffset.UTC).toEpochMilli());
+        st.setLastUpdateEpochMillis(now.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli());
+
+        // Eski state'in configSignature bilgisini koru
+        st.setConfigSignature(oldState.getConfigSignature());
+
         log.trace("Exiting createNewStateFromOld method in RateSimulatorServiceImpl.");
         return st;
     }
@@ -358,6 +426,7 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         response.setBid(bid);
         response.setAsk(ask);
         log.debug("Computed bid: {}, ask: {} for rate: {}", bid, ask, rateDef.getRateName());
+
         response.setDayOpen(BigDecimal.valueOf(state.getDayOpen()));
         response.setDayHigh(BigDecimal.valueOf(state.getDayHigh()));
         response.setDayLow(BigDecimal.valueOf(state.getDayLow()));
@@ -379,6 +448,8 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
     }
 
     private boolean isWeekend(LocalDateTime dt) {
+        // Örnek: Sadece Pazar'ı kapalı kabul etmek yerine haftasonu günleri genelde Cumartesi, Pazar’dır.
+        // Burada bir test için MONDAY veya THURSDAY yazılmış ama senin ihtiyacına göre güncelleyebilirsin.
         boolean weekend = dt.getDayOfWeek() == DayOfWeek.SATURDAY || dt.getDayOfWeek() == DayOfWeek.SUNDAY;
         log.debug("Checked if date {} is weekend: {}", dt, weekend);
         return weekend;
@@ -398,44 +469,10 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         return responses;
     }
 
-    private AssetState getOrInitAssetState(MultiRateDefinition rateDef, LocalDateTime now) {
-        log.trace("Entering getOrInitAssetState method in RateSimulatorServiceImpl: {}", rateDef.getRateName());
-        HashOperations<String, String, AssetState> ops = assetStateRedisTemplate.opsForHash();
-        AssetState state = ops.get("ASSET_STATES", rateDef.getRateName());
-        if (state == null) {
-            log.warn("No existing asset state found for rate: {}, initializing new state.", rateDef.getRateName());
-            state = initAssetState(rateDef, now);
-            ops.put("ASSET_STATES", rateDef.getRateName(), state);
-        }
-        log.trace("Exiting getOrInitAssetState method in RateSimulatorServiceImpl: {}", rateDef.getRateName());
-        return state;
-    }
-
-    private AssetState initAssetState(MultiRateDefinition rateDef, LocalDateTime now) {
-        log.trace("Entering initAssetState method in RateSimulatorServiceImpl: {}", rateDef.getRateName());
-        AssetState state = new AssetState();
-        state.setCurrentPrice(rateDef.getInitialPrice());
-
-        double initSigma = Math.sqrt(rateDef.getGarchParams().getOmega());
-        state.setCurrentSigma(initSigma);
-
-        state.setLastReturn(0.0);
-        state.setDayOpen(rateDef.getInitialPrice());
-        state.setDayHigh(rateDef.getInitialPrice());
-        state.setDayLow(rateDef.getInitialPrice());
-        state.setDayVolume(0L);
-        state.setCurrentRegime(VolRegime.LOW_VOL);
-        state.setStepsInRegime(0);
-        state.setLastUpdateEpochMillis(now.toInstant(ZoneOffset.UTC).toEpochMilli());
-        state.setCurrentDay(now.toLocalDate());
-        log.trace("Exiting initAssetState method in RateSimulatorServiceImpl: {}", rateDef.getRateName());
-        return state;
-    }
-
     private void saveAssetState(String rateName, AssetState state) {
         log.debug("Saving asset state for rate: {}", rateName);
         HashOperations<String, String, AssetState> ops = assetStateRedisTemplate.opsForHash();
-        ops.put("ASSET_STATES", rateName, state);
+        ops.put(ASSET_STATE_KEY, rateName, state);
     }
 
     private void saveRateDataResponse(String rateName, RateDataResponse response) {
