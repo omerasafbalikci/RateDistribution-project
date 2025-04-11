@@ -1,0 +1,1071 @@
+2025-04-01 20:30:34.470 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Computed delta time in seconds: 1.0
+2025-04-01 20:30:34.470 [] [ForkJoinPool.commonPool-worker-3] TRACE HolidayCalendarService - Checking holiday for 2025-04-01T20:30:34.470442
+2025-04-01 20:30:34.470 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:34.470442 is weekend: false
+2025-04-01 20:30:34.470 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Market status - isWeekend: false, isHoliday: false
+2025-04-01 20:30:34.470 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:33.461856900 is weekend: false
+2025-04-01 20:30:34.470 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap detected: false
+2025-04-01 20:30:34.470 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap adjustment required: false
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] INFO  RateSimulatorServiceImpl - Processing rate update: EURUSD
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Entering getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Exiting getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Current config for EURUSD: drift=0.02, omega=1.0E-12, alpha=1.0E-6, beta=0.99999
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Entering updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Old price: 1.0485994528022393, Old sigma: 3.27985229814608E-5, Old return: 1.7247464353373623E-5
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Entering garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - GARCH(1,1) variance: 1.0767326498093412E-9, sigma: 3.281360464516724E-5
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Exiting garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - New sigma computed: 3.281360464516724E-5
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Entering getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Exiting getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Drift adjustment: 6.341958396752917E-10
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Price updated from 1.0485994528022393 to 1.048603114499071 (pre-session adjustments)
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Applied session volatility multiplier for hour 20: 1.0
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Session vol multiplier: 1.0, final newPrice: 1.048603114499071
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Entering applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Exiting applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Applied mean reversion, New price: 1.0486026150462688
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Entering checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Determined volatility regime: LOW_VOL
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Exiting checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Determined new volatility regime: LOW_VOL
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Entering createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Computed return: 3.01567891622786E-6
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Generated random volume: 1
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Exiting createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Exiting updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] INFO  RateSimulatorServiceImpl - Updated price and volatility for rate: EURUSD
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] TRACE ShockServiceImpl - Entering processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] DEBUG ShockServiceImpl - Shock probabilities (per sec) => Small: 4.133597883597884E-6, Medium: 5.787037037037037E-7, Big: 3.1709791983764586E-8
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] TRACE ShockServiceImpl - Exiting processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Processed automatic shocks for rate: EURUSD
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] TRACE ShockServiceImpl - Entering checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] TRACE ShockServiceImpl - Exiting checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Checked and applied critical shocks for rate: EURUSD
+2025-04-01 20:30:34.471 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Saving asset state for rate: EURUSD
+2025-04-01 20:30:34.472 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Saved asset state for rate: EURUSD
+2025-04-01 20:30:34.472 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Entering buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:34.472 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Computed bid: 1.0485526150462688, ask: 1.0486526150462688 for rate: EURUSD
+2025-04-01 20:30:34.472 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Generated random volume: 7
+2025-04-01 20:30:34.472 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Exiting buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:34.472 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Saving rate data response for rate: EURUSD
+2025-04-01 20:30:34.472 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Saved rate data response for rate: EURUSD
+2025-04-01 20:30:34.472 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Exiting updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:34.472 [] [ForkJoinPool.commonPool-worker-3] INFO  RateUpdateScheduler - Rates updated => iteration=1258 totalUpdated=1
+2025-04-01 20:30:35.460 [] [RateScheduler-3] INFO  RateUpdateScheduler - Starting rate update process... Iteration: 1259
+2025-04-01 20:30:35.460 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Entering updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:35.460 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Starting rate update process at: 2025-04-01T20:30:35.460509200
+2025-04-01 20:30:35.460 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Computed delta time in seconds: 1.0
+2025-04-01 20:30:35.460 [] [ForkJoinPool.commonPool-worker-3] TRACE HolidayCalendarService - Checking holiday for 2025-04-01T20:30:35.460509200
+2025-04-01 20:30:35.460 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:35.460509200 is weekend: false
+2025-04-01 20:30:35.460 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Market status - isWeekend: false, isHoliday: false
+2025-04-01 20:30:35.460 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:34.470442 is weekend: false
+2025-04-01 20:30:35.460 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap detected: false
+2025-04-01 20:30:35.460 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap adjustment required: false
+2025-04-01 20:30:35.460 [EURUSD] [RateUpdate-1] INFO  RateSimulatorServiceImpl - Processing rate update: EURUSD
+2025-04-01 20:30:35.460 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Current config for EURUSD: drift=0.02, omega=1.0E-12, alpha=1.0E-6, beta=0.99999
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Old price: 1.0486026150462688, Old sigma: 3.281360464516724E-5, Old return: 3.01567891622786E-6
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - GARCH(1,1) variance: 1.0777218915771623E-9, sigma: 3.282867483736074E-5
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - New sigma computed: 3.282867483736074E-5
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Drift adjustment: 6.341958396752917E-10
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Price updated from 1.0486026150462688 to 1.0486478796031904 (pre-session adjustments)
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Applied session volatility multiplier for hour 20: 1.0
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Session vol multiplier: 1.0, final newPrice: 1.0486478796031904
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Applied mean reversion, New price: 1.0486473769881441
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Determined volatility regime: LOW_VOL
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Determined new volatility regime: LOW_VOL
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Computed return: 4.268631975398756E-5
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Generated random volume: 2
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] INFO  RateSimulatorServiceImpl - Updated price and volatility for rate: EURUSD
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] TRACE ShockServiceImpl - Entering processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] DEBUG ShockServiceImpl - Shock probabilities (per sec) => Small: 4.133597883597884E-6, Medium: 5.787037037037037E-7, Big: 3.1709791983764586E-8
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] TRACE ShockServiceImpl - Exiting processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Processed automatic shocks for rate: EURUSD
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] TRACE ShockServiceImpl - Entering checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] TRACE ShockServiceImpl - Exiting checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Checked and applied critical shocks for rate: EURUSD
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Saving asset state for rate: EURUSD
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Saved asset state for rate: EURUSD
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Computed bid: 1.0485973769881441, ask: 1.0486973769881441 for rate: EURUSD
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Generated random volume: 6
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:35.461 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Saving rate data response for rate: EURUSD
+2025-04-01 20:30:35.462 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Saved rate data response for rate: EURUSD
+2025-04-01 20:30:35.462 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Exiting updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:35.462 [] [ForkJoinPool.commonPool-worker-3] INFO  RateUpdateScheduler - Rates updated => iteration=1259 totalUpdated=1
+2025-04-01 20:30:36.461 [] [RateScheduler-3] INFO  RateUpdateScheduler - Starting rate update process... Iteration: 1260
+2025-04-01 20:30:36.461 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Entering updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:36.461 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Starting rate update process at: 2025-04-01T20:30:36.461289700
+2025-04-01 20:30:36.461 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Computed delta time in seconds: 1.0
+2025-04-01 20:30:36.461 [] [ForkJoinPool.commonPool-worker-3] TRACE HolidayCalendarService - Checking holiday for 2025-04-01T20:30:36.461289700
+2025-04-01 20:30:36.461 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:36.461289700 is weekend: false
+2025-04-01 20:30:36.461 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Market status - isWeekend: false, isHoliday: false
+2025-04-01 20:30:36.461 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:35.460509200 is weekend: false
+2025-04-01 20:30:36.461 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap detected: false
+2025-04-01 20:30:36.461 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap adjustment required: false
+2025-04-01 20:30:36.461 [EURUSD] [RateUpdate-3] INFO  RateSimulatorServiceImpl - Processing rate update: EURUSD
+2025-04-01 20:30:36.461 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Entering getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Exiting getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Current config for EURUSD: drift=0.02, omega=1.0E-12, alpha=1.0E-6, beta=0.99999
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Entering updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Old price: 1.0486473769881441, Old sigma: 3.282867483736074E-5, Old return: 4.268631975398756E-5
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Entering garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - GARCH(1,1) variance: 1.0787129364801409E-9, sigma: 3.2843765564870006E-5
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Exiting garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - New sigma computed: 3.2843765564870006E-5
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Entering getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Exiting getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Drift adjustment: 6.341958396752917E-10
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Price updated from 1.0486473769881441 to 1.048634008652693 (pre-session adjustments)
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Applied session volatility multiplier for hour 20: 1.0
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Session vol multiplier: 1.0, final newPrice: 1.048634008652693
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Entering applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Exiting applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Applied mean reversion, New price: 1.048633461275705
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Entering checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Determined volatility regime: LOW_VOL
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Exiting checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Determined new volatility regime: LOW_VOL
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Entering createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Computed return: -1.3270242292403712E-5
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Generated random volume: 8
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Exiting createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Exiting updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] INFO  RateSimulatorServiceImpl - Updated price and volatility for rate: EURUSD
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] TRACE ShockServiceImpl - Entering processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] DEBUG ShockServiceImpl - Shock probabilities (per sec) => Small: 4.133597883597884E-6, Medium: 5.787037037037037E-7, Big: 3.1709791983764586E-8
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] TRACE ShockServiceImpl - Exiting processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Processed automatic shocks for rate: EURUSD
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] TRACE ShockServiceImpl - Entering checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] TRACE ShockServiceImpl - Exiting checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Checked and applied critical shocks for rate: EURUSD
+2025-04-01 20:30:36.462 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Saving asset state for rate: EURUSD
+2025-04-01 20:30:36.463 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Saved asset state for rate: EURUSD
+2025-04-01 20:30:36.463 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Entering buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:36.463 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Computed bid: 1.048583461275705, ask: 1.048683461275705 for rate: EURUSD
+2025-04-01 20:30:36.463 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Generated random volume: 1
+2025-04-01 20:30:36.463 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Exiting buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:36.463 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Saving rate data response for rate: EURUSD
+2025-04-01 20:30:36.463 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Saved rate data response for rate: EURUSD
+2025-04-01 20:30:36.463 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Exiting updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:36.463 [] [ForkJoinPool.commonPool-worker-3] INFO  RateUpdateScheduler - Rates updated => iteration=1260 totalUpdated=1
+2025-04-01 20:30:37.471 [] [RateScheduler-3] INFO  RateUpdateScheduler - Starting rate update process... Iteration: 1261
+2025-04-01 20:30:37.471 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Entering updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:37.471 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Starting rate update process at: 2025-04-01T20:30:37.471101800
+2025-04-01 20:30:37.471 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Computed delta time in seconds: 1.0
+2025-04-01 20:30:37.471 [] [ForkJoinPool.commonPool-worker-3] TRACE HolidayCalendarService - Checking holiday for 2025-04-01T20:30:37.471101800
+2025-04-01 20:30:37.471 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:37.471101800 is weekend: false
+2025-04-01 20:30:37.471 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Market status - isWeekend: false, isHoliday: false
+2025-04-01 20:30:37.471 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:36.461289700 is weekend: false
+2025-04-01 20:30:37.471 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap detected: false
+2025-04-01 20:30:37.471 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap adjustment required: false
+2025-04-01 20:30:37.471 [EURUSD] [RateUpdate-4] INFO  RateSimulatorServiceImpl - Processing rate update: EURUSD
+2025-04-01 20:30:37.471 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Entering getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:37.471 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Exiting getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:37.471 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Current config for EURUSD: drift=0.02, omega=1.0E-12, alpha=1.0E-6, beta=0.99999
+2025-04-01 20:30:37.471 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Entering updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:37.471 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Old price: 1.048633461275705, Old sigma: 3.2843765564870006E-5, Old return: -1.3270242292403712E-5
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Entering garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - GARCH(1,1) variance: 1.0797023254501064E-9, sigma: 3.2858824164143584E-5
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Exiting garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - New sigma computed: 3.2858824164143584E-5
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Entering getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Exiting getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Drift adjustment: 6.341958396752917E-10
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Price updated from 1.048633461275705 to 1.0486560409818435 (pre-session adjustments)
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Applied session volatility multiplier for hour 20: 1.0
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Session vol multiplier: 1.0, final newPrice: 1.0486560409818435
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Entering applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Exiting applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Applied mean reversion, New price: 1.048655507520568
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Entering checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Determined volatility regime: LOW_VOL
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Exiting checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Determined new volatility regime: LOW_VOL
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Entering createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Computed return: 2.102356441278957E-5
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Generated random volume: 5
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Exiting createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Exiting updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] INFO  RateSimulatorServiceImpl - Updated price and volatility for rate: EURUSD
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] TRACE ShockServiceImpl - Entering processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] DEBUG ShockServiceImpl - Shock probabilities (per sec) => Small: 4.133597883597884E-6, Medium: 5.787037037037037E-7, Big: 3.1709791983764586E-8
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] TRACE ShockServiceImpl - Exiting processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Processed automatic shocks for rate: EURUSD
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] TRACE ShockServiceImpl - Entering checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] TRACE ShockServiceImpl - Exiting checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Checked and applied critical shocks for rate: EURUSD
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Saving asset state for rate: EURUSD
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Saved asset state for rate: EURUSD
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Entering buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Computed bid: 1.048605507520568, ask: 1.048705507520568 for rate: EURUSD
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Generated random volume: 8
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Exiting buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Saving rate data response for rate: EURUSD
+2025-04-01 20:30:37.472 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Saved rate data response for rate: EURUSD
+2025-04-01 20:30:37.472 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Exiting updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:37.472 [] [ForkJoinPool.commonPool-worker-3] INFO  RateUpdateScheduler - Rates updated => iteration=1261 totalUpdated=1
+2025-04-01 20:30:38.459 [] [RateScheduler-3] INFO  RateUpdateScheduler - Starting rate update process... Iteration: 1262
+2025-04-01 20:30:38.459 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Entering updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:38.459 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Starting rate update process at: 2025-04-01T20:30:38.459902900
+2025-04-01 20:30:38.459 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Computed delta time in seconds: 1.0
+2025-04-01 20:30:38.459 [] [ForkJoinPool.commonPool-worker-3] TRACE HolidayCalendarService - Checking holiday for 2025-04-01T20:30:38.459902900
+2025-04-01 20:30:38.459 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:38.459902900 is weekend: false
+2025-04-01 20:30:38.459 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Market status - isWeekend: false, isHoliday: false
+2025-04-01 20:30:38.459 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:37.471101800 is weekend: false
+2025-04-01 20:30:38.459 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap detected: false
+2025-04-01 20:30:38.459 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap adjustment required: false
+2025-04-01 20:30:38.459 [EURUSD] [RateUpdate-5] INFO  RateSimulatorServiceImpl - Processing rate update: EURUSD
+2025-04-01 20:30:38.459 [EURUSD] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Entering getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Exiting getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Current config for EURUSD: drift=0.02, omega=1.0E-12, alpha=1.0E-6, beta=0.99999
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Entering updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Old price: 1.048655507520568, Old sigma: 3.2858824164143584E-5, Old return: 2.102356441278957E-5
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Entering garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - GARCH(1,1) variance: 1.0806919704171127E-9, sigma: 3.28738797591205E-5
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Exiting garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - New sigma computed: 3.28738797591205E-5
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Entering getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Exiting getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Drift adjustment: 6.341958396752917E-10
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Price updated from 1.048655507520568 to 1.0486323638232544 (pre-session adjustments)
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Applied session volatility multiplier for hour 20: 1.0
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Session vol multiplier: 1.0, final newPrice: 1.0486323638232544
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Entering applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Exiting applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Applied mean reversion, New price: 1.0486318083157338
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Entering checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Determined volatility regime: LOW_VOL
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Exiting checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Determined new volatility regime: LOW_VOL
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Entering createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Computed return: -2.259986474547446E-5
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Generated random volume: 7
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Exiting createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Exiting updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] INFO  RateSimulatorServiceImpl - Updated price and volatility for rate: EURUSD
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] TRACE ShockServiceImpl - Entering processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] DEBUG ShockServiceImpl - Shock probabilities (per sec) => Small: 4.133597883597884E-6, Medium: 5.787037037037037E-7, Big: 3.1709791983764586E-8
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] TRACE ShockServiceImpl - Exiting processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Processed automatic shocks for rate: EURUSD
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] TRACE ShockServiceImpl - Entering checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] TRACE ShockServiceImpl - Exiting checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Checked and applied critical shocks for rate: EURUSD
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Saving asset state for rate: EURUSD
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Saved asset state for rate: EURUSD
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Entering buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Computed bid: 1.0485818083157338, ask: 1.0486818083157338 for rate: EURUSD
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Generated random volume: 8
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Exiting buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Saving rate data response for rate: EURUSD
+2025-04-01 20:30:38.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Saved rate data response for rate: EURUSD
+2025-04-01 20:30:38.461 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Exiting updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:38.461 [] [ForkJoinPool.commonPool-worker-3] INFO  RateUpdateScheduler - Rates updated => iteration=1262 totalUpdated=1
+2025-04-01 20:30:39.473 [] [RateScheduler-3] INFO  RateUpdateScheduler - Starting rate update process... Iteration: 1263
+2025-04-01 20:30:39.473 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Entering updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:39.473 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Starting rate update process at: 2025-04-01T20:30:39.473759500
+2025-04-01 20:30:39.473 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Computed delta time in seconds: 1.0
+2025-04-01 20:30:39.473 [] [ForkJoinPool.commonPool-worker-3] TRACE HolidayCalendarService - Checking holiday for 2025-04-01T20:30:39.473759500
+2025-04-01 20:30:39.473 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:39.473759500 is weekend: false
+2025-04-01 20:30:39.473 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Market status - isWeekend: false, isHoliday: false
+2025-04-01 20:30:39.473 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:38.459902900 is weekend: false
+2025-04-01 20:30:39.473 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap detected: false
+2025-04-01 20:30:39.473 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap adjustment required: false
+2025-04-01 20:30:39.473 [EURUSD] [RateUpdate-6] INFO  RateSimulatorServiceImpl - Processing rate update: EURUSD
+2025-04-01 20:30:39.473 [EURUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Entering getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Exiting getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Current config for EURUSD: drift=0.02, omega=1.0E-12, alpha=1.0E-6, beta=0.99999
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Entering updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Old price: 1.0486318083157338, Old sigma: 3.28738797591205E-5, Old return: -2.259986474547446E-5
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Entering garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - GARCH(1,1) variance: 1.081681674251295E-9, sigma: 3.28889293570237E-5
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Exiting garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - New sigma computed: 3.28889293570237E-5
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Entering getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Exiting getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Drift adjustment: 6.341958396752917E-10
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Price updated from 1.0486318083157338 to 1.0486240712091854 (pre-session adjustments)
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Applied session volatility multiplier for hour 20: 1.0
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Session vol multiplier: 1.0, final newPrice: 1.0486240712091854
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Entering applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Exiting applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Applied mean reversion, New price: 1.0486235394008696
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Entering checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Determined volatility regime: LOW_VOL
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Exiting checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Determined new volatility regime: LOW_VOL
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Entering createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Computed return: -7.885463134623735E-6
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Generated random volume: 8
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Exiting createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Exiting updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] INFO  RateSimulatorServiceImpl - Updated price and volatility for rate: EURUSD
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] TRACE ShockServiceImpl - Entering processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] DEBUG ShockServiceImpl - Shock probabilities (per sec) => Small: 4.133597883597884E-6, Medium: 5.787037037037037E-7, Big: 3.1709791983764586E-8
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] TRACE ShockServiceImpl - Exiting processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Processed automatic shocks for rate: EURUSD
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] TRACE ShockServiceImpl - Entering checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] TRACE ShockServiceImpl - Exiting checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Checked and applied critical shocks for rate: EURUSD
+2025-04-01 20:30:39.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Saving asset state for rate: EURUSD
+2025-04-01 20:30:39.475 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Saved asset state for rate: EURUSD
+2025-04-01 20:30:39.475 [EURUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Entering buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:39.475 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Computed bid: 1.0485735394008696, ask: 1.0486735394008696 for rate: EURUSD
+2025-04-01 20:30:39.475 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Generated random volume: 1
+2025-04-01 20:30:39.475 [EURUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Exiting buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:39.475 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Saving rate data response for rate: EURUSD
+2025-04-01 20:30:39.475 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Saved rate data response for rate: EURUSD
+2025-04-01 20:30:39.475 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Exiting updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:39.475 [] [ForkJoinPool.commonPool-worker-3] INFO  RateUpdateScheduler - Rates updated => iteration=1263 totalUpdated=1
+2025-04-01 20:30:40.473 [] [RateScheduler-3] INFO  RateUpdateScheduler - Starting rate update process... Iteration: 1264
+2025-04-01 20:30:40.473 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Entering updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:40.473 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Starting rate update process at: 2025-04-01T20:30:40.473411500
+2025-04-01 20:30:40.473 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Computed delta time in seconds: 1.0
+2025-04-01 20:30:40.473 [] [ForkJoinPool.commonPool-worker-3] TRACE HolidayCalendarService - Checking holiday for 2025-04-01T20:30:40.473411500
+2025-04-01 20:30:40.473 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:40.473411500 is weekend: false
+2025-04-01 20:30:40.473 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Market status - isWeekend: false, isHoliday: false
+2025-04-01 20:30:40.473 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:39.473759500 is weekend: false
+2025-04-01 20:30:40.473 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap detected: false
+2025-04-01 20:30:40.473 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap adjustment required: false
+2025-04-01 20:30:40.473 [EURUSD] [RateUpdate-7] INFO  RateSimulatorServiceImpl - Processing rate update: EURUSD
+2025-04-01 20:30:40.473 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Entering getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Exiting getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Current config for EURUSD: drift=0.02, omega=1.0E-12, alpha=1.0E-6, beta=0.99999
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Entering updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Old price: 1.0486235394008696, Old sigma: 3.28889293570237E-5, Old return: -7.885463134623735E-6
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Entering garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - GARCH(1,1) variance: 1.0826709196150817E-9, sigma: 3.290396510475723E-5
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Exiting garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - New sigma computed: 3.290396510475723E-5
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Entering getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Exiting getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Drift adjustment: 6.341958396752917E-10
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Price updated from 1.0486235394008696 to 1.048579123899872 (pre-session adjustments)
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Applied session volatility multiplier for hour 20: 1.0
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Session vol multiplier: 1.0, final newPrice: 1.048579123899872
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Entering applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Exiting applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Applied mean reversion, New price: 1.0485786003604711
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Entering checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Determined volatility regime: LOW_VOL
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Exiting checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Determined new volatility regime: LOW_VOL
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Entering createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Computed return: -4.2856184011384984E-5
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Generated random volume: 3
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Exiting createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Exiting updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] INFO  RateSimulatorServiceImpl - Updated price and volatility for rate: EURUSD
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] TRACE ShockServiceImpl - Entering processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] DEBUG ShockServiceImpl - Shock probabilities (per sec) => Small: 4.133597883597884E-6, Medium: 5.787037037037037E-7, Big: 3.1709791983764586E-8
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] TRACE ShockServiceImpl - Exiting processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Processed automatic shocks for rate: EURUSD
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] TRACE ShockServiceImpl - Entering checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] TRACE ShockServiceImpl - Exiting checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Checked and applied critical shocks for rate: EURUSD
+2025-04-01 20:30:40.474 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Saving asset state for rate: EURUSD
+2025-04-01 20:30:40.475 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Saved asset state for rate: EURUSD
+2025-04-01 20:30:40.475 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Entering buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:40.475 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Computed bid: 1.0485286003604711, ask: 1.0486286003604711 for rate: EURUSD
+2025-04-01 20:30:40.475 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Generated random volume: 8
+2025-04-01 20:30:40.475 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Exiting buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:40.475 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Saving rate data response for rate: EURUSD
+2025-04-01 20:30:40.475 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Saved rate data response for rate: EURUSD
+2025-04-01 20:30:40.475 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Exiting updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:40.475 [] [ForkJoinPool.commonPool-worker-3] INFO  RateUpdateScheduler - Rates updated => iteration=1264 totalUpdated=1
+2025-04-01 20:30:41.471 [] [RateScheduler-3] INFO  RateUpdateScheduler - Starting rate update process... Iteration: 1265
+2025-04-01 20:30:41.471 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Entering updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:41.471 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Starting rate update process at: 2025-04-01T20:30:41.471531
+2025-04-01 20:30:41.471 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Computed delta time in seconds: 1.0
+2025-04-01 20:30:41.471 [] [ForkJoinPool.commonPool-worker-3] TRACE HolidayCalendarService - Checking holiday for 2025-04-01T20:30:41.471531
+2025-04-01 20:30:41.471 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:41.471531 is weekend: false
+2025-04-01 20:30:41.471 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Market status - isWeekend: false, isHoliday: false
+2025-04-01 20:30:41.471 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:40.473411500 is weekend: false
+2025-04-01 20:30:41.471 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap detected: false
+2025-04-01 20:30:41.471 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap adjustment required: false
+2025-04-01 20:30:41.471 [EURUSD] [RateUpdate-8] INFO  RateSimulatorServiceImpl - Processing rate update: EURUSD
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Entering getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Exiting getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Current config for EURUSD: drift=0.02, omega=1.0E-12, alpha=1.0E-6, beta=0.99999
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Entering updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Old price: 1.0485786003604711, Old sigma: 3.290396510475723E-5, Old return: -4.2856184011384984E-5
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Entering garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - GARCH(1,1) variance: 1.0836619295583936E-9, sigma: 3.291902078674871E-5
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Exiting garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - New sigma computed: 3.291902078674871E-5
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Entering getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Exiting getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Drift adjustment: 6.341958396752917E-10
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Price updated from 1.0485786003604711 to 1.048594532107405 (pre-session adjustments)
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Applied session volatility multiplier for hour 20: 1.0
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Session vol multiplier: 1.0, final newPrice: 1.048594532107405
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Entering applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Exiting applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Applied mean reversion, New price: 1.0485940535070446
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Entering checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Determined volatility regime: LOW_VOL
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Exiting checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Determined new volatility regime: LOW_VOL
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Entering createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Computed return: 1.473712385599346E-5
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Generated random volume: 8
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Exiting createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Exiting updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] INFO  RateSimulatorServiceImpl - Updated price and volatility for rate: EURUSD
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] TRACE ShockServiceImpl - Entering processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] DEBUG ShockServiceImpl - Shock probabilities (per sec) => Small: 4.133597883597884E-6, Medium: 5.787037037037037E-7, Big: 3.1709791983764586E-8
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] TRACE ShockServiceImpl - Exiting processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Processed automatic shocks for rate: EURUSD
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] TRACE ShockServiceImpl - Entering checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] TRACE ShockServiceImpl - Exiting checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Checked and applied critical shocks for rate: EURUSD
+2025-04-01 20:30:41.472 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Saving asset state for rate: EURUSD
+2025-04-01 20:30:41.473 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Saved asset state for rate: EURUSD
+2025-04-01 20:30:41.473 [EURUSD] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Entering buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:41.473 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Computed bid: 1.0485440535070446, ask: 1.0486440535070446 for rate: EURUSD
+2025-04-01 20:30:41.473 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Generated random volume: 3
+2025-04-01 20:30:41.473 [EURUSD] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Exiting buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:41.473 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Saving rate data response for rate: EURUSD
+2025-04-01 20:30:41.473 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Saved rate data response for rate: EURUSD
+2025-04-01 20:30:41.473 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Exiting updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:41.473 [] [ForkJoinPool.commonPool-worker-3] INFO  RateUpdateScheduler - Rates updated => iteration=1265 totalUpdated=1
+2025-04-01 20:30:42.470 [] [RateScheduler-3] INFO  RateUpdateScheduler - Starting rate update process... Iteration: 1266
+2025-04-01 20:30:42.470 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Entering updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:42.470 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Starting rate update process at: 2025-04-01T20:30:42.470031100
+2025-04-01 20:30:42.470 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Computed delta time in seconds: 1.0
+2025-04-01 20:30:42.470 [] [ForkJoinPool.commonPool-worker-3] TRACE HolidayCalendarService - Checking holiday for 2025-04-01T20:30:42.470031100
+2025-04-01 20:30:42.470 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:42.470031100 is weekend: false
+2025-04-01 20:30:42.471 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Market status - isWeekend: false, isHoliday: false
+2025-04-01 20:30:42.471 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:41.471531 is weekend: false
+2025-04-01 20:30:42.471 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap detected: false
+2025-04-01 20:30:42.471 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap adjustment required: false
+2025-04-01 20:30:42.471 [EURUSD] [RateUpdate-2] INFO  RateSimulatorServiceImpl - Processing rate update: EURUSD
+2025-04-01 20:30:42.471 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Entering getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:42.472 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Exiting getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:42.473 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Current config for EURUSD: drift=0.02, omega=1.0E-12, alpha=1.0E-6, beta=0.99999
+2025-04-01 20:30:42.473 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Entering updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:42.473 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Old price: 1.0485940535070446, Old sigma: 3.291902078674871E-5, Old return: 1.473712385599346E-5
+2025-04-01 20:30:42.473 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Entering garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:42.473 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - GARCH(1,1) variance: 1.0846513101219173E-9, sigma: 3.2934044849090696E-5
+2025-04-01 20:30:42.473 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Exiting garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:42.473 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - New sigma computed: 3.2934044849090696E-5
+2025-04-01 20:30:42.473 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Entering getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:42.473 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Exiting getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:42.473 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Drift adjustment: 6.341958396752917E-10
+2025-04-01 20:30:42.473 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Price updated from 1.0485940535070446 to 1.0485526901145785 (pre-session adjustments)
+2025-04-01 20:30:42.473 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Applied session volatility multiplier for hour 20: 1.0
+2025-04-01 20:30:42.473 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Session vol multiplier: 1.0, final newPrice: 1.0485526901145785
+2025-04-01 20:30:42.473 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Entering applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:42.473 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Exiting applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:42.473 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Applied mean reversion, New price: 1.0485521960610715
+2025-04-01 20:30:42.473 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Entering checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:42.473 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Determined volatility regime: LOW_VOL
+2025-04-01 20:30:42.473 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Exiting checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:42.473 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Determined new volatility regime: LOW_VOL
+2025-04-01 20:30:42.473 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Entering createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:42.473 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Computed return: -3.991848063749046E-5
+2025-04-01 20:30:42.473 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Generated random volume: 8
+2025-04-01 20:30:42.473 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Exiting createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:42.473 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Exiting updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:42.473 [EURUSD] [RateUpdate-2] INFO  RateSimulatorServiceImpl - Updated price and volatility for rate: EURUSD
+2025-04-01 20:30:42.473 [EURUSD] [RateUpdate-2] TRACE ShockServiceImpl - Entering processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:42.473 [EURUSD] [RateUpdate-2] DEBUG ShockServiceImpl - Shock probabilities (per sec) => Small: 4.133597883597884E-6, Medium: 5.787037037037037E-7, Big: 3.1709791983764586E-8
+2025-04-01 20:30:42.473 [EURUSD] [RateUpdate-2] TRACE ShockServiceImpl - Exiting processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:42.473 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Processed automatic shocks for rate: EURUSD
+2025-04-01 20:30:42.473 [EURUSD] [RateUpdate-2] TRACE ShockServiceImpl - Entering checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:42.473 [EURUSD] [RateUpdate-2] TRACE ShockServiceImpl - Exiting checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:42.473 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Checked and applied critical shocks for rate: EURUSD
+2025-04-01 20:30:42.473 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Saving asset state for rate: EURUSD
+2025-04-01 20:30:42.474 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Saved asset state for rate: EURUSD
+2025-04-01 20:30:42.474 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Entering buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:42.475 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Computed bid: 1.0485021960610715, ask: 1.0486021960610715 for rate: EURUSD
+2025-04-01 20:30:42.475 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Generated random volume: 2
+2025-04-01 20:30:42.475 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Exiting buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:42.475 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Saving rate data response for rate: EURUSD
+2025-04-01 20:30:42.476 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Saved rate data response for rate: EURUSD
+2025-04-01 20:30:42.476 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Exiting updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:42.477 [] [ForkJoinPool.commonPool-worker-3] INFO  RateUpdateScheduler - Rates updated => iteration=1266 totalUpdated=1
+2025-04-01 20:30:43.466 [] [RateScheduler-3] INFO  RateUpdateScheduler - Starting rate update process... Iteration: 1267
+2025-04-01 20:30:43.466 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Entering updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:43.466 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Starting rate update process at: 2025-04-01T20:30:43.466427400
+2025-04-01 20:30:43.466 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Computed delta time in seconds: 1.0
+2025-04-01 20:30:43.466 [] [ForkJoinPool.commonPool-worker-3] TRACE HolidayCalendarService - Checking holiday for 2025-04-01T20:30:43.466427400
+2025-04-01 20:30:43.466 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:43.466427400 is weekend: false
+2025-04-01 20:30:43.466 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Market status - isWeekend: false, isHoliday: false
+2025-04-01 20:30:43.466 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:42.470031100 is weekend: false
+2025-04-01 20:30:43.466 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap detected: false
+2025-04-01 20:30:43.466 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap adjustment required: false
+2025-04-01 20:30:43.466 [EURUSD] [RateUpdate-1] INFO  RateSimulatorServiceImpl - Processing rate update: EURUSD
+2025-04-01 20:30:43.466 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Current config for EURUSD: drift=0.02, omega=1.0E-12, alpha=1.0E-6, beta=0.99999
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Old price: 1.0485521960610715, Old sigma: 3.2934044849090696E-5, Old return: -3.991848063749046E-5
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - GARCH(1,1) variance: 1.0856420570939125E-9, sigma: 3.294908279594308E-5
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - New sigma computed: 3.294908279594308E-5
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Drift adjustment: 6.341958396752917E-10
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Price updated from 1.0485521960610715 to 1.0485125854517179 (pre-session adjustments)
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Applied session volatility multiplier for hour 20: 1.0
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Session vol multiplier: 1.0, final newPrice: 1.0485125854517179
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Applied mean reversion, New price: 1.0485121332556568
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Determined volatility regime: LOW_VOL
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Determined new volatility regime: LOW_VOL
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Computed return: -3.8208465862909905E-5
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Generated random volume: 5
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] INFO  RateSimulatorServiceImpl - Updated price and volatility for rate: EURUSD
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] TRACE ShockServiceImpl - Entering processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] DEBUG ShockServiceImpl - Shock probabilities (per sec) => Small: 4.133597883597884E-6, Medium: 5.787037037037037E-7, Big: 3.1709791983764586E-8
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] TRACE ShockServiceImpl - Exiting processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Processed automatic shocks for rate: EURUSD
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] TRACE ShockServiceImpl - Entering checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] TRACE ShockServiceImpl - Exiting checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Checked and applied critical shocks for rate: EURUSD
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Saving asset state for rate: EURUSD
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Saved asset state for rate: EURUSD
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Computed bid: 1.0484621332556568, ask: 1.0485621332556568 for rate: EURUSD
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Generated random volume: 5
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:43.467 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Saving rate data response for rate: EURUSD
+2025-04-01 20:30:43.468 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Saved rate data response for rate: EURUSD
+2025-04-01 20:30:43.468 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Exiting updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:43.468 [] [ForkJoinPool.commonPool-worker-3] INFO  RateUpdateScheduler - Rates updated => iteration=1267 totalUpdated=1
+2025-04-01 20:30:44.459 [] [RateScheduler-3] INFO  RateUpdateScheduler - Starting rate update process... Iteration: 1268
+2025-04-01 20:30:44.459 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Entering updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:44.459 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Starting rate update process at: 2025-04-01T20:30:44.459201600
+2025-04-01 20:30:44.459 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Computed delta time in seconds: 1.0
+2025-04-01 20:30:44.459 [] [ForkJoinPool.commonPool-worker-3] TRACE HolidayCalendarService - Checking holiday for 2025-04-01T20:30:44.459201600
+2025-04-01 20:30:44.459 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:44.459201600 is weekend: false
+2025-04-01 20:30:44.459 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Market status - isWeekend: false, isHoliday: false
+2025-04-01 20:30:44.459 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:43.466427400 is weekend: false
+2025-04-01 20:30:44.459 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap detected: false
+2025-04-01 20:30:44.459 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap adjustment required: false
+2025-04-01 20:30:44.459 [EURUSD] [RateUpdate-3] INFO  RateSimulatorServiceImpl - Processing rate update: EURUSD
+2025-04-01 20:30:44.459 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Entering getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Exiting getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Current config for EURUSD: drift=0.02, omega=1.0E-12, alpha=1.0E-6, beta=0.99999
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Entering updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Old price: 1.0485121332556568, Old sigma: 3.294908279594308E-5, Old return: -3.8208465862909905E-5
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Entering garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - GARCH(1,1) variance: 1.086632660560205E-9, sigma: 3.296411170591747E-5
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Exiting garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - New sigma computed: 3.296411170591747E-5
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Entering getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Exiting getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Drift adjustment: 6.341958396752917E-10
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Price updated from 1.0485121332556568 to 1.0485402122946739 (pre-session adjustments)
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Applied session volatility multiplier for hour 20: 1.0
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Session vol multiplier: 1.0, final newPrice: 1.0485402122946739
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Entering applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Exiting applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Applied mean reversion, New price: 1.0485398001614181
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Entering checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Determined volatility regime: LOW_VOL
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Exiting checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Determined new volatility regime: LOW_VOL
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Entering createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Computed return: 2.6386476483404136E-5
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Generated random volume: 7
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Exiting createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Exiting updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] INFO  RateSimulatorServiceImpl - Updated price and volatility for rate: EURUSD
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] TRACE ShockServiceImpl - Entering processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] DEBUG ShockServiceImpl - Shock probabilities (per sec) => Small: 4.133597883597884E-6, Medium: 5.787037037037037E-7, Big: 3.1709791983764586E-8
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] TRACE ShockServiceImpl - Exiting processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Processed automatic shocks for rate: EURUSD
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] TRACE ShockServiceImpl - Entering checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] TRACE ShockServiceImpl - Exiting checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Checked and applied critical shocks for rate: EURUSD
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Saving asset state for rate: EURUSD
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Saved asset state for rate: EURUSD
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Entering buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Computed bid: 1.0484898001614181, ask: 1.0485898001614181 for rate: EURUSD
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Generated random volume: 2
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Exiting buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:44.460 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Saving rate data response for rate: EURUSD
+2025-04-01 20:30:44.461 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Saved rate data response for rate: EURUSD
+2025-04-01 20:30:44.461 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Exiting updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:44.461 [] [ForkJoinPool.commonPool-worker-3] INFO  RateUpdateScheduler - Rates updated => iteration=1268 totalUpdated=1
+2025-04-01 20:30:45.470 [] [RateScheduler-3] INFO  RateUpdateScheduler - Starting rate update process... Iteration: 1269
+2025-04-01 20:30:45.470 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Entering updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:45.470 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Starting rate update process at: 2025-04-01T20:30:45.470274800
+2025-04-01 20:30:45.470 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Computed delta time in seconds: 1.0
+2025-04-01 20:30:45.470 [] [ForkJoinPool.commonPool-worker-3] TRACE HolidayCalendarService - Checking holiday for 2025-04-01T20:30:45.470274800
+2025-04-01 20:30:45.470 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:45.470274800 is weekend: false
+2025-04-01 20:30:45.470 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Market status - isWeekend: false, isHoliday: false
+2025-04-01 20:30:45.470 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:44.459201600 is weekend: false
+2025-04-01 20:30:45.470 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap detected: false
+2025-04-01 20:30:45.470 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap adjustment required: false
+2025-04-01 20:30:45.470 [EURUSD] [RateUpdate-4] INFO  RateSimulatorServiceImpl - Processing rate update: EURUSD
+2025-04-01 20:30:45.470 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Entering getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:45.470 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Exiting getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:45.470 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Current config for EURUSD: drift=0.02, omega=1.0E-12, alpha=1.0E-6, beta=0.99999
+2025-04-01 20:30:45.470 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Entering updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:45.470 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Old price: 1.0485398001614181, Old sigma: 3.296411170591747E-5, Old return: 2.6386476483404136E-5
+2025-04-01 20:30:45.470 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Entering garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:45.470 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - GARCH(1,1) variance: 1.087622490479741E-9, sigma: 3.297912203924994E-5
+2025-04-01 20:30:45.470 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Exiting garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:45.470 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - New sigma computed: 3.297912203924994E-5
+2025-04-01 20:30:45.470 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Entering getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:45.470 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Exiting getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:45.470 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Drift adjustment: 6.341958396752917E-10
+2025-04-01 20:30:45.471 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Price updated from 1.0485398001614181 to 1.0485567513395395 (pre-session adjustments)
+2025-04-01 20:30:45.471 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Applied session volatility multiplier for hour 20: 1.0
+2025-04-01 20:30:45.471 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Session vol multiplier: 1.0, final newPrice: 1.0485567513395395
+2025-04-01 20:30:45.471 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Entering applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:45.471 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Exiting applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:45.471 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Applied mean reversion, New price: 1.0485563115393781
+2025-04-01 20:30:45.471 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Entering checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:45.471 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Determined volatility regime: LOW_VOL
+2025-04-01 20:30:45.471 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Exiting checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:45.471 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Determined new volatility regime: LOW_VOL
+2025-04-01 20:30:45.471 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Entering createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:45.471 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Computed return: 1.574689673812819E-5
+2025-04-01 20:30:45.471 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Generated random volume: 5
+2025-04-01 20:30:45.471 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Exiting createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:45.471 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Exiting updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:45.471 [EURUSD] [RateUpdate-4] INFO  RateSimulatorServiceImpl - Updated price and volatility for rate: EURUSD
+2025-04-01 20:30:45.471 [EURUSD] [RateUpdate-4] TRACE ShockServiceImpl - Entering processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:45.471 [EURUSD] [RateUpdate-4] DEBUG ShockServiceImpl - Shock probabilities (per sec) => Small: 4.133597883597884E-6, Medium: 5.787037037037037E-7, Big: 3.1709791983764586E-8
+2025-04-01 20:30:45.471 [EURUSD] [RateUpdate-4] TRACE ShockServiceImpl - Exiting processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:45.471 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Processed automatic shocks for rate: EURUSD
+2025-04-01 20:30:45.471 [EURUSD] [RateUpdate-4] TRACE ShockServiceImpl - Entering checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:45.471 [EURUSD] [RateUpdate-4] TRACE ShockServiceImpl - Exiting checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:45.471 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Checked and applied critical shocks for rate: EURUSD
+2025-04-01 20:30:45.471 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Saving asset state for rate: EURUSD
+2025-04-01 20:30:45.471 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Saved asset state for rate: EURUSD
+2025-04-01 20:30:45.471 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Entering buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:45.471 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Computed bid: 1.0485063115393781, ask: 1.0486063115393781 for rate: EURUSD
+2025-04-01 20:30:45.471 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Generated random volume: 1
+2025-04-01 20:30:45.471 [EURUSD] [RateUpdate-4] TRACE RateSimulatorServiceImpl - Exiting buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:45.471 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Saving rate data response for rate: EURUSD
+2025-04-01 20:30:45.471 [EURUSD] [RateUpdate-4] DEBUG RateSimulatorServiceImpl - Saved rate data response for rate: EURUSD
+2025-04-01 20:30:45.471 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Exiting updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:45.472 [] [ForkJoinPool.commonPool-worker-3] INFO  RateUpdateScheduler - Rates updated => iteration=1269 totalUpdated=1
+2025-04-01 20:30:46.459 [] [RateScheduler-3] INFO  RateUpdateScheduler - Starting rate update process... Iteration: 1270
+2025-04-01 20:30:46.459 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Entering updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:46.459 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Starting rate update process at: 2025-04-01T20:30:46.459552500
+2025-04-01 20:30:46.459 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Computed delta time in seconds: 1.0
+2025-04-01 20:30:46.459 [] [ForkJoinPool.commonPool-worker-3] TRACE HolidayCalendarService - Checking holiday for 2025-04-01T20:30:46.459552500
+2025-04-01 20:30:46.459 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:46.459552500 is weekend: false
+2025-04-01 20:30:46.459 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Market status - isWeekend: false, isHoliday: false
+2025-04-01 20:30:46.459 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:45.470274800 is weekend: false
+2025-04-01 20:30:46.459 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap detected: false
+2025-04-01 20:30:46.459 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap adjustment required: false
+2025-04-01 20:30:46.459 [EURUSD] [RateUpdate-5] INFO  RateSimulatorServiceImpl - Processing rate update: EURUSD
+2025-04-01 20:30:46.459 [EURUSD] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Entering getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:46.459 [EURUSD] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Exiting getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:46.459 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Current config for EURUSD: drift=0.02, omega=1.0E-12, alpha=1.0E-6, beta=0.99999
+2025-04-01 20:30:46.459 [EURUSD] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Entering updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:46.459 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Old price: 1.0485563115393781, Old sigma: 3.297912203924994E-5, Old return: 1.574689673812819E-5
+2025-04-01 20:30:46.459 [EURUSD] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Entering garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:46.459 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - GARCH(1,1) variance: 1.0886118622195932E-9, sigma: 3.2994118600435336E-5
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Exiting garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - New sigma computed: 3.2994118600435336E-5
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Entering getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Exiting getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Drift adjustment: 6.341958396752917E-10
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Price updated from 1.0485563115393781 to 1.048516328050727 (pre-session adjustments)
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Applied session volatility multiplier for hour 20: 1.0
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Session vol multiplier: 1.0, final newPrice: 1.048516328050727
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Entering applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Exiting applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Applied mean reversion, New price: 1.0485158717391876
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Entering checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Determined volatility regime: LOW_VOL
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Exiting checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Determined new volatility regime: LOW_VOL
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Entering createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Computed return: -3.8567866683856916E-5
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Generated random volume: 5
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Exiting createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Exiting updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] INFO  RateSimulatorServiceImpl - Updated price and volatility for rate: EURUSD
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] TRACE ShockServiceImpl - Entering processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] DEBUG ShockServiceImpl - Shock probabilities (per sec) => Small: 4.133597883597884E-6, Medium: 5.787037037037037E-7, Big: 3.1709791983764586E-8
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] TRACE ShockServiceImpl - Exiting processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Processed automatic shocks for rate: EURUSD
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] TRACE ShockServiceImpl - Entering checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] TRACE ShockServiceImpl - Exiting checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Checked and applied critical shocks for rate: EURUSD
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Saving asset state for rate: EURUSD
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Saved asset state for rate: EURUSD
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Entering buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Computed bid: 1.0484658717391876, ask: 1.0485658717391876 for rate: EURUSD
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Generated random volume: 7
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] TRACE RateSimulatorServiceImpl - Exiting buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:46.460 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Saving rate data response for rate: EURUSD
+2025-04-01 20:30:46.461 [EURUSD] [RateUpdate-5] DEBUG RateSimulatorServiceImpl - Saved rate data response for rate: EURUSD
+2025-04-01 20:30:46.461 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Exiting updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:46.461 [] [ForkJoinPool.commonPool-worker-3] INFO  RateUpdateScheduler - Rates updated => iteration=1270 totalUpdated=1
+2025-04-01 20:30:47.473 [] [RateScheduler-3] INFO  RateUpdateScheduler - Starting rate update process... Iteration: 1271
+2025-04-01 20:30:47.473 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Entering updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:47.473 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Starting rate update process at: 2025-04-01T20:30:47.473765500
+2025-04-01 20:30:47.473 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Computed delta time in seconds: 1.0
+2025-04-01 20:30:47.473 [] [ForkJoinPool.commonPool-worker-3] TRACE HolidayCalendarService - Checking holiday for 2025-04-01T20:30:47.473765500
+2025-04-01 20:30:47.473 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:47.473765500 is weekend: false
+2025-04-01 20:30:47.473 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Market status - isWeekend: false, isHoliday: false
+2025-04-01 20:30:47.473 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:46.459552500 is weekend: false
+2025-04-01 20:30:47.473 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap detected: false
+2025-04-01 20:30:47.473 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap adjustment required: false
+2025-04-01 20:30:47.473 [EURUSD] [RateUpdate-6] INFO  RateSimulatorServiceImpl - Processing rate update: EURUSD
+2025-04-01 20:30:47.473 [EURUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Entering getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Exiting getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Current config for EURUSD: drift=0.02, omega=1.0E-12, alpha=1.0E-6, beta=0.99999
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Entering updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Old price: 1.0485158717391876, Old sigma: 3.2994118600435336E-5, Old return: -3.8567866683856916E-5
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Entering garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - GARCH(1,1) variance: 1.0896024635813114E-9, sigma: 3.300912697393422E-5
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Exiting garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - New sigma computed: 3.300912697393422E-5
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Entering getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Exiting getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Drift adjustment: 6.341958396752917E-10
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Price updated from 1.0485158717391876 to 1.0484885055175932 (pre-session adjustments)
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Applied session volatility multiplier for hour 20: 1.0
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Session vol multiplier: 1.0, final newPrice: 1.0484885055175932
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Entering applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Exiting applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Applied mean reversion, New price: 1.048488089645854
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Entering checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Determined volatility regime: LOW_VOL
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Exiting checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Determined new volatility regime: LOW_VOL
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Entering createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Computed return: -2.6496939297059544E-5
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Generated random volume: 7
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Exiting createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Exiting updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] INFO  RateSimulatorServiceImpl - Updated price and volatility for rate: EURUSD
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] TRACE ShockServiceImpl - Entering processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] DEBUG ShockServiceImpl - Shock probabilities (per sec) => Small: 4.133597883597884E-6, Medium: 5.787037037037037E-7, Big: 3.1709791983764586E-8
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] TRACE ShockServiceImpl - Exiting processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Processed automatic shocks for rate: EURUSD
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] TRACE ShockServiceImpl - Entering checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] TRACE ShockServiceImpl - Exiting checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Checked and applied critical shocks for rate: EURUSD
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Saving asset state for rate: EURUSD
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Saved asset state for rate: EURUSD
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Entering buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Computed bid: 1.048438089645854, ask: 1.048538089645854 for rate: EURUSD
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Generated random volume: 2
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] TRACE RateSimulatorServiceImpl - Exiting buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:47.474 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Saving rate data response for rate: EURUSD
+2025-04-01 20:30:47.475 [EURUSD] [RateUpdate-6] DEBUG RateSimulatorServiceImpl - Saved rate data response for rate: EURUSD
+2025-04-01 20:30:47.475 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Exiting updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:47.475 [] [ForkJoinPool.commonPool-worker-3] INFO  RateUpdateScheduler - Rates updated => iteration=1271 totalUpdated=1
+2025-04-01 20:30:48.472 [] [RateScheduler-3] INFO  RateUpdateScheduler - Starting rate update process... Iteration: 1272
+2025-04-01 20:30:48.472 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Entering updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:48.472 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Starting rate update process at: 2025-04-01T20:30:48.472174700
+2025-04-01 20:30:48.472 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Computed delta time in seconds: 1.0
+2025-04-01 20:30:48.472 [] [ForkJoinPool.commonPool-worker-3] TRACE HolidayCalendarService - Checking holiday for 2025-04-01T20:30:48.472174700
+2025-04-01 20:30:48.472 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:48.472174700 is weekend: false
+2025-04-01 20:30:48.472 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Market status - isWeekend: false, isHoliday: false
+2025-04-01 20:30:48.472 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:47.473765500 is weekend: false
+2025-04-01 20:30:48.472 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap detected: false
+2025-04-01 20:30:48.472 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap adjustment required: false
+2025-04-01 20:30:48.472 [EURUSD] [RateUpdate-7] INFO  RateSimulatorServiceImpl - Processing rate update: EURUSD
+2025-04-01 20:30:48.472 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Entering getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Exiting getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Current config for EURUSD: drift=0.02, omega=1.0E-12, alpha=1.0E-6, beta=0.99999
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Entering updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Old price: 1.048488089645854, Old sigma: 3.300912697393422E-5, Old return: -2.6496939297059544E-5
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Entering garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - GARCH(1,1) variance: 1.090592269644468E-9, sigma: 3.302411648544845E-5
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Exiting garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - New sigma computed: 3.302411648544845E-5
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Entering getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Exiting getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Drift adjustment: 6.341958396752917E-10
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Price updated from 1.048488089645854 to 1.0483991825688077 (pre-session adjustments)
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Applied session volatility multiplier for hour 20: 1.0
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Session vol multiplier: 1.0, final newPrice: 1.0483991825688077
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Entering applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Exiting applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Applied mean reversion, New price: 1.048398794479162
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Entering checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Determined volatility regime: LOW_VOL
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Exiting checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Determined new volatility regime: LOW_VOL
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Entering createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Computed return: -8.516927395752952E-5
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Generated random volume: 7
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Exiting createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Exiting updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] INFO  RateSimulatorServiceImpl - Updated price and volatility for rate: EURUSD
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] TRACE ShockServiceImpl - Entering processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] DEBUG ShockServiceImpl - Shock probabilities (per sec) => Small: 4.133597883597884E-6, Medium: 5.787037037037037E-7, Big: 3.1709791983764586E-8
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] TRACE ShockServiceImpl - Exiting processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Processed automatic shocks for rate: EURUSD
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] TRACE ShockServiceImpl - Entering checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] TRACE ShockServiceImpl - Exiting checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Checked and applied critical shocks for rate: EURUSD
+2025-04-01 20:30:48.473 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Saving asset state for rate: EURUSD
+2025-04-01 20:30:48.474 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Saved asset state for rate: EURUSD
+2025-04-01 20:30:48.474 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Entering buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:48.474 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Computed bid: 1.048348794479162, ask: 1.048448794479162 for rate: EURUSD
+2025-04-01 20:30:48.474 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Generated random volume: 5
+2025-04-01 20:30:48.474 [EURUSD] [RateUpdate-7] TRACE RateSimulatorServiceImpl - Exiting buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:48.474 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Saving rate data response for rate: EURUSD
+2025-04-01 20:30:48.474 [EURUSD] [RateUpdate-7] DEBUG RateSimulatorServiceImpl - Saved rate data response for rate: EURUSD
+2025-04-01 20:30:48.474 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Exiting updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:48.474 [] [ForkJoinPool.commonPool-worker-3] INFO  RateUpdateScheduler - Rates updated => iteration=1272 totalUpdated=1
+2025-04-01 20:30:49.471 [] [RateScheduler-3] INFO  RateUpdateScheduler - Starting rate update process... Iteration: 1273
+2025-04-01 20:30:49.471 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Entering updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:49.471 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Starting rate update process at: 2025-04-01T20:30:49.471317700
+2025-04-01 20:30:49.471 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Computed delta time in seconds: 1.0
+2025-04-01 20:30:49.471 [] [ForkJoinPool.commonPool-worker-3] TRACE HolidayCalendarService - Checking holiday for 2025-04-01T20:30:49.471317700
+2025-04-01 20:30:49.471 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:49.471317700 is weekend: false
+2025-04-01 20:30:49.471 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Market status - isWeekend: false, isHoliday: false
+2025-04-01 20:30:49.471 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:48.472174700 is weekend: false
+2025-04-01 20:30:49.471 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap detected: false
+2025-04-01 20:30:49.471 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap adjustment required: false
+2025-04-01 20:30:49.471 [EURUSD] [RateUpdate-8] INFO  RateSimulatorServiceImpl - Processing rate update: EURUSD
+2025-04-01 20:30:49.471 [EURUSD] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Entering getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Exiting getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Current config for EURUSD: drift=0.02, omega=1.0E-12, alpha=1.0E-6, beta=0.99999
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Entering updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Old price: 1.048398794479162, Old sigma: 3.302411648544845E-5, Old return: -8.516927395752952E-5
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Entering garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - GARCH(1,1) variance: 1.091588617526998E-9, sigma: 3.303919819739877E-5
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Exiting garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - New sigma computed: 3.303919819739877E-5
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Entering getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Exiting getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Drift adjustment: 6.341958396752917E-10
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Price updated from 1.048398794479162 to 1.0483654232213018 (pre-session adjustments)
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Applied session volatility multiplier for hour 20: 1.0
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Session vol multiplier: 1.0, final newPrice: 1.0483654232213018
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Entering applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Exiting applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Applied mean reversion, New price: 1.0483651244268226
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Entering checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Determined volatility regime: LOW_VOL
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Exiting checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Determined new volatility regime: LOW_VOL
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Entering createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Computed return: -3.211620730276604E-5
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Generated random volume: 5
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Exiting createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Exiting updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] INFO  RateSimulatorServiceImpl - Updated price and volatility for rate: EURUSD
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] TRACE ShockServiceImpl - Entering processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] DEBUG ShockServiceImpl - Shock probabilities (per sec) => Small: 4.133597883597884E-6, Medium: 5.787037037037037E-7, Big: 3.1709791983764586E-8
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] TRACE ShockServiceImpl - Exiting processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Processed automatic shocks for rate: EURUSD
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] TRACE ShockServiceImpl - Entering checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] TRACE ShockServiceImpl - Exiting checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Checked and applied critical shocks for rate: EURUSD
+2025-04-01 20:30:49.472 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Saving asset state for rate: EURUSD
+2025-04-01 20:30:49.473 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Saved asset state for rate: EURUSD
+2025-04-01 20:30:49.473 [EURUSD] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Entering buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:49.473 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Computed bid: 1.0483151244268226, ask: 1.0484151244268226 for rate: EURUSD
+2025-04-01 20:30:49.473 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Generated random volume: 4
+2025-04-01 20:30:49.473 [EURUSD] [RateUpdate-8] TRACE RateSimulatorServiceImpl - Exiting buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:49.473 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Saving rate data response for rate: EURUSD
+2025-04-01 20:30:49.473 [EURUSD] [RateUpdate-8] DEBUG RateSimulatorServiceImpl - Saved rate data response for rate: EURUSD
+2025-04-01 20:30:49.473 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Exiting updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:49.473 [] [ForkJoinPool.commonPool-worker-3] INFO  RateUpdateScheduler - Rates updated => iteration=1273 totalUpdated=1
+2025-04-01 20:30:50.470 [] [RateScheduler-3] INFO  RateUpdateScheduler - Starting rate update process... Iteration: 1274
+2025-04-01 20:30:50.470 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Entering updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:50.470 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Starting rate update process at: 2025-04-01T20:30:50.470495300
+2025-04-01 20:30:50.470 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Computed delta time in seconds: 1.0
+2025-04-01 20:30:50.470 [] [ForkJoinPool.commonPool-worker-3] TRACE HolidayCalendarService - Checking holiday for 2025-04-01T20:30:50.470495300
+2025-04-01 20:30:50.470 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:50.470495300 is weekend: false
+2025-04-01 20:30:50.470 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Market status - isWeekend: false, isHoliday: false
+2025-04-01 20:30:50.470 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:49.471317700 is weekend: false
+2025-04-01 20:30:50.470 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap detected: false
+2025-04-01 20:30:50.470 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap adjustment required: false
+2025-04-01 20:30:50.470 [EURUSD] [RateUpdate-2] INFO  RateSimulatorServiceImpl - Processing rate update: EURUSD
+2025-04-01 20:30:50.470 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Entering getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:50.470 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Exiting getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:50.470 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Current config for EURUSD: drift=0.02, omega=1.0E-12, alpha=1.0E-6, beta=0.99999
+2025-04-01 20:30:50.470 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Entering updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:50.470 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Old price: 1.0483651244268226, Old sigma: 3.303919819739877E-5, Old return: -3.211620730276604E-5
+2025-04-01 20:30:50.470 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Entering garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:50.470 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - GARCH(1,1) variance: 1.0925787330915943E-9, sigma: 3.3054178753851895E-5
+2025-04-01 20:30:50.470 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Exiting garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:50.470 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - New sigma computed: 3.3054178753851895E-5
+2025-04-01 20:30:50.470 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Entering getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:50.470 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Exiting getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:50.470 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Drift adjustment: 6.341958396752917E-10
+2025-04-01 20:30:50.470 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Price updated from 1.0483651244268226 to 1.0483919155890717 (pre-session adjustments)
+2025-04-01 20:30:50.471 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Applied session volatility multiplier for hour 20: 1.0
+2025-04-01 20:30:50.471 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Session vol multiplier: 1.0, final newPrice: 1.0483919155890717
+2025-04-01 20:30:50.471 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Entering applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:50.471 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Exiting applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:50.471 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Applied mean reversion, New price: 1.0483916504646449
+2025-04-01 20:30:50.471 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Entering checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:50.471 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Determined volatility regime: LOW_VOL
+2025-04-01 20:30:50.471 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Exiting checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:50.471 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Determined new volatility regime: LOW_VOL
+2025-04-01 20:30:50.471 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Entering createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:50.471 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Computed return: 2.5301969347446692E-5
+2025-04-01 20:30:50.471 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Generated random volume: 6
+2025-04-01 20:30:50.471 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Exiting createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:50.471 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Exiting updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:50.471 [EURUSD] [RateUpdate-2] INFO  RateSimulatorServiceImpl - Updated price and volatility for rate: EURUSD
+2025-04-01 20:30:50.471 [EURUSD] [RateUpdate-2] TRACE ShockServiceImpl - Entering processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:50.471 [EURUSD] [RateUpdate-2] DEBUG ShockServiceImpl - Shock probabilities (per sec) => Small: 4.133597883597884E-6, Medium: 5.787037037037037E-7, Big: 3.1709791983764586E-8
+2025-04-01 20:30:50.471 [EURUSD] [RateUpdate-2] TRACE ShockServiceImpl - Exiting processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:50.471 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Processed automatic shocks for rate: EURUSD
+2025-04-01 20:30:50.471 [EURUSD] [RateUpdate-2] TRACE ShockServiceImpl - Entering checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:50.471 [EURUSD] [RateUpdate-2] TRACE ShockServiceImpl - Exiting checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:50.471 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Checked and applied critical shocks for rate: EURUSD
+2025-04-01 20:30:50.471 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Saving asset state for rate: EURUSD
+2025-04-01 20:30:50.471 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Saved asset state for rate: EURUSD
+2025-04-01 20:30:50.471 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Entering buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:50.471 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Computed bid: 1.0483416504646449, ask: 1.0484416504646449 for rate: EURUSD
+2025-04-01 20:30:50.471 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Generated random volume: 1
+2025-04-01 20:30:50.471 [EURUSD] [RateUpdate-2] TRACE RateSimulatorServiceImpl - Exiting buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:50.471 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Saving rate data response for rate: EURUSD
+2025-04-01 20:30:50.471 [EURUSD] [RateUpdate-2] DEBUG RateSimulatorServiceImpl - Saved rate data response for rate: EURUSD
+2025-04-01 20:30:50.471 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Exiting updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:50.471 [] [ForkJoinPool.commonPool-worker-3] INFO  RateUpdateScheduler - Rates updated => iteration=1274 totalUpdated=1
+2025-04-01 20:30:51.467 [] [RateScheduler-3] INFO  RateUpdateScheduler - Starting rate update process... Iteration: 1275
+2025-04-01 20:30:51.467 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Entering updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:51.467 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Starting rate update process at: 2025-04-01T20:30:51.467112100
+2025-04-01 20:30:51.467 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Computed delta time in seconds: 1.0
+2025-04-01 20:30:51.467 [] [ForkJoinPool.commonPool-worker-3] TRACE HolidayCalendarService - Checking holiday for 2025-04-01T20:30:51.467112100
+2025-04-01 20:30:51.467 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:51.467112100 is weekend: false
+2025-04-01 20:30:51.467 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Market status - isWeekend: false, isHoliday: false
+2025-04-01 20:30:51.467 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:50.470495300 is weekend: false
+2025-04-01 20:30:51.467 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap detected: false
+2025-04-01 20:30:51.467 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap adjustment required: false
+2025-04-01 20:30:51.467 [EURUSD] [RateUpdate-1] INFO  RateSimulatorServiceImpl - Processing rate update: EURUSD
+2025-04-01 20:30:51.467 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:51.467 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:51.467 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Current config for EURUSD: drift=0.02, omega=1.0E-12, alpha=1.0E-6, beta=0.99999
+2025-04-01 20:30:51.467 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Old price: 1.0483916504646449, Old sigma: 3.3054178753851895E-5, Old return: 2.5301969347446692E-5
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - GARCH(1,1) variance: 1.093568447493916E-9, sigma: 3.3069146458502916E-5
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - New sigma computed: 3.3069146458502916E-5
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Drift adjustment: 6.341958396752917E-10
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Price updated from 1.0483916504646449 to 1.048345953907829 (pre-session adjustments)
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Applied session volatility multiplier for hour 20: 1.0
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Session vol multiplier: 1.0, final newPrice: 1.048345953907829
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Applied mean reversion, New price: 1.0483456622573644
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Determined volatility regime: LOW_VOL
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Determined new volatility regime: LOW_VOL
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Computed return: -4.386644622465976E-5
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Generated random volume: 9
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] INFO  RateSimulatorServiceImpl - Updated price and volatility for rate: EURUSD
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] TRACE ShockServiceImpl - Entering processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] DEBUG ShockServiceImpl - Shock probabilities (per sec) => Small: 4.133597883597884E-6, Medium: 5.787037037037037E-7, Big: 3.1709791983764586E-8
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] TRACE ShockServiceImpl - Exiting processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Processed automatic shocks for rate: EURUSD
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] TRACE ShockServiceImpl - Entering checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] TRACE ShockServiceImpl - Exiting checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Checked and applied critical shocks for rate: EURUSD
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Saving asset state for rate: EURUSD
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Saved asset state for rate: EURUSD
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Entering buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Computed bid: 1.0482956622573644, ask: 1.0483956622573644 for rate: EURUSD
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Generated random volume: 7
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] TRACE RateSimulatorServiceImpl - Exiting buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:51.468 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Saving rate data response for rate: EURUSD
+2025-04-01 20:30:51.469 [EURUSD] [RateUpdate-1] DEBUG RateSimulatorServiceImpl - Saved rate data response for rate: EURUSD
+2025-04-01 20:30:51.469 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Exiting updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:51.469 [] [ForkJoinPool.commonPool-worker-3] INFO  RateUpdateScheduler - Rates updated => iteration=1275 totalUpdated=1
+2025-04-01 20:30:52.469 [] [RateScheduler-3] INFO  RateUpdateScheduler - Starting rate update process... Iteration: 1276
+2025-04-01 20:30:52.469 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Entering updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:52.469 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Starting rate update process at: 2025-04-01T20:30:52.469694300
+2025-04-01 20:30:52.469 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Computed delta time in seconds: 1.0
+2025-04-01 20:30:52.469 [] [ForkJoinPool.commonPool-worker-3] TRACE HolidayCalendarService - Checking holiday for 2025-04-01T20:30:52.469694300
+2025-04-01 20:30:52.469 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:52.469694300 is weekend: false
+2025-04-01 20:30:52.469 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Market status - isWeekend: false, isHoliday: false
+2025-04-01 20:30:52.469 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Checked if date 2025-04-01T20:30:51.467112100 is weekend: false
+2025-04-01 20:30:52.469 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap detected: false
+2025-04-01 20:30:52.469 [] [ForkJoinPool.commonPool-worker-3] DEBUG RateSimulatorServiceImpl - Weekend gap adjustment required: false
+2025-04-01 20:30:52.469 [EURUSD] [RateUpdate-3] INFO  RateSimulatorServiceImpl - Processing rate update: EURUSD
+2025-04-01 20:30:52.469 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Entering getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Exiting getOrInitAssetState method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Current config for EURUSD: drift=0.02, omega=1.0E-12, alpha=1.0E-6, beta=0.99999
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Entering updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Old price: 1.0483456622573644, Old sigma: 3.3069146458502916E-5, Old return: -4.386644622465976E-5
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Entering garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - GARCH(1,1) variance: 1.0945594360745455E-9, sigma: 3.308412664820617E-5
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Exiting garchUpdate method in RateSimulatorServiceImpl.
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - New sigma computed: 3.308412664820617E-5
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Entering getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Exiting getDriftAdjustment method in RateSimulatorServiceImpl.
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Drift adjustment: 6.341958396752917E-10
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Price updated from 1.0483456622573644 to 1.0482558380933678 (pre-session adjustments)
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Applied session volatility multiplier for hour 20: 1.0
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Session vol multiplier: 1.0, final newPrice: 1.0482558380933678
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Entering applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Exiting applyMeanReversion method in RateSimulatorServiceImpl.
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Applied mean reversion, New price: 1.0482555924311103
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Entering checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Determined volatility regime: LOW_VOL
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Exiting checkRegimeSwitch method in RateSimulatorServiceImpl.
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Determined new volatility regime: LOW_VOL
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Entering createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Computed return: -8.59198439455929E-5
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Generated random volume: 6
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Exiting createNewStateFromOld method in RateSimulatorServiceImpl.
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Exiting updatePriceAndVolatility method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] INFO  RateSimulatorServiceImpl - Updated price and volatility for rate: EURUSD
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] TRACE ShockServiceImpl - Entering processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] DEBUG ShockServiceImpl - Shock probabilities (per sec) => Small: 4.133597883597884E-6, Medium: 5.787037037037037E-7, Big: 3.1709791983764586E-8
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] TRACE ShockServiceImpl - Exiting processAutomaticShocks method in ShockServiceImpl.
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Processed automatic shocks for rate: EURUSD
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] TRACE ShockServiceImpl - Entering checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] TRACE ShockServiceImpl - Exiting checkAndApplyCriticalShocks method in ShockServiceImpl.
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Checked and applied critical shocks for rate: EURUSD
+2025-04-01 20:30:52.470 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Saving asset state for rate: EURUSD
+2025-04-01 20:30:52.471 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Saved asset state for rate: EURUSD
+2025-04-01 20:30:52.471 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Entering buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:52.471 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Computed bid: 1.0482055924311103, ask: 1.0483055924311103 for rate: EURUSD
+2025-04-01 20:30:52.471 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Generated random volume: 8
+2025-04-01 20:30:52.471 [EURUSD] [RateUpdate-3] TRACE RateSimulatorServiceImpl - Exiting buildRateDataResponse method in RateSimulatorServiceImpl: EURUSD
+2025-04-01 20:30:52.471 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Saving rate data response for rate: EURUSD
+2025-04-01 20:30:52.473 [EURUSD] [RateUpdate-3] DEBUG RateSimulatorServiceImpl - Saved rate data response for rate: EURUSD
+2025-04-01 20:30:52.473 [] [ForkJoinPool.commonPool-worker-3] TRACE RateSimulatorServiceImpl - Exiting updateAllRates method in RateSimulatorServiceImpl.
+2025-04-01 20:30:52.473 [] [ForkJoinPool.commonPool-worker-3] INFO  RateUpdateScheduler - Rates updated => iteration=1276 totalUpdated=1
+2025-04-01 20:30:52.603 [] [SpringApplicationShutdownHook] INFO  EurekaServiceRegistry - Unregistering application REST-DATA-PROVIDER with eureka with status DOWN
+2025-04-01 20:30:52.604 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1743528652604, current=DOWN, previous=UP]
+2025-04-01 20:30:52.604 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083: registering service...
+2025-04-01 20:30:52.627 [] [SpringApplicationShutdownHook] INFO  GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-01 20:30:52.639 [] [tomcat-shutdown] INFO  GracefulShutdown - Graceful shutdown complete
+2025-04-01 20:30:52.650 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083 - registration status: 204
+2025-04-01 20:30:53.721 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Shutting down DiscoveryClient ...
+2025-04-01 20:30:56.730 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Unregistering ...
+2025-04-01 20:30:56.764 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - DiscoveryClient_REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083 - deregister  status: 200
+2025-04-01 20:30:56.764 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Completed shut down of DiscoveryClient

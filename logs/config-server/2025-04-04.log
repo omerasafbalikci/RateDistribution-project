@@ -1,0 +1,11 @@
+2025-04-04 05:03:01.459 [http-nio-8888-exec-1] INFO  MultipleJGitEnvironmentRepository - Fetched for remote main and found 1 updates
+2025-04-04 05:03:01.693 [http-nio-8888-exec-1] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [C:\Users\omera\AppData\Local\Temp\config-repo-784987631272375490\rest-data-provider.yml]' via location 'file:/C:/Users/omera/AppData/Local/Temp/config-repo-784987631272375490/'
+2025-04-04 05:04:15.245 [http-nio-8888-exec-3] INFO  MultipleJGitEnvironmentRepository - Fetched for remote main and found 1 updates
+2025-04-04 05:04:15.356 [http-nio-8888-exec-3] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [C:\Users\omera\AppData\Local\Temp\config-repo-784987631272375490\rest-data-provider.yml]' via location 'file:/C:/Users/omera/AppData/Local/Temp/config-repo-784987631272375490/'
+2025-04-04 05:07:00.108 [http-nio-8888-exec-5] INFO  MultipleJGitEnvironmentRepository - Fetched for remote main and found 1 updates
+2025-04-04 05:07:00.172 [http-nio-8888-exec-5] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [C:\Users\omera\AppData\Local\Temp\config-repo-784987631272375490\rest-data-provider.yml]' via location 'file:/C:/Users/omera/AppData/Local/Temp/config-repo-784987631272375490/'
+2025-04-04 05:08:59.098 [http-nio-8888-exec-7] INFO  MultipleJGitEnvironmentRepository - Fetched for remote main and found 1 updates
+2025-04-04 05:08:59.203 [http-nio-8888-exec-7] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [C:\Users\omera\AppData\Local\Temp\config-repo-784987631272375490\rest-data-provider.yml]' via location 'file:/C:/Users/omera/AppData/Local/Temp/config-repo-784987631272375490/'
+2025-04-04 05:10:00.055 [Thread-2] WARN  MultipleJGitEnvironmentRepository - Failed to delete temporary directory on exit: java.nio.file.AccessDeniedException: C:\Users\omera\AppData\Local\Temp\config-repo-784987631272375490\.git\objects\pack\pack-04b2fff174800c71010588ffd623d3cb06d4d3b4.idx
+2025-04-04 05:10:00.125 [SpringApplicationShutdownHook] INFO  GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-04 05:10:00.281 [tomcat-shutdown] INFO  GracefulShutdown - Graceful shutdown complete

@@ -1,0 +1,118 @@
+2025-04-02 03:00:58.425 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-04-02 03:01:58.426 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-04-02 03:02:58.426 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-04-02 03:03:58.124 [ReplicaAwareInstanceRegistry - RenewalThresholdUpdater] INFO  PeerAwareInstanceRegistryImpl - Current renewal threshold is : 1
+2025-04-02 03:03:58.427 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-04-02 03:04:58.428 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-04-02 03:05:58.429 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-04-02 03:06:58.429 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-04-02 03:07:58.430 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-04-02 03:08:58.430 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-04-02 03:09:58.431 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-04-02 03:10:58.431 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-04-02 03:11:58.432 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-04-02 03:12:58.433 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-04-02 03:13:58.434 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-04-02 03:14:58.435 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-04-02 03:15:58.435 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-04-02 03:16:58.435 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-04-02 03:17:58.435 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-04-02 03:18:58.124 [ReplicaAwareInstanceRegistry - RenewalThresholdUpdater] INFO  PeerAwareInstanceRegistryImpl - Current renewal threshold is : 1
+2025-04-02 03:18:58.435 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-04-02 03:19:58.436 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-04-02 03:20:58.437 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-04-02 03:21:58.438 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-04-02 03:22:58.438 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-04-02 03:23:58.453 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 14ms
+2025-04-02 03:24:58.458 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 4ms
+2025-04-02 03:25:58.458 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-04-02 03:26:58.460 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-04-02 03:27:58.469 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 9ms
+2025-04-02 03:28:58.482 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 12ms
+2025-04-02 03:29:58.482 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-04-02 03:30:58.483 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-04-02 03:31:58.492 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 8ms
+2025-04-02 03:32:27.231 [http-nio-8761-exec-1] INFO  [/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-02 03:32:27.238 [http-nio-8761-exec-1] INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-04-02 03:32:27.508 [http-nio-8761-exec-1] INFO  DispatcherServlet - Completed initialization in 267 ms
+2025-04-02 03:32:28.694 [http-nio-8761-exec-2] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083 with status UP (replication=false)
+2025-04-02 03:32:29.489 [http-nio-8761-exec-3] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083 with status UP (replication=true)
+2025-04-02 03:32:58.493 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-04-02 03:33:58.129 [ReplicaAwareInstanceRegistry - RenewalThresholdUpdater] INFO  PeerAwareInstanceRegistryImpl - Current renewal threshold is : 3
+2025-04-02 03:33:58.493 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-04-02 03:34:58.506 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 12ms
+2025-04-02 03:35:23.191 [http-nio-8761-exec-9] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083 with status DOWN (replication=false)
+2025-04-02 03:35:23.726 [http-nio-8761-exec-10] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083 with status DOWN (replication=true)
+2025-04-02 03:35:26.982 [http-nio-8761-exec-1] INFO  AbstractInstanceRegistry - Cancelled instance REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083 (replication=false)
+2025-04-02 03:35:27.543 [http-nio-8761-exec-2] WARN  AbstractInstanceRegistry - DS: Registry: cancel failed because Lease is not registered for: REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083
+2025-04-02 03:35:27.544 [http-nio-8761-exec-2] INFO  InstanceResource - Not Found (Cancel): REST-DATA-PROVIDER - asaf.mshome.net:rest-data-provider:8083
+2025-04-02 03:35:27.577 [TaskBatchingWorker-target_localhost-17] WARN  ReplicationTask - The replication of task REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083:Cancel@localhost failed with response code 404
+2025-04-02 03:35:27.578 [TaskBatchingWorker-target_localhost-17] WARN  PeerEurekaNode - REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083:Cancel@localhost: missing entry.
+2025-04-02 03:35:46.956 [http-nio-8761-exec-6] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083 with status UP (replication=false)
+2025-04-02 03:35:47.479 [http-nio-8761-exec-8] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083 with status UP (replication=true)
+2025-04-02 03:35:58.507 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-04-02 03:36:58.507 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-04-02 03:37:58.507 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-04-02 03:38:27.126 [http-nio-8761-exec-4] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083 with status DOWN (replication=false)
+2025-04-02 03:38:27.648 [http-nio-8761-exec-3] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083 with status DOWN (replication=true)
+2025-04-02 03:38:30.986 [http-nio-8761-exec-5] INFO  AbstractInstanceRegistry - Cancelled instance REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083 (replication=false)
+2025-04-02 03:38:31.501 [http-nio-8761-exec-7] WARN  AbstractInstanceRegistry - DS: Registry: cancel failed because Lease is not registered for: REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083
+2025-04-02 03:38:31.501 [http-nio-8761-exec-7] INFO  InstanceResource - Not Found (Cancel): REST-DATA-PROVIDER - asaf.mshome.net:rest-data-provider:8083
+2025-04-02 03:38:31.505 [TaskBatchingWorker-target_localhost-7] WARN  ReplicationTask - The replication of task REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083:Cancel@localhost failed with response code 404
+2025-04-02 03:38:31.505 [TaskBatchingWorker-target_localhost-7] WARN  PeerEurekaNode - REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083:Cancel@localhost: missing entry.
+2025-04-02 03:38:41.859 [http-nio-8761-exec-10] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083 with status UP (replication=false)
+2025-04-02 03:38:42.382 [http-nio-8761-exec-2] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083 with status UP (replication=true)
+2025-04-02 03:38:58.511 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 3ms
+2025-04-02 03:39:58.519 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 7ms
+2025-04-02 03:40:58.524 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 5ms
+2025-04-02 03:41:58.537 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 12ms
+2025-04-02 03:42:58.540 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-04-02 03:43:58.549 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 9ms
+2025-04-02 03:44:58.550 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-04-02 03:45:58.557 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 6ms
+2025-04-02 03:46:35.783 [http-nio-8761-exec-7] INFO  AbstractInstanceRegistry - Cancelled instance REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083 (replication=false)
+2025-04-02 03:46:35.840 [http-nio-8761-exec-9] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083 with status UP (replication=false)
+2025-04-02 03:46:36.321 [http-nio-8761-exec-10] INFO  AbstractInstanceRegistry - Cancelled instance REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083 (replication=true)
+2025-04-02 03:46:36.323 [http-nio-8761-exec-10] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083 with status UP (replication=true)
+2025-04-02 03:46:58.570 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 13ms
+2025-04-02 03:47:58.585 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 14ms
+2025-04-02 03:48:00.300 [http-nio-8761-exec-9] INFO  AbstractInstanceRegistry - Cancelled instance REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083 (replication=false)
+2025-04-02 03:48:00.337 [http-nio-8761-exec-2] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083 with status UP (replication=false)
+2025-04-02 03:48:00.344 [http-nio-8761-exec-1] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083 with status UP (replication=false)
+2025-04-02 03:48:00.827 [http-nio-8761-exec-3] INFO  AbstractInstanceRegistry - Cancelled instance REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083 (replication=true)
+2025-04-02 03:48:00.830 [http-nio-8761-exec-3] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083 with status UP (replication=true)
+2025-04-02 03:48:58.150 [ReplicaAwareInstanceRegistry - RenewalThresholdUpdater] INFO  PeerAwareInstanceRegistryImpl - Current renewal threshold is : 3
+2025-04-02 03:48:58.599 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 13ms
+2025-04-02 03:49:58.609 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 10ms
+2025-04-02 03:50:58.619 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 9ms
+2025-04-02 03:51:58.633 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 14ms
+2025-04-02 03:52:58.647 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 14ms
+2025-04-02 03:53:58.652 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 4ms
+2025-04-02 03:54:58.654 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 3ms
+2025-04-02 03:55:58.656 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-04-02 03:56:58.663 [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 6ms
+2025-04-02 03:57:24.661 [http-nio-8761-exec-10] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083 with status DOWN (replication=false)
+2025-04-02 03:57:24.736 [SpringApplicationShutdownHook] INFO  EurekaServiceRegistry - Unregistering application DISCOVERY-SERVER with eureka with status DOWN
+2025-04-02 03:57:24.767 [SpringApplicationShutdownHook] INFO  GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-02 03:57:24.781 [tomcat-shutdown] INFO  GracefulShutdown - Graceful shutdown complete
+2025-04-02 03:57:24.791 [SpringApplicationShutdownHook] INFO  EurekaServerBootstrap - Shutting down Eureka Server..
+2025-04-02 03:57:24.791 [SpringApplicationShutdownHook] INFO  DefaultEurekaServerContext - Shutting down ...
+2025-04-02 03:57:24.818 [SpringApplicationShutdownHook] INFO  DefaultEurekaServerContext - Shut down
+2025-04-02 03:57:24.818 [SpringApplicationShutdownHook] INFO  EurekaServerBootstrap - Eureka Service is now shutdown...
+2025-04-02 03:57:24.818 [SpringApplicationShutdownHook] INFO  DefaultEurekaServerContext - Shutting down ...
+2025-04-02 03:57:24.818 [SpringApplicationShutdownHook] INFO  DefaultEurekaServerContext - Shut down
+2025-04-02 03:57:24.797 [Eureka-Jersey3Client-Conn-Cleaner2] ERROR EurekaJersey3ClientImpl - Cannot clean connections
+java.lang.IllegalStateException: Client instance has been closed.
+	at org.glassfish.jersey.internal.guava.Preconditions.checkState(Preconditions.java:169) ~[jersey-common-3.1.10.jar:?]
+	at org.glassfish.jersey.client.JerseyClient.checkNotClosed(JerseyClient.java:248) ~[jersey-client-3.1.10.jar:?]
+	at org.glassfish.jersey.client.JerseyClient.getConfiguration(JerseyClient.java:363) ~[jersey-client-3.1.10.jar:?]
+	at org.glassfish.jersey.client.JerseyClient.getConfiguration(JerseyClient.java:54) ~[jersey-client-3.1.10.jar:?]
+	at com.netflix.discovery.shared.transport.jersey3.EurekaJersey3ClientImpl$ConnectionCleanerTask.run(EurekaJersey3ClientImpl.java:338) ~[eureka-client-jersey3-2.0.4.jar:2.0.4]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[?:?]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[?:?]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2025-04-02 03:57:24.844 [SpringApplicationShutdownHook] INFO  DiscoveryClient - Shutting down DiscoveryClient ...
+2025-04-02 03:57:24.844 [SpringApplicationShutdownHook] INFO  DiscoveryClient - Completed shut down of DiscoveryClient

@@ -5,6 +5,7 @@ import com.ratedistribution.rdp.model.AssetState;
 import com.ratedistribution.rdp.model.EventShockDefinition;
 import com.ratedistribution.rdp.model.ShockConfigDefinition;
 import com.ratedistribution.rdp.service.abstracts.ShockService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
@@ -14,22 +15,23 @@ import java.time.ZoneOffset;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Service
+@RequiredArgsConstructor
 @Log4j2
 public class ShockServiceImpl implements ShockService {
     private final SimulatorProperties simulatorProperties;
-
-    public ShockServiceImpl(SimulatorProperties simulatorProperties) {
-        this.simulatorProperties = simulatorProperties;
-    }
 
     @Override
     public void processAutomaticShocks(AssetState state, LocalDateTime now) {
         log.trace("Entering processAutomaticShocks method in ShockServiceImpl.");
         double dtSeconds = 1.0;
-        ShockConfigDefinition shockCfg = this.simulatorProperties.getShockConfig();
-        double smallShockPerSec = shockCfg.getSmallShockWeekly() / (7 * 24 * 3600.0);
-        double mediumShockPerSec = shockCfg.getMediumShockMonthly() / (30 * 24 * 3600.0);
-        double bigShockPerSec = shockCfg.getBigShockYearly() / (365 * 24 * 3600.0);
+        ShockConfigDefinition shockConfig = this.simulatorProperties.getShockConfig();
+        if (shockConfig == null) {
+            log.debug("Shock configuration is null.");
+            return;
+        }
+        double smallShockPerSec = shockConfig.getSmallShockWeekly() / (7 * 24 * 3600.0);
+        double mediumShockPerSec = shockConfig.getMediumShockMonthly() / (30 * 24 * 3600.0);
+        double bigShockPerSec = shockConfig.getBigShockYearly() / (365 * 24 * 3600.0);
 
         log.debug("Shock probabilities (per sec) => Small: {}, Medium: {}, Big: {}",
                 smallShockPerSec, mediumShockPerSec, bigShockPerSec);
@@ -46,22 +48,22 @@ public class ShockServiceImpl implements ShockService {
 
     private void applyRandomShock(AssetState state, ShockType shockType) {
         log.trace("Entering applyRandomShock method in ShockServiceImpl.");
-        ShockConfigDefinition cfg = this.simulatorProperties.getShockConfig();
+        ShockConfigDefinition config = this.simulatorProperties.getShockConfig();
         double minPct;
         double maxPct;
 
         switch (shockType) {
             case SMALL -> {
-                minPct = cfg.getSmallShockMinPct();
-                maxPct = cfg.getSmallShockMaxPct();
+                minPct = config.getSmallShockMinPct();
+                maxPct = config.getSmallShockMaxPct();
             }
             case MEDIUM -> {
-                minPct = cfg.getMediumShockMinPct();
-                maxPct = cfg.getMediumShockMaxPct();
+                minPct = config.getMediumShockMinPct();
+                maxPct = config.getMediumShockMaxPct();
             }
             case BIG -> {
-                minPct = cfg.getBigShockMinPct();
-                maxPct = cfg.getBigShockMaxPct();
+                minPct = config.getBigShockMinPct();
+                maxPct = config.getBigShockMaxPct();
             }
             default -> {
                 log.error("Unknown ShockType encountered: {}", shockType);
@@ -73,7 +75,8 @@ public class ShockServiceImpl implements ShockService {
         shockMagnitude *= (ThreadLocalRandom.current().nextBoolean() ? 1 : -1);
         double newPrice = state.getCurrentPrice() * (1.0 + shockMagnitude);
         state.setCurrentPrice(newPrice);
-
+        log.warn("[!!! SHOCK !!!] {} shock applied | Magnitude: {} | New Price: {}",
+                shockType.name(), shockMagnitude, newPrice);
         log.debug("Applying {} shock => magnitude: {}, newPrice: {}", shockType, shockMagnitude, newPrice);
         log.trace("Exiting applyRandomShock method in ShockServiceImpl.");
     }
@@ -91,6 +94,8 @@ public class ShockServiceImpl implements ShockService {
                     double newPrice = state.getCurrentPrice() * (1.0 + randomShock);
                     state.setCurrentPrice(newPrice);
 
+                    log.warn("[!!! CRITICAL SHOCK !!!] Event: '{}' | Mean: {} | Volatility: {} | New Price: {}",
+                            es.getName(), es.getJumpMean(), es.getJumpVol(), newPrice);
                     log.debug("Critical event shock '{}' applied => jumpMean: {}, jumpVol: {}, newPrice: {}",
                             es.getName(), es.getJumpMean(), es.getJumpVol(), newPrice);
                 }

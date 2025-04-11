@@ -5,8 +5,11 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.FieldError;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ErrorResponse represents the structure of the error response returned by the API.
@@ -26,6 +29,7 @@ public class ErrorResponse {
     private String path;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     private LocalDateTime timestamp;
+    private List<ValidationError> validationErrors;
 
     public ErrorResponse() {
         this.timestamp = LocalDateTime.now();
@@ -44,5 +48,20 @@ public class ErrorResponse {
         this.error = status.getReasonPhrase();
         this.message = message;
         this.debugMessage = exception.getLocalizedMessage();
+    }
+
+    public void addValidationError(List<FieldError> errors) {
+        if (validationErrors == null) {
+            validationErrors = new ArrayList<>();
+        }
+        for (FieldError error : errors) {
+            ValidationError validationError = new ValidationError(
+                    error.getObjectName(),
+                    error.getField(),
+                    error.getRejectedValue(),
+                    error.getDefaultMessage()
+            );
+            validationErrors.add(validationError);
+        }
     }
 }
