@@ -8,7 +8,6 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import org.springframework.stereotype.Component;
 
-import java.time.Duration;
 import java.time.Instant;
 import java.util.concurrent.CompletableFuture;
 
@@ -23,11 +22,18 @@ public class RateUpdateScheduler {
 
     @PostConstruct
     public void startScheduler() {
-        long intervalMillis = simulatorProperties.getUpdateIntervalMillis();
-        Duration interval = Duration.ofMillis(intervalMillis);
+        scheduleNextRun();
+    }
 
-        taskScheduler.scheduleAtFixedRate(this::performUpdate, Instant.now(), interval);
-        log.info("Rate update scheduler started with interval: {} ms", intervalMillis);
+    private void scheduleNextRun() {
+        long intervalMillis = simulatorProperties.getUpdateIntervalMillis();
+
+        taskScheduler.schedule(() -> {
+            performUpdate();
+            scheduleNextRun();
+        }, Instant.now().plusMillis(intervalMillis));
+
+        log.info("Next update scheduled after {} ms", intervalMillis);
     }
 
     private void performUpdate() {

@@ -1,281 +1,423 @@
 package com.ratedistribution.tdp.service;
 
-import com.ratedistribution.tdp.config.RegimeDefinition;
-import com.ratedistribution.tdp.config.SessionVolFactor;
+import com.ratedistribution.tdp.config.SimulatorConfigLoader;
 import com.ratedistribution.tdp.config.SimulatorProperties;
-import com.ratedistribution.tdp.model.AssetState;
-import com.ratedistribution.tdp.model.MultiRateDefinition;
-import com.ratedistribution.tdp.model.RegimeStatus;
-import com.ratedistribution.tdp.model.VolRegime;
-import com.ratedistribution.tdp.utilities.CorrelatedRandomVectorGenerator;
+import com.ratedistribution.tdp.dto.responses.RateDataResponse;
+import com.ratedistribution.tdp.model.*;
+import lombok.RequiredArgsConstructor;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.*;
-import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Future;
 import java.util.concurrent.ThreadLocalRandom;
 
+@RequiredArgsConstructor
 public class RateSimulator {
-    private final SimulatorProperties simulatorProps;
+    private static final Logger log = LogManager.getLogger(RateSimulator.class);
+    private final SimulatorConfigLoader configLoader;
     private final HolidayCalendarService holidayCalendarService;
-    private final CorrelatedRandomVectorGenerator correlatedRng;
-    private final Map<String, AssetState> stateMap = new ConcurrentHashMap<>();
+    private final ShockService shockService;
+    private final ExecutorService executorService;
+    private LocalDateTime lastUpdate = null;
+    private final Map<String, AssetState> assetStateMap = new HashMap<>();
+    private final Map<String, RateDataResponse> rateDataResponseMap = new HashMap<>();
 
-    public RateSimulator(SimulatorProperties props, HolidayCalendarService holidayCalendarService) {
-        this.simulatorProps = props;
-        this.holidayCalendarService = holidayCalendarService;
+    public List<RateDataResponse> updateAllRates() {
+        SimulatorProperties simulatorProperties = this.configLoader.currentSimulator();
+        log.trace("Entering updateAllRates method in RateSimulator.");
+        List<RateDataResponse> responses = new ArrayList<>();
+        List<MultiRateDefinition> rateDefinitions = simulatorProperties.getRates();
 
-        List<List<Double>> mat = props.getCorrelationMatrix();
-        int n = mat.size();
-        double[][] corrArray = new double[n][n];
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                corrArray[i][j] = mat.get(i).get(j);
+        if (rateDefinitions == null || rateDefinitions.isEmpty()) {
+            log.warn("No rate definitions found. Exiting update process.");
+            log.trace("Exiting updateAllRates method in RateSimulator.");
+            return responses;
+        }
+
+        LocalDateTime now = LocalDateTime.now();
+        log.debug("Starting rate update process at: {}", now);
+        double deltaTimeSeconds = computeDeltaTimeSeconds(now);
+        log.debug("Computed delta time in seconds: {}", deltaTimeSeconds);
+        boolean isHoliday = this.holidayCalendarService.isHoliday(now);
+        boolean isWeekend = isWeekend(now);
+        log.debug("Market status - isWeekend: {}, isHoliday: {}", isWeekend, isHoliday);
+
+        if (isWeekend || isHoliday) {
+            log.info("Market is closed (weekend/holiday). Returning closed market responses.");
+            this.lastUpdate = now;
+            log.trace("Exiting updateAllRates method in RateSimulator.");
+            return buildClosedMarketResponses(rateDefinitions, now);
+        }
+
+        boolean doWeekendGap = checkIfWeekendGap(now);
+        log.debug("Weekend gap adjustment required: {}", doWeekendGap);
+        List<Future<RateDataResponse>> futures = new ArrayList<>();
+
+        for (MultiRateDefinition rateDefinition : rateDefinitions) {
+            Future<RateDataResponse> future = this.executorService.submit(() -> {
+                log.info("Processing rate update: {}", rateDefinition.getRateName());
+                AssetState oldState = getOrInitAssetState(rateDefinition, now);
+                double randomFactor = ThreadLocalRandom.current().nextGaussian();
+
+                log.debug("Current config for {}: drift={}, omega={}, alpha={}, beta={}",
+                        rateDefinition.getRateName(),
+                        rateDefinition.getDrift(),
+                        rateDefinition.getGarchParams().getOmega(),
+                        rateDefinition.getGarchParams().getAlpha(),
+                        rateDefinition.getGarchParams().getBeta());
+
+                AssetState updatedState = updatePriceAndVolatility(rateDefinition,
+                        oldState,
+                        randomFactor,
+                        now,
+                        deltaTimeSeconds,
+                        doWeekendGap,
+                        simulatorProperties
+                );
+                log.info("Updated price and volatility for rate: {}", rateDefinition.getRateName());
+
+                shockService.processAutomaticShocks(updatedState, now);
+                log.debug("Processed automatic shocks for rate: {}", rateDefinition.getRateName());
+                shockService.checkAndApplyCriticalShocks(updatedState, now);
+                log.debug("Checked and applied critical shocks for rate: {}", rateDefinition.getRateName());
+
+                assetStateMap.put(rateDefinition.getRateName(), updatedState);
+                log.debug("Saved asset state for rate: {}", rateDefinition.getRateName());
+
+                RateDataResponse response = buildRateDataResponse(rateDefinition, updatedState, now);
+                rateDataResponseMap.put(rateDefinition.getRateName(), response);
+                log.debug("Saved rate data response for rate: {}", rateDefinition.getRateName());
+                return response;
+            });
+            futures.add(future);
+        }
+
+        for (Future<RateDataResponse> future : futures) {
+            try {
+                responses.add(future.get());
+            } catch (InterruptedException | ExecutionException e) {
+                e.printStackTrace();
             }
         }
-        this.correlatedRng = new CorrelatedRandomVectorGenerator(corrArray);
 
-        props.getRates().forEach(def -> {
-            long nowEpoch = System.currentTimeMillis();
-            AssetState initState = new AssetState(
-                    def.getInitialPrice(),
-                    0.01,
-                    0.0,
-                    def.getInitialPrice(),
-                    def.getInitialPrice(),
-                    def.getInitialPrice(),
-                    0L,
-                    VolRegime.LOW_VOL,
-                    0,
-                    nowEpoch,
-                    LocalDate.now(ZoneOffset.UTC)
-            );
-            stateMap.put(def.getRateName(), initState);
-        });
+        this.lastUpdate = now;
+        log.trace("Exiting updateAllRates method in RateSimulator.");
+        return responses;
     }
 
-    public List<String> updateAllRates() {
-        var resultLines = new java.util.ArrayList<String>();
-        double dt = simulatorProps.getUpdateIntervalMillis() / (1000.0 * 3600.0 * 24.0);
+    private boolean isWeekend(LocalDateTime dt) {
+        boolean weekend = dt.getDayOfWeek() == DayOfWeek.SATURDAY || dt.getDayOfWeek() == DayOfWeek.SUNDAY;
+        log.debug("Checked if date {} is weekend: {}", dt, weekend);
+        return weekend;
+    }
 
-        double[] epsVector = correlatedRng.sample();
-        List<MultiRateDefinition> definitions = simulatorProps.getRates();
+    private boolean checkIfWeekendGap(LocalDateTime now) {
+        if (lastUpdate == null) return false;
+        boolean isGap = isWeekend(lastUpdate) && !isWeekend(now);
+        log.debug("Weekend gap detected: {}", isGap);
+        return isGap;
+    }
 
-        for (int i = 0; i < definitions.size(); i++) {
-            MultiRateDefinition def = definitions.get(i);
-            String rateName = def.getRateName();
-            AssetState oldState = stateMap.get(rateName);
-            if (oldState == null) continue;
-
-            long nowMillis = System.currentTimeMillis();
-            LocalDateTime nowLdt = LocalDateTime.ofInstant(Instant.ofEpochMilli(nowMillis), ZoneOffset.UTC);
-
-            AssetState modState = handleMarketCloseScenarios(oldState, nowLdt);
-
-            RegimeStatus newRegime = updateRegime(modState.getCurrentRegime(), modState.getStepsInRegime());
-
-            var update = updateRate(def, modState, dt, epsVector[i], nowLdt, newRegime);
-
-            stateMap.put(rateName, update.newState());
-
-            resultLines.add(update.rateLine());
+    private double computeDeltaTimeSeconds(LocalDateTime now) {
+        if (lastUpdate == null) {
+            return 1.0;
         }
-        return resultLines;
+        Duration diff = Duration.between(lastUpdate, now);
+        return Math.max(diff.toSeconds(), 1);
     }
 
-    private AssetState handleMarketCloseScenarios(AssetState oldState, LocalDateTime nowLdt) {
-        long nowMillis = System.currentTimeMillis();
-        if (isWeekend(nowLdt.getDayOfWeek()) || isHoliday(nowLdt)) {
-            return oldState;
+    private AssetState getOrInitAssetState(MultiRateDefinition rateDef, LocalDateTime now) {
+        log.trace("Entering getOrInitAssetState method in RateSimulator: {}", rateDef.getRateName());
+        AssetState state = assetStateMap.get(rateDef.getRateName());
+        String newConfigSignature = buildConfigSignature(rateDef);
+
+        if (state == null) {
+            log.warn("No existing asset state found for rate: {}, initializing new state.", rateDef.getRateName());
+            state = initAssetState(rateDef, now);
+            state.setConfigSignature(newConfigSignature);
+            assetStateMap.put(rateDef.getRateName(), state);
+        } else if (!newConfigSignature.equals(state.getConfigSignature())) {
+            log.info("Detected config change for {}. Applying partial re-init...", rateDef.getRateName());
+            double oldPrice = state.getCurrentPrice();
+            double initSigma = Math.sqrt(rateDef.getGarchParams().getOmega());
+            state.setCurrentSigma(initSigma);
+            state.setLastReturn(0.0);
+            state.setStepsInRegime(0);
+            state.setCurrentPrice(oldPrice);
+            state.setConfigSignature(newConfigSignature);
+            assetStateMap.put(rateDef.getRateName(), state);
         }
 
-        long lastMillis = oldState.getLastUpdateEpochMillis();
-        LocalDateTime lastLdt = LocalDateTime.ofInstant(Instant.ofEpochMilli(lastMillis), ZoneOffset.UTC);
-        if (isWeekend(lastLdt.getDayOfWeek()) || isHoliday(lastLdt)) {
-            double gapMean = simulatorProps.getWeekendHandling().getWeekendGapJumpMean();
-            double gapVol = simulatorProps.getWeekendHandling().getWeekendGapJumpVol();
-            double jump = ThreadLocalRandom.current().nextGaussian() * gapVol + gapMean;
-            double newPrice = oldState.getCurrentPrice() * Math.exp(jump);
-            if (newPrice < 0.0001) newPrice = 0.0001;
-            oldState.setCurrentPrice(newPrice);
-        }
-        oldState.setLastUpdateEpochMillis(nowMillis);
-        return oldState;
+        log.trace("Exiting getOrInitAssetState method in RateSimulator: {}", rateDef.getRateName());
+        return state;
     }
 
-    private boolean isWeekend(DayOfWeek dow) {
-        return (dow == DayOfWeek.SATURDAY || dow == DayOfWeek.SUNDAY);
+    private AssetState initAssetState(MultiRateDefinition rateDef, LocalDateTime now) {
+        log.trace("Entering initAssetState method in RateSimulator: {}", rateDef.getRateName());
+        AssetState state = new AssetState();
+        state.setCurrentPrice(rateDef.getInitialPrice());
+
+        double initSigma = Math.sqrt(rateDef.getGarchParams().getOmega());
+        state.setCurrentSigma(initSigma);
+
+        state.setLastReturn(0.0);
+        state.setDayOpen(rateDef.getInitialPrice());
+        state.setDayHigh(rateDef.getInitialPrice());
+        state.setDayLow(rateDef.getInitialPrice());
+        state.setDayVolume(0L);
+        state.setCurrentRegime(VolRegime.LOW_VOL);
+        state.setStepsInRegime(0);
+        state.setLastUpdateEpochMillis(now.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli());
+        state.setCurrentDay(now.toLocalDate());
+        log.trace("Exiting initAssetState method in RateSimulator: {}", rateDef.getRateName());
+        return state;
     }
 
-    private boolean isHoliday(LocalDateTime ldt) {
-        return (holidayCalendarService != null) && holidayCalendarService.isHoliday(ldt);
+    private String buildConfigSignature(MultiRateDefinition rateDefinition) {
+        return "drift=" + rateDefinition.getDrift()
+                + "|omega=" + rateDefinition.getGarchParams().getOmega()
+                + "|alpha=" + rateDefinition.getGarchParams().getAlpha()
+                + "|beta=" + rateDefinition.getGarchParams().getBeta()
+                + "|spread=" + rateDefinition.getBaseSpread()
+                + "|meanRev=" + rateDefinition.isUseMeanReversion()
+                + "|kappa=" + rateDefinition.getKappa()
+                + "|theta=" + rateDefinition.getTheta();
     }
 
-    private RegimeStatus updateRegime(VolRegime current, int steps) {
-        if (!simulatorProps.isEnableRegimeSwitching()) {
-            return new RegimeStatus(current, steps + 1);
-        }
-        RegimeDefinition low = simulatorProps.getRegimeLowVol();
-        RegimeDefinition high = simulatorProps.getRegimeHighVol();
-        VolRegime newRegime = current;
-        int newSteps = steps + 1;
-
-        if (current == VolRegime.LOW_VOL) {
-            if (newSteps >= low.getMeanDuration() && Math.random() < low.getTransitionProb()) {
-                newRegime = VolRegime.HIGH_VOL;
-                newSteps = 0;
-            }
-        } else {
-            if (newSteps >= high.getMeanDuration() && Math.random() < high.getTransitionProb()) {
-                newRegime = VolRegime.LOW_VOL;
-                newSteps = 0;
-            }
-        }
-        return new RegimeStatus(newRegime, newSteps);
-    }
-
-    private record RateUpdateResult(AssetState newState, String rateLine) {
-    }
-
-    private RateUpdateResult updateRate(MultiRateDefinition def,
-                                        AssetState oldState,
-                                        double dt,
-                                        double z,
-                                        LocalDateTime nowLdt,
-                                        RegimeStatus newRegime) {
+    private AssetState updatePriceAndVolatility(MultiRateDefinition rateDefinition,
+                                                AssetState oldState,
+                                                double randomFactor,
+                                                LocalDateTime now,
+                                                double deltaTimeSeconds,
+                                                boolean weekendGap,
+                                                SimulatorProperties simulatorProperties) {
+        log.trace("Entering updatePriceAndVolatility method in RateSimulator: {}", rateDefinition.getRateName());
         double oldPrice = oldState.getCurrentPrice();
         double oldSigma = oldState.getCurrentSigma();
         double oldRet = oldState.getLastReturn();
+        log.debug("Old price: {}, Old sigma: {}, Old return: {}", oldPrice, oldSigma, oldRet);
 
-        LocalDate oldDay = oldState.getCurrentDay();
-        LocalDate nowDay = nowLdt.toLocalDate();
+        double newSigma = garchUpdate(rateDefinition.getGarchParams(), oldState);
+        log.debug("New sigma computed: {}", newSigma);
 
-        double dayOpen = oldState.getDayOpen();
-        double dayHigh = oldState.getDayHigh();
-        double dayLow = oldState.getDayLow();
-        long dayVol = oldState.getDayVolume();
+        double driftAdjustment = getDriftAdjustment(rateDefinition.getDrift(), deltaTimeSeconds);
+        log.debug("Drift adjustment: {}", driftAdjustment);
 
-        if (!nowDay.equals(oldDay)) {
-            dayOpen = Math.max(oldPrice, 0.0001);
-            dayHigh = dayOpen;
-            dayLow = dayOpen;
-            dayVol = 0L;
+        double logReturn = driftAdjustment + newSigma * randomFactor;
+        double newPrice = oldPrice * Math.exp(logReturn);
+        log.debug("Price updated from {} to {} (pre-session adjustments)", oldPrice, newPrice);
+
+        double volMultiplier = getSessionVolMultiplier(now, simulatorProperties);
+        double delta = newPrice - oldPrice;
+        newPrice = oldPrice + delta * volMultiplier;
+        log.debug("Session vol multiplier: {}, final newPrice: {}", volMultiplier, newPrice);
+
+        if (rateDefinition.isUseMeanReversion()) {
+            newPrice = applyMeanReversion(oldPrice, newPrice, rateDefinition.getKappa(), rateDefinition.getTheta(), deltaTimeSeconds);
+            log.debug("Applied mean reversion, New price: {}", newPrice);
         }
 
-        double newSigma = calculateGarchVolatility(def, oldRet, oldSigma);
+        if (weekendGap) {
+            log.debug("Applying weekend gap adjustment for rate: {}", rateDefinition.getRateName());
+            double gapRandom = ThreadLocalRandom.current().nextGaussian() * simulatorProperties.getWeekendGapVolatility();
+            double gapFactor = Math.exp(gapRandom * simulatorProperties.getWeekendShockFactor());
+            newPrice *= gapFactor;
+            log.debug("Weekend gap factor: {}, Adjusted price: {}", gapFactor, newPrice);
+        }
 
-        double volScale = (newRegime.getCurrentRegime() == VolRegime.HIGH_VOL)
-                ? simulatorProps.getRegimeHighVol().getVolScale()
-                : simulatorProps.getRegimeLowVol().getVolScale();
-        double sessionMult = getSessionVolMultiplier(nowLdt);
-        double effectiveSigma = newSigma * Math.sqrt(dt) * volScale * sessionMult;
+        VolRegime newRegime = checkRegimeSwitch(newSigma);
+        log.debug("Determined new volatility regime: {}", newRegime);
 
-        double normShock = effectiveSigma * z;
-        double driftPart = def.getDrift() * dt;
-        double jumpPart = calculateJump(def, dt);
-        double mrPart = (def.isUseMeanReversion()) ? calcMeanReversion(oldPrice, def, dt) : 0.0;
-
-        double logReturn = driftPart + normShock + jumpPart + mrPart;
-        double newPrice = oldPrice * Math.exp(logReturn);
-        if (newPrice < 0.0001) newPrice = 0.0001;
-
-        double spr = def.getBaseSpread();
-        double bid = Math.max(newPrice - spr / 2.0, 0.0001);
-        double ask = bid + spr;
-        double mid = 0.5 * (bid + ask);
-
-        long nowMs = System.currentTimeMillis();
-        long timeDiff = nowMs - oldState.getLastUpdateEpochMillis();
-        double ratio = (double) timeDiff / simulatorProps.getUpdateIntervalMillis();
-        if (ratio < 1.0) ratio = 1.0;
-        if (ratio > 5.0) ratio = 5.0;
-
-        long tickVol = ThreadLocalRandom.current().nextInt(10, 50);
-        long scaledTickVol = (long) (tickVol * ratio);
-        long newDayVol = dayVol + scaledTickVol;
-
-        dayHigh = Math.max(dayHigh, mid);
-        dayLow = Math.min(dayLow, mid);
-
-        double dayChangeVal = mid - dayOpen;
-        double dayChangePct = (dayOpen > 0.0) ? (dayChangeVal / dayOpen) * 100.0 : 0.0;
-
-        AssetState newState = new AssetState(
+        AssetState updatedState = createNewStateFromOld(
+                oldState,
                 newPrice,
                 newSigma,
-                logReturn,
-                dayOpen,
-                dayHigh,
-                dayLow,
-                newDayVol,
-                newRegime.getCurrentRegime(),
-                newRegime.getStepsInRegime(),
-                nowMs,
-                nowDay
+                now,
+                newRegime
         );
-
-        ZonedDateTime zdt = nowLdt.atZone(ZoneOffset.UTC);
-        String timeStr = zdt.format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"));
-
-        String line = String.format(
-                "%s"
-                        + "|bid:number:%.6f|ask:number:%.6f|timestamp:datetime:%s"
-                        + "|open:number:%.6f|high:number:%.6f|low:number:%.6f"
-                        + "|change:number:%.6f|changePercent:percent:%.4f"
-                        + "|dayVolume:long:%d|lastTickVolume:long:%d",
-                def.getRateName(),
-                bid,
-                ask,
-                timeStr,
-                dayOpen,
-                dayHigh,
-                dayLow,
-                dayChangeVal,
-                dayChangePct,
-                newDayVol,
-                scaledTickVol
-        );
-
-        return new RateUpdateResult(newState, line);
+        log.trace("Exiting updatePriceAndVolatility method in RateSimulator: {}", rateDefinition.getRateName());
+        return updatedState;
     }
 
-    private double calculateGarchVolatility(MultiRateDefinition def, double oldRet, double oldSigma) {
-        double omega = def.getGarchParams().getOmega();
-        double alpha = def.getGarchParams().getAlpha();
-        double beta = def.getGarchParams().getBeta();
+    private double garchUpdate(GarchParams params, AssetState oldState) {
+        log.trace("Entering garchUpdate method in RateSimulator.");
+        double oldSigma = oldState.getCurrentSigma();
+        double oldRet = oldState.getLastReturn();
 
-        double newSigmaSq = omega + alpha * (oldRet * oldRet) + beta * (oldSigma * oldSigma);
-        if (newSigmaSq < 1e-16) newSigmaSq = 1e-16;
-        return Math.sqrt(newSigmaSq);
+        double omega = params.getOmega();
+        double alpha = params.getAlpha();
+        double beta = params.getBeta();
+
+        double oldVar = oldSigma * oldSigma;
+        double newVar = omega + alpha * (oldRet * oldRet) + beta * oldVar;
+        double result = Math.sqrt(Math.max(newVar, 1e-15));
+        log.debug("GARCH(1,1) variance: {}, sigma: {}", newVar, result);
+        log.trace("Exiting garchUpdate method in RateSimulator.");
+        return result;
     }
 
-    private double calculateJump(MultiRateDefinition def, double dt) {
-        double lambda = def.getJumpIntensity();
-        double probJump = 1 - Math.exp(-lambda * dt);
-        if (Math.random() < probJump) {
-            return ThreadLocalRandom.current().nextGaussian() * def.getJumpVol() + def.getJumpMean();
+    private double getDriftAdjustment(double driftAnnual, double dtSeconds) {
+        log.trace("Entering getDriftAdjustment method in RateSimulator.");
+        double yearInSeconds = 365.0 * 24.0 * 3600.0;
+        double driftPerSecond = driftAnnual / yearInSeconds;
+        log.trace("Exiting getDriftAdjustment method in RateSimulator.");
+        return driftPerSecond * dtSeconds;
+    }
+
+    private double applyMeanReversion(double oldPrice,
+                                      double newPrice,
+                                      double kappa,
+                                      double theta,
+                                      double dtSeconds) {
+        log.trace("Entering applyMeanReversion method in RateSimulator.");
+        double adjustedPrice = oldPrice + kappa * dtSeconds * (theta - oldPrice) + (newPrice - oldPrice);
+        log.trace("Exiting applyMeanReversion method in RateSimulator.");
+        return adjustedPrice;
+    }
+
+    private VolRegime checkRegimeSwitch(double sigma) {
+        log.trace("Entering checkRegimeSwitch method in RateSimulator.");
+        VolRegime regime;
+        if (sigma > 0.02) {
+            regime = VolRegime.HIGH_VOL;
+        } else if (sigma < 0.005) {
+            regime = VolRegime.LOW_VOL;
+        } else {
+            regime = VolRegime.MID_VOL;
         }
-        return 0.0;
+        log.debug("Determined volatility regime: {}", regime);
+        log.trace("Exiting checkRegimeSwitch method in RateSimulator.");
+        return regime;
     }
 
-    private double calcMeanReversion(double oldPrice, MultiRateDefinition def, double dt) {
-        double kappa = def.getKappa();
-        double theta = def.getTheta();
-        double logP = Math.log(oldPrice);
-        double logT = Math.log(theta);
-        return kappa * (logT - logP) * dt;
+    private AssetState createNewStateFromOld(AssetState oldState, double newPrice, double newSigma, LocalDateTime now, VolRegime newRegime) {
+        log.trace("Entering createNewStateFromOld method in RateSimulatorServiceImpl.");
+        AssetState state = new AssetState();
+        state.setCurrentPrice(newPrice);
+        state.setCurrentSigma(newSigma);
+
+        double ret = 0.0;
+        if (oldState.getCurrentPrice() > 0) {
+            ret = Math.log(newPrice / oldState.getCurrentPrice());
+        }
+        state.setLastReturn(ret);
+        log.debug("Computed return: {}", ret);
+
+        LocalDate oldDay = oldState.getCurrentDay();
+        LocalDate nowDay = now.toLocalDate();
+
+        if (!oldDay.isEqual(nowDay)) {
+            log.info("New day detected -> resetting daily open/high/low/volume");
+            state.setDayOpen(newPrice);
+            state.setDayHigh(newPrice);
+            state.setDayLow(newPrice);
+            state.setDayVolume(0L);
+            state.setCurrentDay(nowDay);
+        } else {
+            state.setDayOpen(oldState.getDayOpen());
+            state.setDayHigh(Math.max(oldState.getDayHigh(), newPrice));
+            state.setDayLow(Math.min(oldState.getDayLow(), newPrice));
+            state.setDayVolume(oldState.getDayVolume() + getRandomVolume());
+            state.setCurrentDay(oldDay);
+        }
+
+        if (newRegime != oldState.getCurrentRegime()) {
+            state.setCurrentRegime(newRegime);
+            state.setStepsInRegime(0);
+        } else {
+            state.setCurrentRegime(oldState.getCurrentRegime());
+            state.setStepsInRegime(oldState.getStepsInRegime() + 1);
+        }
+        state.setConfigSignature(oldState.getConfigSignature());
+        state.setLastUpdateEpochMillis(now.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli());
+
+        log.trace("Exiting createNewStateFromOld method in RateSimulatorServiceImpl.");
+        return state;
     }
 
-    private double getSessionVolMultiplier(LocalDateTime ldt) {
-        var list = simulatorProps.getSessionVolFactors();
-        if (list == null || list.isEmpty()) return 1.0;
-        int hour = ldt.getHour();
-        for (SessionVolFactor f : list) {
-            if (hour >= f.getStartHour() && hour < f.getEndHour()) {
-                return f.getVolMultiplier();
+    private long getRandomVolume() {
+        long volume = ThreadLocalRandom.current().nextInt(1, 10);
+        log.debug("Generated random volume: {}", volume);
+        return volume;
+    }
+
+    private double getSessionVolMultiplier(LocalDateTime now, SimulatorProperties simulatorProperties) {
+        if (simulatorProperties.getSessionVolFactors() == null) {
+            return 1.0;
+        }
+        int hour = now.getHour();
+        for (SessionVolFactor sf : simulatorProperties.getSessionVolFactors()) {
+            if (hour >= sf.getStartHour() && hour < sf.getEndHour()) {
+                log.debug("Applied session volatility multiplier for hour {}: {}", hour, sf.getVolMultiplier());
+                return sf.getVolMultiplier();
             }
         }
         return 1.0;
+    }
+
+    private RateDataResponse buildRateDataResponse(MultiRateDefinition rateDef,
+                                                   AssetState state,
+                                                   LocalDateTime now) {
+        log.trace("Entering buildRateDataResponse method in RateSimulator: {}", rateDef.getRateName());
+        RateDataResponse response = new RateDataResponse();
+        response.setRateName(rateDef.getRateName());
+        response.setTimestamp(now);
+
+        BigDecimal mid = BigDecimal.valueOf(state.getCurrentPrice());
+        BigDecimal spread = BigDecimal.valueOf(rateDef.getBaseSpread());
+        BigDecimal halfSpread = spread.divide(BigDecimal.valueOf(2), RoundingMode.HALF_UP);
+
+        BigDecimal bid = mid.subtract(halfSpread);
+        BigDecimal ask = mid.add(halfSpread);
+
+        response.setBid(bid);
+        response.setAsk(ask);
+        log.debug("Computed bid: {}, ask: {} for rate: {}", bid, ask, rateDef.getRateName());
+
+        response.setDayOpen(BigDecimal.valueOf(state.getDayOpen()));
+        response.setDayHigh(BigDecimal.valueOf(state.getDayHigh()));
+        response.setDayLow(BigDecimal.valueOf(state.getDayLow()));
+
+        double dayChange = state.getCurrentPrice() - state.getDayOpen();
+        response.setDayChange(BigDecimal.valueOf(dayChange));
+
+        if (state.getDayOpen() != 0) {
+            double dayChangePct = 100.0 * (dayChange / state.getDayOpen());
+            response.setDayChangePercent(BigDecimal.valueOf(dayChangePct));
+        } else {
+            response.setDayChangePercent(BigDecimal.ZERO);
+        }
+
+        response.setDayVolume(state.getDayVolume());
+        response.setLastTickVolume(getRandomVolume());
+        log.trace("Exiting buildRateDataResponse method in RateSimulator: {}", rateDef.getRateName());
+        return response;
+    }
+
+    private List<RateDataResponse> buildClosedMarketResponses(List<MultiRateDefinition> rateDefinitions,
+                                                              LocalDateTime now) {
+        log.trace("Entering buildClosedMarketResponses method in RateSimulator.");
+        List<RateDataResponse> responses = new ArrayList<>();
+        for (MultiRateDefinition rd : rateDefinitions) {
+            AssetState state = this.assetStateMap.get(rd.getRateName());
+            if (state == null) {
+                state = initAssetState(rd, now);
+                this.assetStateMap.put(rd.getRateName(), state);
+            }
+            RateDataResponse response = buildRateDataResponse(rd, state, now);
+            rateDataResponseMap.put(rd.getRateName(), response);
+            responses.add(response);
+        }
+        log.trace("Exiting buildClosedMarketResponses method in RateSimulator.");
+        return responses;
     }
 }

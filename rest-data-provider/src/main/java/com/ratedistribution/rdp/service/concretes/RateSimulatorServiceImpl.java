@@ -382,7 +382,7 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
     }
 
     private boolean isWeekend(LocalDateTime dt) {
-        boolean weekend = dt.getDayOfWeek() == DayOfWeek.SATURDAY || dt.getDayOfWeek() == DayOfWeek.SUNDAY;
+        boolean weekend = dt.getDayOfWeek() == DayOfWeek.MONDAY || dt.getDayOfWeek() == DayOfWeek.SUNDAY;
         log.debug("Checked if date {} is weekend: {}", dt, weekend);
         return weekend;
     }

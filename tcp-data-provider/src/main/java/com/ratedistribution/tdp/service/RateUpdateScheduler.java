@@ -1,44 +1,57 @@
 package com.ratedistribution.tdp.service;
 
-import java.util.List;
+import com.ratedistribution.tdp.net.SubscriptionManager;
+import com.ratedistribution.tdp.utilities.serializer.JsonUtil;
+
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class RateUpdateScheduler {
-    private final RateSimulator simulator;
-    private final long updateIntervalMillis;
-    private final int maxUpdates;
-    private final AtomicInteger updateCount = new AtomicInteger(0);
-    private final SubscriberCallback callback;
-    private final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
+    private final RateSimulator sim;
+    private final SubscriptionManager subs;
+    private volatile long periodMillis;
+    private volatile int maxUpdates;
+    private volatile int tick = 0;
+    private ScheduledExecutorService executorService;
 
-    public interface SubscriberCallback {
-        void onRatesUpdated(List<String> lines);
-    }
-
-    public RateUpdateScheduler(RateSimulator simulator, long updateIntervalMillis, int maxUpdates, SubscriberCallback callback) {
-        this.simulator = simulator;
-        this.updateIntervalMillis = updateIntervalMillis;
+    public RateUpdateScheduler(RateSimulator sim, SubscriptionManager subs,
+                               long periodMillis, int maxUpdates) {
+        this.sim = sim;
+        this.subs = subs;
+        this.periodMillis = periodMillis;
         this.maxUpdates = maxUpdates;
-        this.callback = callback;
     }
 
     public void start() {
-        scheduler.scheduleAtFixedRate(() -> {
-            if (maxUpdates > 0 && updateCount.get() >= maxUpdates) {
-                scheduler.shutdown();
-                return;
-            }
-
-            List<String> updatedLines = simulator.updateAllRates();
-            callback.onRatesUpdated(updatedLines);
-            updateCount.incrementAndGet();
-        }, 0, updateIntervalMillis, TimeUnit.MILLISECONDS);
+        executorService = Executors.newSingleThreadScheduledExecutor();
+        executorService.scheduleAtFixedRate(this::produce, 0, periodMillis, TimeUnit.MILLISECONDS);
+        System.out.println("[SCHEDULER] Started with interval " + periodMillis + " ms");
     }
 
-    public void stop() {
-        scheduler.shutdownNow();
+    public void reconfigure(long newPeriod, int newMaxUpdates) {
+        this.periodMillis = newPeriod;
+        this.maxUpdates = newMaxUpdates;
+        this.tick = 0;
+        if (executorService != null) {
+            executorService.shutdown();
+            try {
+                if (!executorService.awaitTermination(2, TimeUnit.SECONDS)) {
+                    System.out.println("[SCHEDULER] Executor did not terminate in time.");
+                }
+            } catch (InterruptedException e) {
+                System.out.println("[SCHEDULER] Executor termination interrupted.");
+                Thread.currentThread().interrupt();
+            }
+        }
+        start();
+    }
+
+    private void produce() {
+        if (maxUpdates > 0 && tick++ >= maxUpdates) return;
+
+        sim.updateAllRates().forEach(r -> {
+            subs.broadcast(r.getRateName(), JsonUtil.toJson(r));
+        });
     }
 }

@@ -21,4 +21,5 @@ public class AssetState {
     private int stepsInRegime;
     private long lastUpdateEpochMillis;
     private LocalDate currentDay;
+    private String configSignature;
 }
