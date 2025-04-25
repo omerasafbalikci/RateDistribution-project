@@ -41,10 +41,7 @@ public class TcpSubscriber extends AbstractSubscriber {
              PrintWriter writer = new PrintWriter(socket.getOutputStream(), true)) {
 
             this.out = writer;
-
-            for (String rate : getSubscribedRates()) {
-                out.println("subscribe|" + rate);
-            }
+            subs.forEach(r -> out.println("subscribe|" + r));
 
             String line;
             while (running && (line = in.readLine()) != null) {

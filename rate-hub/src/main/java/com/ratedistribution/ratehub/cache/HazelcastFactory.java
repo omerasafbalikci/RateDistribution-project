@@ -10,10 +10,10 @@ public final class HazelcastFactory {
     }
 
     public static HazelcastInstance start(String cluster) {
-        Config c = new Config();
-        c.setClusterName(cluster);
-        c.addMapConfig(new MapConfig("rawRates").setTimeToLiveSeconds(0));
-        c.addMapConfig(new MapConfig("calcRates").setTimeToLiveSeconds(0));
-        return Hazelcast.newHazelcastInstance(c);
+        Config config = new Config();
+        config.setClusterName(cluster);
+        config.addMapConfig(new MapConfig("rawRates").setTimeToLiveSeconds(0));
+        config.addMapConfig(new MapConfig("calcRates").setTimeToLiveSeconds(0));
+        return Hazelcast.newHazelcastInstance(config);
     }
 }

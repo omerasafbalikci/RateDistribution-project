@@ -6,7 +6,6 @@ import com.ratedistribution.ratehub.calculator.FormulaEngine;
 import com.ratedistribution.ratehub.kafka.RateKafkaProducer;
 import com.ratedistribution.ratehub.model.Rate;
 import com.ratedistribution.ratehub.model.RateFields;
-import com.ratedistribution.ratehub.model.RateStatus;
 import com.ratedistribution.ratehub.subscriber.RateListener;
 import com.ratedistribution.ratehub.subscriber.Subscriber;
 import org.apache.logging.log4j.LogManager;
@@ -26,116 +25,98 @@ public class Coordinator implements RateListener {
     private final HazelcastInstance hz;
     private final IMap<String, Rate> rawRates;
     private final IMap<String, Rate> calculatedRates;
-    private final RateKafkaProducer kafkaProducer;
-    private final FormulaEngine formulaEngine = new FormulaEngine();
-    private final Map<String, CalcDef> calcDefinitions;
-    private final ExecutorService executor = Executors.newCachedThreadPool(Thread.ofVirtual().factory());
+    private final RateKafkaProducer kafka;
+    private final FormulaEngine engine = new FormulaEngine();
+    private final Map<String, CalcDef> defs;
+    private final ExecutorService pool;
 
-    public Coordinator(HazelcastInstance hz, RateKafkaProducer kafkaProducer, Map<String, CalcDef> calcDefinitions) {
+    public Coordinator(HazelcastInstance hz, RateKafkaProducer kafka, Map<String, CalcDef> defs, int threads) {
         this.hz = hz;
         this.rawRates = hz.getMap("rawRates");
         this.calculatedRates = hz.getMap("calcRates");
-        this.kafkaProducer = kafkaProducer;
-        this.calcDefinitions = calcDefinitions;
+        this.kafka = kafka;
+        this.defs = defs;
+        this.pool = Executors.newFixedThreadPool(threads, Thread.ofVirtual().factory());
     }
 
-    public void start(Collection<Subscriber> subscribers) {
-        for (Subscriber subscriber : subscribers) {
-            executor.execute(() -> {
-                try {
-                    subscriber.connect("", "");
-                } catch (Exception e) {
-                    log.error("Failed to connect subscriber {}", subscriber.name(), e);
-                }
-            });
-        }
+    public void registerAndStart(Collection<Subscriber> subs) {
+        subs.forEach(this::start);
     }
 
-    @Override
-    public void onConnect(String platform, boolean status) {
-        log.info("Connected to platform {}: {}", platform, status);
-    }
-
-    @Override
-    public void onDisconnect(String platform, boolean status) {
-        log.warn("Disconnected from platform {}: {}", platform, status);
-    }
-
-    @Override
-    public void onRateAvailable(String platform, String rateName, Rate fullRate) {
-        handleRateUpdate(platform, rateName, fullRate);
-    }
-
-    @Override
-    public void onRateUpdate(String platform, String rateName, RateFields fields) {
-        Rate rate = new Rate(rateName, fields.bid(), fields.ask(), fields.timestamp());
-        handleRateUpdate(platform, rateName, rate);
-    }
-
-    @Override
-    public void onRateStatus(String platform, String rateName, RateStatus status) {
-        switch (status) {
-            case SUBSCRIBED -> log.info("{}:{} is now subscribed.", platform, rateName);
-            case UNSUBSCRIBED -> log.info("{}:{} unsubscribed.", platform, rateName);
-            case ERROR -> log.warn("{}:{} encountered an error.", platform, rateName);
-        }    }
-
-    @Override
-    public void onRateError(String platformName, String rateName, Throwable error) {
-        log.error("Error received from platform {} for rate {}: {}", platformName, rateName, error.getMessage(), error);
-    }
-
-    private void handleRateUpdate(String platform, String rateName, Rate rate) {
-        String key = platform + ":" + rateName;
-        rawRates.put(key, rate);
-
-        calcDefinitions.values().stream()
-                .filter(def -> def.dependsOn().contains(rateName))
-                .forEach(this::recalculate);
-    }
-
-    private void recalculate(CalcDef def) {
-        try {
-            Map<String, Rate> allRates = new HashMap<>();
-            for (String dep : def.dependsOn()) {
-                rawRates.entrySet().stream()
-                        .filter(e -> e.getKey().endsWith(":" + dep))
-                        .map(Map.Entry::getValue)
-                        .findFirst()
-                        .ifPresent(rate -> allRates.put(dep, rate));
+    private void start(Subscriber s) {
+        pool.execute(() -> {
+            try {
+                s.connect("", "");
+            } catch (Exception e) {
+                log.error("{} connect fail", s.name(), e);
             }
-
-            BigDecimal bid = formulaEngine.eval(def.engine(), def.bidFormula(), allRates, def.helpers());
-            BigDecimal ask = formulaEngine.eval(def.engine(), def.askFormula(), allRates, def.helpers());
-
-            Rate calculated = new Rate(def.rateName(), bid, ask, LocalDateTime.now());
-            calculatedRates.put(def.rateName(), calculated);
-            kafkaProducer.send(toJson(calculated));
-            log.info("Calculated rate {} sent to Kafka", def.rateName());
-
-        } catch (Exception e) {
-            log.error("Error while calculating rate: {}", def.rateName(), e);
-        }
-    }
-
-    private String toJson(Rate rate) {
-        return String.format("{\"rateName\":\"%s\",\"bid\":%s,\"ask\":%s,\"timestamp\":\"%s\"}",
-                rate.rateName(), rate.bid(), rate.ask(), rate.timestamp());
+        });
     }
 
     public void shutdown() {
-        executor.shutdownNow();
-        kafkaProducer.close();
+        pool.shutdownNow();
+        kafka.close();
         hz.shutdown();
     }
 
-    public record CalcDef(
-            String rateName,
-            String engine,
-            String bidFormula,
-            String askFormula,
-            Map<String, BigDecimal> helpers,
-            Set<String> dependsOn
-    ) {
+    @Override
+    public void onConnect(String p, boolean ok) {
+        log.info("{} connected: {}", p, ok);
+    }
+
+    @Override
+    public void onDisconnect(String p, boolean ok) {
+        log.warn("{} disconnected", p);
+    }
+
+    @Override
+    public void onRateAvailable(String p, String r, Rate full) {
+        handleUpdate(p, r, full);
+    }
+
+    @Override
+    public void onRateUpdate(String p, String r, RateFields f) {
+        handleUpdate(p, r, new Rate(r, f.bid(), f.ask(), f.timestamp()));
+    }
+
+    @Override
+    public void onRateStatus(String p, String r, com.ratedistribution.ratehub.model.RateStatus s) {
+        log.info("{}:{} -> {}", p, r, s);
+    }
+
+    @Override
+    public void onRateError(String p, String r, Throwable t) {
+        log.error("Error {}:{}", p, r, t);
+    }
+
+    private void handleUpdate(String platform, String rateName, Rate rate) {
+        rawRates.put(platform + ":" + rateName, rate);
+        kafka.send(toLineProtocol(platform, rate));
+        defs.values().stream().filter(d -> d.dependsOn.contains(rateName)).forEach(this::recalculate);
+    }
+
+    private void recalculate(CalcDef d) {
+        try {
+            Map<String, Rate> vars = new HashMap<>();
+            d.dependsOn.forEach(dep -> rawRates.keySet().stream().filter(k -> k.endsWith(":" + dep)).findFirst().ifPresent(k -> vars.put(dep, rawRates.get(k))));
+            if (vars.size() != d.dependsOn.size()) return;
+            BigDecimal bid = engine.eval(d.engine, d.bidFormula, vars, d.helpers);
+            BigDecimal ask = engine.eval(d.engine, d.askFormula, vars, d.helpers);
+            Rate calc = new Rate(d.rateName, bid, ask, LocalDateTime.now());
+            calculatedRates.put(d.rateName, calc);
+            kafka.send(toLineProtocol("", calc));
+            log.debug("Calculated {}", d.rateName);
+        } catch (Exception e) {
+            log.error("calc {}", d.rateName, e);
+        }
+    }
+
+    private static String toLineProtocol(String platform, Rate r) {
+        String symbol = platform.isEmpty() ? r.rateName() : platform + "_" + r.rateName();
+        return String.format("%s|%s|%s|%s", symbol, r.bid(), r.ask(), r.timestamp());
+    }
+
+    public record CalcDef(String rateName, String engine, String bidFormula, String askFormula,
+                          Map<String, BigDecimal> helpers, Set<String> dependsOn) {
     }
 }

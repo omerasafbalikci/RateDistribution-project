@@ -15,20 +15,19 @@ public class SubscriberLoader {
     private final List<CoordinatorConfig.SubscriberCfg> cfgs;
     private final RateListener listener;
 
-    public List<Subscriber> loadAll() {
+    public List<Subscriber> load() {
         List<Subscriber> list = new ArrayList<>();
-
-        for (var cfg : cfgs) {
+        for (var c : cfgs) {
             try {
-                Class<?> clz = Class.forName(cfg.className());
+                Class<?> clz = Class.forName(c.className());
                 Constructor<?> ctor = clz.getDeclaredConstructor(RateListener.class, String.class, String.class, int.class);
-                Subscriber subscriber = (Subscriber) ctor.newInstance(listener, cfg.name(), cfg.host(), cfg.port());
-                list.add(subscriber);
-            } catch (ReflectiveOperationException e) {
-                log.error("Failed to load subscriber {}: {}", cfg.className(), e.getMessage(), e);
+                Subscriber s = (Subscriber) ctor.newInstance(listener, c.name(), c.host(), c.port());
+                c.rates().forEach(s::subscribe);
+                list.add(s);
+            } catch (Exception e) {
+                log.error("load {}", c.className(), e);
             }
         }
-
         return list;
     }
 }

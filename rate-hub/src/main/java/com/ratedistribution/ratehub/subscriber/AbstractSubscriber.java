@@ -79,8 +79,7 @@ public abstract class AbstractSubscriber implements Subscriber, Runnable {
 
     @Override
     public String status() {
-        return String.format("Platform=%s, Connected=%s, Rates=%s, Received=%d",
-                platform, running, subs.size(), received.get());
+        return "Platform=" + platform + ", Connected=" + running + ", Rates=" + subs.size() + ", Received=" + received.get();
     }
 
     public abstract void run();
