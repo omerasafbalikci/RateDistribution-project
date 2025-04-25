@@ -28,6 +28,8 @@
 		<module>rest-data-provider</module>
 		<module>config-server</module>
 		<module>discovery-server</module>
+        <module>rate-hub-consumer-db</module>
+		<module>rate-hub-consumer-log</module>
 	</modules>
 	<scm>
 		<connection/>
