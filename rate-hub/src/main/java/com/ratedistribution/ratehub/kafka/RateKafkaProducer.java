@@ -1,5 +1,8 @@
 package com.ratedistribution.ratehub.kafka;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ratedistribution.ratehub.model.Rate;
+import com.ratedistribution.ratehub.model.RawTick;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -12,31 +15,35 @@ import java.util.Properties;
 
 public class RateKafkaProducer implements AutoCloseable {
     private static final Logger log = LogManager.getLogger(RateKafkaProducer.class);
-    private final Producer<String, String> producer;
+    private final Producer<String, String> prod;
     private final String topic;
+    private final ObjectMapper mapper = new ObjectMapper().findAndRegisterModules();
 
-    public RateKafkaProducer(String bootstrapServers, String topic) {
+    public RateKafkaProducer(String bs, String topic) {
         this.topic = topic;
         Properties p = new Properties();
-        p.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
+        p.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bs);
         p.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         p.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         p.put(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, "true");
         p.put(ProducerConfig.ACKS_CONFIG, "all");
-        p.put(ProducerConfig.LINGER_MS_CONFIG, 10);
-        p.put(ProducerConfig.BATCH_SIZE_CONFIG, 32_768);
-        producer = new KafkaProducer<>(p);
+        prod = new KafkaProducer<>(p);
     }
 
-    public void send(String value) {
-        producer.send(new ProducerRecord<>(topic, null, value), (meta, ex) -> {
-            if (ex != null) log.error("Kafka send failed", ex);
-        });
+    public void sendJson(Object obj) {
+        try {
+            String key = (obj instanceof RawTick t) ? t.rateName() : ((Rate) obj).rateName();
+            prod.send(new ProducerRecord<>(topic, key, mapper.writeValueAsString(obj)), (m, e) -> {
+                if (e != null) log.error(e);
+            });
+        } catch (Exception e) {
+            log.error(e);
+        }
     }
 
     @Override
     public void close() {
-        producer.flush();
-        producer.close();
+        prod.flush();
+        prod.close();
     }
 }

@@ -1,41 +1,27 @@
-# --- System settings --------------------------------------------------------
 hazelcast:
   clusterName: fx‑rates
 kafka:
   bootstrapServers: localhost:9092
-  topic: fx‑rates
+  topic: ratehub.rates
 threadPool:
-  size: 8
-
-# --- Subscriber definitions (dynamic loading) ------------------------------
+  size: 32
 subscribers:
-  - class: com.example.fxcoordinator.subscriber.impl.TcpSubscriber
+  - class: com.ratedistribution.ratehub.subscriber.TcpSubscriber
     name: PF1
     host: 127.0.0.1
-    port: 8081
-    rates: [PF1_USDTRY, PF1_EURUSD, PF1_GBPUSD]
-  - class: com.example.fxcoordinator.subscriber.impl.RestSubscriber
+    port: 8800
+    rates: [ "EURUSD", "USDTRY", "GBPUSD" ]
+  - class: com.ratedistribution.ratehub.subscriber.RestSubscriber
     name: PF2
-    host: http://127.0.0.1:8080
-    port: 0            # not used for REST but kept to satisfy constructor sig
-    rates: [PF2_USDTRY, PF2_EURUSD, PF2_GBPUSD]
-
-# --- Calculation formulas ---------------------------------------------------
+    host: http://localhost:8080
+    port: 0
+    rates: [ "EURUSD", "USDTRY", "GBPUSD" ]
 calculations:
   - rateName: USDTRY
     engine: groovy
-    bid: "(PF1_USDTRY.bid + PF2_USDTRY.bid)/2"
-    ask: "(PF1_USDTRY.ask + PF2_USDTRY.ask)/2"
+    bid: "(PF1_USDTRY_bid + PF2_USDTRY_bid) / 2"
+    ask: "(PF1_USDTRY_ask + PF2_USDTRY_ask) / 2"
   - rateName: EURTRY
-    engine: groovy
-    helpers:
-      usdMid: "((PF1_USDTRY.bid+PF2_USDTRY.bid)/2 + (PF1_USDTRY.ask+PF2_USDTRY.ask)/2)/2"
-    bid: "usdMid * ((PF1_EURUSD.bid+PF2_EURUSD.bid)/2)"
-    ask: "usdMid * ((PF1_EURUSD.ask+PF2_EURUSD.ask)/2)"
-  - rateName: GBPTRY
-    engine: groovy
-    helpers:
-      usdMid: "((PF1_USDTRY.bid+PF2_USDTRY.bid)/2 + (PF1_USDTRY.ask+PF2_USDTRY.ask)/2)/2"
-    bid: "usdMid * ((PF1_GBPUSD.bid+PF2_GBPUSD.bid)/2)"
-    ask: "usdMid * ((PF1_GBPUSD.ask+PF2_GBPUSD.ask)/2)"
-  */
+    engine: js
+    bid: "((PF1_USDTRY_bid+PF2_USDTRY_bid)/2 + (PF1_USDTRY_ask+PF2_USDTRY_ask)/2)/2 * ((PF1_EURUSD_bid+PF2_EURUSD_bid)/2)"
+    ask: "((PF1_USDTRY_bid+PF2_USDTRY_bid)/2 + (PF1_USDTRY_ask+PF2_USDTRY_ask)/2)/2 * ((PF1_EURUSD_ask+PF2_EURUSD_ask)/2)"

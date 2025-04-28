@@ -4,7 +4,7 @@ import java.time.Instant;
 import java.util.Optional;
 import java.util.Set;
 
-public interface Subscriber {
+public interface Subscriber extends AutoCloseable, Runnable {
     void connect(String user, String pwd) throws Exception;
 
     void disconnect();

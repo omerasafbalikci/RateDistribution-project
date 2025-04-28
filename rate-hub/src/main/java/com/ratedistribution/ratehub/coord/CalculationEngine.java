@@ -1,9 +1,8 @@
-package com.ratedistribution.ratehub.calculator;
+package com.ratedistribution.ratehub.coord;
 
 import com.ratedistribution.ratehub.model.Rate;
 import groovy.lang.Binding;
 import groovy.lang.GroovyShell;
-import lombok.RequiredArgsConstructor;
 import org.codehaus.groovy.control.CompilerConfiguration;
 import org.graalvm.polyglot.Context;
 import org.graalvm.polyglot.Value;
@@ -11,11 +10,10 @@ import org.graalvm.polyglot.Value;
 import java.math.BigDecimal;
 import java.util.Map;
 
-@RequiredArgsConstructor
-public class FormulaEngine {
+public class CalculationEngine {
     private final CompilerConfiguration configuration;
 
-    public FormulaEngine() {
+    public CalculationEngine() {
         CompilerConfiguration configuration = new CompilerConfiguration();
         configuration.setScriptBaseClass("groovy.lang.Script");
         this.configuration = configuration;
