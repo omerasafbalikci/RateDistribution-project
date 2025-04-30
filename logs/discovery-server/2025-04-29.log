@@ -1,0 +1,59 @@
+2025-04-29 01:49:14.786 [main] INFO  DiscoveryServerApplication - Starting DiscoveryServerApplication using Java 21.0.6 with PID 8076 (C:\Users\omera\Desktop\ratedistribution\discovery-server\target\classes started by asaf in C:\Users\omera\Desktop\ratedistribution)
+2025-04-29 01:49:14.798 [main] DEBUG DiscoveryServerApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-04-29 01:49:14.802 [main] INFO  DiscoveryServerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-29 01:49:14.856 [main] INFO  ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+2025-04-29 01:49:14.856 [main] INFO  ConfigServerConfigDataLoader - Located environment: name=discovery-server, profiles=[default], label=null, version=66ed9cf81fcd60f2fa60607abf3c5ada3b23d78f, state=
+2025-04-29 01:49:16.246 [main] INFO  GenericScope - BeanFactory id=d727d668-15e2-3d6e-b67c-74fc10a92540
+2025-04-29 01:49:16.659 [main] INFO  TomcatWebServer - Tomcat initialized with port 8761 (http)
+2025-04-29 01:49:16.673 [main] INFO  Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8761"]
+2025-04-29 01:49:16.676 [main] INFO  StandardService - Starting service [Tomcat]
+2025-04-29 01:49:16.676 [main] INFO  StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-04-29 01:49:16.774 [main] INFO  [/] - Initializing Spring embedded WebApplicationContext
+2025-04-29 01:49:16.776 [main] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1912 ms
+2025-04-29 01:49:18.087 [main] INFO  DiscoveryJerseyProvider - Using JSON encoding codec LegacyJacksonJson
+2025-04-29 01:49:18.087 [main] INFO  DiscoveryJerseyProvider - Using JSON decoding codec LegacyJacksonJson
+2025-04-29 01:49:18.346 [main] INFO  DiscoveryJerseyProvider - Using XML encoding codec XStreamXml
+2025-04-29 01:49:18.346 [main] INFO  DiscoveryJerseyProvider - Using XML decoding codec XStreamXml
+2025-04-29 01:49:18.574 [main] INFO  OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-04-29 01:49:19.688 [main] WARN  LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-04-29 01:49:19.719 [main] INFO  InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-04-29 01:49:19.744 [main] INFO  DiscoveryClient - Initializing Eureka in region us-east-1
+2025-04-29 01:49:19.744 [main] INFO  DiscoveryClient - Client configured to neither register nor query for data.
+2025-04-29 01:49:19.745 [main] INFO  DiscoveryClient - Discovery Client initialized at timestamp 1745880559745 with initial instances count: 0
+2025-04-29 01:49:19.799 [main] INFO  DefaultEurekaServerContext - Initializing ...
+2025-04-29 01:49:19.802 [main] INFO  PeerEurekaNodes - Adding new peer nodes [http://localhost:8761/eureka/]
+2025-04-29 01:49:19.867 [main] INFO  DiscoveryJerseyProvider - Using JSON encoding codec LegacyJacksonJson
+2025-04-29 01:49:19.868 [main] INFO  DiscoveryJerseyProvider - Using JSON decoding codec LegacyJacksonJson
+2025-04-29 01:49:19.868 [main] INFO  DiscoveryJerseyProvider - Using XML encoding codec XStreamXml
+2025-04-29 01:49:19.868 [main] INFO  DiscoveryJerseyProvider - Using XML decoding codec XStreamXml
+2025-04-29 01:49:19.936 [main] INFO  PeerEurekaNodes - Replica node URL:  http://localhost:8761/eureka/
+2025-04-29 01:49:19.958 [main] INFO  AbstractInstanceRegistry - Finished initializing remote region registries. All known remote regions: []
+2025-04-29 01:49:19.959 [main] INFO  DefaultEurekaServerContext - Initialized
+2025-04-29 01:49:19.976 [main] INFO  EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2025-04-29 01:49:20.056 [main] INFO  EurekaServiceRegistry - Registering application DISCOVERY-SERVER with eureka with status UP
+2025-04-29 01:49:20.062 [main] INFO  Http11NioProtocol - Starting ProtocolHandler ["http-nio-8761"]
+2025-04-29 01:49:20.071 [Thread-10] INFO  EurekaServerBootstrap - isAws returned false
+2025-04-29 01:49:20.072 [Thread-10] INFO  EurekaServerBootstrap - Initialized server context
+2025-04-29 01:49:20.072 [Thread-10] INFO  PeerAwareInstanceRegistryImpl - Got 1 instances from neighboring DS node
+2025-04-29 01:49:20.072 [Thread-10] INFO  PeerAwareInstanceRegistryImpl - Renew threshold is: 1
+2025-04-29 01:49:20.072 [Thread-10] INFO  PeerAwareInstanceRegistryImpl - Changing status to UP
+2025-04-29 01:49:20.077 [Thread-10] INFO  EurekaServerInitializerConfiguration - Started Eureka Server
+2025-04-29 01:49:20.087 [main] INFO  TomcatWebServer - Tomcat started on port 8761 (http) with context path '/'
+2025-04-29 01:49:20.089 [main] INFO  EurekaAutoServiceRegistration - Updating port to 8761
+2025-04-29 01:49:20.109 [main] INFO  DiscoveryServerApplication - Started DiscoveryServerApplication in 12.501 seconds (process running for 13.975)
+2025-04-29 01:49:33.385 [http-nio-8761-exec-1] INFO  [/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-29 01:49:33.386 [http-nio-8761-exec-1] INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-04-29 01:49:33.389 [http-nio-8761-exec-1] INFO  DispatcherServlet - Completed initialization in 3 ms
+2025-04-29 01:49:33.825 [http-nio-8761-exec-3] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083 with status UP (replication=false)
+2025-04-29 01:49:34.516 [http-nio-8761-exec-2] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/asaf.mshome.net:rest-data-provider:8083 with status UP (replication=true)
+2025-04-29 01:50:17.053 [SpringApplicationShutdownHook] INFO  EurekaServiceRegistry - Unregistering application DISCOVERY-SERVER with eureka with status DOWN
+2025-04-29 01:50:17.060 [SpringApplicationShutdownHook] INFO  GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-29 01:50:17.094 [tomcat-shutdown] INFO  GracefulShutdown - Graceful shutdown complete
+2025-04-29 01:50:17.100 [SpringApplicationShutdownHook] INFO  EurekaServerBootstrap - Shutting down Eureka Server..
+2025-04-29 01:50:17.101 [SpringApplicationShutdownHook] INFO  DefaultEurekaServerContext - Shutting down ...
+2025-04-29 01:50:17.123 [SpringApplicationShutdownHook] INFO  DefaultEurekaServerContext - Shut down
+2025-04-29 01:50:17.124 [SpringApplicationShutdownHook] INFO  EurekaServerBootstrap - Eureka Service is now shutdown...
+2025-04-29 01:50:17.127 [SpringApplicationShutdownHook] INFO  DefaultEurekaServerContext - Shutting down ...
+2025-04-29 01:50:17.130 [SpringApplicationShutdownHook] INFO  DefaultEurekaServerContext - Shut down
+2025-04-29 01:50:17.183 [SpringApplicationShutdownHook] INFO  DiscoveryClient - Shutting down DiscoveryClient ...
+2025-04-29 01:50:17.183 [SpringApplicationShutdownHook] INFO  DiscoveryClient - Completed shut down of DiscoveryClient

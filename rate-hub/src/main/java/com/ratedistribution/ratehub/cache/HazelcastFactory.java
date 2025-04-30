@@ -12,7 +12,7 @@ public final class HazelcastFactory {
     public static HazelcastInstance start(String cluster) {
         Config config = new Config();
         config.setClusterName(cluster);
-        config.addMapConfig(new MapConfig("rawRates").setTimeToLiveSeconds(0));
+        config.addMapConfig(new MapConfig("rawTicks").setTimeToLiveSeconds(0));
         config.addMapConfig(new MapConfig("calcRates").setTimeToLiveSeconds(0));
         return Hazelcast.newHazelcastInstance(config);
     }

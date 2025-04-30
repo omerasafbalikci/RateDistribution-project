@@ -1,0 +1,36 @@
+hazelcast:
+  clusterName: fx-rates
+
+kafka:
+  bootstrapServers: localhost:9092
+  rawTopic: ratehub.raw       # Ham veriler buraya gönderilir
+  calcTopic: ratehub.calculated  # Hesaplanmış veriler buraya gönderilir
+
+threadPool:
+  size: 32  # CPU yoğunluklu görevler için kullanılacak sanal thread sayısı
+
+subscribers:
+  - class: com.ratedistribution.ratehub.subscriber.impl.TcpSubscriber
+    name: PF1
+    host: 127.0.0.1
+    port: 8800
+    rates: [ "EURUSD", "USDTRY", "GBPUSD" ]
+
+  - class: com.ratedistribution.ratehub.subscriber.impl.RestSubscriber
+    name: PF2
+    host: http://localhost:8080
+    port: 0
+    rates: [ "EURUSD", "USDTRY", "GBPUSD" ]
+
+calculations:
+  - rateName: EURTRY
+    engine: groovy
+    scriptPath: config/formulas/eurtry.groovy
+
+  - rateName: GBPTRY
+    engine: js
+    scriptPath: config/formulas/gbptry.js
+
+  - rateName: USDTRY
+    engine: java
+    scriptPath: config/formulas/usdtry.java

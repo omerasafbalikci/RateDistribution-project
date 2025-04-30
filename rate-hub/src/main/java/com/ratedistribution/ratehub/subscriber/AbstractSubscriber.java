@@ -5,10 +5,10 @@ import lombok.RequiredArgsConstructor;
 
 import java.time.Instant;
 import java.util.Collections;
-import java.util.Optional;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
+import java.util.concurrent.atomic.AtomicReference;
 
 @RequiredArgsConstructor
 public abstract class AbstractSubscriber implements Subscriber {
@@ -18,13 +18,20 @@ public abstract class AbstractSubscriber implements Subscriber {
     protected volatile boolean running;
     protected volatile Instant connectedAt;
     protected final AtomicLong received = new AtomicLong();
+    protected final AtomicReference<Instant> lastReceived = new AtomicReference<>();
     private Thread thread;
 
     @Override
     public void connect(String user, String pwd) {
         if (running) return;
         running = true;
-        thread = Thread.startVirtualThread(this);
+        thread = Thread.startVirtualThread(() -> {
+            try {
+                run();
+            } catch (Exception e) {
+                listener.onRateError(platform, "RUN", e);
+            }
+        });
         connectedAt = Instant.now();
         listener.onConnect(platform, true);
     }
@@ -67,24 +74,18 @@ public abstract class AbstractSubscriber implements Subscriber {
     }
 
     @Override
-    public Optional<Instant> getConnectionTime() {
-        return Optional.ofNullable(connectedAt);
+    public boolean healthCheck() {
+        return running && lastReceived.get() != null &&
+                lastReceived.get().isAfter(Instant.now().minusSeconds(10));
+    }
+
+    protected void markReceived() {
+        received.incrementAndGet();
+        lastReceived.set(Instant.now());
     }
 
     @Override
-    public long receivedCount() {
-        return received.get();
-    }
-
-    @Override
-    public void reset() {
-        disconnect();
-        subs.clear();
-        received.set(0);
-    }
-
-    @Override
-    public String status() {
-        return "Platform=%s Conn=%s Rates=%d Recv=%d".formatted(platform, running, subs.size(), received.get());
+    public SubscriberMetrics metrics() {
+        return new SubscriberMetrics(platform, running, received.get(), connectedAt, lastReceived.get());
     }
 }

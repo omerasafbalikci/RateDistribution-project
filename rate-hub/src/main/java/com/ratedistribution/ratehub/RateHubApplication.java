@@ -1,9 +1,11 @@
 package com.ratedistribution.ratehub;
 
+import com.hazelcast.core.HazelcastInstance;
 import com.ratedistribution.ratehub.cache.HazelcastFactory;
+import com.ratedistribution.ratehub.config.AppConfigLoader;
 import com.ratedistribution.ratehub.config.CoordinatorConfig;
-import com.ratedistribution.ratehub.kafka.RateKafkaProducer;
 import com.ratedistribution.ratehub.coord.Coordinator;
+import com.ratedistribution.ratehub.kafka.RateKafkaProducer;
 import com.ratedistribution.ratehub.subscriber.SubscriberLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,16 +16,50 @@ public class RateHubApplication {
     public static void main(String[] args) throws Exception {
         Logger log = LogManager.getLogger(RateHubApplication.class);
 
-        Path cfgPath = Path.of(System.getProperty("conf", "application.yml"));
-        CoordinatorConfig cfg = CoordinatorConfig.load(cfgPath);
 
-        var hazelcast = HazelcastFactory.start(cfg.hazelcast().clusterName());
-        var producer   = new RateKafkaProducer(cfg.kafka().bootstrapServers(), cfg.kafka().topic());
-        var coordinator= new Coordinator(hazelcast, producer, cfg.toDefs(), cfg.threadPool().size());
-        var loader     = new SubscriberLoader(cfg.subscribers(), coordinator);
+        try {
+            // Konfigürasyon yolu
+            Path cfgPath = Path.of(System.getProperty("conf", "config/application.yml"));
+            log.info("Loading configuration from {}", cfgPath.toAbsolutePath());
 
-        coordinator.start(loader.load());
-        Runtime.getRuntime().addShutdownHook(new Thread(coordinator::shutdown));
-        log.info("RateHub started – Ctrl+C to exit");
+            // Konfigürasyon yükle
+            CoordinatorConfig config = AppConfigLoader.load(cfgPath);
+
+            // Hazelcast başlat
+            var hazelcast = HazelcastFactory.start(config.hazelcast().clusterName());
+
+            var coordinator = getCoordinator(config, hazelcast);
+
+            // Shutdown hook
+            Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+                log.info("Shutdown signal received. Cleaning up...");
+                coordinator.shutdown();
+            }));
+
+            log.info("✅ RateHub started successfully – Ctrl+C to exit");
+
+        } catch (Exception e) {
+            log.error("❌ Failed to start RateHub: {}", e.getMessage(), e);
+            System.exit(1);
+        }
+    }
+
+    private static Coordinator getCoordinator(CoordinatorConfig config, HazelcastInstance hazelcast) {
+        var producer = new RateKafkaProducer(
+                config.kafka().bootstrapServers(),
+                config.kafka().rawTopic(),
+                config.kafka().calcTopic()
+        );
+
+        // Coordinator başlat
+        var coordinator = new Coordinator(hazelcast, producer, config.toDefs(), config.threadPool().size());
+
+        // Subscriber yükle
+        var loader = new SubscriberLoader(config.subscribers(), coordinator);
+        var subscribers = loader.load();
+
+        // Sistem başlasın
+        coordinator.start(subscribers);
+        return coordinator;
     }
 }

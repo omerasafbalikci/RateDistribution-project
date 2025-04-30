@@ -8,39 +8,29 @@ import com.ratedistribution.ratehub.model.RateFields;
 import com.ratedistribution.ratehub.model.RateStatus;
 import com.ratedistribution.ratehub.model.RawTick;
 import com.ratedistribution.ratehub.subscriber.Subscriber;
+import com.ratedistribution.ratehub.utilities.ExpressionEvaluator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.math.BigDecimal;
 import java.time.Instant;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Coordinator implements RateListener, AutoCloseable {
     private static final Logger log = LogManager.getLogger(Coordinator.class);
-    /* ---------------- DI ---------------- */
     private final HazelcastInstance hazelcast;
     private final RateKafkaProducer kafka;
     private final Map<String, CalcDef> calcDefs;
-    private final CalculationEngine engine = new CalculationEngine();
-
-    /* ---------------- Cache ---------------- */
     private final IMap<String, RawTick> rawTicks;
     private final IMap<String, Rate> calcRates;
-
-    /**
-     * symbol  →  platform  →  last Rate
-     */
     private final Map<String, Map<String, Rate>> platformRates = new ConcurrentHashMap<>();
-
-    /* ---------------- Concurrency ---------------- */
     private final ExecutorService pool;
+    private SubSupervisor supervisor;
+    private List<Subscriber> subscribers = new ArrayList<>();
 
-    /* ---------------- Constructor ---------------- */
     public Coordinator(HazelcastInstance hz,
                        RateKafkaProducer producer,
                        Map<String, CalcDef> defs,
@@ -48,28 +38,48 @@ public class Coordinator implements RateListener, AutoCloseable {
         this.hazelcast = hz;
         this.kafka = producer;
         this.calcDefs = defs;
-
         this.rawTicks = hz.getMap("rawTicks");
         this.calcRates = hz.getMap("calcRates");
         this.pool = Executors.newFixedThreadPool(Math.max(2, threadPoolSize),
                 Thread.ofVirtual().factory());
     }
 
-    /* ---------------- Lifecycle ---------------- */
     public void start(Collection<Subscriber> subs) {
-        subs.forEach(s -> pool.execute(() -> {
-            try {
-                s.connect("", "");
-            } catch (Exception e) {
-                log.error("{} connect fail", s.name(), e);
-            }
-        }));
+        this.subscribers = new ArrayList<>(subs);
+        this.supervisor = new SubSupervisor(subscribers);
+        supervisor.start();
+
+        for (Subscriber subscriber : subscribers) {
+            pool.execute(() -> {
+                try {
+                    subscriber.connect("", "");
+                    log.info("[Coordinator] Connected subscriber: {}", subscriber.name());
+                } catch (Exception e) {
+                    log.error("[Coordinator] Failed to connect subscriber: {}", subscriber.name(), e);
+                }
+            });
+        }
     }
 
     public void shutdown() {
-        pool.shutdownNow();
-        kafka.close();
-        hazelcast.shutdown();
+        try {
+            for (Subscriber subscriber : subscribers) {
+                try {
+                    subscriber.close();
+                } catch (Exception e) {
+                    log.warn("[Coordinator] Failed to close subscriber: {}", subscriber.name(), e);
+                }
+            }
+            if (supervisor != null) {
+                supervisor.close();
+            }
+            pool.shutdownNow();
+            kafka.close();
+            hazelcast.shutdown();
+            log.info("[Coordinator] Shutdown completed.");
+        } catch (Exception ex) {
+            log.error("[Coordinator] Error during shutdown", ex);
+        }
     }
 
     @Override
@@ -77,52 +87,51 @@ public class Coordinator implements RateListener, AutoCloseable {
         shutdown();
     }
 
-    /* ---------------- RateListener ---------------- */
     @Override
-    public void onConnect(String p, boolean ok) {
-        log.info("⇢ {} connected", p);
+    public void onConnect(String platform, boolean status) {
+        log.info("[RateListener] ⇢ Connected: {}", platform);
     }
 
     @Override
-    public void onDisconnect(String p, boolean ok) {
-        log.warn("⇠ {} disconnected", p);
+    public void onDisconnect(String platform, boolean status) {
+        log.warn("[RateListener] ⇠ Disconnected: {}", platform);
     }
 
     @Override
-    public void onRateStatus(String p, String s, RateStatus st) {
+    public void onRateAvailable(String platform, String rateName, RawTick rawTick) {
+        accept(platform, rateName, rawTick);
     }
 
     @Override
-    public void onRateError(String p, String s, Throwable e) {
-        log.error("ERR {}:{}", p, s, e);
+    public void onRateUpdate(String platform, String rateName, RateFields delta) {
+        RawTick synthetic = new RawTick(rateName, delta.bid(), delta.ask(), delta.timestamp(), null, null, null, null, null, 0, 0);
+        accept(platform, rateName, synthetic);
     }
 
     @Override
-    public void onRateAvailable(String p, String sym, RawTick t) {
-        accept(p, sym, t);
+    public void onRateStatus(String platform, String rateName, RateStatus status) {
+        log.info("[RateListener] Rate status: {} - {} [{}]", platform, rateName, status);
     }
 
     @Override
-    public void onRateUpdate(String p, String sym, RateFields f) {
-        RawTick synthetic = new RawTick(sym, f.bid(), f.ask(), f.timestamp(), null, null, null, null, null, 0, 0);
-        accept(p, sym, synthetic);
+    public void onRateError(String platformName, String rateName, Throwable error) {
+        log.error("[RateListener] Error on {}:{} - {}", platformName, rateName, error.getMessage(), error);
     }
 
-    /* ---------------- Core Logic ---------------- */
     private void accept(String platform, String symbol, RawTick tick) {
-        // 1) cache ham veri
-        rawTicks.put(platform + "_" + symbol, tick);
+        try {
+            rawTicks.put(platform + "_" + symbol, tick);
 
-        // 2) son platform verisini sakla
-        platformRates
-                .computeIfAbsent(symbol, k -> new ConcurrentHashMap<>())
-                .put(platform, tick.toRate());
+            platformRates
+                    .computeIfAbsent(symbol, k -> new ConcurrentHashMap<>())
+                    .put(platform, tick.toRate());
 
-        // 3) Kafka yayını
-        kafka.sendJson(tick);
+            kafka.sendRawTick(tick);
 
-        // 4) dependent hesaplamaları tetikle
-        recalc(symbol);
+            recalc(symbol);
+        } catch (Exception e) {
+            log.error("[Coordinator] Error in accept for {}:{}", platform, symbol, e);
+        }
     }
 
     private void recalc(String updatedSymbol) {
@@ -135,19 +144,20 @@ public class Coordinator implements RateListener, AutoCloseable {
         Map<String, Rate> vars = new HashMap<>();
         for (String dep : def.dependsOn()) {
             Map<String, Rate> m = platformRates.get(dep);
-            if (m == null || m.isEmpty()) return; // eksik veri
+            if (m == null || m.isEmpty()) return;
             vars.put(dep, m.values().iterator().next());
         }
         try {
-            BigDecimal bid = engine.eval(def.engine(), def.bidFormula(), vars, def.helpers());
-            BigDecimal ask = engine.eval(def.engine(), def.askFormula(), vars, def.helpers());
-            Rate calc = new Rate(def.rateName(), bid, ask, Instant.now());
+            ExpressionEvaluator evaluator = def.customEvaluator();
+            BigDecimal bid = evaluator.evaluate("bid", vars, def.helpers());
+            BigDecimal ask = evaluator.evaluate("ask", vars, def.helpers());
 
-            calcRates.put(def.rateName(), calc);
-            kafka.sendJson(calc);
-            log.debug("✓ Calculated {}", def.rateName());
+            Rate calculated = new Rate(def.rateName(), bid, ask, Instant.now());
+            calcRates.put(def.rateName(), calculated);
+            kafka.sendRate(calculated);
+            log.debug("[Coordinator] ✓ Calculated {}", def.rateName());
         } catch (Exception ex) {
-            log.error("Calc {}", def.rateName(), ex);
+            log.error("[Coordinator] Calculation error for {}: {}", def.rateName(), ex.getMessage(), ex);
         }
     }
 }

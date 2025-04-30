@@ -1,7 +1,5 @@
 package com.ratedistribution.ratehub.subscriber;
 
-import java.time.Instant;
-import java.util.Optional;
 import java.util.Set;
 
 public interface Subscriber extends AutoCloseable, Runnable {
@@ -19,11 +17,7 @@ public interface Subscriber extends AutoCloseable, Runnable {
 
     boolean isConnected();
 
-    Optional<Instant> getConnectionTime();
+    boolean healthCheck();
 
-    long receivedCount();
-
-    void reset();
-
-    String status();
+    SubscriberMetrics metrics();
 }

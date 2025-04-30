@@ -15,35 +15,57 @@ import java.util.Properties;
 
 public class RateKafkaProducer implements AutoCloseable {
     private static final Logger log = LogManager.getLogger(RateKafkaProducer.class);
-    private final Producer<String, String> prod;
-    private final String topic;
+    private final Producer<String, String> producer;
+    private final String rawTickTopic;
+    private final String calcRateTopic;
     private final ObjectMapper mapper = new ObjectMapper().findAndRegisterModules();
 
-    public RateKafkaProducer(String bs, String topic) {
-        this.topic = topic;
+    public RateKafkaProducer(String bootstrapServers, String rawTickTopic, String calcRateTopic) {
+        this.rawTickTopic = rawTickTopic;
+        this.calcRateTopic = calcRateTopic;
+
         Properties p = new Properties();
-        p.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bs);
+        p.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
         p.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         p.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         p.put(ProducerConfig.ENABLE_IDEMPOTENCE_CONFIG, "true");
         p.put(ProducerConfig.ACKS_CONFIG, "all");
-        prod = new KafkaProducer<>(p);
+        p.put(ProducerConfig.RETRIES_CONFIG, Integer.MAX_VALUE);
+        p.put(ProducerConfig.DELIVERY_TIMEOUT_MS_CONFIG, 120000);
+        this.producer = new KafkaProducer<>(p);
     }
 
-    public void sendJson(Object obj) {
+    public void sendRawTick(RawTick tick) {
+        sendJson(rawTickTopic, tick.rateName(), tick);
+    }
+
+    public void sendRate(Rate rate) {
+        sendJson(calcRateTopic, rate.rateName(), rate);
+    }
+
+    private void sendJson(String topic, String key, Object obj) {
         try {
-            String key = (obj instanceof RawTick t) ? t.rateName() : ((Rate) obj).rateName();
-            prod.send(new ProducerRecord<>(topic, key, mapper.writeValueAsString(obj)), (m, e) -> {
-                if (e != null) log.error(e);
+            String value = mapper.writeValueAsString(obj);
+            ProducerRecord<String, String> record = new ProducerRecord<>(topic, key, value);
+            producer.send(record, (metadata, exception) -> {
+                if (exception != null) {
+                    log.error("[Kafka] Failed to send to topic {} with key {}: {}", topic, key, exception.getMessage(), exception);
+                } else {
+                    log.debug("[Kafka] Sent to {} partition {} offset {}", metadata.topic(), metadata.partition(), metadata.offset());
+                }
             });
         } catch (Exception e) {
-            log.error(e);
+            log.error("[Kafka] Serialization error for key {} in topic {}: {}", key, topic, e.getMessage(), e);
         }
     }
 
     @Override
     public void close() {
-        prod.flush();
-        prod.close();
+        try {
+            producer.flush();
+            producer.close();
+        } catch (Exception e) {
+            log.warn("[Kafka] Failed to close producer cleanly", e);
+        }
     }
 }
