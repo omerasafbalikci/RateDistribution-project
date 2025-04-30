@@ -10,8 +10,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.time.Duration;
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
+import java.time.Instant;
 import java.util.concurrent.ThreadLocalRandom;
 
 @RequiredArgsConstructor
@@ -19,7 +18,7 @@ public class ShockService {
     private static final Logger log = LogManager.getLogger(ShockService.class);
     private final SimulatorConfigLoader simulatorConfigLoader;
 
-    public void processAutomaticShocks(AssetState state, LocalDateTime now) {
+    public void processAutomaticShocks(AssetState state) {
         SimulatorProperties simulatorProperties = this.simulatorConfigLoader.currentSimulator();
         log.trace("Entering processAutomaticShocks method in ShockService.");
         double dtSeconds = 1.0;
@@ -81,14 +80,14 @@ public class ShockService {
         log.trace("Exiting applyRandomShock method in ShockService.");
     }
 
-    public void checkAndApplyCriticalShocks(AssetState state, LocalDateTime now) {
+    public void checkAndApplyCriticalShocks(AssetState state, Instant now) {
         SimulatorProperties simulatorProperties = this.simulatorConfigLoader.currentSimulator();
         log.trace("Entering checkAndApplyCriticalShocks method in ShockService.");
         if (simulatorProperties.getEventShocks() != null) {
             for (EventShockDefinition es : simulatorProperties.getEventShocks()) {
-                LocalDateTime eventTime = LocalDateTime.ofInstant(es.getDateTime(), ZoneOffset.UTC);
+                Instant eventInstant = es.getDateTime();
 
-                if (Math.abs(Duration.between(now, eventTime).toMinutes()) < 1) {
+                if (Math.abs(Duration.between(now, eventInstant).toMinutes()) < 1) {
                     double randomShock = ThreadLocalRandom.current().nextGaussian() * es.getJumpVol()
                             + es.getJumpMean();
                     double newPrice = state.getCurrentPrice() * (1.0 + randomShock);

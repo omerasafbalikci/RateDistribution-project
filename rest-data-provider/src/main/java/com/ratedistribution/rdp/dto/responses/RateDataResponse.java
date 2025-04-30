@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 @Data
 @AllArgsConstructor
@@ -23,8 +23,8 @@ public class RateDataResponse implements Serializable {
     private BigDecimal bid;
     @JsonSerialize(using = PriceSerializer.class)
     private BigDecimal ask;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-    private LocalDateTime timestamp;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSX")
+    private Instant timestamp;
     @JsonSerialize(using = PriceSerializer.class)
     private BigDecimal dayOpen;
     @JsonSerialize(using = PriceSerializer.class)

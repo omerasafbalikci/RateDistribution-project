@@ -7,8 +7,6 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
 
 @Service
 @RequiredArgsConstructor
@@ -16,16 +14,12 @@ import java.time.ZoneOffset;
 public class HolidayCalendarService {
     private final SimulatorProperties simulatorProperties;
 
-    public boolean isHoliday(LocalDateTime dateTime) {
-        log.trace("Checking holiday for {}", dateTime);
+    public boolean isHoliday(Instant instant) {
+        log.trace("Checking holiday for {}", instant);
         if (simulatorProperties.getHolidays() == null) return false;
 
-        Instant instant = dateTime.toInstant(ZoneOffset.UTC);
         for (HolidayDefinition holiday : simulatorProperties.getHolidays()) {
-            Instant start = holiday.getStartDateTime();
-            Instant end = holiday.getEndDateTime();
-            if (!instant.isBefore(start) && instant.isBefore(end)) {
-                log.debug("Matched holiday period: {} - {}", start, end);
+            if (!instant.isBefore(holiday.getStartDateTime()) && instant.isBefore(holiday.getEndDateTime())) {
                 return true;
             }
         }

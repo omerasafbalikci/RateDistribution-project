@@ -1,6 +1,5 @@
 package com.ratedistribution.tdp.dto.responses;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.ratedistribution.tdp.utilities.serializer.PercentSerializer;
 import com.ratedistribution.tdp.utilities.serializer.PriceSerializer;
@@ -9,7 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 @Data
 @AllArgsConstructor
@@ -20,8 +19,7 @@ public class RateDataResponse {
     private BigDecimal bid;
     @JsonSerialize(using = PriceSerializer.class)
     private BigDecimal ask;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-    private LocalDateTime timestamp;
+    private Instant timestamp;
     @JsonSerialize(using = PriceSerializer.class)
     private BigDecimal dayOpen;
     @JsonSerialize(using = PriceSerializer.class)

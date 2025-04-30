@@ -27,7 +27,7 @@ public class RateSimulator {
     private final HolidayCalendarService holidayCalendarService;
     private final ShockService shockService;
     private final ExecutorService executorService;
-    private LocalDateTime lastUpdate = null;
+    private Instant lastUpdate = null;
     private final Map<String, AssetState> assetStateMap = new HashMap<>();
     private final Map<String, RateDataResponse> rateDataResponseMap = new HashMap<>();
 
@@ -43,7 +43,7 @@ public class RateSimulator {
             return responses;
         }
 
-        LocalDateTime now = LocalDateTime.now();
+        Instant now = Instant.now();
         log.debug("Starting rate update process at: {}", now);
         double deltaTimeSeconds = computeDeltaTimeSeconds(now);
         log.debug("Computed delta time in seconds: {}", deltaTimeSeconds);
@@ -85,7 +85,7 @@ public class RateSimulator {
                 );
                 log.info("Updated price and volatility for rate: {}", rateDefinition.getRateName());
 
-                shockService.processAutomaticShocks(updatedState, now);
+                shockService.processAutomaticShocks(updatedState);
                 log.debug("Processed automatic shocks for rate: {}", rateDefinition.getRateName());
                 shockService.checkAndApplyCriticalShocks(updatedState, now);
                 log.debug("Checked and applied critical shocks for rate: {}", rateDefinition.getRateName());
@@ -114,20 +114,20 @@ public class RateSimulator {
         return responses;
     }
 
-    private boolean isWeekend(LocalDateTime dt) {
-        boolean weekend = dt.getDayOfWeek() == DayOfWeek.SATURDAY || dt.getDayOfWeek() == DayOfWeek.SUNDAY;
-        log.debug("Checked if date {} is weekend: {}", dt, weekend);
-        return weekend;
+    private boolean isWeekend(Instant instant) {
+        DayOfWeek dow = instant.atZone(ZoneId.systemDefault()).getDayOfWeek();
+        log.debug("Checked if date {} is dow: {}", instant, dow);
+        return dow == DayOfWeek.SATURDAY || dow == DayOfWeek.SUNDAY;
     }
 
-    private boolean checkIfWeekendGap(LocalDateTime now) {
+    private boolean checkIfWeekendGap(Instant now) {
         if (lastUpdate == null) return false;
         boolean isGap = isWeekend(lastUpdate) && !isWeekend(now);
         log.debug("Weekend gap detected: {}", isGap);
         return isGap;
     }
 
-    private double computeDeltaTimeSeconds(LocalDateTime now) {
+    private double computeDeltaTimeSeconds(Instant now) {
         if (lastUpdate == null) {
             return 1.0;
         }
@@ -135,7 +135,7 @@ public class RateSimulator {
         return Math.max(diff.toSeconds(), 1);
     }
 
-    private AssetState getOrInitAssetState(MultiRateDefinition rateDef, LocalDateTime now) {
+    private AssetState getOrInitAssetState(MultiRateDefinition rateDef, Instant now) {
         log.trace("Entering getOrInitAssetState method in RateSimulator: {}", rateDef.getRateName());
         AssetState state = assetStateMap.get(rateDef.getRateName());
         String newConfigSignature = buildConfigSignature(rateDef);
@@ -161,7 +161,7 @@ public class RateSimulator {
         return state;
     }
 
-    private AssetState initAssetState(MultiRateDefinition rateDef, LocalDateTime now) {
+    private AssetState initAssetState(MultiRateDefinition rateDef, Instant now) {
         log.trace("Entering initAssetState method in RateSimulator: {}", rateDef.getRateName());
         AssetState state = new AssetState();
         state.setCurrentPrice(rateDef.getInitialPrice());
@@ -176,8 +176,8 @@ public class RateSimulator {
         state.setDayVolume(0L);
         state.setCurrentRegime(VolRegime.LOW_VOL);
         state.setStepsInRegime(0);
-        state.setLastUpdateEpochMillis(now.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli());
-        state.setCurrentDay(now.toLocalDate());
+        state.setLastUpdateEpochMillis(now.toEpochMilli());
+        state.setCurrentDay(LocalDate.ofInstant(now, ZoneId.systemDefault()));
         log.trace("Exiting initAssetState method in RateSimulator: {}", rateDef.getRateName());
         return state;
     }
@@ -196,7 +196,7 @@ public class RateSimulator {
     private AssetState updatePriceAndVolatility(MultiRateDefinition rateDefinition,
                                                 AssetState oldState,
                                                 double randomFactor,
-                                                LocalDateTime now,
+                                                Instant now,
                                                 double deltaTimeSeconds,
                                                 boolean weekendGap,
                                                 SimulatorProperties simulatorProperties) {
@@ -299,7 +299,7 @@ public class RateSimulator {
         return regime;
     }
 
-    private AssetState createNewStateFromOld(AssetState oldState, double newPrice, double newSigma, LocalDateTime now, VolRegime newRegime) {
+    private AssetState createNewStateFromOld(AssetState oldState, double newPrice, double newSigma, Instant now, VolRegime newRegime) {
         log.trace("Entering createNewStateFromOld method in RateSimulatorServiceImpl.");
         AssetState state = new AssetState();
         state.setCurrentPrice(newPrice);
@@ -313,7 +313,7 @@ public class RateSimulator {
         log.debug("Computed return: {}", ret);
 
         LocalDate oldDay = oldState.getCurrentDay();
-        LocalDate nowDay = now.toLocalDate();
+        LocalDate nowDay = LocalDate.ofInstant(now, ZoneId.systemDefault());
 
         if (!oldDay.isEqual(nowDay)) {
             log.info("New day detected -> resetting daily open/high/low/volume");
@@ -338,7 +338,7 @@ public class RateSimulator {
             state.setStepsInRegime(oldState.getStepsInRegime() + 1);
         }
         state.setConfigSignature(oldState.getConfigSignature());
-        state.setLastUpdateEpochMillis(now.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli());
+        state.setLastUpdateEpochMillis(now.toEpochMilli());
 
         log.trace("Exiting createNewStateFromOld method in RateSimulatorServiceImpl.");
         return state;
@@ -350,11 +350,11 @@ public class RateSimulator {
         return volume;
     }
 
-    private double getSessionVolMultiplier(LocalDateTime now, SimulatorProperties simulatorProperties) {
+    private double getSessionVolMultiplier(Instant now, SimulatorProperties simulatorProperties) {
         if (simulatorProperties.getSessionVolFactors() == null) {
             return 1.0;
         }
-        int hour = now.getHour();
+        int hour = now.atZone(ZoneId.systemDefault()).getHour();
         for (SessionVolFactor sf : simulatorProperties.getSessionVolFactors()) {
             if (hour >= sf.getStartHour() && hour < sf.getEndHour()) {
                 log.debug("Applied session volatility multiplier for hour {}: {}", hour, sf.getVolMultiplier());
@@ -366,7 +366,7 @@ public class RateSimulator {
 
     private RateDataResponse buildRateDataResponse(MultiRateDefinition rateDef,
                                                    AssetState state,
-                                                   LocalDateTime now) {
+                                                   Instant now) {
         log.trace("Entering buildRateDataResponse method in RateSimulator: {}", rateDef.getRateName());
         RateDataResponse response = new RateDataResponse();
         response.setRateName(rateDef.getRateName());
@@ -404,7 +404,7 @@ public class RateSimulator {
     }
 
     private List<RateDataResponse> buildClosedMarketResponses(List<MultiRateDefinition> rateDefinitions,
-                                                              LocalDateTime now) {
+                                                              Instant now) {
         log.trace("Entering buildClosedMarketResponses method in RateSimulator.");
         List<RateDataResponse> responses = new ArrayList<>();
         for (MultiRateDefinition rd : rateDefinitions) {

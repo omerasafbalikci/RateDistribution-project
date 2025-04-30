@@ -1,27 +1,24 @@
 package com.ratedistribution.tdp.service;
 
 import com.ratedistribution.tdp.config.SimulatorConfigLoader;
-import com.ratedistribution.tdp.model.HolidayDefinition;
 import com.ratedistribution.tdp.config.SimulatorProperties;
+import com.ratedistribution.tdp.model.HolidayDefinition;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
 
 @RequiredArgsConstructor
 public class HolidayCalendarService {
     private static final Logger log = LogManager.getLogger(HolidayCalendarService.class);
     private final SimulatorConfigLoader simulatorConfigLoader;
 
-    public boolean isHoliday(LocalDateTime dateTime) {
+    public boolean isHoliday(Instant instant) {
         SimulatorProperties simulatorProperties = this.simulatorConfigLoader.currentSimulator();
-        log.trace("Checking holiday for {}", dateTime);
+        log.trace("Checking holiday for {}", instant);
         if (simulatorProperties.getHolidays() == null) return false;
 
-        Instant instant = dateTime.toInstant(ZoneOffset.UTC);
         for (HolidayDefinition holiday : simulatorProperties.getHolidays()) {
             Instant start = holiday.getStartDateTime();
             Instant end = holiday.getEndDateTime();

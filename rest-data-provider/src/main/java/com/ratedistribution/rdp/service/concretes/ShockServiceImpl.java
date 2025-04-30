@@ -10,8 +10,8 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.time.Duration;
+import java.time.Instant;
 import java.time.LocalDateTime;
-import java.time.ZoneOffset;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Service
@@ -21,7 +21,7 @@ public class ShockServiceImpl implements ShockService {
     private final SimulatorProperties simulatorProperties;
 
     @Override
-    public void processAutomaticShocks(AssetState state, LocalDateTime now) {
+    public void processAutomaticShocks(AssetState state, Instant now) {
         log.trace("Entering processAutomaticShocks method in ShockServiceImpl.");
         double dtSeconds = 1.0;
         ShockConfigDefinition shockConfig = this.simulatorProperties.getShockConfig();
@@ -82,11 +82,11 @@ public class ShockServiceImpl implements ShockService {
     }
 
     @Override
-    public void checkAndApplyCriticalShocks(AssetState state, LocalDateTime now) {
+    public void checkAndApplyCriticalShocks(AssetState state, Instant now) {
         log.trace("Entering checkAndApplyCriticalShocks method in ShockServiceImpl.");
         if (simulatorProperties.getEventShocks() != null) {
             for (EventShockDefinition es : simulatorProperties.getEventShocks()) {
-                LocalDateTime eventTime = LocalDateTime.ofInstant(es.getDateTime(), ZoneOffset.UTC);
+                Instant eventTime = es.getDateTime();
 
                 if (Math.abs(Duration.between(now, eventTime).toMinutes()) < 1) {
                     double randomShock = ThreadLocalRandom.current().nextGaussian() * es.getJumpVol()
