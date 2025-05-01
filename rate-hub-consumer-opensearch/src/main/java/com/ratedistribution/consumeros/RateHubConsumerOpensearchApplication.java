@@ -1,13 +1,13 @@
-package com.ratedistribution.consumerlog;
+package com.ratedistribution.consumeros;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RateHubConsumerLogApplication {
+public class RateHubConsumerOpensearchApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RateHubConsumerLogApplication.class, args);
+		SpringApplication.run(RateHubConsumerOpensearchApplication.class, args);
 	}
 
 }

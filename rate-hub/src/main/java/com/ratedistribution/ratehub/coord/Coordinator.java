@@ -9,6 +9,7 @@ import com.ratedistribution.ratehub.model.RateStatus;
 import com.ratedistribution.ratehub.model.RawTick;
 import com.ratedistribution.ratehub.subscriber.Subscriber;
 import com.ratedistribution.ratehub.utilities.ExpressionEvaluator;
+import com.ratedistribution.ratehub.utilities.MailService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -28,13 +29,15 @@ public class Coordinator implements RateListener, AutoCloseable {
     private final IMap<String, Rate> calcRates;
     private final Map<String, Map<String, Rate>> platformRates = new ConcurrentHashMap<>();
     private final ExecutorService pool;
+    private final MailService mailService;
     private SubSupervisor supervisor;
     private List<Subscriber> subscribers = new ArrayList<>();
 
     public Coordinator(HazelcastInstance hz,
                        RateKafkaProducer producer,
                        Map<String, CalcDef> defs,
-                       int threadPoolSize) {
+                       int threadPoolSize,
+                       MailService mailService) {
         this.hazelcast = hz;
         this.kafka = producer;
         this.calcDefs = defs;
@@ -42,11 +45,12 @@ public class Coordinator implements RateListener, AutoCloseable {
         this.calcRates = hz.getMap("calcRates");
         this.pool = Executors.newFixedThreadPool(Math.max(2, threadPoolSize),
                 Thread.ofVirtual().factory());
+        this.mailService = mailService;
     }
 
     public void start(Collection<Subscriber> subs) {
         this.subscribers = new ArrayList<>(subs);
-        this.supervisor = new SubSupervisor(subscribers);
+        this.supervisor = new SubSupervisor(subscribers, mailService);
         supervisor.start();
 
         for (Subscriber subscriber : subscribers) {
@@ -126,7 +130,7 @@ public class Coordinator implements RateListener, AutoCloseable {
                     .computeIfAbsent(symbol, k -> new ConcurrentHashMap<>())
                     .put(platform, tick.toRate());
 
-            kafka.sendRawTick(tick);
+            kafka.sendRawTickAsString(tick, platform);
 
             recalc(symbol);
         } catch (Exception e) {
@@ -154,7 +158,7 @@ public class Coordinator implements RateListener, AutoCloseable {
 
             Rate calculated = new Rate(def.rateName(), bid, ask, Instant.now());
             calcRates.put(def.rateName(), calculated);
-            kafka.sendRate(calculated);
+            kafka.sendRateAsString(calculated);
             log.debug("[Coordinator] ✓ Calculated {}", def.rateName());
         } catch (Exception ex) {
             log.error("[Coordinator] Calculation error for {}: {}", def.rateName(), ex.getMessage(), ex);

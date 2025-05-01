@@ -7,6 +7,7 @@ import com.ratedistribution.ratehub.config.CoordinatorConfig;
 import com.ratedistribution.ratehub.coord.Coordinator;
 import com.ratedistribution.ratehub.kafka.RateKafkaProducer;
 import com.ratedistribution.ratehub.subscriber.SubscriberLoader;
+import com.ratedistribution.ratehub.utilities.MailService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -51,8 +52,10 @@ public class RateHubApplication {
                 config.kafka().calcTopic()
         );
 
+        var mailService = new MailService(config.mail());
+
         // Coordinator başlat
-        var coordinator = new Coordinator(hazelcast, producer, config.toDefs(), config.threadPool().size());
+        var coordinator = new Coordinator(hazelcast, producer, config.toDefs(), config.threadPool().size(), mailService);
 
         // Subscriber yükle
         var loader = new SubscriberLoader(config.subscribers(), coordinator);

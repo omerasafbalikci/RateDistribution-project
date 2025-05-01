@@ -35,28 +35,47 @@ public class RateKafkaProducer implements AutoCloseable {
         this.producer = new KafkaProducer<>(p);
     }
 
-    public void sendRawTick(RawTick tick) {
-        sendJson(rawTickTopic, tick.rateName(), tick);
-    }
-
-    public void sendRate(Rate rate) {
-        sendJson(calcRateTopic, rate.rateName(), rate);
-    }
-
-    private void sendJson(String topic, String key, Object obj) {
-        try {
-            String value = mapper.writeValueAsString(obj);
-            ProducerRecord<String, String> record = new ProducerRecord<>(topic, key, value);
-            producer.send(record, (metadata, exception) -> {
-                if (exception != null) {
-                    log.error("[Kafka] Failed to send to topic {} with key {}: {}", topic, key, exception.getMessage(), exception);
-                } else {
-                    log.debug("[Kafka] Sent to {} partition {} offset {}", metadata.topic(), metadata.partition(), metadata.offset());
-                }
-            });
-        } catch (Exception e) {
-            log.error("[Kafka] Serialization error for key {} in topic {}: {}", key, topic, e.getMessage(), e);
+    // Raw veriyi platform adıyla birlikte gönder
+    public void sendRawTickAsString(RawTick tick, String platformName) {
+        if (tick == null || tick.bid() == null || tick.ask() == null || tick.timestamp() == null) {
+            log.warn("[Kafka] Skipped null or incomplete RawTick for platform: {}", platformName);
+            return;
         }
+
+        String key = platformName + "_" + tick.rateName();
+        String value = String.format("%s|%s|%s|%s",
+                key,
+                tick.bid(),
+                tick.ask(),
+                tick.timestamp());
+        sendPlain(rawTickTopic, key, value);
+    }
+
+    // Hesaplanmış veriyi gönder (platformsuz)
+    public void sendRateAsString(Rate rate) {
+        if (rate == null || rate.bid() == null || rate.ask() == null || rate.timestamp() == null) {
+            log.warn("[Kafka] Skipped null or incomplete Rate for {}", rate != null ? rate.rateName() : "unknown");
+            return;
+        }
+
+        String key = rate.rateName();
+        String value = String.format("%s|%s|%s|%s",
+                rate.rateName(),
+                rate.bid(),
+                rate.ask(),
+                rate.timestamp());
+        sendPlain(calcRateTopic, key, value);
+    }
+
+    private void sendPlain(String topic, String key, String value) {
+        ProducerRecord<String, String> record = new ProducerRecord<>(topic, key, value);
+        producer.send(record, (metadata, exception) -> {
+            if (exception != null) {
+                log.error("[Kafka] Failed to send string to {} with key {}: {}", topic, key, exception.getMessage(), exception);
+            } else {
+                log.debug("[Kafka] Sent string to {} partition {} offset {}", metadata.topic(), metadata.partition(), metadata.offset());
+            }
+        });
     }
 
     @Override

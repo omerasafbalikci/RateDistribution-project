@@ -34,3 +34,10 @@ calculations:
   - rateName: USDTRY
     engine: java
     scriptPath: config/formulas/usdtry.java
+
+mail:
+  from: asafmarket.ltd@gmail.com
+  password: ppqp daaa lgup oscr
+  to: blkc.omerasaff@gmail.com
+  smtpHost: smtp.gmail.com
+  smtpPort: 587

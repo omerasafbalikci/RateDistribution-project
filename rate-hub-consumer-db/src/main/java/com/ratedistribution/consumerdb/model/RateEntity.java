@@ -24,4 +24,6 @@ public class RateEntity {
     private BigDecimal ask;
     private LocalDateTime rateUpdatetime;
     private LocalDateTime dbUpdatetime;
+    @Column(length = 20)
+    private String sourceType;
 }

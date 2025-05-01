@@ -29,7 +29,7 @@
 		<module>config-server</module>
 		<module>discovery-server</module>
         <module>rate-hub-consumer-db</module>
-		<module>rate-hub-consumer-log</module>
+		<module>rate-hub-consumer-opensearch</module>
 	</modules>
 	<scm>
 		<connection/>

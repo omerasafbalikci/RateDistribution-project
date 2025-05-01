@@ -9,9 +9,9 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>rate-hub-consumer-log</artifactId>
-	<name>rate-hub-consumer-log</name>
-	<description>Rate Hub Consumer Log</description>
+	<artifactId>rate-hub-consumer-opensearch</artifactId>
+	<name>rate-hub-consumer-opensearch</name>
+	<description>Rate Hub Consumer Opensearch</description>
 
 	<url/>
 	<licenses>
@@ -44,7 +44,12 @@
 		<dependency>
 			<groupId>org.opensearch.client</groupId>
 			<artifactId>opensearch-java</artifactId>
-			<version>2.23.0</version>
+			<version>2.7.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.opensearch.client</groupId>
+			<artifactId>opensearch-rest-client</artifactId>
+			<version>2.7.0</version>
 		</dependency>
 	</dependencies>
 

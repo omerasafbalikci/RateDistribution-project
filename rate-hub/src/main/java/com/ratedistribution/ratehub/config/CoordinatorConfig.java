@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public record CoordinatorConfig(SystemCfg hazelcast, KafkaCfg kafka, ThreadCfg threadPool,
-                                List<SubscriberCfg> subscribers, List<CalcCfg> calculations) {
+                                List<SubscriberCfg> subscribers, List<CalcCfg> calculations, MailCfg mail) {
 
     public record SystemCfg(String clusterName) {
     }
@@ -71,6 +71,15 @@ public record CoordinatorConfig(SystemCfg hazelcast, KafkaCfg kafka, ThreadCfg t
 
     public Map<String, CalcDef> toDefs() {
         return calculations.stream().collect(Collectors.toMap(CalcCfg::rateName, this::toDef));
+    }
+
+    public record MailCfg(
+            String from,
+            String password,
+            String to,
+            String smtpHost,
+            int smtpPort
+    ) {
     }
 
     private CalcDef toDef(CalcCfg c) {

@@ -86,6 +86,6 @@ public abstract class AbstractSubscriber implements Subscriber {
 
     @Override
     public SubscriberMetrics metrics() {
-        return new SubscriberMetrics(platform, running, received.get(), connectedAt, lastReceived.get());
+        return SubscriberMetrics.of(platform, running, received.get());
     }
 }
