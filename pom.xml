@@ -32,7 +32,8 @@
         <module>rate-hub-consumer-db</module>
 		<module>rate-hub-consumer-opensearch</module>
 		<module>user-management-service</module>
-	</modules>
+        <module>auth-service</module>
+    </modules>
 
 	<scm>
 		<connection/>
