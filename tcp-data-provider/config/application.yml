@@ -1,4 +1,6 @@
-port: 8084
+tcp:
+  host: 127.0.0.1
+  port: 8084
 
 simulator:
   update-interval-millis: 1000

@@ -22,6 +22,16 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
+/**
+ * Service implementation that performs periodic rate simulation.
+ * Simulates price updates using GARCH(1,1), applies mean reversion if enabled,
+ * manages volatility regimes, handles weekend gaps, market closures (holidays/weekends),
+ * and applies automatic and critical shocks.
+ * Results are saved to Redis for both asset states and REST responses.
+ *
+ * @author Ömer Asaf BALIKÇI
+ */
+
 @Service
 @RequiredArgsConstructor
 @Log4j2
@@ -36,6 +46,12 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
     private static final String ASSET_STATE_KEY = "ASSET_STATES";
     private static final String RATE_RESPONSE_KEY = "RATES";
 
+    /**
+     * Updates all defined rates asynchronously.
+     * Handles market open/close logic, shock applications, and Redis persistence.
+     *
+     * @return list of updated rate responses
+     */
     @Override
     public List<RateDataResponse> updateAllRates() {
         log.trace("Entering updateAllRates method in RateSimulatorServiceImpl.");
@@ -120,6 +136,10 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         return responses;
     }
 
+    /**
+     * Retrieves asset state from Redis or initializes a new one if absent.
+     * Applies partial reinit if configuration has changed.
+     */
     private AssetState getOrInitAssetState(MultiRateDefinition rateDef, Instant now) {
         log.trace("Entering getOrInitAssetState method in RateSimulatorServiceImpl: {}", rateDef.getRateName());
         HashOperations<String, String, AssetState> ops = assetStateRedisTemplate.opsForHash();
@@ -150,6 +170,9 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         return state;
     }
 
+    /**
+     * Builds a string signature from the rate's configuration for change detection.
+     */
     private String buildConfigSignature(MultiRateDefinition rateDefinition) {
         return "drift=" + rateDefinition.getDrift()
                 + "|omega=" + rateDefinition.getGarchParams().getOmega()
@@ -161,6 +184,9 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
                 + "|theta=" + rateDefinition.getTheta();
     }
 
+    /**
+     * Initializes a fresh asset state using rate definition and current time.
+     */
     private AssetState initAssetState(MultiRateDefinition rateDef, Instant now) {
         log.trace("Entering initAssetState method in RateSimulatorServiceImpl: {}", rateDef.getRateName());
         AssetState state = new AssetState();
@@ -182,6 +208,11 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         return state;
     }
 
+    /**
+     * Applies GARCH, drift, session volatility, mean reversion, and regime update.
+     *
+     * @return updated asset state
+     */
     private AssetState updatePriceAndVolatility(MultiRateDefinition rateDefinition,
                                                 AssetState oldState,
                                                 double randomFactor,
@@ -236,6 +267,9 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         return updatedState;
     }
 
+    /**
+     * Performs GARCH(1,1) volatility update using last return and previous sigma.
+     */
     private double garchUpdate(GarchParams params, AssetState oldState) {
         log.trace("Entering garchUpdate method in RateSimulatorServiceImpl.");
         double oldSigma = oldState.getCurrentSigma();
@@ -253,6 +287,9 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         return result;
     }
 
+    /**
+     * Converts annual drift to simulation time step drift.
+     */
     private double getDriftAdjustment(double driftAnnual, double dtSeconds) {
         log.trace("Entering getDriftAdjustment method in RateSimulatorServiceImpl.");
         double yearInSeconds = 365.0 * 24.0 * 3600.0;
@@ -261,6 +298,9 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         return driftPerSecond * dtSeconds;
     }
 
+    /**
+     * Applies mean reversion to the new price using kappa and theta.
+     */
     private double applyMeanReversion(double oldPrice,
                                       double newPrice,
                                       double kappa,
@@ -272,6 +312,9 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         return adjustedPrice;
     }
 
+    /**
+     * Determines the volatility regime based on sigma value.
+     */
     private VolRegime checkRegimeSwitch(double sigma) {
         log.trace("Entering checkRegimeSwitch method in RateSimulatorServiceImpl.");
         VolRegime regime;
@@ -287,6 +330,9 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         return regime;
     }
 
+    /**
+     * Constructs a new AssetState using previous one and update values.
+     */
     private AssetState createNewStateFromOld(AssetState oldState,
                                              double newPrice,
                                              double newSigma,
@@ -336,12 +382,18 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         return state;
     }
 
+    /**
+     * Generates small random volume number (used for day volume & tick volume).
+     */
     private long getRandomVolume() {
         long volume = ThreadLocalRandom.current().nextInt(1, 10);
         log.debug("Generated random volume: {}", volume);
         return volume;
     }
 
+    /**
+     * Builds a REST DTO from the asset state.
+     */
     private RateDataResponse buildRateDataResponse(MultiRateDefinition rateDef,
                                                    AssetState state,
                                                    Instant now) {
@@ -381,12 +433,18 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         return response;
     }
 
+    /**
+     * Returns true if given instant is during weekend.
+     */
     private boolean isWeekend(Instant instant) {
         DayOfWeek dow = instant.atZone(ZoneId.systemDefault()).getDayOfWeek();
         log.debug("Checked if date {} is dow: {}", instant, dow);
         return dow == DayOfWeek.SATURDAY || dow == DayOfWeek.SUNDAY;
     }
 
+    /**
+     * Creates default responses for closed market (weekend or holiday).
+     */
     private List<RateDataResponse> buildClosedMarketResponses(List<MultiRateDefinition> rateDefinitions,
                                                               Instant now) {
         log.trace("Entering buildClosedMarketResponses method in RateSimulatorServiceImpl.");
@@ -406,18 +464,27 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         return responses;
     }
 
+    /**
+     * Saves the asset state to Redis.
+     */
     private void saveAssetState(String rateName, AssetState state) {
         log.debug("Saving asset state for rate: {}", rateName);
         HashOperations<String, String, AssetState> ops = assetStateRedisTemplate.opsForHash();
         ops.put(ASSET_STATE_KEY, rateName, state);
     }
 
+    /**
+     * Saves the rate response to Redis.
+     */
     private void saveRateDataResponse(String rateName, RateDataResponse response) {
         log.debug("Saving rate data response for rate: {}", rateName);
         HashOperations<String, String, RateDataResponse> ops = rateDataResponseRedisTemplate.opsForHash();
         ops.put(RATE_RESPONSE_KEY, rateName, response);
     }
 
+    /**
+     * Computes elapsed time in seconds between now and last update.
+     */
     private double computeDeltaTimeSeconds(Instant now) {
         if (lastUpdate == null) {
             return 1.0;
@@ -426,6 +493,9 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         return Math.max(diff.toSeconds(), 1);
     }
 
+    /**
+     * Returns session-based volatility multiplier, if defined.
+     */
     private double getSessionVolMultiplier(Instant now) {
         if (simulatorProperties.getSessionVolFactors() == null) {
             return 1.0;
@@ -441,6 +511,9 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
         return 1.0;
     }
 
+    /**
+     * Checks if there's a weekend-to-weekday transition (weekend gap).
+     */
     private boolean checkIfWeekendGap(Instant now) {
         if (lastUpdate == null) return false;
         boolean isGap = isWeekend(lastUpdate) && !isWeekend(now);

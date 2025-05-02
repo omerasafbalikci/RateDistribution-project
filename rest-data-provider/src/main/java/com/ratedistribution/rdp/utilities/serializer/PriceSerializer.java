@@ -8,6 +8,14 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
+/**
+ * Custom serializer for formatting BigDecimal values with high precision.
+ * Example: 1.23456789 → "1.23456789"
+ * Used for bid/ask and other price fields.
+ *
+ * @author Ömer Asaf BALIKÇI
+ */
+
 public class PriceSerializer extends StdSerializer<BigDecimal> {
     private static final DecimalFormat df = new DecimalFormat("#.#############");
 

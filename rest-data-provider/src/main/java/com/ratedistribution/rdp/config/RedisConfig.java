@@ -9,6 +9,14 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
+/**
+ * RedisConfig is responsible for configuring Redis templates used for caching or
+ * storing application-specific data such as AssetState and RateDataResponse objects.
+ * It sets up RedisTemplate beans with proper serialization strategies.
+ *
+ * @author Ömer Asaf BALIKÇI
+ */
+
 @Configuration
 public class RedisConfig {
     @Bean

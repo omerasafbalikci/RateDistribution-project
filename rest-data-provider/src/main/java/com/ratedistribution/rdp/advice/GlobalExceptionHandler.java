@@ -18,8 +18,22 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import java.util.List;
 
+/**
+ * GlobalExceptionHandler handles application-wide exceptions and provides custom error responses.
+ * This class extends {@link ResponseEntityExceptionHandler} to handle various web-related exceptions.
+ *
+ * @author Ömer Asaf BALIKÇI
+ */
+
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
+    /**
+     * Handles RateNotFoundException and returns a NOT_FOUND (404) response.
+     *
+     * @param exception the RateNotFoundException thrown when a requested rate is not found
+     * @param request   the HttpServletRequest object
+     * @return ResponseEntity containing error details and HTTP status
+     */
     @ExceptionHandler(RateNotFoundException.class)
     public ResponseEntity<Object> handleRateNotFoundException(RateNotFoundException exception, HttpServletRequest request) {
         ErrorResponse errorResponse = new ErrorResponse(HttpStatus.NOT_FOUND, exception.getMessage());

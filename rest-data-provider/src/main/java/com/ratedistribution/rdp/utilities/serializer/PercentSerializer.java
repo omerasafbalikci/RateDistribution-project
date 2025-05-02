@@ -8,6 +8,13 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
+/**
+ * Custom serializer for formatting BigDecimal as percentage strings.
+ * Example: 0.0123 → "0.0123%"
+ *
+ * @author Ömer Asaf BALIKÇI
+ */
+
 public class PercentSerializer extends StdSerializer<BigDecimal> {
     private static final DecimalFormat df = new DecimalFormat("#.####'%'");
 

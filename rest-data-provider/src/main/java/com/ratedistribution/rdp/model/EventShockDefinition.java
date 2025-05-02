@@ -9,6 +9,13 @@ import lombok.NoArgsConstructor;
 
 import java.time.Instant;
 
+/**
+ * Defines an event-based shock with a specific datetime and jump parameters.
+ * Used for injecting volatility during simulation.
+ *
+ * @author Ömer Asaf BALIKÇI
+ */
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

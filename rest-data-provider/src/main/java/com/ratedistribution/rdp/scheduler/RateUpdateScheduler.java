@@ -11,6 +11,13 @@ import org.springframework.stereotype.Component;
 import java.time.Instant;
 import java.util.concurrent.CompletableFuture;
 
+/**
+ * Schedules and runs periodic rate updates based on simulator config.
+ * Uses async execution and stops when maxUpdates is reached.
+ *
+ * @author Ömer Asaf BALIKÇI
+ */
+
 @Component
 @RequiredArgsConstructor
 @Log4j2
@@ -20,11 +27,17 @@ public class RateUpdateScheduler {
     private final ThreadPoolTaskScheduler taskScheduler;
     private int updateCount = 0;
 
+    /**
+     * Starts the scheduler after component initialization.
+     */
     @PostConstruct
     public void startScheduler() {
         scheduleNextRun();
     }
 
+    /**
+     * Schedules the next rate update based on configured interval.
+     */
     private void scheduleNextRun() {
         long intervalMillis = simulatorProperties.getUpdateIntervalMillis();
 
@@ -36,6 +49,10 @@ public class RateUpdateScheduler {
         log.info("Next update scheduled after {} ms", intervalMillis);
     }
 
+    /**
+     * Executes one update cycle and logs results.
+     * Stops scheduler if max update count is reached.
+     */
     private void performUpdate() {
         if (simulatorProperties.getMaxUpdates() > 0 && updateCount >= simulatorProperties.getMaxUpdates()) {
             log.info("Max updates reached => stopping...");

@@ -11,8 +11,15 @@ import org.springframework.stereotype.Service;
 
 import java.time.Duration;
 import java.time.Instant;
-import java.time.LocalDateTime;
 import java.util.concurrent.ThreadLocalRandom;
+
+/**
+ * Implementation of {@link ShockService} for applying automatic and critical shocks
+ * to asset states during simulation.
+ * Handles probabilistic (random) shocks and scheduled event-based shocks.
+ *
+ * @author Ömer Asaf BALIKÇI
+ */
 
 @Service
 @RequiredArgsConstructor
@@ -20,6 +27,12 @@ import java.util.concurrent.ThreadLocalRandom;
 public class ShockServiceImpl implements ShockService {
     private final SimulatorProperties simulatorProperties;
 
+    /**
+     * Applies probabilistic shocks (small/medium/big) based on configured shock frequencies.
+     *
+     * @param state asset to apply shock to
+     * @param now   current timestamp in simulation
+     */
     @Override
     public void processAutomaticShocks(AssetState state, Instant now) {
         log.trace("Entering processAutomaticShocks method in ShockServiceImpl.");
@@ -46,6 +59,9 @@ public class ShockServiceImpl implements ShockService {
         log.trace("Exiting processAutomaticShocks method in ShockServiceImpl.");
     }
 
+    /**
+     * Applies a random shock of given type (small, medium, big) to the asset.
+     */
     private void applyRandomShock(AssetState state, ShockType shockType) {
         log.trace("Entering applyRandomShock method in ShockServiceImpl.");
         ShockConfigDefinition config = this.simulatorProperties.getShockConfig();
@@ -81,6 +97,12 @@ public class ShockServiceImpl implements ShockService {
         log.trace("Exiting applyRandomShock method in ShockServiceImpl.");
     }
 
+    /**
+     * Applies critical event-based shock if event time is near current simulation time.
+     *
+     * @param state asset to apply event shock to
+     * @param now   current timestamp in simulation
+     */
     @Override
     public void checkAndApplyCriticalShocks(AssetState state, Instant now) {
         log.trace("Entering checkAndApplyCriticalShocks method in ShockServiceImpl.");
@@ -104,5 +126,8 @@ public class ShockServiceImpl implements ShockService {
         log.trace("Exiting checkAndApplyCriticalShocks method in ShockServiceImpl.");
     }
 
+    /**
+     * Enum for internal shock type categorization.
+     */
     private enum ShockType {SMALL, MEDIUM, BIG}
 }

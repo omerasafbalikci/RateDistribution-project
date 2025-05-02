@@ -13,6 +13,30 @@ import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
 
+/**
+ * SimulatorProperties maps simulator-related configuration properties from application.yml or config server.
+ * It provides validation and dynamic refresh capabilities for simulator settings used in rate simulation logic.
+ *
+ * <p>Configuration prefix: <b>simulator</b></p>
+ *
+ * Supported configuration parameters:
+ * <ul>
+ *     <li><b>updateIntervalMillis</b> – Update interval in milliseconds (must be positive)</li>
+ *     <li><b>maxUpdates</b> – Maximum number of updates (minimum 0)</li>
+ *     <li><b>shockConfig</b> – General shock configuration</li>
+ *     <li><b>eventShocks</b> – List of event-based shock definitions</li>
+ *     <li><b>weekendGapVolatility</b> – Volatility factor for weekend gaps</li>
+ *     <li><b>weekendShockFactor</b> – Shock factor applied during weekends</li>
+ *     <li><b>sessionVolFactors</b> – Volatility adjustment factors per session</li>
+ *     <li><b>holidays</b> – Holiday definitions affecting simulation</li>
+ *     <li><b>rates</b> – Definitions of multi-rate simulation sources</li>
+ * </ul>
+ *
+ * This bean is annotated with {@link RefreshScope} to allow live reloading from the configuration server.
+ *
+ * @author Ömer Asaf BALIKÇI
+ */
+
 @Data
 @Validated
 @ConfigurationProperties(prefix = "simulator")

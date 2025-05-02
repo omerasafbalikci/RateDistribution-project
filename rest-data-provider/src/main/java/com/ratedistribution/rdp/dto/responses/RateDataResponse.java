@@ -13,6 +13,13 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.Instant;
 
+/**
+ * DTO for returning rate data over REST.
+ * Includes pricing, volume, and change metrics.
+ *
+ * @author Ömer Asaf BALIKÇI
+ */
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
