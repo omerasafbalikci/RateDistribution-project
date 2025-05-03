@@ -6,6 +6,14 @@ import lombok.Data;
 
 import java.util.List;
 
+/**
+ * Holds the configuration parameters for the rate simulation engine.
+ * These values are typically loaded from a YAML file and used
+ * throughout the simulation lifecycle.
+ *
+ * @author Ömer Asaf BALIKÇI
+ */
+
 @Data
 public class SimulatorProperties {
     @JsonProperty("update-interval-millis")

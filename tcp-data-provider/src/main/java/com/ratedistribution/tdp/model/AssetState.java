@@ -6,6 +6,13 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
+/**
+ * Represents the current state of an asset being simulated.
+ * Tracks price, volatility, regime, and daily stats.
+ *
+ * @author Ömer Asaf BALIKÇI
+ */
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

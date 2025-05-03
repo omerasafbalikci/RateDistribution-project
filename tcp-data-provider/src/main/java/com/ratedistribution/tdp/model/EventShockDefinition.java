@@ -6,6 +6,13 @@ import lombok.NoArgsConstructor;
 
 import java.time.Instant;
 
+/**
+ * Defines a critical market shock scheduled at a specific time.
+ * Used to simulate events like news, crashes, or announcements.
+ *
+ * @author Ömer Asaf BALIKÇI
+ */
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

@@ -8,6 +8,13 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
+/**
+ * Custom serializer for BigDecimal percentage values.
+ * Formats numbers like 0.1234 as "12.34%".
+ *
+ * @author Ömer Asaf BALIKÇI
+ */
+
 public class PercentSerializer extends StdSerializer<BigDecimal> {
     private static final DecimalFormat df = new DecimalFormat("#.####'%'");
 

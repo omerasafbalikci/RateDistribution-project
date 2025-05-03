@@ -4,6 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Defines probabilities and magnitudes of automatic random shocks.
+ * Used in daily simulation to trigger unpredictable movements.
+ *
+ * @author Ömer Asaf BALIKÇI
+ */
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

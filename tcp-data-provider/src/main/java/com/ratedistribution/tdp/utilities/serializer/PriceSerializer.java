@@ -8,6 +8,13 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
+/**
+ * Custom serializer for BigDecimal price values.
+ * Formats with up to 13 decimal places.
+ *
+ * @author Ömer Asaf BALIKÇI
+ */
+
 public class PriceSerializer extends StdSerializer<BigDecimal> {
     private static final DecimalFormat df = new DecimalFormat("#.#############");
 

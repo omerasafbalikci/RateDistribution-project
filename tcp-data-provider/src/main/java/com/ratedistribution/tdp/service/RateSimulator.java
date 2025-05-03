@@ -15,10 +15,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Future;
-import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.*;
+
+/**
+ * Simulates and updates rate values for multiple assets using GARCH-based volatility modeling.
+ * Supports features like mean reversion, shocks, weekend gaps, and volatility regimes.
+ *
+ * @author Ömer Asaf BALIKÇI
+ */
 
 @RequiredArgsConstructor
 public class RateSimulator {
@@ -26,11 +30,16 @@ public class RateSimulator {
     private final SimulatorConfigLoader configLoader;
     private final HolidayCalendarService holidayCalendarService;
     private final ShockService shockService;
-    private final ExecutorService executorService;
+    private final ExecutorService executorService = Executors.newVirtualThreadPerTaskExecutor();
     private Instant lastUpdate = null;
     private final Map<String, AssetState> assetStateMap = new HashMap<>();
-    private final Map<String, RateDataResponse> rateDataResponseMap = new HashMap<>();
 
+    /**
+     * Updates all configured rates based on current time and simulator configuration.
+     * Applies GARCH volatility, mean reversion, shocks, and weekend gaps.
+     *
+     * @return list of updated rate data responses
+     */
     public List<RateDataResponse> updateAllRates() {
         SimulatorProperties simulatorProperties = this.configLoader.currentSimulator();
         log.trace("Entering updateAllRates method in RateSimulator.");
@@ -94,7 +103,6 @@ public class RateSimulator {
                 log.debug("Saved asset state for rate: {}", rateDefinition.getRateName());
 
                 RateDataResponse response = buildRateDataResponse(rateDefinition, updatedState, now);
-                rateDataResponseMap.put(rateDefinition.getRateName(), response);
                 log.debug("Saved rate data response for rate: {}", rateDefinition.getRateName());
                 return response;
             });
@@ -105,7 +113,8 @@ public class RateSimulator {
             try {
                 responses.add(future.get());
             } catch (InterruptedException | ExecutionException e) {
-                e.printStackTrace();
+                log.error("Error while processing rate update", e);
+                Thread.currentThread().interrupt();
             }
         }
 
@@ -114,12 +123,24 @@ public class RateSimulator {
         return responses;
     }
 
+    /**
+     * Checks whether the given instant falls on a weekend.
+     *
+     * @param instant the time to check
+     * @return true if weekend, false otherwise
+     */
     private boolean isWeekend(Instant instant) {
         DayOfWeek dow = instant.atZone(ZoneId.systemDefault()).getDayOfWeek();
         log.debug("Checked if date {} is dow: {}", instant, dow);
-        return dow == DayOfWeek.SATURDAY || dow == DayOfWeek.SUNDAY;
+        return dow == DayOfWeek.MONDAY || dow == DayOfWeek.SUNDAY;
     }
 
+    /**
+     * Determines if the current update is after a weekend gap.
+     *
+     * @param now current time
+     * @return true if transitioning from weekend to weekday
+     */
     private boolean checkIfWeekendGap(Instant now) {
         if (lastUpdate == null) return false;
         boolean isGap = isWeekend(lastUpdate) && !isWeekend(now);
@@ -127,6 +148,12 @@ public class RateSimulator {
         return isGap;
     }
 
+    /**
+     * Calculates the elapsed time since the last update in seconds.
+     *
+     * @param now current time
+     * @return elapsed time in seconds
+     */
     private double computeDeltaTimeSeconds(Instant now) {
         if (lastUpdate == null) {
             return 1.0;
@@ -135,6 +162,13 @@ public class RateSimulator {
         return Math.max(diff.toSeconds(), 1);
     }
 
+    /**
+     * Initializes or updates asset state if configuration has changed.
+     *
+     * @param rateDef rate definition
+     * @param now     current time
+     * @return current or reinitialized asset state
+     */
     private AssetState getOrInitAssetState(MultiRateDefinition rateDef, Instant now) {
         log.trace("Entering getOrInitAssetState method in RateSimulator: {}", rateDef.getRateName());
         AssetState state = assetStateMap.get(rateDef.getRateName());
@@ -161,6 +195,13 @@ public class RateSimulator {
         return state;
     }
 
+    /**
+     * Creates a new asset state with initial parameters.
+     *
+     * @param rateDef rate definition
+     * @param now     current time
+     * @return new asset state
+     */
     private AssetState initAssetState(MultiRateDefinition rateDef, Instant now) {
         log.trace("Entering initAssetState method in RateSimulator: {}", rateDef.getRateName());
         AssetState state = new AssetState();
@@ -182,6 +223,12 @@ public class RateSimulator {
         return state;
     }
 
+    /**
+     * Builds a string representing configuration signature to detect changes.
+     *
+     * @param rateDefinition rate definition
+     * @return unique config signature string
+     */
     private String buildConfigSignature(MultiRateDefinition rateDefinition) {
         return "drift=" + rateDefinition.getDrift()
                 + "|omega=" + rateDefinition.getGarchParams().getOmega()
@@ -193,6 +240,18 @@ public class RateSimulator {
                 + "|theta=" + rateDefinition.getTheta();
     }
 
+    /**
+     * Updates asset price and volatility using GARCH model and optional mean reversion.
+     *
+     * @param rateDefinition      rate configuration
+     * @param oldState            previous state
+     * @param randomFactor        Gaussian noise
+     * @param now                 current time
+     * @param deltaTimeSeconds    time since last update
+     * @param weekendGap          whether to apply weekend gap shock
+     * @param simulatorProperties overall simulator config
+     * @return updated asset state
+     */
     private AssetState updatePriceAndVolatility(MultiRateDefinition rateDefinition,
                                                 AssetState oldState,
                                                 double randomFactor,
@@ -248,6 +307,13 @@ public class RateSimulator {
         return updatedState;
     }
 
+    /**
+     * Calculates new volatility using GARCH(1,1) model.
+     *
+     * @param params   GARCH parameters
+     * @param oldState previous state
+     * @return new sigma (volatility)
+     */
     private double garchUpdate(GarchParams params, AssetState oldState) {
         log.trace("Entering garchUpdate method in RateSimulator.");
         double oldSigma = oldState.getCurrentSigma();
@@ -265,6 +331,13 @@ public class RateSimulator {
         return result;
     }
 
+    /**
+     * Computes drift adjustment based on annual drift and delta time.
+     *
+     * @param driftAnnual annual drift rate
+     * @param dtSeconds   time delta in seconds
+     * @return drift adjustment
+     */
     private double getDriftAdjustment(double driftAnnual, double dtSeconds) {
         log.trace("Entering getDriftAdjustment method in RateSimulator.");
         double yearInSeconds = 365.0 * 24.0 * 3600.0;
@@ -273,6 +346,16 @@ public class RateSimulator {
         return driftPerSecond * dtSeconds;
     }
 
+    /**
+     * Applies mean reversion model to the updated price.
+     *
+     * @param oldPrice  last price
+     * @param newPrice  updated price
+     * @param kappa     mean reversion speed
+     * @param theta     long-term average
+     * @param dtSeconds time delta
+     * @return adjusted price
+     */
     private double applyMeanReversion(double oldPrice,
                                       double newPrice,
                                       double kappa,
@@ -284,6 +367,12 @@ public class RateSimulator {
         return adjustedPrice;
     }
 
+    /**
+     * Determines volatility regime (LOW, MID, HIGH) based on sigma value.
+     *
+     * @param sigma current volatility
+     * @return determined volatility regime
+     */
     private VolRegime checkRegimeSwitch(double sigma) {
         log.trace("Entering checkRegimeSwitch method in RateSimulator.");
         VolRegime regime;
@@ -299,6 +388,16 @@ public class RateSimulator {
         return regime;
     }
 
+    /**
+     * Builds a new asset state object from old state and new price/sigma.
+     *
+     * @param oldState  previous state
+     * @param newPrice  updated price
+     * @param newSigma  updated sigma
+     * @param now       current time
+     * @param newRegime volatility regime
+     * @return new asset state
+     */
     private AssetState createNewStateFromOld(AssetState oldState, double newPrice, double newSigma, Instant now, VolRegime newRegime) {
         log.trace("Entering createNewStateFromOld method in RateSimulatorServiceImpl.");
         AssetState state = new AssetState();
@@ -344,12 +443,24 @@ public class RateSimulator {
         return state;
     }
 
+    /**
+     * Generates a small random volume for tick update.
+     *
+     * @return random volume between 1 and 10
+     */
     private long getRandomVolume() {
         long volume = ThreadLocalRandom.current().nextInt(1, 10);
         log.debug("Generated random volume: {}", volume);
         return volume;
     }
 
+    /**
+     * Returns session-based volatility multiplier for given hour.
+     *
+     * @param now                 current time
+     * @param simulatorProperties simulator config
+     * @return volatility multiplier
+     */
     private double getSessionVolMultiplier(Instant now, SimulatorProperties simulatorProperties) {
         if (simulatorProperties.getSessionVolFactors() == null) {
             return 1.0;
@@ -364,6 +475,14 @@ public class RateSimulator {
         return 1.0;
     }
 
+    /**
+     * Constructs rate data response from asset state and definition.
+     *
+     * @param rateDef rate definition
+     * @param state   asset state
+     * @param now     current timestamp
+     * @return response DTO with bid/ask and stats
+     */
     private RateDataResponse buildRateDataResponse(MultiRateDefinition rateDef,
                                                    AssetState state,
                                                    Instant now) {
@@ -403,6 +522,13 @@ public class RateSimulator {
         return response;
     }
 
+    /**
+     * Builds rate responses when market is closed due to weekend or holiday.
+     *
+     * @param rateDefinitions list of rates
+     * @param now             current timestamp
+     * @return list of responses using last known prices
+     */
     private List<RateDataResponse> buildClosedMarketResponses(List<MultiRateDefinition> rateDefinitions,
                                                               Instant now) {
         log.trace("Entering buildClosedMarketResponses method in RateSimulator.");
@@ -414,7 +540,6 @@ public class RateSimulator {
                 this.assetStateMap.put(rd.getRateName(), state);
             }
             RateDataResponse response = buildRateDataResponse(rd, state, now);
-            rateDataResponseMap.put(rd.getRateName(), response);
             responses.add(response);
         }
         log.trace("Exiting buildClosedMarketResponses method in RateSimulator.");

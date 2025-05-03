@@ -13,11 +13,25 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * Handles both automatic and critical shocks applied to assets
+ * during simulation. Shocks simulate sudden market movements.
+ * Configuration is dynamically loaded using {@link SimulatorConfigLoader}.
+ *
+ * @author Ömer Asaf BALIKÇI
+ */
+
 @RequiredArgsConstructor
 public class ShockService {
     private static final Logger log = LogManager.getLogger(ShockService.class);
     private final SimulatorConfigLoader simulatorConfigLoader;
 
+    /**
+     * Applies automatic probabilistic shocks (small/medium/big) to the asset.
+     * Shock probabilities are derived from weekly, monthly, and yearly config values.
+     *
+     * @param state The current asset state to modify.
+     */
     public void processAutomaticShocks(AssetState state) {
         SimulatorProperties simulatorProperties = this.simulatorConfigLoader.currentSimulator();
         log.trace("Entering processAutomaticShocks method in ShockService.");
@@ -44,6 +58,12 @@ public class ShockService {
         log.trace("Exiting processAutomaticShocks method in ShockService.");
     }
 
+    /**
+     * Applies a random shock of the specified type to the given asset state.
+     *
+     * @param state     The asset to update.
+     * @param shockType The type of shock (SMALL, MEDIUM, BIG).
+     */
     private void applyRandomShock(AssetState state, ShockType shockType) {
         SimulatorProperties simulatorProperties = this.simulatorConfigLoader.currentSimulator();
         log.trace("Entering applyRandomShock method in ShockService.");
@@ -80,6 +100,13 @@ public class ShockService {
         log.trace("Exiting applyRandomShock method in ShockService.");
     }
 
+    /**
+     * Checks and applies event-based critical shocks if the current time
+     * is close (±1 minute) to any configured shock event.
+     *
+     * @param state The asset to update.
+     * @param now   The current timestamp.
+     */
     public void checkAndApplyCriticalShocks(AssetState state, Instant now) {
         SimulatorProperties simulatorProperties = this.simulatorConfigLoader.currentSimulator();
         log.trace("Entering checkAndApplyCriticalShocks method in ShockService.");
@@ -103,5 +130,8 @@ public class ShockService {
         log.trace("Exiting checkAndApplyCriticalShocks method in ShockService.");
     }
 
+    /**
+     * Enum for categorizing automatic shock types.
+     */
     private enum ShockType {SMALL, MEDIUM, BIG}
 }

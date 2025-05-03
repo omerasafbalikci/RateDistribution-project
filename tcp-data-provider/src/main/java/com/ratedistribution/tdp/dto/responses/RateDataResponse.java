@@ -10,6 +10,13 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 import java.time.Instant;
 
+/**
+ * DTO for exposing rate data including bid/ask and daily statistics.
+ * Used in TCP or REST responses to represent the current market state.
+ *
+ * @author Ömer Asaf BALIKÇI
+ */
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

@@ -6,6 +6,13 @@ import lombok.NoArgsConstructor;
 
 import java.time.Instant;
 
+/**
+ * Defines a holiday period during which the market is closed.
+ * Affects rate update scheduling and simulation pause logic.
+ *
+ * @author Ömer Asaf BALIKÇI
+ */
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
