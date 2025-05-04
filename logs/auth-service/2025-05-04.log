@@ -1,0 +1,633 @@
+2025-05-04 19:00:04.312 [] [background-preinit] INFO  Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-05-04 19:00:04.413 [] [main] INFO  AuthServiceApplication - Starting AuthServiceApplication using Java 21.0.6 with PID 18620 (C:\Users\omera\Desktop\ratedistribution\auth-service\target\classes started by asaf in C:\Users\omera\Desktop\ratedistribution)
+2025-05-04 19:00:04.419 [] [main] DEBUG AuthServiceApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-05-04 19:00:04.421 [] [main] INFO  AuthServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-04 19:00:04.512 [] [main] INFO  ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+2025-05-04 19:00:04.512 [] [main] INFO  ConfigServerConfigDataLoader - Located environment: name=auth-service, profiles=[default], label=null, version=7a36917ae60ba3cadb4dbbbfa705a0b2fca48a07, state=
+2025-05-04 19:00:06.415 [] [main] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-04 19:00:06.416 [] [main] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-04 19:00:06.648 [] [main] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 216 ms. Found 3 JPA repository interfaces.
+2025-05-04 19:00:06.676 [] [main] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-04 19:00:06.681 [] [main] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-05-04 19:00:06.711 [] [main] INFO  RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ratedistribution.auth.repository.RoleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-05-04 19:00:06.720 [] [main] INFO  RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ratedistribution.auth.repository.TokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-05-04 19:00:06.721 [] [main] INFO  RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ratedistribution.auth.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-05-04 19:00:06.721 [] [main] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 21 ms. Found 0 Redis repository interfaces.
+2025-05-04 19:00:07.235 [] [main] INFO  GenericScope - BeanFactory id=21efc9b5-a8cc-39b2-9afb-15bb02be8da9
+2025-05-04 19:00:08.157 [] [main] INFO  TomcatWebServer - Tomcat initialized with port 8081 (http)
+2025-05-04 19:00:08.180 [] [main] INFO  Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2025-05-04 19:00:08.195 [] [main] INFO  StandardService - Starting service [Tomcat]
+2025-05-04 19:00:08.196 [] [main] INFO  StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-05-04 19:00:08.305 [] [main] INFO  [/] - Initializing Spring embedded WebApplicationContext
+2025-05-04 19:00:08.307 [] [main] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3786 ms
+2025-05-04 19:00:09.268 [] [main] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-04 19:00:09.330 [] [main] INFO  Version - HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-05-04 19:00:09.358 [] [main] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-04 19:00:09.644 [] [main] INFO  SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-04 19:00:09.671 [] [main] INFO  HikariDataSource - HikariPool-1 - Starting...
+2025-05-04 19:00:09.838 [] [main] INFO  HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@18918ab9
+2025-05-04 19:00:09.839 [] [main] INFO  HikariDataSource - HikariPool-1 - Start completed.
+2025-05-04 19:00:09.906 [] [main] INFO  pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 16.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-04 19:00:10.988 [] [main] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-04 19:00:11.078 [] [main] INFO  LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-04 19:00:11.752 [] [main] INFO  InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2025-05-04 19:00:11.825 [] [main] INFO  QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-04 19:00:12.660 [] [main] TRACE UserServiceImpl - Initializing JedisPool with Redis Host: localhost and Port: 6379
+2025-05-04 19:00:12.798 [] [main] TRACE UserServiceImpl - Exiting init method in UserServiceImpl
+2025-05-04 19:00:15.271 [] [main] INFO  EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2025-05-04 19:00:15.398 [] [main] INFO  DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-05-04 19:00:15.505 [] [main] WARN  LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-05-04 19:00:15.645 [] [main] INFO  InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-05-04 19:00:15.697 [] [main] INFO  DiscoveryClient - Initializing Eureka in region us-east-1
+2025-05-04 19:00:15.701 [] [main] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-05-04 19:00:15.718 [] [main] INFO  DiscoveryClient - Disable delta property : false
+2025-05-04 19:00:15.718 [] [main] INFO  DiscoveryClient - Single vip registry refresh property : null
+2025-05-04 19:00:15.719 [] [main] INFO  DiscoveryClient - Force full registry fetch : false
+2025-05-04 19:00:15.719 [] [main] INFO  DiscoveryClient - Application is null : false
+2025-05-04 19:00:15.719 [] [main] INFO  DiscoveryClient - Registered Applications size is zero : true
+2025-05-04 19:00:15.719 [] [main] INFO  DiscoveryClient - Application version is -1: true
+2025-05-04 19:00:15.719 [] [main] INFO  DiscoveryClient - Getting all instance registry info from the eureka server
+2025-05-04 19:00:16.155 [] [main] INFO  DiscoveryClient - The response status is 200
+2025-05-04 19:00:16.158 [] [main] INFO  DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-05-04 19:00:16.160 [] [main] INFO  InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-05-04 19:00:16.162 [] [main] INFO  DiscoveryClient - Discovery Client initialized at timestamp 1746374416162 with initial instances count: 1
+2025-05-04 19:00:16.168 [] [main] INFO  EurekaServiceRegistry - Registering application AUTH-SERVICE with eureka with status UP
+2025-05-04 19:00:16.169 [] [main] INFO  DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1746374416169, current=UP, previous=STARTING]
+2025-05-04 19:00:16.173 [] [main] INFO  Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2025-05-04 19:00:16.174 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_AUTH-SERVICE/asaf.mshome.net:auth-service:8081: registering service...
+2025-05-04 19:00:16.208 [] [main] INFO  TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2025-05-04 19:00:16.210 [] [main] INFO  EurekaAutoServiceRegistration - Updating port to 8081
+2025-05-04 19:00:16.239 [] [main] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-05-04 19:00:16.264 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_AUTH-SERVICE/asaf.mshome.net:auth-service:8081 - registration status: 204
+2025-05-04 19:00:16.300 [] [main] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#30c716ce:0/SimpleConnection@76d3e05b [delegate=amqp://guest@127.0.0.1:5672/, localPort=55343]
+2025-05-04 19:00:16.310 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-create) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-05-04 19:00:16.310 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-update) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-05-04 19:00:16.311 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-delete) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-05-04 19:00:16.311 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-restore) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-05-04 19:00:16.311 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-add-role) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-05-04 19:00:16.311 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-remove-role) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-05-04 19:00:16.508 [] [main] INFO  AuthServiceApplication - Started AuthServiceApplication in 24.598 seconds (process running for 26.277)
+2025-05-04 19:01:47.521 [] [AsyncReporter{ZipkinWebClientSender{http://localhost:9411/api/v2/spans}}] WARN  AsyncReporter$BoundedAsyncReporter - Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
+2025-05-04 19:01:47.521 [] [AsyncReporter{ZipkinWebClientSender{http://localhost:9411/api/v2/spans}}] WARN  AsyncReporter$BoundedAsyncReporter - Dropped 1 spans due to WebClientRequestException(Connection refused: getsockopt: localhost/127.0.0.1:9411)
+org.springframework.web.reactive.function.client.WebClientRequestException: Connection refused: getsockopt: localhost/127.0.0.1:9411
+	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:137) ~[spring-webflux-6.2.2.jar:6.2.2]
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ Request to POST http://localhost:9411/api/v2/spans [DefaultWebClient]
+Original Stack Trace:
+		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:137) ~[spring-webflux-6.2.2.jar:6.2.2]
+		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:55) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4576) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:205) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:229) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:279) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.maybeOnError(FluxConcatMapNoPrefetch.java:327) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.onNext(FluxConcatMapNoPrefetch.java:212) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.SinkManyEmitterProcessor.drain(SinkManyEmitterProcessor.java:476) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.SinkManyEmitterProcessor$EmitterInner.drainParent(SinkManyEmitterProcessor.java:620) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.FluxPublish$PubSubInner.request(FluxPublish.java:874) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.request(FluxConcatMapNoPrefetch.java:337) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.Operators$DeferredSubscription.request(Operators.java:1743) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:196) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.netty.http.client.HttpClientConnect$MonoHttpConnect$ClientTransportSubscriber.onError(HttpClientConnect.java:318) ~[reactor-netty-http-1.2.2.jar:1.2.2]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onError(DefaultPooledConnectionProvider.java:174) ~[reactor-netty-core-1.2.2.jar:1.2.2]
+		at reactor.netty.internal.shaded.reactor.pool.AbstractPool$Borrower.fail(AbstractPool.java:479) ~[reactor-netty-core-1.2.2.jar:1.2.2]
+		at reactor.netty.internal.shaded.reactor.pool.SimpleDequePool.lambda$drainLoop$9(SimpleDequePool.java:442) ~[reactor-netty-core-1.2.2.jar:1.2.2]
+		at reactor.core.publisher.FluxDoOnEach$DoOnEachSubscriber.onError(FluxDoOnEach.java:186) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnectionAllocator$PooledConnectionInitializer.onError(DefaultPooledConnectionProvider.java:593) ~[reactor-netty-core-1.2.2.jar:1.2.2]
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.secondError(MonoFlatMap.java:241) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.MonoFlatMap$FlatMapInner.onError(MonoFlatMap.java:315) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:106) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.Operators.error(Operators.java:198) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.MonoError.subscribe(MonoError.java:53) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4576) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.tryFailure(TransportConnector.java:576) ~[reactor-netty-core-1.2.2.jar:1.2.2]
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.setFailure(TransportConnector.java:522) ~[reactor-netty-core-1.2.2.jar:1.2.2]
+		at reactor.netty.transport.TransportConnector.lambda$doConnect$7(TransportConnector.java:261) ~[reactor-netty-core-1.2.2.jar:1.2.2]
+		at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590) ~[netty-common-4.1.117.Final.jar:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:583) ~[netty-common-4.1.117.Final.jar:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:559) ~[netty-common-4.1.117.Final.jar:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492) ~[netty-common-4.1.117.Final.jar:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636) ~[netty-common-4.1.117.Final.jar:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629) ~[netty-common-4.1.117.Final.jar:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:118) ~[netty-common-4.1.117.Final.jar:4.1.117.Final]
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:326) ~[netty-transport-4.1.117.Final.jar:4.1.117.Final]
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:342) ~[netty-transport-4.1.117.Final.jar:4.1.117.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776) ~[netty-transport-4.1.117.Final.jar:4.1.117.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) ~[netty-transport-4.1.117.Final.jar:4.1.117.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) ~[netty-transport-4.1.117.Final.jar:4.1.117.Final]
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.117.Final.jar:4.1.117.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.117.Final.jar:4.1.117.Final]
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.117.Final.jar:4.1.117.Final]
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.117.Final.jar:4.1.117.Final]
+		at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+	Suppressed: java.lang.Exception: #block terminated with an error
+		at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:104) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.Mono.block(Mono.java:1779) ~[reactor-core-3.7.2.jar:3.7.2]
+		at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinWebClientSender.postSpans(ZipkinWebClientSender.java:58) ~[spring-boot-actuator-autoconfigure-3.4.2.jar:3.4.2]
+		at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.HttpSender.postSpans(HttpSender.java:69) ~[spring-boot-actuator-autoconfigure-3.4.2.jar:3.4.2]
+		at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.HttpSender.postSpans(HttpSender.java:41) ~[spring-boot-actuator-autoconfigure-3.4.2.jar:3.4.2]
+		at zipkin2.reporter.BaseHttpSender.send(BaseHttpSender.java:123) ~[zipkin-reporter-3.4.3.jar:?]
+		at zipkin2.reporter.internal.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:266) ~[zipkin-reporter-3.4.3.jar:?]
+		at zipkin2.reporter.internal.AsyncReporter$Flusher.run(AsyncReporter.java:352) ~[zipkin-reporter-3.4.3.jar:?]
+		at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: getsockopt: localhost/127.0.0.1:9411
+Caused by: java.net.ConnectException: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[?:?]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682) ~[?:?]
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:973) ~[?:?]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[netty-transport-4.1.117.Final.jar:4.1.117.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[netty-transport-4.1.117.Final.jar:4.1.117.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776) ~[netty-transport-4.1.117.Final.jar:4.1.117.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) ~[netty-transport-4.1.117.Final.jar:4.1.117.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) ~[netty-transport-4.1.117.Final.jar:4.1.117.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.117.Final.jar:4.1.117.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.117.Final.jar:4.1.117.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.117.Final.jar:4.1.117.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.117.Final.jar:4.1.117.Final]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2025-05-04 19:05:15.732 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-05-04 19:10:15.738 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-05-04 19:10:51.955 [] [http-nio-8081-exec-1] INFO  [/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-04 19:10:51.955 [] [http-nio-8081-exec-1] INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-05-04 19:10:52.122 [] [http-nio-8081-exec-1] INFO  DispatcherServlet - Completed initialization in 167 ms
+2025-05-04 19:15:15.764 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-05-04 19:16:26.085 [] [http-nio-8081-exec-6] TRACE UserController - Entering login method in UserController
+2025-05-04 19:16:26.086 [] [http-nio-8081-exec-6] TRACE UserServiceImpl - Entering login method in UserServiceImpl
+2025-05-04 19:16:26.087 [] [http-nio-8081-exec-6] DEBUG UserServiceImpl - Attempting to authenticate user: super
+2025-05-04 19:16:26.230 [] [http-nio-8081-exec-6] TRACE UserDetailsServiceImpl - Entering loadUserByUsername with username: super
+2025-05-04 19:16:26.467 [] [http-nio-8081-exec-6] INFO  UserDetailsServiceImpl - User found: super
+2025-05-04 19:16:26.470 [] [http-nio-8081-exec-6] DEBUG UserDetailsServiceImpl - Mapping role ADMIN to authority ROLE_ADMIN
+2025-05-04 19:16:26.471 [] [http-nio-8081-exec-6] DEBUG UserDetailsServiceImpl - Mapping role OPERATOR to authority ROLE_OPERATOR
+2025-05-04 19:16:26.471 [] [http-nio-8081-exec-6] DEBUG UserDetailsServiceImpl - Mapping role ANALYST to authority ROLE_ANALYST
+2025-05-04 19:16:26.471 [] [http-nio-8081-exec-6] INFO  UserDetailsServiceImpl - User authorities: [ROLE_OPERATOR, ROLE_ANALYST, ROLE_ADMIN]
+2025-05-04 19:16:26.476 [] [http-nio-8081-exec-6] TRACE UserDetailsServiceImpl - Exiting loadUserByUsername method in UserDetailsServiceImpl with username: super
+2025-05-04 19:16:26.558 [] [http-nio-8081-exec-6] ERROR UserServiceImpl - Authentication failed for user: super
+2025-05-04 19:17:40.544 [] [http-nio-8081-exec-8] TRACE UserController - Entering login method in UserController
+2025-05-04 19:17:40.545 [] [http-nio-8081-exec-8] TRACE UserServiceImpl - Entering login method in UserServiceImpl
+2025-05-04 19:17:40.545 [] [http-nio-8081-exec-8] DEBUG UserServiceImpl - Attempting to authenticate user: super
+2025-05-04 19:17:40.547 [] [http-nio-8081-exec-8] TRACE UserDetailsServiceImpl - Entering loadUserByUsername with username: super
+2025-05-04 19:17:40.553 [] [http-nio-8081-exec-8] INFO  UserDetailsServiceImpl - User found: super
+2025-05-04 19:17:40.553 [] [http-nio-8081-exec-8] DEBUG UserDetailsServiceImpl - Mapping role ADMIN to authority ROLE_ADMIN
+2025-05-04 19:17:40.553 [] [http-nio-8081-exec-8] DEBUG UserDetailsServiceImpl - Mapping role OPERATOR to authority ROLE_OPERATOR
+2025-05-04 19:17:40.553 [] [http-nio-8081-exec-8] DEBUG UserDetailsServiceImpl - Mapping role ANALYST to authority ROLE_ANALYST
+2025-05-04 19:17:40.553 [] [http-nio-8081-exec-8] INFO  UserDetailsServiceImpl - User authorities: [ROLE_OPERATOR, ROLE_ANALYST, ROLE_ADMIN]
+2025-05-04 19:17:40.553 [] [http-nio-8081-exec-8] TRACE UserDetailsServiceImpl - Exiting loadUserByUsername method in UserDetailsServiceImpl with username: super
+2025-05-04 19:17:40.623 [] [http-nio-8081-exec-8] INFO  UserServiceImpl - User authenticated successfully: super
+2025-05-04 19:17:40.624 [] [http-nio-8081-exec-8] TRACE UserServiceImpl - Entering getRolesAsString method in UserServiceImpl
+2025-05-04 19:17:40.625 [] [http-nio-8081-exec-8] TRACE UserServiceImpl - Exiting getRolesAsString method in UserServiceImpl
+2025-05-04 19:17:40.626 [] [http-nio-8081-exec-8] TRACE JwtServiceImpl - Entering generateAccessToken method in JwtUtils class with username: super
+2025-05-04 19:17:40.728 [] [http-nio-8081-exec-8] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 3600000
+2025-05-04 19:17:40.842 [] [http-nio-8081-exec-8] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-05-04 19:17:40.844 [] [http-nio-8081-exec-8] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-05-04 19:17:40.911 [] [http-nio-8081-exec-8] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0NjM3NTQ2MCwiZXhwIjoxNzQ2Mzc5MDYwfQ.pDlYm511OIbRhzexJ6ZsnHZLlahdz9vQygZ9IHlJ3a3J42GRALfxlD8oe3yOXUgz
+2025-05-04 19:17:40.912 [] [http-nio-8081-exec-8] TRACE JwtServiceImpl - Exiting generateAccessToken method in JwtUtils class with accessToken: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0NjM3NTQ2MCwiZXhwIjoxNzQ2Mzc5MDYwfQ.pDlYm511OIbRhzexJ6ZsnHZLlahdz9vQygZ9IHlJ3a3J42GRALfxlD8oe3yOXUgz
+2025-05-04 19:17:40.912 [] [http-nio-8081-exec-8] TRACE JwtServiceImpl - Entering generateRefreshToken method in JwtUtils class with username: super
+2025-05-04 19:17:40.912 [] [http-nio-8081-exec-8] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 86400000
+2025-05-04 19:17:40.912 [] [http-nio-8081-exec-8] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-05-04 19:17:40.912 [] [http-nio-8081-exec-8] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-05-04 19:17:40.914 [] [http-nio-8081-exec-8] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsImlhdCI6MTc0NjM3NTQ2MCwiZXhwIjoxNzQ2NDYxODYwfQ.T2csaCUUSO5tOsjnN4TymPd8ccmAO-XPVdepswMlWi155V-MtVW76KYdRbd-YrFT
+2025-05-04 19:17:40.915 [] [http-nio-8081-exec-8] TRACE JwtServiceImpl - Exiting generateRefreshToken method in JwtUtils class with refreshToken: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsImlhdCI6MTc0NjM3NTQ2MCwiZXhwIjoxNzQ2NDYxODYwfQ.T2csaCUUSO5tOsjnN4TymPd8ccmAO-XPVdepswMlWi155V-MtVW76KYdRbd-YrFT
+2025-05-04 19:17:40.915 [] [http-nio-8081-exec-8] TRACE UserServiceImpl - Entering revokeAllTokensByUser method in UserServiceImpl
+2025-05-04 19:17:40.915 [] [http-nio-8081-exec-8] DEBUG UserServiceImpl - Revoking all tokens for user ID: 4
+2025-05-04 19:17:40.969 [] [http-nio-8081-exec-8] INFO  UserServiceImpl - No valid tokens found for user ID: 4
+2025-05-04 19:17:40.969 [] [http-nio-8081-exec-8] TRACE UserServiceImpl - Entering saveUserToken method in UserServiceImpl
+2025-05-04 19:17:40.970 [] [http-nio-8081-exec-8] DEBUG UserServiceImpl - Saving token for user: super
+2025-05-04 19:17:41.267 [] [http-nio-8081-exec-8] INFO  UserServiceImpl - Token saved in Redis for user: super
+2025-05-04 19:17:41.268 [] [http-nio-8081-exec-8] TRACE UserServiceImpl - Exiting saveUserToken method in UserServiceImpl
+2025-05-04 19:17:41.268 [] [http-nio-8081-exec-8] TRACE UserServiceImpl - Exiting login method in UserServiceImpl
+2025-05-04 19:17:41.284 [] [http-nio-8081-exec-8] TRACE UserController - Exiting login method in UserController
+2025-05-04 19:20:15.782 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-05-04 19:25:15.800 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-05-04 19:30:15.814 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-05-04 19:35:15.823 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-05-04 19:37:26.720 [] [SpringApplicationShutdownHook] INFO  EurekaServiceRegistry - Unregistering application AUTH-SERVICE with eureka with status DOWN
+2025-05-04 19:37:26.722 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1746376646721, current=DOWN, previous=UP]
+2025-05-04 19:37:26.728 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_AUTH-SERVICE/asaf.mshome.net:auth-service:8081: registering service...
+2025-05-04 19:37:26.794 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_AUTH-SERVICE/asaf.mshome.net:auth-service:8081 - registration status: 204
+2025-05-04 19:37:27.527 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-05-04 19:37:27.531 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-05-04 19:37:27.531 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-05-04 19:37:27.531 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-05-04 19:37:27.532 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-05-04 19:37:27.534 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-05-04 19:37:27.535 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-05-04 19:37:27.570 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-05-04 19:37:28.550 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-05-04 19:37:28.552 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-05-04 19:37:28.551 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-05-04 19:37:28.550 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-05-04 19:37:28.577 [] [SpringApplicationShutdownHook] INFO  GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-04 19:37:28.606 [] [tomcat-shutdown] INFO  GracefulShutdown - Graceful shutdown complete
+2025-05-04 19:37:30.834 [] [SpringApplicationShutdownHook] TRACE UserServiceImpl - Shutting down JedisPool
+2025-05-04 19:37:30.841 [] [SpringApplicationShutdownHook] INFO  LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-04 19:37:30.850 [] [SpringApplicationShutdownHook] INFO  HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-05-04 19:37:30.858 [] [SpringApplicationShutdownHook] INFO  HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-05-04 19:37:31.631 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Shutting down DiscoveryClient ...
+2025-05-04 19:37:34.638 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Unregistering ...
+2025-05-04 19:37:34.661 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - DiscoveryClient_AUTH-SERVICE/asaf.mshome.net:auth-service:8081 - deregister  status: 200
+2025-05-04 19:37:34.661 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Completed shut down of DiscoveryClient
+2025-05-04 19:37:41.341 [] [background-preinit] INFO  Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-05-04 19:37:41.440 [] [main] INFO  AuthServiceApplication - Starting AuthServiceApplication using Java 21.0.6 with PID 14672 (C:\Users\omera\Desktop\ratedistribution\auth-service\target\classes started by asaf in C:\Users\omera\Desktop\ratedistribution)
+2025-05-04 19:37:41.448 [] [main] DEBUG AuthServiceApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-05-04 19:37:41.452 [] [main] INFO  AuthServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-05-04 19:37:41.527 [] [main] INFO  ConfigServerConfigDataLoader - Fetching config from server at : http://localhost:8888
+2025-05-04 19:37:41.528 [] [main] INFO  ConfigServerConfigDataLoader - Located environment: name=auth-service, profiles=[default], label=null, version=651af549182bc69d3d3c69cdaf20165c7aff15aa, state=
+2025-05-04 19:37:43.478 [] [main] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-04 19:37:43.480 [] [main] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-04 19:37:43.745 [] [main] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 237 ms. Found 3 JPA repository interfaces.
+2025-05-04 19:37:43.779 [] [main] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-04 19:37:43.781 [] [main] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-05-04 19:37:43.811 [] [main] INFO  RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ratedistribution.auth.repository.RoleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-05-04 19:37:43.811 [] [main] INFO  RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ratedistribution.auth.repository.TokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-05-04 19:37:43.812 [] [main] INFO  RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ratedistribution.auth.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-05-04 19:37:43.812 [] [main] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 15 ms. Found 0 Redis repository interfaces.
+2025-05-04 19:37:44.412 [] [main] INFO  GenericScope - BeanFactory id=21efc9b5-a8cc-39b2-9afb-15bb02be8da9
+2025-05-04 19:37:45.471 [] [main] INFO  TomcatWebServer - Tomcat initialized with port 8081 (http)
+2025-05-04 19:37:45.489 [] [main] INFO  Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2025-05-04 19:37:45.492 [] [main] INFO  StandardService - Starting service [Tomcat]
+2025-05-04 19:37:45.492 [] [main] INFO  StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-05-04 19:37:45.603 [] [main] INFO  [/] - Initializing Spring embedded WebApplicationContext
+2025-05-04 19:37:45.604 [] [main] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4070 ms
+2025-05-04 19:37:46.714 [] [main] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-04 19:37:46.853 [] [main] INFO  Version - HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-05-04 19:37:46.921 [] [main] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-05-04 19:37:47.323 [] [main] INFO  SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-04 19:37:47.356 [] [main] INFO  HikariDataSource - HikariPool-1 - Starting...
+2025-05-04 19:37:47.595 [] [main] INFO  HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3b32f0b4
+2025-05-04 19:37:47.597 [] [main] INFO  HikariDataSource - HikariPool-1 - Start completed.
+2025-05-04 19:37:47.710 [] [main] INFO  pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 16.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-04 19:37:48.981 [] [main] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-04 19:37:49.297 [] [main] INFO  LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-04 19:37:50.030 [] [main] INFO  InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2025-05-04 19:37:50.083 [] [main] INFO  QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-04 19:37:50.949 [] [main] TRACE UserServiceImpl - Initializing JedisPool with Redis Host: localhost and Port: 6379
+2025-05-04 19:37:51.117 [] [main] TRACE UserServiceImpl - Exiting init method in UserServiceImpl
+2025-05-04 19:37:53.818 [] [main] INFO  EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2025-05-04 19:37:53.939 [] [main] INFO  DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-05-04 19:37:54.062 [] [main] WARN  LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-05-04 19:37:54.220 [] [main] INFO  InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-05-04 19:37:54.270 [] [main] INFO  DiscoveryClient - Initializing Eureka in region us-east-1
+2025-05-04 19:37:54.278 [] [main] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-05-04 19:37:54.292 [] [main] INFO  DiscoveryClient - Disable delta property : false
+2025-05-04 19:37:54.292 [] [main] INFO  DiscoveryClient - Single vip registry refresh property : null
+2025-05-04 19:37:54.293 [] [main] INFO  DiscoveryClient - Force full registry fetch : false
+2025-05-04 19:37:54.293 [] [main] INFO  DiscoveryClient - Application is null : false
+2025-05-04 19:37:54.293 [] [main] INFO  DiscoveryClient - Registered Applications size is zero : true
+2025-05-04 19:37:54.293 [] [main] INFO  DiscoveryClient - Application version is -1: true
+2025-05-04 19:37:54.293 [] [main] INFO  DiscoveryClient - Getting all instance registry info from the eureka server
+2025-05-04 19:37:54.677 [] [main] INFO  DiscoveryClient - The response status is 200
+2025-05-04 19:37:54.679 [] [main] INFO  DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-05-04 19:37:54.681 [] [main] INFO  InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-05-04 19:37:54.683 [] [main] INFO  DiscoveryClient - Discovery Client initialized at timestamp 1746376674682 with initial instances count: 3
+2025-05-04 19:37:54.689 [] [main] INFO  EurekaServiceRegistry - Registering application AUTH-SERVICE with eureka with status UP
+2025-05-04 19:37:54.689 [] [main] INFO  DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1746376674689, current=UP, previous=STARTING]
+2025-05-04 19:37:54.692 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_AUTH-SERVICE/asaf.mshome.net:auth-service:8081: registering service...
+2025-05-04 19:37:54.693 [] [main] INFO  Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2025-05-04 19:37:54.726 [] [main] INFO  TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2025-05-04 19:37:54.727 [] [main] INFO  EurekaAutoServiceRegistration - Updating port to 8081
+2025-05-04 19:37:54.756 [] [main] INFO  CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-05-04 19:37:54.774 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_AUTH-SERVICE/asaf.mshome.net:auth-service:8081 - registration status: 204
+2025-05-04 19:37:54.852 [] [main] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#39ec9a3b:0/SimpleConnection@1d03099a [delegate=amqp://guest@127.0.0.1:5672/, localPort=65329]
+2025-05-04 19:37:54.866 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-create) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-05-04 19:37:54.866 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-update) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-05-04 19:37:54.866 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-delete) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-05-04 19:37:54.866 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-restore) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-05-04 19:37:54.866 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-add-role) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-05-04 19:37:54.867 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-remove-role) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-05-04 19:37:55.020 [] [main] INFO  AuthServiceApplication - Started AuthServiceApplication in 16.783 seconds (process running for 18.791)
+2025-05-04 19:38:25.992 [] [AsyncReporter{ZipkinWebClientSender{http://localhost:9411/api/v2/spans}}] WARN  AsyncReporter$BoundedAsyncReporter - Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
+2025-05-04 19:38:25.992 [] [AsyncReporter{ZipkinWebClientSender{http://localhost:9411/api/v2/spans}}] WARN  AsyncReporter$BoundedAsyncReporter - Dropped 1 spans due to WebClientRequestException(Connection refused: getsockopt: localhost/127.0.0.1:9411)
+org.springframework.web.reactive.function.client.WebClientRequestException: Connection refused: getsockopt: localhost/127.0.0.1:9411
+	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:137) ~[spring-webflux-6.2.2.jar:6.2.2]
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ Request to POST http://localhost:9411/api/v2/spans [DefaultWebClient]
+Original Stack Trace:
+		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:137) ~[spring-webflux-6.2.2.jar:6.2.2]
+		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:55) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4576) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:205) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:229) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:279) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.maybeOnError(FluxConcatMapNoPrefetch.java:327) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.onNext(FluxConcatMapNoPrefetch.java:212) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.SinkManyEmitterProcessor.drain(SinkManyEmitterProcessor.java:476) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.SinkManyEmitterProcessor$EmitterInner.drainParent(SinkManyEmitterProcessor.java:620) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.FluxPublish$PubSubInner.request(FluxPublish.java:874) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.request(FluxConcatMapNoPrefetch.java:337) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.Operators$DeferredSubscription.request(Operators.java:1743) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:196) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.netty.http.client.HttpClientConnect$MonoHttpConnect$ClientTransportSubscriber.onError(HttpClientConnect.java:318) ~[reactor-netty-http-1.2.2.jar:1.2.2]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onError(DefaultPooledConnectionProvider.java:174) ~[reactor-netty-core-1.2.2.jar:1.2.2]
+		at reactor.netty.internal.shaded.reactor.pool.AbstractPool$Borrower.fail(AbstractPool.java:479) ~[reactor-netty-core-1.2.2.jar:1.2.2]
+		at reactor.netty.internal.shaded.reactor.pool.SimpleDequePool.lambda$drainLoop$9(SimpleDequePool.java:442) ~[reactor-netty-core-1.2.2.jar:1.2.2]
+		at reactor.core.publisher.FluxDoOnEach$DoOnEachSubscriber.onError(FluxDoOnEach.java:186) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnectionAllocator$PooledConnectionInitializer.onError(DefaultPooledConnectionProvider.java:593) ~[reactor-netty-core-1.2.2.jar:1.2.2]
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.secondError(MonoFlatMap.java:241) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.MonoFlatMap$FlatMapInner.onError(MonoFlatMap.java:315) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:106) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.Operators.error(Operators.java:198) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.MonoError.subscribe(MonoError.java:53) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4576) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.tryFailure(TransportConnector.java:576) ~[reactor-netty-core-1.2.2.jar:1.2.2]
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.setFailure(TransportConnector.java:522) ~[reactor-netty-core-1.2.2.jar:1.2.2]
+		at reactor.netty.transport.TransportConnector.lambda$doConnect$7(TransportConnector.java:261) ~[reactor-netty-core-1.2.2.jar:1.2.2]
+		at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590) ~[netty-common-4.1.117.Final.jar:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:583) ~[netty-common-4.1.117.Final.jar:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:559) ~[netty-common-4.1.117.Final.jar:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492) ~[netty-common-4.1.117.Final.jar:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636) ~[netty-common-4.1.117.Final.jar:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629) ~[netty-common-4.1.117.Final.jar:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:118) ~[netty-common-4.1.117.Final.jar:4.1.117.Final]
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:326) ~[netty-transport-4.1.117.Final.jar:4.1.117.Final]
+		at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:342) ~[netty-transport-4.1.117.Final.jar:4.1.117.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776) ~[netty-transport-4.1.117.Final.jar:4.1.117.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) ~[netty-transport-4.1.117.Final.jar:4.1.117.Final]
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) ~[netty-transport-4.1.117.Final.jar:4.1.117.Final]
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.117.Final.jar:4.1.117.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.117.Final.jar:4.1.117.Final]
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.117.Final.jar:4.1.117.Final]
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.117.Final.jar:4.1.117.Final]
+		at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+	Suppressed: java.lang.Exception: #block terminated with an error
+		at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:104) ~[reactor-core-3.7.2.jar:3.7.2]
+		at reactor.core.publisher.Mono.block(Mono.java:1779) ~[reactor-core-3.7.2.jar:3.7.2]
+		at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinWebClientSender.postSpans(ZipkinWebClientSender.java:58) ~[spring-boot-actuator-autoconfigure-3.4.2.jar:3.4.2]
+		at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.HttpSender.postSpans(HttpSender.java:69) ~[spring-boot-actuator-autoconfigure-3.4.2.jar:3.4.2]
+		at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.HttpSender.postSpans(HttpSender.java:41) ~[spring-boot-actuator-autoconfigure-3.4.2.jar:3.4.2]
+		at zipkin2.reporter.BaseHttpSender.send(BaseHttpSender.java:123) ~[zipkin-reporter-3.4.3.jar:?]
+		at zipkin2.reporter.internal.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:266) ~[zipkin-reporter-3.4.3.jar:?]
+		at zipkin2.reporter.internal.AsyncReporter$Flusher.run(AsyncReporter.java:352) ~[zipkin-reporter-3.4.3.jar:?]
+		at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: getsockopt: localhost/127.0.0.1:9411
+Caused by: java.net.ConnectException: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[?:?]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682) ~[?:?]
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:973) ~[?:?]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[netty-transport-4.1.117.Final.jar:4.1.117.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[netty-transport-4.1.117.Final.jar:4.1.117.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776) ~[netty-transport-4.1.117.Final.jar:4.1.117.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724) ~[netty-transport-4.1.117.Final.jar:4.1.117.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650) ~[netty-transport-4.1.117.Final.jar:4.1.117.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.117.Final.jar:4.1.117.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.117.Final.jar:4.1.117.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.117.Final.jar:4.1.117.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.117.Final.jar:4.1.117.Final]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2025-05-04 19:42:15.740 [] [SpringApplicationShutdownHook] INFO  EurekaServiceRegistry - Unregistering application AUTH-SERVICE with eureka with status DOWN
+2025-05-04 19:42:15.742 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1746376935742, current=DOWN, previous=UP]
+2025-05-04 19:42:15.742 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_AUTH-SERVICE/asaf.mshome.net:auth-service:8081: registering service...
+2025-05-04 19:42:15.761 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-05-04 19:42:15.761 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-05-04 19:42:15.761 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-05-04 19:42:15.761 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-05-04 19:42:15.772 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_AUTH-SERVICE/asaf.mshome.net:auth-service:8081 - registration status: 204
+2025-05-04 19:42:15.772 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-05-04 19:42:15.774 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-05-04 19:42:16.076 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-05-04 19:42:16.076 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-05-04 19:42:16.076 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-05-04 19:42:16.108 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-05-04 19:42:16.204 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-05-04 19:42:16.220 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-05-04 19:42:16.222 [] [SpringApplicationShutdownHook] INFO  GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-04 19:42:16.236 [] [tomcat-shutdown] INFO  GracefulShutdown - Graceful shutdown complete
+2025-05-04 19:42:18.397 [] [SpringApplicationShutdownHook] TRACE UserServiceImpl - Shutting down JedisPool
+2025-05-04 19:42:18.400 [] [SpringApplicationShutdownHook] INFO  LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-04 19:42:18.415 [] [SpringApplicationShutdownHook] INFO  HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-05-04 19:42:18.473 [] [SpringApplicationShutdownHook] INFO  HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-05-04 19:42:18.896 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Shutting down DiscoveryClient ...
+2025-05-04 19:42:21.904 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Unregistering ...
+2025-05-04 19:42:21.990 [] [SpringApplicationShutdownHook] INFO  RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/} exception=I/O error on DELETE request for "http://localhost:8761/eureka/apps/AUTH-SERVICE/asaf.mshome.net:auth-service:8081": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on DELETE request for "http://localhost:8761/eureka/apps/AUTH-SERVICE/asaf.mshome.net:auth-service:8081": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
+	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:702)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.cancel(RestTemplateEurekaHttpClient.java:100)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:91)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:919)
+	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:900)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:457)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:415)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:239)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:202)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:195)
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:389)
+	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:136)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:211)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:686)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:643)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1368)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:602)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1361)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1219)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1180)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:174)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1126)
+	at org.springframework.boot.SpringApplicationShutdownHook.closeAndWait(SpringApplicationShutdownHook.java:147)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:116)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:751)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:216)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:490)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:164)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:174)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:144)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:192)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:150)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:113)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:174)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99)
+	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:71)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:117)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$3(RestTemplateTransportClientFactory.java:141)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:88)
+	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:72)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
+	... 37 more
+
+2025-05-04 19:42:21.991 [] [SpringApplicationShutdownHook] WARN  RetryableEurekaHttpClient - Request execution failed with message: I/O error on DELETE request for "http://localhost:8761/eureka/apps/AUTH-SERVICE/asaf.mshome.net:auth-service:8081": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
+2025-05-04 19:42:22.025 [] [SpringApplicationShutdownHook] INFO  RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on DELETE request for "http://localhost:8761/eureka/apps/AUTH-SERVICE/asaf.mshome.net:auth-service:8081": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on DELETE request for "http://localhost:8761/eureka/apps/AUTH-SERVICE/asaf.mshome.net:auth-service:8081": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
+	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:702)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.cancel(RestTemplateEurekaHttpClient.java:100)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
+	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:919)
+	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:900)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:457)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:415)
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:239)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:202)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:195)
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:389)
+	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:136)
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:211)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:686)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:643)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1368)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:602)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1361)
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1219)
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1180)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:174)
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1126)
+	at org.springframework.boot.SpringApplicationShutdownHook.closeAndWait(SpringApplicationShutdownHook.java:147)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:116)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:751)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:216)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:490)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:164)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:174)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:144)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:192)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:150)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:113)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:174)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99)
+	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:71)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:117)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$3(RestTemplateTransportClientFactory.java:141)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:88)
+	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:72)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
+	... 38 more
+
+2025-05-04 19:42:22.026 [] [SpringApplicationShutdownHook] WARN  RetryableEurekaHttpClient - Request execution failed with message: I/O error on DELETE request for "http://localhost:8761/eureka/apps/AUTH-SERVICE/asaf.mshome.net:auth-service:8081": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
+2025-05-04 19:42:22.026 [] [SpringApplicationShutdownHook] ERROR DiscoveryClient - DiscoveryClient_AUTH-SERVICE/asaf.mshome.net:auth-service:8081 - de-registration failedCannot execute request on any known server
+com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:919) ~[eureka-client-2.0.4.jar:2.0.4]
+	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:900) ~[eureka-client-2.0.4.jar:2.0.4]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:457) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:415) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:239) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:202) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:195) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:389) ~[spring-cloud-context-4.2.0.jar:4.2.0]
+	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:136) ~[spring-cloud-context-4.2.0.jar:4.2.0]
+	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:211) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:686) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:643) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1368) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:602) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1361) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1219) ~[spring-context-6.2.2.jar:6.2.2]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1180) ~[spring-context-6.2.2.jar:6.2.2]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:174) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1126) ~[spring-context-6.2.2.jar:6.2.2]
+	at org.springframework.boot.SpringApplicationShutdownHook.closeAndWait(SpringApplicationShutdownHook.java:147) ~[spring-boot-3.4.2.jar:3.4.2]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[?:?]
+	at org.springframework.boot.SpringApplicationShutdownHook.run(SpringApplicationShutdownHook.java:116) ~[spring-boot-3.4.2.jar:3.4.2]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2025-05-04 19:42:22.027 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Completed shut down of DiscoveryClient

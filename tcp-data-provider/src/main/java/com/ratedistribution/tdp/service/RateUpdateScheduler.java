@@ -20,7 +20,6 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 
 public class RateUpdateScheduler {
-
     private static final Logger log = LogManager.getLogger(RateUpdateScheduler.class);
     private final RateSimulator simulator;
     private final SubscriptionManager subscriptionManager;
@@ -32,10 +31,10 @@ public class RateUpdateScheduler {
     /**
      * Constructs the scheduler with update configuration and dependencies.
      *
-     * @param simulator      The simulator providing rate updates.
+     * @param simulator           The simulator providing rate updates.
      * @param subscriptionManager Manager to broadcast updates to clients.
-     * @param periodMillis   Interval between updates (milliseconds).
-     * @param maxUpdates     Maximum updates to run (0 = infinite).
+     * @param periodMillis        Interval between updates (milliseconds).
+     * @param maxUpdates          Maximum updates to run (0 = infinite).
      */
     public RateUpdateScheduler(RateSimulator simulator, SubscriptionManager subscriptionManager,
                                long periodMillis, int maxUpdates) {
@@ -94,5 +93,24 @@ public class RateUpdateScheduler {
         simulator.updateAllRates().forEach(rate ->
                 subscriptionManager.broadcast(rate.getRateName(), JsonUtil.toJson(rate))
         );
+    }
+
+    /**
+     * Gracefully stops the scheduler executor.
+     */
+    public void stop() {
+        if (executorService != null && !executorService.isShutdown()) {
+            executorService.shutdown();
+            try {
+                if (!executorService.awaitTermination(3, TimeUnit.SECONDS)) {
+                    log.warn("Scheduler did not shut down cleanly.");
+                } else {
+                    log.info("RateUpdateScheduler stopped.");
+                }
+            } catch (InterruptedException e) {
+                log.error("Scheduler shutdown interrupted", e);
+                Thread.currentThread().interrupt();
+            }
+        }
     }
 }

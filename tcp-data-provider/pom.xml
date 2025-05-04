@@ -20,6 +20,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.ratedistribution.common</groupId>
+            <artifactId>auth-common</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
             <version>2.24.3</version>
@@ -27,6 +32,11 @@
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
+            <version>2.24.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j2-impl</artifactId>
             <version>2.24.3</version>
         </dependency>
         <dependency>
@@ -55,6 +65,11 @@
             <artifactId>jackson-datatype-jsr310</artifactId>
             <version>${jackson.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.github.resilience4j</groupId>
+            <artifactId>resilience4j-circuitbreaker</artifactId>
+            <version>2.2.0</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -82,8 +97,12 @@
                                         <exclude>META-INF/NOTICE</exclude>
                                         <exclude>META-INF/DEPENDENCIES</exclude>
                                         <exclude>META-INF/MANIFEST.MF</exclude>
+                                        <exclude>META-INF/LICENSE.txt</exclude>
+                                        <exclude>META-INF/NOTICE.txt</exclude>
                                         <exclude>META-INF/versions/**/module-info.class</exclude>
                                         <exclude>module-info.class</exclude>
+                                        <exclude>LICENSE.txt</exclude>
+                                        <exclude>COPYRIGHT.txt</exclude>
                                     </excludes>
                                 </filter>
                             </filters>

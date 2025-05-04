@@ -1,5 +1,8 @@
 package com.ratedistribution.gateway.advice;
 
+import com.ratedistribution.common.exceptions.InsufficientRolesException;
+import com.ratedistribution.common.exceptions.InvalidTokenException;
+import com.ratedistribution.common.exceptions.TokenNotFoundException;
 import com.ratedistribution.gateway.utilities.exceptions.*;
 import org.springframework.boot.autoconfigure.web.WebProperties;
 import org.springframework.boot.autoconfigure.web.reactive.error.AbstractErrorWebExceptionHandler;
@@ -78,8 +81,7 @@ public class GlobalExceptionHandler extends AbstractErrorWebExceptionHandler {
         } else if (error instanceof MissingRolesException || error instanceof LoggedOutTokenException) {
             return HttpStatus.UNAUTHORIZED;
         } else if (error instanceof AuthServiceUnavailableException || error instanceof UserServiceUnavailableException ||
-                error instanceof PatientServiceUnavailableException || error instanceof ReportServiceUnavailableException ||
-                error instanceof AnalyticsServiceUnavailableException) {
+                error instanceof RestDataProviderUnavailableException) {
             return HttpStatus.SERVICE_UNAVAILABLE;
         } else {
             return HttpStatus.INTERNAL_SERVER_ERROR;

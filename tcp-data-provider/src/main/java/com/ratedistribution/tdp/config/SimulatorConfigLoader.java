@@ -45,6 +45,14 @@ public class SimulatorConfigLoader {
         listeners.add(listener);
     }
 
+    public JwtConfig jwt() {
+        return appCfg.get().getJwt();
+    }
+
+    public RedisConfig redis() {
+        return appCfg.get().getRedis();
+    }
+
     public SimulatorProperties currentSimulator() {
         return appCfg.get().getSimulator();
     }

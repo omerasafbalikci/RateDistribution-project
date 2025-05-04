@@ -1,5 +1,7 @@
 package com.ratedistribution.gateway.config;
 
+import com.ratedistribution.common.exceptions.InsufficientRolesException;
+import com.ratedistribution.common.exceptions.InvalidTokenException;
 import com.ratedistribution.gateway.utilities.JwtUtil;
 import com.ratedistribution.gateway.utilities.exceptions.*;
 import io.jsonwebtoken.Claims;

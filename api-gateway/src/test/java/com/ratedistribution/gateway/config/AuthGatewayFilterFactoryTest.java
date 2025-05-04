@@ -1,7 +1,11 @@
 package com.ratedistribution.gateway.config;
 
-import com.lab.backend.gateway.utilities.JwtUtil;
-import com.lab.backend.gateway.utilities.exceptions.*;
+import com.ratedistribution.common.exceptions.InsufficientRolesException;
+import com.ratedistribution.common.exceptions.InvalidTokenException;
+import com.ratedistribution.gateway.utilities.JwtUtil;
+import com.ratedistribution.gateway.utilities.exceptions.LoggedOutTokenException;
+import com.ratedistribution.gateway.utilities.exceptions.MissingAuthorizationHeaderException;
+import com.ratedistribution.gateway.utilities.exceptions.MissingRolesException;
 import io.jsonwebtoken.Claims;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -25,35 +25,38 @@ public class Initializer implements CommandLineRunner {
     private final RoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
     private static final String ADMIN = "ADMIN";
-    private static final String TECHNICIAN = "TECHNICIAN";
-    private static final String SECRETARY = "SECRETARY";
+    private static final String OPERATOR = "OPERATOR";
+    private static final String ANALYST = "ANALYST";
 
     @Override
     public void run(String... args) {
         initializeRoles();
-        initializeSecretaryUser();
-        initializeTechnicianUser();
+        initializeAnalystUser();
+        initializeOperatorUser();
         initializeAdminUser();
         initializeSuperUser();
     }
 
     private void initializeRoles() {
-        List<Role> roles = this.roleRepository.findAll();
-        if (roles.isEmpty()) {
-            List<Role> roleList = List.of(
-                    new Role(1L, ADMIN, ADMIN, null),
-                    new Role(2L, SECRETARY, SECRETARY, null),
-                    new Role(3L, TECHNICIAN, TECHNICIAN, null)
-            );
-            this.roleRepository.saveAll(roleList);
+        createRoleIfNotExists("ADMIN");
+        createRoleIfNotExists("OPERATOR");
+        createRoleIfNotExists("ANALYST");
+    }
+
+    private void createRoleIfNotExists(String roleName) {
+        if (roleRepository.findByName(roleName).isEmpty()) {
+            Role role = new Role();
+            role.setName(roleName);
+            role.setDescription(roleName);
+            roleRepository.save(role);
         }
     }
 
-    private void initializeSecretaryUser() {
+    private void initializeAnalystUser() {
         boolean result = userRepository.existsByUsernameAndDeletedIsFalse("ozlembalikci");
         if (!result) {
             String encodedPassword = this.passwordEncoder.encode("omerasaf18991");
-            Role secretaryRole = this.roleRepository.findByName(SECRETARY).orElseThrow();
+            Role secretaryRole = this.roleRepository.findByName(ANALYST).orElseThrow();
 
             this.userRepository.save(User.builder()
                     .username("ozlembalikci")
@@ -67,11 +70,11 @@ public class Initializer implements CommandLineRunner {
         }
     }
 
-    private void initializeTechnicianUser() {
+    private void initializeOperatorUser() {
         boolean result = userRepository.existsByUsernameAndDeletedIsFalse("kadircanbalikci");
         if (!result) {
             String encodedPassword = this.passwordEncoder.encode("omerasaf18992");
-            Role technicianRole = this.roleRepository.findByName(TECHNICIAN).orElseThrow();
+            Role technicianRole = this.roleRepository.findByName(OPERATOR).orElseThrow();
 
             this.userRepository.save(User.builder()
                     .username("kadircanbalikci")
@@ -108,8 +111,8 @@ public class Initializer implements CommandLineRunner {
         if (!result) {
             String encodedPassword = this.passwordEncoder.encode("omerasaf18994");
             Role adminRole = this.roleRepository.findByName(ADMIN).orElseThrow();
-            Role technicianRole = this.roleRepository.findByName(TECHNICIAN).orElseThrow();
-            Role secretaryRole = this.roleRepository.findByName(SECRETARY).orElseThrow();
+            Role technicianRole = this.roleRepository.findByName(OPERATOR).orElseThrow();
+            Role secretaryRole = this.roleRepository.findByName(ANALYST).orElseThrow();
 
             this.userRepository.save(User.builder()
                     .username("super")

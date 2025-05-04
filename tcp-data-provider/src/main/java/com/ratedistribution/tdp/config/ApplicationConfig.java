@@ -12,5 +12,7 @@ import lombok.Data;
 @Data
 public class ApplicationConfig {
     private TcpConfig tcp;
+    private JwtConfig jwt;
+    private RedisConfig redis;
     private SimulatorProperties simulator;
 }

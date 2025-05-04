@@ -2,6 +2,13 @@ tcp:
   host: 127.0.0.1
   port: 8084
 
+jwt:
+  secret-key: "6bc18dff62463c49343d083ae0e523fbfb88d4d45b4a9cb62e86d0c53bd9b870"
+  authorities-key: "roles"
+redis:
+  host: "localhost"
+  port: 6379
+
 simulator:
   update-interval-millis: 1000
   max-updates: 0

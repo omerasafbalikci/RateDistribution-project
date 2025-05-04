@@ -15,11 +15,10 @@ public class GlobalExceptionHandler {
     private static final Logger log = LogManager.getLogger(GlobalExceptionHandler.class);
 
     public static void handle(Exception e) {
-        log.error("Unhandled exception occurred: {}", e.getMessage(), e);
-        // System.exit(1); // terminate if fatal
+        log.error("Unhandled exception [{}]: {}", e.getClass().getSimpleName(), e.getMessage(), e);
     }
 
     public static void handle(String context, Exception e) {
-        log.error("Error in [{}]: {}", context, e.getMessage(), e);
+        log.error("Error in [{}] [{}]: {}", context, e.getClass().getSimpleName(), e.getMessage(), e);
     }
 }

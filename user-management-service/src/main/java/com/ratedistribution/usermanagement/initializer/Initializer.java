@@ -27,13 +27,13 @@ public class Initializer implements CommandLineRunner {
     @Override
     @Transactional
     public void run(String... args) {
-        initializeSecretaryUser();
-        initializeTechnicianUser();
+        initializeAnalystUser();
+        initializeOperatorUser();
         initializeAdminUser();
         initializeSuperUser();
     }
 
-    private void initializeSecretaryUser() {
+    private void initializeAnalystUser() {
         if (!userRepository.existsByUsernameAndDeletedIsFalse("ozlembalikci")) {
             this.userRepository.save(User.builder()
                     .firstName("Sevda")
@@ -41,13 +41,13 @@ public class Initializer implements CommandLineRunner {
                     .username("ozlembalikci")
                     .hospitalId("ABCDEF1")
                     .email("blkc.ozlem@gmail.com")
-                    .roles(List.of(Role.SECRETARY))
+                    .roles(List.of(Role.ANALYST))
                     .gender(Gender.FEMALE)
                     .build());
         }
     }
 
-    private void initializeTechnicianUser() {
+    private void initializeOperatorUser() {
         if (!userRepository.existsByUsernameAndDeletedIsFalse("kadircanbalikci")) {
             this.userRepository.save(User.builder()
                     .firstName("Kadir Can")
@@ -55,7 +55,7 @@ public class Initializer implements CommandLineRunner {
                     .username("kadircanbalikci")
                     .hospitalId("ABCDEF2")
                     .email("blkc.kadir@gmail.com")
-                    .roles(List.of(Role.TECHNICIAN))
+                    .roles(List.of(Role.OPERATOR))
                     .gender(Gender.MALE)
                     .build());
         }
@@ -83,7 +83,7 @@ public class Initializer implements CommandLineRunner {
                     .username("super")
                     .hospitalId("ABCDEF4")
                     .email("super@gmail.com")
-                    .roles(List.of(Role.SECRETARY, Role.TECHNICIAN, Role.ADMIN))
+                    .roles(List.of(Role.ANALYST, Role.OPERATOR, Role.ADMIN))
                     .gender(Gender.MALE)
                     .build());
         }

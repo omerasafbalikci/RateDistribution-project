@@ -7,5 +7,5 @@ package com.ratedistribution.usermanagement.entity;
  */
 
 public enum Role {
-    SECRETARY, TECHNICIAN, ADMIN
+    ANALYST, OPERATOR, ADMIN
 }

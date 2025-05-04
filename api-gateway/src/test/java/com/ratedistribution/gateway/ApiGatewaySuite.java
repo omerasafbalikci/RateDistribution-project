@@ -5,9 +5,8 @@ import org.junit.platform.suite.api.Suite;
 
 @Suite
 @SelectPackages({
-        "com.lab.backend.gateway.config",
-        "com.lab.backend.gateway.controller",
-        "com.lab.backend.gateway.utilities"
+        "com.ratedistribution.gateway.config",
+        "com.ratedistribution.gateway.controller"
 })
 class ApiGatewaySuite {
 }

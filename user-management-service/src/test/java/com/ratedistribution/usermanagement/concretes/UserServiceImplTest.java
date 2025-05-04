@@ -398,7 +398,7 @@ public class UserServiceImplTest {
     void addRole_whenValidRequest_shouldAddRole() {
         // Arrange
         Long userId = 1L;
-        Role roleToAdd = Role.TECHNICIAN;
+        Role roleToAdd = Role.OPERATOR;
 
         User existingUser = new User();
         existingUser.setUsername("existingUser");
@@ -458,7 +458,7 @@ public class UserServiceImplTest {
 
         User existingUser = new User();
         existingUser.setUsername("existingUser");
-        existingUser.setRoles(new ArrayList<>(Arrays.asList(Role.ADMIN, Role.TECHNICIAN)));
+        existingUser.setRoles(new ArrayList<>(Arrays.asList(Role.ADMIN, Role.OPERATOR)));
 
         when(userRepository.findByIdAndDeletedFalse(userId)).thenReturn(Optional.of(existingUser));
 

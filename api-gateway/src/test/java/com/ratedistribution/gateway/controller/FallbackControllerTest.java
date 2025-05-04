@@ -1,6 +1,7 @@
 package com.ratedistribution.gateway.controller;
 
-import com.lab.backend.gateway.utilities.exceptions.*;
+import com.ratedistribution.gateway.utilities.exceptions.AuthServiceUnavailableException;
+import com.ratedistribution.gateway.utilities.exceptions.UserServiceUnavailableException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -30,32 +31,5 @@ public class FallbackControllerTest {
                 () -> fallbackController.fallbackUser());
 
         assertEquals("User management service is temporarily unavailable. Please try again later.", exception.getMessage());
-    }
-
-    @Test
-    void whenFallbackPatientEndpointIsCalled_thenPatientServiceUnavailableExceptionIsThrown() {
-        // Act & Assert
-        Exception exception = assertThrows(PatientServiceUnavailableException.class,
-                () -> fallbackController.fallbackPatient());
-
-        assertEquals("Patient service is temporarily unavailable. Please try again later.", exception.getMessage());
-    }
-
-    @Test
-    void whenFallbackReportEndpointIsCalled_thenReportServiceUnavailableExceptionIsThrown() {
-        // Act & Assert
-        Exception exception = assertThrows(ReportServiceUnavailableException.class,
-                () -> fallbackController.fallbackReport());
-
-        assertEquals("Report service is temporarily unavailable. Please try again later.", exception.getMessage());
-    }
-
-    @Test
-    void whenFallbackAnalyticsEndpointIsCalled_thenAnalyticsServiceUnavailableExceptionIsThrown() {
-        // Act & Assert
-        Exception exception = assertThrows(AnalyticsServiceUnavailableException.class,
-                () -> fallbackController.fallbackAnalytics());
-
-        assertEquals("Analytics service is temporarily unavailable. Please try again later.", exception.getMessage());
     }
 }

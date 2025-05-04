@@ -1,23 +1,11 @@
 package com.ratedistribution.gateway.utilities;
 
-import com.ratedistribution.gateway.utilities.exceptions.InvalidTokenException;
-import com.ratedistribution.gateway.utilities.exceptions.TokenNotFoundException;
+import com.ratedistribution.common.JwtValidator;
 import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.JwtException;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.io.Decoders;
-import io.jsonwebtoken.security.Keys;
-import jakarta.annotation.PostConstruct;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisPool;
-import redis.clients.jedis.JedisPoolConfig;
 
-import javax.crypto.SecretKey;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -30,127 +18,55 @@ import java.util.List;
 @Component
 @Log4j2
 public class JwtUtil {
-    @Value("${jwt.secret-key}")
-    private String secretKey;
-
-    @Value("${jwt.authorities-key}")
-    private String authoritiesKey;
-
-    @Value("${redis.host}")
-    private String redisHost;
-
-    @Value("${redis.port}")
-    private String redisPort;
-
-    private JedisPool jedisPool;
+    private final JwtValidator delegate;
 
     /**
-     * Initializes the Jedis connection pool used for Redis operations.
+     * Constructs a JwtUtil instance by initializing the underlying JwtValidator
+     * with required JWT and Redis configuration.
+     *
+     * @param secretKey the base64 URL-encoded secret key
+     * @param authoritiesKey the claim key used to extract roles
+     * @param redisHost Redis host for logout token tracking
+     * @param redisPort Redis port
+     *
      */
-    @PostConstruct
-    public void init() {
-        log.trace("Initializing Redis connection pool with host: {}, port: {}", redisHost, redisPort);
-        JedisPoolConfig poolConfig = new JedisPoolConfig();
-        poolConfig.setMaxTotal(128);
-        poolConfig.setMaxIdle(128);
-        poolConfig.setMinIdle(16);
-        poolConfig.setTestOnBorrow(true);
-        poolConfig.setTestOnReturn(true);
-        this.jedisPool = new JedisPool(poolConfig, redisHost, Integer.parseInt(redisPort));
-        log.trace("Redis connection pool initialized successfully.");
+    public JwtUtil(@Value("${jwt.secret-key}") String secretKey,
+                   @Value("${jwt.authorities-key}") String authoritiesKey,
+                   @Value("${redis.host}") String redisHost,
+                   @Value("${redis.port}") int redisPort) {
+        this.delegate = new JwtValidator(secretKey, authoritiesKey, redisHost, redisPort);
     }
 
     /**
-     * Validates the provided JWT token and returns the associated claims.
+     * Validates the given JWT token and returns its claims.
      *
-     * @param token the JWT token to validate.
-     * @return the claims extracted from the token if valid.
-     * @throws InvalidTokenException if the token is invalid.
+     * @param token the JWT token
+     * @return the token claims if valid
+     *
      */
     public Claims getClaimsAndValidate(String token) {
-        log.trace("Entering getClaimsAndValidate method in JwtUtils");
-        log.debug("Validating token: {}", token);
-        try {
-            Claims claims = Jwts.parser().verifyWith(getSignInKey()).build().parseSignedClaims(token).getPayload();
-            log.info("Token validated successfully. Claims: {}", claims);
-            return claims;
-        } catch (JwtException | IllegalArgumentException exception) {
-            log.error("Error while parsing token: {}", exception.getMessage());
-            throw new InvalidTokenException("Invalid token");
-        } finally {
-            log.trace("Exiting getClaimsAndValidate method in JwtUtils");
-        }
+        return delegate.getClaimsAndValidate(token);
     }
 
     /**
-     * Checks if the provided token has been logged out using Redis.
+     * Checks whether the given token has been logged out using Redis.
      *
-     * @param token the JWT token to check.
-     * @return true if the token is logged out, false otherwise.
-     * @throws TokenNotFoundException if the token or its status is not found in Redis.
+     * @param token the JWT token
+     * @return true if token is logged out; false otherwise
+     *
      */
     public boolean isLoggedOut(String token) {
-        log.trace("Entering isLoggedOut method in JwtUtils");
-        log.debug("Checking if token is logged out: {}", token);
-        try (Jedis jedis = this.jedisPool.getResource()) {
-            String tokenIdStr = jedis.get(token);
-            if (tokenIdStr == null) {
-                log.error("Token not found in Redis: {}", token);
-                throw new TokenNotFoundException("Token not found in Redis");
-            }
-
-            long tokenId = Long.parseLong(tokenIdStr);
-            String key = "token:" + tokenId + ":is_logged_out";
-            String value = jedis.get(key);
-            if (value == null) {
-                log.error("Logout status information not found for token: {}", token);
-                throw new TokenNotFoundException("Token's logout status information not found in Redis");
-            }
-            boolean isLoggedOut = Boolean.parseBoolean(value);
-            log.info("Token {} logout status: {}", token, isLoggedOut);
-            return isLoggedOut;
-        } finally {
-            log.trace("Exiting isLoggedOut method in JwtUtils");
-        }
+        return delegate.isLoggedOut(token);
     }
 
     /**
      * Extracts roles from the provided claims.
      *
-     * @param claims the claims extracted from the JWT token.
-     * @return a list of roles associated with the claims.
+     * @param claims the JWT claims
+     * @return a list of roles
+     *
      */
     public List<String> getRoles(Claims claims) {
-        log.trace("Entering getRoles method in JwtUtils");
-        log.debug("Extracting roles from claims: {}", claims);
-        Object rolesObject = claims.get(this.authoritiesKey);
-        if (rolesObject instanceof List<?>) {
-            List<String> roles = new ArrayList<>();
-            for (Object role : (List<?>) rolesObject) {
-                if (role instanceof String) {
-                    roles.add((String) role);
-                }
-            }
-            log.info("Roles extracted: {}", roles);
-            log.trace("Exiting getRoles method in JwtUtils");
-            return roles;
-        }
-        log.warn("No roles found in claims or roles are not of the expected type.");
-        return Collections.emptyList();
-    }
-
-    /**
-     * Retrieves the secret key used for signing the JWT token.
-     *
-     * @return the secret key.
-     */
-    private SecretKey getSignInKey() {
-        log.trace("Entering getSignInKey method in JwtUtils");
-        log.debug("Retrieving secret key for JWT validation.");
-        byte[] keyBytes = Decoders.BASE64URL.decode(this.secretKey);
-        SecretKey sKey = Keys.hmacShaKeyFor(keyBytes);
-        log.debug("Secret key retrieved successfully.");
-        log.trace("Exiting getSignInKey method in JwtUtils");
-        return sKey;
+        return delegate.getRoles(claims);
     }
 }
