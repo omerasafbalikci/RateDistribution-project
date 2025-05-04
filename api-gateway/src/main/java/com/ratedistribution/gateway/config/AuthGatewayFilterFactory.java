@@ -3,7 +3,9 @@ package com.ratedistribution.gateway.config;
 import com.ratedistribution.common.exceptions.InsufficientRolesException;
 import com.ratedistribution.common.exceptions.InvalidTokenException;
 import com.ratedistribution.gateway.utilities.JwtUtil;
-import com.ratedistribution.gateway.utilities.exceptions.*;
+import com.ratedistribution.gateway.utilities.exceptions.LoggedOutTokenException;
+import com.ratedistribution.gateway.utilities.exceptions.MissingAuthorizationHeaderException;
+import com.ratedistribution.gateway.utilities.exceptions.MissingRolesException;
 import io.jsonwebtoken.Claims;
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
@@ -84,10 +86,18 @@ public class AuthGatewayFilterFactory extends AbstractGatewayFilterFactory<AuthG
                             throw new MissingRolesException("No roles found in token");
                         }
                         String fullPath = request.getPath().toString();
-                        List<String> requiredRoles = config.getRoleMapping().get(fullPath);
+                        List<String> requiredRoles = null;
+
+                        for (Map.Entry<String, List<String>> entry : config.getRoleMapping().entrySet()) {
+                            if (fullPath.startsWith(entry.getKey())) {
+                                requiredRoles = entry.getValue();
+                                break;
+                            }
+                        }
+
                         if (requiredRoles == null) {
-                            String basePath = fullPath.split("/")[1];
-                            requiredRoles = config.getRoleMapping().get("/" + basePath);
+                            log.warn("No role mapping defined for path: {}", fullPath);
+                            throw new InsufficientRolesException("Access denied: no matching role mapping for path " + fullPath);
                         }
                         if (roles.stream().noneMatch(requiredRoles::contains)) {
                             log.error("User {} does not have sufficient roles for path: {}", username, fullPath);

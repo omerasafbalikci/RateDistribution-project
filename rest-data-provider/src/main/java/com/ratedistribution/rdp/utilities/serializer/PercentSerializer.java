@@ -16,19 +16,21 @@ import java.text.DecimalFormat;
  */
 
 public class PercentSerializer extends StdSerializer<BigDecimal> {
-    private static final DecimalFormat df = new DecimalFormat("#.####'%'");
+    private static final ThreadLocal<DecimalFormat> DF =
+            ThreadLocal.withInitial(() -> new DecimalFormat("#.####'%'"));
 
     public PercentSerializer() {
         super(BigDecimal.class);
     }
 
     @Override
-    public void serialize(BigDecimal value, JsonGenerator gen, SerializerProvider provider)
-            throws IOException {
+    public void serialize(BigDecimal value,
+                          JsonGenerator gen,
+                          SerializerProvider provider) throws IOException {
         if (value == null) {
             gen.writeNull();
         } else {
-            gen.writeString(df.format(value));
+            gen.writeString(DF.get().format(value));
         }
     }
 }

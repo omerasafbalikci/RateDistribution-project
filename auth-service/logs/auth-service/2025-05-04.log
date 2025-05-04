@@ -1,96 +1,96 @@
-2025-05-04 16:04:31.119 [] [main] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 3600000
-2025-05-04 16:04:31.189 [] [main] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
-2025-05-04 16:04:31.192 [] [main] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
-2025-05-04 16:04:31.580 [] [main] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNzQ2MzYzODcxLCJleHAiOjE3NDYzNjc0NzF9.MWquC39nskoubF7eQG8tjhKeghzFT00WsO0HacmRznY
-2025-05-04 16:04:31.629 [] [main] TRACE JwtServiceImpl - Entering extractUsername method in JwtUtils class
-2025-05-04 16:04:31.630 [] [main] TRACE JwtServiceImpl - Entering extractClaim method in JwtUtils class
-2025-05-04 16:04:31.630 [] [main] TRACE JwtServiceImpl - Entering extractAllClaims method in JwtUtils class
-2025-05-04 16:04:31.655 [] [main] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
-2025-05-04 16:04:31.655 [] [main] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
-2025-05-04 16:04:31.691 [] [main] TRACE JwtServiceImpl - Entering generateAccessToken method in JwtUtils class with username: user
-2025-05-04 16:04:31.692 [] [main] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 3600000
-2025-05-04 16:04:31.692 [] [main] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
-2025-05-04 16:04:31.692 [] [main] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
-2025-05-04 16:04:31.701 [] [main] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sImlhdCI6MTc0NjM2Mzg3MSwiZXhwIjoxNzQ2MzY3NDcxfQ.8zdsHQvhcPL5AKMqebMRX1iVT_dhzgcH5QE3ylqJUjQ
-2025-05-04 16:04:31.702 [] [main] TRACE JwtServiceImpl - Exiting generateAccessToken method in JwtUtils class with accessToken: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sImlhdCI6MTc0NjM2Mzg3MSwiZXhwIjoxNzQ2MzY3NDcxfQ.8zdsHQvhcPL5AKMqebMRX1iVT_dhzgcH5QE3ylqJUjQ
-2025-05-04 16:04:31.702 [] [main] TRACE JwtServiceImpl - Entering extractClaim method in JwtUtils class
-2025-05-04 16:04:31.702 [] [main] TRACE JwtServiceImpl - Entering extractAllClaims method in JwtUtils class
-2025-05-04 16:04:31.703 [] [main] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
-2025-05-04 16:04:31.703 [] [main] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
-2025-05-04 16:04:31.747 [] [main] TRACE JwtServiceImpl - Exiting extractAllClaims method in JwtUtils class
-2025-05-04 16:04:31.748 [] [main] TRACE JwtServiceImpl - Exiting extractClaim method in JwtUtils class with claim: user
-2025-05-04 16:04:31.757 [] [main] TRACE JwtServiceImpl - Entering generateRefreshToken method in JwtUtils class with username: user
-2025-05-04 16:04:31.758 [] [main] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 86400000
-2025-05-04 16:04:31.758 [] [main] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
-2025-05-04 16:04:31.759 [] [main] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
-2025-05-04 16:04:31.761 [] [main] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNzQ2MzYzODcxLCJleHAiOjE3NDY0NTAyNzF9.bEGWTlLN5mqrkQlJzNY_IyAcDNDX-LzQ0PD3LUWhWGE
-2025-05-04 16:04:31.762 [] [main] TRACE JwtServiceImpl - Exiting generateRefreshToken method in JwtUtils class with refreshToken: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNzQ2MzYzODcxLCJleHAiOjE3NDY0NTAyNzF9.bEGWTlLN5mqrkQlJzNY_IyAcDNDX-LzQ0PD3LUWhWGE
-2025-05-04 16:04:31.768 [] [main] TRACE JwtServiceImpl - Entering generateAccessToken method in JwtUtils class with username: user
-2025-05-04 16:04:31.768 [] [main] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 3600000
-2025-05-04 16:04:31.768 [] [main] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
-2025-05-04 16:04:31.769 [] [main] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
-2025-05-04 16:04:31.770 [] [main] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpYXQiOjE3NDYzNjM4NzEsImV4cCI6MTc0NjM2NzQ3MX0.r3GQjfHAc-6QCiU6Y0sRKUkMMm7Yhyr4jztUoTkRRjY
-2025-05-04 16:04:31.770 [] [main] TRACE JwtServiceImpl - Exiting generateAccessToken method in JwtUtils class with accessToken: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpYXQiOjE3NDYzNjM4NzEsImV4cCI6MTc0NjM2NzQ3MX0.r3GQjfHAc-6QCiU6Y0sRKUkMMm7Yhyr4jztUoTkRRjY
-2025-05-04 16:04:31.771 [] [main] TRACE JwtServiceImpl - Entering extractUsername method in JwtUtils class
-2025-05-04 16:04:31.771 [] [main] TRACE JwtServiceImpl - Entering extractClaim method in JwtUtils class
-2025-05-04 16:04:31.771 [] [main] TRACE JwtServiceImpl - Entering extractAllClaims method in JwtUtils class
-2025-05-04 16:04:31.771 [] [main] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
-2025-05-04 16:04:31.771 [] [main] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
-2025-05-04 16:04:31.773 [] [main] TRACE JwtServiceImpl - Exiting extractAllClaims method in JwtUtils class
-2025-05-04 16:04:31.773 [] [main] TRACE JwtServiceImpl - Exiting extractClaim method in JwtUtils class with claim: user
-2025-05-04 16:04:31.773 [] [main] TRACE JwtServiceImpl - Exiting extractUsername method in JwtUtils class with username: user
-2025-05-04 16:04:31.780 [] [main] TRACE JwtServiceImpl - Entering generateAccessToken method in JwtUtils class with username: user
-2025-05-04 16:04:31.781 [] [main] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 3600000
-2025-05-04 16:04:31.781 [] [main] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
-2025-05-04 16:04:31.782 [] [main] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
-2025-05-04 16:04:31.783 [] [main] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sImlhdCI6MTc0NjM2Mzg3MSwiZXhwIjoxNzQ2MzY3NDcxfQ.8zdsHQvhcPL5AKMqebMRX1iVT_dhzgcH5QE3ylqJUjQ
-2025-05-04 16:04:31.783 [] [main] TRACE JwtServiceImpl - Exiting generateAccessToken method in JwtUtils class with accessToken: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sImlhdCI6MTc0NjM2Mzg3MSwiZXhwIjoxNzQ2MzY3NDcxfQ.8zdsHQvhcPL5AKMqebMRX1iVT_dhzgcH5QE3ylqJUjQ
-2025-05-04 16:04:31.838 [] [main] TRACE JwtServiceImpl - Entering generateAccessToken method in JwtUtils class with username: user
-2025-05-04 16:04:31.839 [] [main] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 3600000
-2025-05-04 16:04:31.839 [] [main] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
-2025-05-04 16:04:31.839 [] [main] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
-2025-05-04 16:04:31.841 [] [main] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpYXQiOjE3NDYzNjM4NzEsImV4cCI6MTc0NjM2NzQ3MX0.r3GQjfHAc-6QCiU6Y0sRKUkMMm7Yhyr4jztUoTkRRjY
-2025-05-04 16:04:31.842 [] [main] TRACE JwtServiceImpl - Exiting generateAccessToken method in JwtUtils class with accessToken: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpYXQiOjE3NDYzNjM4NzEsImV4cCI6MTc0NjM2NzQ3MX0.r3GQjfHAc-6QCiU6Y0sRKUkMMm7Yhyr4jztUoTkRRjY
-2025-05-04 16:04:31.852 [] [main] TRACE JwtServiceImpl - Entering isTokenValid method in JwtUtils class with token and user: user
-2025-05-04 16:04:31.852 [] [main] TRACE JwtServiceImpl - Entering extractUsername method in JwtUtils class
-2025-05-04 16:04:31.853 [] [main] TRACE JwtServiceImpl - Entering extractClaim method in JwtUtils class
-2025-05-04 16:04:31.853 [] [main] TRACE JwtServiceImpl - Entering extractAllClaims method in JwtUtils class
-2025-05-04 16:04:31.853 [] [main] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
-2025-05-04 16:04:31.853 [] [main] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
-2025-05-04 16:04:31.855 [] [main] TRACE JwtServiceImpl - Exiting extractAllClaims method in JwtUtils class
-2025-05-04 16:04:31.855 [] [main] TRACE JwtServiceImpl - Exiting extractClaim method in JwtUtils class with claim: user
-2025-05-04 16:04:31.855 [] [main] TRACE JwtServiceImpl - Exiting extractUsername method in JwtUtils class with username: user
-2025-05-04 16:04:31.856 [] [main] TRACE JwtServiceImpl - Entering isTokenExpired method in JwtUtils class
-2025-05-04 16:04:31.856 [] [main] TRACE JwtServiceImpl - Entering extractExpiration method in JwtUtils class
-2025-05-04 16:04:31.857 [] [main] TRACE JwtServiceImpl - Entering extractClaim method in JwtUtils class
-2025-05-04 16:04:31.857 [] [main] TRACE JwtServiceImpl - Entering extractAllClaims method in JwtUtils class
-2025-05-04 16:04:31.857 [] [main] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
-2025-05-04 16:04:31.858 [] [main] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
-2025-05-04 16:04:31.859 [] [main] TRACE JwtServiceImpl - Exiting extractAllClaims method in JwtUtils class
-2025-05-04 16:04:31.860 [] [main] TRACE JwtServiceImpl - Exiting extractClaim method in JwtUtils class with claim: 2025-05-04T17:04:31.000+0300
-2025-05-04 16:04:31.865 [] [main] TRACE JwtServiceImpl - Exiting extractExpiration method in JwtUtils class with expiration date: 2025-05-04T17:04:31.000+0300
-2025-05-04 16:04:31.866 [] [main] TRACE JwtServiceImpl - Exiting isTokenExpired method in JwtUtils class with result: false
-2025-05-04 16:04:31.866 [] [main] TRACE JwtServiceImpl - Exiting isTokenValid method in JwtUtils class with result: true
-2025-05-04 16:04:32.214 [] [main] TRACE UserDetailsServiceImpl - Entering loadUserByUsername with username: nonexistentuser
-2025-05-04 16:04:32.218 [] [main] ERROR UserDetailsServiceImpl - User not found with username: nonexistentuser
-2025-05-04 16:04:32.224 [] [main] TRACE UserDetailsServiceImpl - Entering loadUserByUsername with username: testuser
-2025-05-04 16:04:32.225 [] [main] INFO  UserDetailsServiceImpl - User found: testuser
-2025-05-04 16:04:32.226 [] [main] DEBUG UserDetailsServiceImpl - Mapping role USER to authority ROLE_USER
-2025-05-04 16:04:32.231 [] [main] INFO  UserDetailsServiceImpl - User authorities: [ROLE_USER]
-2025-05-04 16:04:32.235 [] [main] TRACE UserDetailsServiceImpl - Exiting loadUserByUsername method in UserDetailsServiceImpl with username: testuser
-2025-05-04 16:04:33.246 [] [main] TRACE UserServiceImpl - Entering refreshToken method in UserServiceImpl
-2025-05-04 16:04:33.247 [] [main] DEBUG UserServiceImpl - Attempting to refresh token
-2025-05-04 16:04:33.247 [] [main] INFO  UserServiceImpl - Extracted username from refresh token: testUser
-2025-05-04 16:04:33.247 [] [main] ERROR UserServiceImpl - User not found : testUser
-2025-05-04 16:04:33.264 [] [main] TRACE UserServiceImpl - Entering login method in UserServiceImpl
-2025-05-04 16:04:33.264 [] [main] DEBUG UserServiceImpl - Attempting to authenticate user: testUser
-2025-05-04 16:04:33.267 [] [main] ERROR UserServiceImpl - Email not verified for user: testUser
-2025-05-04 16:04:33.289 [] [main] TRACE UserServiceImpl - Entering login method in UserServiceImpl
-2025-05-04 16:04:33.289 [] [main] DEBUG UserServiceImpl - Attempting to authenticate user: testUser
-2025-05-04 16:04:33.290 [] [main] ERROR UserServiceImpl - User not found with username: testUser
-2025-05-04 16:04:34.820 [] [main] TRACE UserServiceImpl - Entering logout method in UserServiceImpl
-2025-05-04 16:04:34.820 [] [main] DEBUG UserServiceImpl - Logout initiated
-2025-05-04 16:04:34.822 [] [main] ERROR UserServiceImpl - Failed to log out token in Redis
+2025-05-04 20:52:44.467 [] [main] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 3600000
+2025-05-04 20:52:44.548 [] [main] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-05-04 20:52:44.552 [] [main] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-05-04 20:52:44.984 [] [main] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNzQ2MzgxMTY0LCJleHAiOjE3NDYzODQ3NjR9.snztE-Rp5Lnf6wVgQctPYrqvFs28kDkOh8L-gn6UBYQ
+2025-05-04 20:52:45.024 [] [main] TRACE JwtServiceImpl - Entering extractUsername method in JwtUtils class
+2025-05-04 20:52:45.025 [] [main] TRACE JwtServiceImpl - Entering extractClaim method in JwtUtils class
+2025-05-04 20:52:45.025 [] [main] TRACE JwtServiceImpl - Entering extractAllClaims method in JwtUtils class
+2025-05-04 20:52:45.062 [] [main] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-05-04 20:52:45.063 [] [main] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-05-04 20:52:45.096 [] [main] TRACE JwtServiceImpl - Entering generateAccessToken method in JwtUtils class with username: user
+2025-05-04 20:52:45.097 [] [main] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 3600000
+2025-05-04 20:52:45.097 [] [main] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-05-04 20:52:45.097 [] [main] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-05-04 20:52:45.105 [] [main] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sImlhdCI6MTc0NjM4MTE2NSwiZXhwIjoxNzQ2Mzg0NzY1fQ.cK8ZA3YR7rS7pabLIpcARQoSBxTEv3bajs_w84wHMCg
+2025-05-04 20:52:45.105 [] [main] TRACE JwtServiceImpl - Exiting generateAccessToken method in JwtUtils class with accessToken: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sImlhdCI6MTc0NjM4MTE2NSwiZXhwIjoxNzQ2Mzg0NzY1fQ.cK8ZA3YR7rS7pabLIpcARQoSBxTEv3bajs_w84wHMCg
+2025-05-04 20:52:45.106 [] [main] TRACE JwtServiceImpl - Entering extractClaim method in JwtUtils class
+2025-05-04 20:52:45.106 [] [main] TRACE JwtServiceImpl - Entering extractAllClaims method in JwtUtils class
+2025-05-04 20:52:45.106 [] [main] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-05-04 20:52:45.106 [] [main] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-05-04 20:52:45.147 [] [main] TRACE JwtServiceImpl - Exiting extractAllClaims method in JwtUtils class
+2025-05-04 20:52:45.147 [] [main] TRACE JwtServiceImpl - Exiting extractClaim method in JwtUtils class with claim: user
+2025-05-04 20:52:45.156 [] [main] TRACE JwtServiceImpl - Entering generateRefreshToken method in JwtUtils class with username: user
+2025-05-04 20:52:45.156 [] [main] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 86400000
+2025-05-04 20:52:45.156 [] [main] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-05-04 20:52:45.156 [] [main] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-05-04 20:52:45.158 [] [main] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNzQ2MzgxMTY1LCJleHAiOjE3NDY0Njc1NjV9.aP1bif9yjaLYP96xKWa2CpOE6geZoIMo9uU4BYKr49M
+2025-05-04 20:52:45.158 [] [main] TRACE JwtServiceImpl - Exiting generateRefreshToken method in JwtUtils class with refreshToken: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNzQ2MzgxMTY1LCJleHAiOjE3NDY0Njc1NjV9.aP1bif9yjaLYP96xKWa2CpOE6geZoIMo9uU4BYKr49M
+2025-05-04 20:52:45.164 [] [main] TRACE JwtServiceImpl - Entering generateAccessToken method in JwtUtils class with username: user
+2025-05-04 20:52:45.165 [] [main] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 3600000
+2025-05-04 20:52:45.165 [] [main] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-05-04 20:52:45.165 [] [main] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-05-04 20:52:45.166 [] [main] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpYXQiOjE3NDYzODExNjUsImV4cCI6MTc0NjM4NDc2NX0.o52wCOdo7mcLWFol_nKuRY2UDF22geurxsUNp6NQ20M
+2025-05-04 20:52:45.166 [] [main] TRACE JwtServiceImpl - Exiting generateAccessToken method in JwtUtils class with accessToken: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpYXQiOjE3NDYzODExNjUsImV4cCI6MTc0NjM4NDc2NX0.o52wCOdo7mcLWFol_nKuRY2UDF22geurxsUNp6NQ20M
+2025-05-04 20:52:45.166 [] [main] TRACE JwtServiceImpl - Entering extractUsername method in JwtUtils class
+2025-05-04 20:52:45.166 [] [main] TRACE JwtServiceImpl - Entering extractClaim method in JwtUtils class
+2025-05-04 20:52:45.166 [] [main] TRACE JwtServiceImpl - Entering extractAllClaims method in JwtUtils class
+2025-05-04 20:52:45.166 [] [main] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-05-04 20:52:45.167 [] [main] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-05-04 20:52:45.167 [] [main] TRACE JwtServiceImpl - Exiting extractAllClaims method in JwtUtils class
+2025-05-04 20:52:45.168 [] [main] TRACE JwtServiceImpl - Exiting extractClaim method in JwtUtils class with claim: user
+2025-05-04 20:52:45.168 [] [main] TRACE JwtServiceImpl - Exiting extractUsername method in JwtUtils class with username: user
+2025-05-04 20:52:45.174 [] [main] TRACE JwtServiceImpl - Entering generateAccessToken method in JwtUtils class with username: user
+2025-05-04 20:52:45.174 [] [main] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 3600000
+2025-05-04 20:52:45.174 [] [main] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-05-04 20:52:45.174 [] [main] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-05-04 20:52:45.175 [] [main] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sImlhdCI6MTc0NjM4MTE2NSwiZXhwIjoxNzQ2Mzg0NzY1fQ.cK8ZA3YR7rS7pabLIpcARQoSBxTEv3bajs_w84wHMCg
+2025-05-04 20:52:45.175 [] [main] TRACE JwtServiceImpl - Exiting generateAccessToken method in JwtUtils class with accessToken: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sImlhdCI6MTc0NjM4MTE2NSwiZXhwIjoxNzQ2Mzg0NzY1fQ.cK8ZA3YR7rS7pabLIpcARQoSBxTEv3bajs_w84wHMCg
+2025-05-04 20:52:45.206 [] [main] TRACE JwtServiceImpl - Entering generateAccessToken method in JwtUtils class with username: user
+2025-05-04 20:52:45.207 [] [main] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 3600000
+2025-05-04 20:52:45.207 [] [main] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-05-04 20:52:45.207 [] [main] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-05-04 20:52:45.209 [] [main] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpYXQiOjE3NDYzODExNjUsImV4cCI6MTc0NjM4NDc2NX0.o52wCOdo7mcLWFol_nKuRY2UDF22geurxsUNp6NQ20M
+2025-05-04 20:52:45.209 [] [main] TRACE JwtServiceImpl - Exiting generateAccessToken method in JwtUtils class with accessToken: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpYXQiOjE3NDYzODExNjUsImV4cCI6MTc0NjM4NDc2NX0.o52wCOdo7mcLWFol_nKuRY2UDF22geurxsUNp6NQ20M
+2025-05-04 20:52:45.215 [] [main] TRACE JwtServiceImpl - Entering isTokenValid method in JwtUtils class with token and user: user
+2025-05-04 20:52:45.215 [] [main] TRACE JwtServiceImpl - Entering extractUsername method in JwtUtils class
+2025-05-04 20:52:45.216 [] [main] TRACE JwtServiceImpl - Entering extractClaim method in JwtUtils class
+2025-05-04 20:52:45.216 [] [main] TRACE JwtServiceImpl - Entering extractAllClaims method in JwtUtils class
+2025-05-04 20:52:45.216 [] [main] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-05-04 20:52:45.216 [] [main] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-05-04 20:52:45.218 [] [main] TRACE JwtServiceImpl - Exiting extractAllClaims method in JwtUtils class
+2025-05-04 20:52:45.219 [] [main] TRACE JwtServiceImpl - Exiting extractClaim method in JwtUtils class with claim: user
+2025-05-04 20:52:45.219 [] [main] TRACE JwtServiceImpl - Exiting extractUsername method in JwtUtils class with username: user
+2025-05-04 20:52:45.220 [] [main] TRACE JwtServiceImpl - Entering isTokenExpired method in JwtUtils class
+2025-05-04 20:52:45.220 [] [main] TRACE JwtServiceImpl - Entering extractExpiration method in JwtUtils class
+2025-05-04 20:52:45.221 [] [main] TRACE JwtServiceImpl - Entering extractClaim method in JwtUtils class
+2025-05-04 20:52:45.221 [] [main] TRACE JwtServiceImpl - Entering extractAllClaims method in JwtUtils class
+2025-05-04 20:52:45.221 [] [main] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-05-04 20:52:45.221 [] [main] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-05-04 20:52:45.223 [] [main] TRACE JwtServiceImpl - Exiting extractAllClaims method in JwtUtils class
+2025-05-04 20:52:45.223 [] [main] TRACE JwtServiceImpl - Exiting extractClaim method in JwtUtils class with claim: 2025-05-04T21:52:45.000+0300
+2025-05-04 20:52:45.228 [] [main] TRACE JwtServiceImpl - Exiting extractExpiration method in JwtUtils class with expiration date: 2025-05-04T21:52:45.000+0300
+2025-05-04 20:52:45.228 [] [main] TRACE JwtServiceImpl - Exiting isTokenExpired method in JwtUtils class with result: false
+2025-05-04 20:52:45.229 [] [main] TRACE JwtServiceImpl - Exiting isTokenValid method in JwtUtils class with result: true
+2025-05-04 20:52:45.562 [] [main] TRACE UserDetailsServiceImpl - Entering loadUserByUsername with username: nonexistentuser
+2025-05-04 20:52:45.564 [] [main] ERROR UserDetailsServiceImpl - User not found with username: nonexistentuser
+2025-05-04 20:52:45.569 [] [main] TRACE UserDetailsServiceImpl - Entering loadUserByUsername with username: testuser
+2025-05-04 20:52:45.570 [] [main] INFO  UserDetailsServiceImpl - User found: testuser
+2025-05-04 20:52:45.571 [] [main] DEBUG UserDetailsServiceImpl - Mapping role USER to authority ROLE_USER
+2025-05-04 20:52:45.579 [] [main] INFO  UserDetailsServiceImpl - User authorities: [ROLE_USER]
+2025-05-04 20:52:45.582 [] [main] TRACE UserDetailsServiceImpl - Exiting loadUserByUsername method in UserDetailsServiceImpl with username: testuser
+2025-05-04 20:52:46.703 [] [main] TRACE UserServiceImpl - Entering refreshToken method in UserServiceImpl
+2025-05-04 20:52:46.703 [] [main] DEBUG UserServiceImpl - Attempting to refresh token
+2025-05-04 20:52:46.704 [] [main] INFO  UserServiceImpl - Extracted username from refresh token: testUser
+2025-05-04 20:52:46.704 [] [main] ERROR UserServiceImpl - User not found : testUser
+2025-05-04 20:52:46.722 [] [main] TRACE UserServiceImpl - Entering login method in UserServiceImpl
+2025-05-04 20:52:46.722 [] [main] DEBUG UserServiceImpl - Attempting to authenticate user: testUser
+2025-05-04 20:52:46.725 [] [main] ERROR UserServiceImpl - Email not verified for user: testUser
+2025-05-04 20:52:46.753 [] [main] TRACE UserServiceImpl - Entering login method in UserServiceImpl
+2025-05-04 20:52:46.753 [] [main] DEBUG UserServiceImpl - Attempting to authenticate user: testUser
+2025-05-04 20:52:46.754 [] [main] ERROR UserServiceImpl - User not found with username: testUser
+2025-05-04 20:52:48.341 [] [main] TRACE UserServiceImpl - Entering logout method in UserServiceImpl
+2025-05-04 20:52:48.342 [] [main] DEBUG UserServiceImpl - Logout initiated
+2025-05-04 20:52:48.343 [] [main] ERROR UserServiceImpl - Failed to log out token in Redis
 redis.clients.jedis.exceptions.JedisException: Redis error
 	at redis.clients.jedis.Jedis.set(Jedis.java:4981) ~[jedis-5.2.0.jar:?]
 	at com.ratedistribution.auth.service.concretes.UserServiceImpl.logout(UserServiceImpl.java:255) ~[classes/:?]
@@ -168,156 +168,156 @@ redis.clients.jedis.exceptions.JedisException: Redis error
 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) [surefire-booter-3.5.2.jar:3.5.2]
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) [surefire-booter-3.5.2.jar:3.5.2]
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) [surefire-booter-3.5.2.jar:3.5.2]
-2025-05-04 16:04:34.845 [] [main] TRACE UserServiceImpl - Entering removeRole method in UserServiceImpl
-2025-05-04 16:04:34.845 [] [main] ERROR UserServiceImpl - No user found to remove role: nonExistingUser
-2025-05-04 16:04:34.855 [] [main] TRACE UserServiceImpl - Entering createUser method in UserServiceImpl
-2025-05-04 16:04:34.858 [] [main] ERROR UserServiceImpl - No valid roles found
-2025-05-04 16:04:34.870 [] [main] TRACE UserServiceImpl - Entering logout method in UserServiceImpl
-2025-05-04 16:04:34.870 [] [main] DEBUG UserServiceImpl - Logout initiated
-2025-05-04 16:04:34.871 [] [main] INFO  UserServiceImpl - Token successfully logged out and saved in Redis
-2025-05-04 16:04:34.871 [] [main] TRACE UserServiceImpl - Exiting logout method in UserServiceImpl
-2025-05-04 16:04:34.883 [] [main] TRACE UserServiceImpl - Entering login method in UserServiceImpl
-2025-05-04 16:04:34.884 [] [main] DEBUG UserServiceImpl - Attempting to authenticate user: testUser
-2025-05-04 16:04:34.885 [] [main] ERROR UserServiceImpl - Authentication failed for user: testUser
-2025-05-04 16:04:34.895 [] [main] TRACE UserServiceImpl - Entering changePassword method in UserServiceImpl
-2025-05-04 16:04:34.896 [] [main] DEBUG UserServiceImpl - Password change request initiated
-2025-05-04 16:04:34.896 [] [main] ERROR UserServiceImpl - User not found for username: testUser
-2025-05-04 16:04:34.906 [] [main] TRACE UserServiceImpl - Entering handlePasswordReset method in UserServiceImpl
-2025-05-04 16:04:34.907 [] [main] DEBUG UserServiceImpl - Handling password reset for token: validToken
-2025-05-04 16:04:34.907 [] [main] ERROR UserServiceImpl - New password does not meet the minimum length requirement
-2025-05-04 16:04:34.920 [] [main] TRACE UserServiceImpl - Entering refreshToken method in UserServiceImpl
-2025-05-04 16:04:34.921 [] [main] DEBUG UserServiceImpl - Attempting to refresh token
-2025-05-04 16:04:34.921 [] [main] INFO  UserServiceImpl - Extracted username from refresh token: testUser
-2025-05-04 16:04:34.924 [] [main] ERROR UserServiceImpl - Email not verified for user testUser so refresh token cannot be done.
-2025-05-04 16:04:34.937 [] [main] TRACE UserServiceImpl - Entering updateUser method in UserServiceImpl
-2025-05-04 16:04:34.938 [] [main] ERROR UserServiceImpl - Username is already taken: newUsername
-2025-05-04 16:04:34.947 [] [main] TRACE UserServiceImpl - Entering verifyEmail method in UserServiceImpl
-2025-05-04 16:04:34.949 [] [main] ERROR UserServiceImpl - User with the given verification token not found
-2025-05-04 16:04:34.957 [] [main] TRACE UserServiceImpl - Entering addRole method in UserServiceImpl
-2025-05-04 16:04:34.958 [] [main] ERROR UserServiceImpl - Role not found: NON_EXISTING_ROLE
-2025-05-04 16:04:34.964 [] [main] TRACE UserServiceImpl - Entering handlePasswordReset method in UserServiceImpl
-2025-05-04 16:04:34.964 [] [main] DEBUG UserServiceImpl - Handling password reset for token: validToken
-2025-05-04 16:04:34.964 [] [main] INFO  UserServiceImpl - Password reset successfully for user: testUser
-2025-05-04 16:04:34.965 [] [main] TRACE UserServiceImpl - Exiting handlePasswordReset method in UserServiceImpl
-2025-05-04 16:04:34.970 [] [main] TRACE UserServiceImpl - Entering createUser method in UserServiceImpl
-2025-05-04 16:04:34.971 [] [main] ERROR UserServiceImpl - No role found for registration!
-2025-05-04 16:04:34.976 [] [main] TRACE UserServiceImpl - Entering changePassword method in UserServiceImpl
-2025-05-04 16:04:34.977 [] [main] DEBUG UserServiceImpl - Password change request initiated
-2025-05-04 16:04:34.977 [] [main] ERROR UserServiceImpl - Invalid token format to change password
-2025-05-04 16:04:34.983 [] [main] TRACE UserServiceImpl - Entering refreshToken method in UserServiceImpl
-2025-05-04 16:04:34.983 [] [main] DEBUG UserServiceImpl - Attempting to refresh token
-2025-05-04 16:04:34.983 [] [main] ERROR UserServiceImpl - Invalid token format
-2025-05-04 16:04:34.992 [] [main] TRACE UserServiceImpl - Entering createUser method in UserServiceImpl
-2025-05-04 16:04:34.993 [] [main] INFO  UserServiceImpl - User 'newUser' created successfully
-2025-05-04 16:04:34.994 [] [main] INFO  UserServiceImpl - Verification email sent to 'newUser@example.com'
-2025-05-04 16:04:34.994 [] [main] TRACE UserServiceImpl - Exiting createUser method in UserServiceImpl
-2025-05-04 16:04:35.003 [] [main] TRACE UserServiceImpl - Entering deleteUser method in UserServiceImpl
-2025-05-04 16:04:35.003 [] [main] ERROR UserServiceImpl - User not found: username
-2025-05-04 16:04:35.010 [] [main] TRACE UserServiceImpl - Initializing JedisPool with Redis Host: localhost and Port: invalidPort
-2025-05-04 16:04:35.015 [] [main] TRACE UserServiceImpl - Entering updateUser method in UserServiceImpl
-2025-05-04 16:04:35.016 [] [main] INFO  UserServiceImpl - User 'newUsername' updated successfully
-2025-05-04 16:04:35.016 [] [main] TRACE UserServiceImpl - Exiting updateUser method in UserServiceImpl
-2025-05-04 16:04:35.022 [] [main] TRACE UserServiceImpl - Entering handlePasswordReset method in UserServiceImpl
-2025-05-04 16:04:35.022 [] [main] DEBUG UserServiceImpl - Handling password reset for token: invalidToken
-2025-05-04 16:04:35.022 [] [main] ERROR UserServiceImpl - Invalid reset token provided
-2025-05-04 16:04:35.028 [] [main] TRACE UserServiceImpl - Entering deleteUser method in UserServiceImpl
-2025-05-04 16:04:35.028 [] [main] ERROR UserServiceImpl - User not found: username
-2025-05-04 16:04:35.033 [] [main] TRACE UserServiceImpl - Entering addRole method in UserServiceImpl
-2025-05-04 16:04:35.033 [] [main] INFO  UserServiceImpl - Role 'TECHNICIAN' added to user 'testUser'
-2025-05-04 16:04:35.033 [] [main] TRACE UserServiceImpl - Exiting addRole method in UserServiceImpl
-2025-05-04 16:04:35.039 [] [main] TRACE UserServiceImpl - Entering updateUser method in UserServiceImpl
-2025-05-04 16:04:35.040 [] [main] ERROR UserServiceImpl - User not found
-2025-05-04 16:04:35.046 [] [main] TRACE UserServiceImpl - Entering restoreUser method in UserServiceImpl
-2025-05-04 16:04:35.047 [] [main] TRACE UserServiceImpl - Entering revokeAllTokensByUser method in UserServiceImpl
-2025-05-04 16:04:35.047 [] [main] DEBUG UserServiceImpl - Revoking all tokens for user ID: 1
-2025-05-04 16:04:35.048 [] [main] INFO  UserServiceImpl - No valid tokens found for user ID: 1
-2025-05-04 16:04:35.048 [] [main] INFO  UserServiceImpl - User 'username' restored successfully
-2025-05-04 16:04:35.048 [] [main] TRACE UserServiceImpl - Exiting restoreUser method in UserServiceImpl
-2025-05-04 16:04:35.055 [] [main] TRACE UserServiceImpl - Entering deleteUser method in UserServiceImpl
-2025-05-04 16:04:35.056 [] [main] TRACE UserServiceImpl - Entering revokeAllTokensByUser method in UserServiceImpl
-2025-05-04 16:04:35.056 [] [main] DEBUG UserServiceImpl - Revoking all tokens for user ID: 1
-2025-05-04 16:04:35.057 [] [main] INFO  UserServiceImpl - No valid tokens found for user ID: 1
-2025-05-04 16:04:35.057 [] [main] INFO  UserServiceImpl - User 'username' marked as deleted
-2025-05-04 16:04:35.057 [] [main] TRACE UserServiceImpl - Exiting deleteUser method in UserServiceImpl
-2025-05-04 16:04:35.069 [] [main] TRACE UserServiceImpl - Entering refreshToken method in UserServiceImpl
-2025-05-04 16:04:35.070 [] [main] DEBUG UserServiceImpl - Attempting to refresh token
-2025-05-04 16:04:35.070 [] [main] INFO  UserServiceImpl - Extracted username from refresh token: null
-2025-05-04 16:04:35.071 [] [main] ERROR UserServiceImpl - Username extraction failed from token
-2025-05-04 16:04:35.083 [] [main] TRACE UserServiceImpl - Entering addRole method in UserServiceImpl
-2025-05-04 16:04:35.084 [] [main] ERROR UserServiceImpl - No user found to add role: nonExistingUser
-2025-05-04 16:04:35.101 [] [main] TRACE UserServiceImpl - Entering removeRole method in UserServiceImpl
-2025-05-04 16:04:35.102 [] [main] INFO  UserServiceImpl - Role 'ADMIN' removed from user 'testUser'
-2025-05-04 16:04:35.102 [] [main] TRACE UserServiceImpl - Exiting removeRole method in UserServiceImpl
-2025-05-04 16:04:35.114 [] [main] TRACE UserServiceImpl - Entering changePassword method in UserServiceImpl
-2025-05-04 16:04:35.115 [] [main] DEBUG UserServiceImpl - Password change request initiated
-2025-05-04 16:04:35.116 [] [main] TRACE UserServiceImpl - Entering revokeAllTokensByUser method in UserServiceImpl
-2025-05-04 16:04:35.117 [] [main] DEBUG UserServiceImpl - Revoking all tokens for user ID: 1
-2025-05-04 16:04:35.117 [] [main] INFO  UserServiceImpl - No valid tokens found for user ID: 1
-2025-05-04 16:04:35.118 [] [main] INFO  UserServiceImpl - Password changed successfully for user: testUser
-2025-05-04 16:04:35.118 [] [main] TRACE UserServiceImpl - Exiting changePassword method in UserServiceImpl
-2025-05-04 16:04:35.134 [] [main] TRACE UserServiceImpl - Entering createUser method in UserServiceImpl
-2025-05-04 16:04:35.135 [] [main] ERROR UserServiceImpl - Username 'existingUser' is already taken
-2025-05-04 16:04:35.152 [] [main] TRACE UserServiceImpl - Entering refreshToken method in UserServiceImpl
-2025-05-04 16:04:35.153 [] [main] DEBUG UserServiceImpl - Attempting to refresh token
-2025-05-04 16:04:35.153 [] [main] INFO  UserServiceImpl - Extracted username from refresh token: testUser
-2025-05-04 16:04:35.153 [] [main] ERROR UserServiceImpl - User not found : testUser
-2025-05-04 16:04:35.166 [] [main] TRACE UserServiceImpl - Entering changePassword method in UserServiceImpl
-2025-05-04 16:04:35.166 [] [main] DEBUG UserServiceImpl - Password change request initiated
-2025-05-04 16:04:35.167 [] [main] ERROR UserServiceImpl - Old password is incorrect for user: testUser
-2025-05-04 16:04:35.173 [] [main] TRACE UserServiceImpl - Entering verifyEmail method in UserServiceImpl
-2025-05-04 16:04:35.174 [] [main] INFO  UserServiceImpl - Email verified for user: testUser
-2025-05-04 16:04:35.174 [] [main] TRACE UserServiceImpl - Exiting verifyEmail method in UserServiceImpl
-2025-05-04 16:04:35.184 [] [main] TRACE UserServiceImpl - Entering handlePasswordReset method in UserServiceImpl
-2025-05-04 16:04:35.184 [] [main] DEBUG UserServiceImpl - Handling password reset for token: validToken
-2025-05-04 16:04:35.184 [] [main] ERROR UserServiceImpl - Reset token has expired for user: testUser
-2025-05-04 16:04:35.192 [] [main] TRACE UserServiceImpl - Entering removeRole method in UserServiceImpl
-2025-05-04 16:04:35.193 [] [main] ERROR UserServiceImpl - Role not found to remove: NON_EXISTING_ROLE
-2025-05-04 16:04:35.203 [] [main] TRACE UserServiceImpl - Entering logout method in UserServiceImpl
-2025-05-04 16:04:35.203 [] [main] DEBUG UserServiceImpl - Logout initiated
-2025-05-04 16:04:35.204 [] [main] ERROR UserServiceImpl - Invalid token
-2025-05-04 16:04:35.213 [] [main] TRACE UserServiceImpl - Entering login method in UserServiceImpl
-2025-05-04 16:04:35.214 [] [main] DEBUG UserServiceImpl - Attempting to authenticate user: testUser
-2025-05-04 16:04:35.214 [] [main] INFO  UserServiceImpl - User authenticated successfully: testUser
-2025-05-04 16:04:35.214 [] [main] TRACE UserServiceImpl - Entering getRolesAsString method in UserServiceImpl
-2025-05-04 16:04:35.215 [] [main] TRACE UserServiceImpl - Exiting getRolesAsString method in UserServiceImpl
-2025-05-04 16:04:35.216 [] [main] TRACE UserServiceImpl - Entering revokeAllTokensByUser method in UserServiceImpl
-2025-05-04 16:04:35.217 [] [main] DEBUG UserServiceImpl - Revoking all tokens for user ID: 1
-2025-05-04 16:04:35.217 [] [main] INFO  UserServiceImpl - No valid tokens found for user ID: 1
-2025-05-04 16:04:35.217 [] [main] TRACE UserServiceImpl - Entering saveUserToken method in UserServiceImpl
-2025-05-04 16:04:35.217 [] [main] DEBUG UserServiceImpl - Saving token for user: testUser
-2025-05-04 16:04:35.222 [] [main] INFO  UserServiceImpl - Token saved in Redis for user: testUser
-2025-05-04 16:04:35.222 [] [main] TRACE UserServiceImpl - Exiting saveUserToken method in UserServiceImpl
-2025-05-04 16:04:35.222 [] [main] TRACE UserServiceImpl - Exiting login method in UserServiceImpl
-2025-05-04 16:04:35.229 [] [main] TRACE UserServiceImpl - Entering logout method in UserServiceImpl
-2025-05-04 16:04:35.230 [] [main] DEBUG UserServiceImpl - Logout initiated
-2025-05-04 16:04:35.230 [] [main] ERROR UserServiceImpl - Token not found in repository
-2025-05-04 16:04:35.240 [] [main] TRACE UserServiceImpl - Entering refreshToken method in UserServiceImpl
-2025-05-04 16:04:35.240 [] [main] DEBUG UserServiceImpl - Attempting to refresh token
-2025-05-04 16:04:35.240 [] [main] INFO  UserServiceImpl - Extracted username from refresh token: testUser
-2025-05-04 16:04:35.241 [] [main] INFO  UserServiceImpl - Generating new tokens for user: testUser
-2025-05-04 16:04:35.241 [] [main] TRACE UserServiceImpl - Entering getRolesAsString method in UserServiceImpl
-2025-05-04 16:04:35.241 [] [main] TRACE UserServiceImpl - Exiting getRolesAsString method in UserServiceImpl
-2025-05-04 16:04:35.242 [] [main] TRACE UserServiceImpl - Entering revokeAllTokensByUser method in UserServiceImpl
-2025-05-04 16:04:35.242 [] [main] DEBUG UserServiceImpl - Revoking all tokens for user ID: 1
-2025-05-04 16:04:35.242 [] [main] INFO  UserServiceImpl - No valid tokens found for user ID: 1
-2025-05-04 16:04:35.242 [] [main] TRACE UserServiceImpl - Entering saveUserToken method in UserServiceImpl
-2025-05-04 16:04:35.242 [] [main] DEBUG UserServiceImpl - Saving token for user: testUser
-2025-05-04 16:04:35.243 [] [main] INFO  UserServiceImpl - Token saved in Redis for user: testUser
-2025-05-04 16:04:35.244 [] [main] TRACE UserServiceImpl - Exiting saveUserToken method in UserServiceImpl
-2025-05-04 16:04:35.245 [] [main] TRACE UserServiceImpl - Exiting refreshToken method in UserServiceImpl
-2025-05-04 16:04:35.341 [] [main] TRACE UserServiceImpl - Initializing JedisPool with Redis Host: localhost and Port: 6379
-2025-05-04 16:04:35.525 [] [main] TRACE UserServiceImpl - Exiting init method in UserServiceImpl
-2025-05-04 16:04:35.589 [] [main] TRACE UserController - Entering handlePasswordReset method in UserController
-2025-05-04 16:04:35.590 [] [main] TRACE UserController - Exiting handlePasswordReset method in UserController
-2025-05-04 16:04:35.616 [] [main] TRACE UserController - Entering verifyEmail method in UserController
-2025-05-04 16:04:35.617 [] [main] TRACE UserController - Exiting verifyEmail method in UserController
-2025-05-04 16:04:35.620 [] [main] TRACE UserController - Entering logout method in UserController
-2025-05-04 16:04:35.620 [] [main] TRACE UserController - Exiting logout method in UserController
-2025-05-04 16:04:35.623 [] [main] TRACE UserController - Entering changePassword method in UserController
-2025-05-04 16:04:35.623 [] [main] TRACE UserController - Exiting changePassword method in UserController
-2025-05-04 16:04:35.626 [] [main] TRACE UserController - Entering login method in UserController
-2025-05-04 16:04:35.629 [] [main] TRACE UserController - Exiting login method in UserController
-2025-05-04 16:04:35.632 [] [main] TRACE UserController - Entering refreshToken method in UserController
-2025-05-04 16:04:35.632 [] [main] TRACE UserController - Exiting refreshToken method in UserController
-2025-05-04 16:04:35.635 [] [main] TRACE UserController - Entering initiatePasswordReset method in UserController
-2025-05-04 16:04:35.635 [] [main] TRACE UserController - Exiting initiatePasswordReset method in UserController
+2025-05-04 20:52:48.368 [] [main] TRACE UserServiceImpl - Entering removeRole method in UserServiceImpl
+2025-05-04 20:52:48.368 [] [main] ERROR UserServiceImpl - No user found to remove role: nonExistingUser
+2025-05-04 20:52:48.378 [] [main] TRACE UserServiceImpl - Entering createUser method in UserServiceImpl
+2025-05-04 20:52:48.381 [] [main] ERROR UserServiceImpl - No valid roles found
+2025-05-04 20:52:48.393 [] [main] TRACE UserServiceImpl - Entering logout method in UserServiceImpl
+2025-05-04 20:52:48.394 [] [main] DEBUG UserServiceImpl - Logout initiated
+2025-05-04 20:52:48.394 [] [main] INFO  UserServiceImpl - Token successfully logged out and saved in Redis
+2025-05-04 20:52:48.395 [] [main] TRACE UserServiceImpl - Exiting logout method in UserServiceImpl
+2025-05-04 20:52:48.413 [] [main] TRACE UserServiceImpl - Entering login method in UserServiceImpl
+2025-05-04 20:52:48.418 [] [main] DEBUG UserServiceImpl - Attempting to authenticate user: testUser
+2025-05-04 20:52:48.419 [] [main] ERROR UserServiceImpl - Authentication failed for user: testUser
+2025-05-04 20:52:48.433 [] [main] TRACE UserServiceImpl - Entering changePassword method in UserServiceImpl
+2025-05-04 20:52:48.433 [] [main] DEBUG UserServiceImpl - Password change request initiated
+2025-05-04 20:52:48.434 [] [main] ERROR UserServiceImpl - User not found for username: testUser
+2025-05-04 20:52:48.453 [] [main] TRACE UserServiceImpl - Entering handlePasswordReset method in UserServiceImpl
+2025-05-04 20:52:48.454 [] [main] DEBUG UserServiceImpl - Handling password reset for token: validToken
+2025-05-04 20:52:48.454 [] [main] ERROR UserServiceImpl - New password does not meet the minimum length requirement
+2025-05-04 20:52:48.466 [] [main] TRACE UserServiceImpl - Entering refreshToken method in UserServiceImpl
+2025-05-04 20:52:48.467 [] [main] DEBUG UserServiceImpl - Attempting to refresh token
+2025-05-04 20:52:48.468 [] [main] INFO  UserServiceImpl - Extracted username from refresh token: testUser
+2025-05-04 20:52:48.469 [] [main] ERROR UserServiceImpl - Email not verified for user testUser so refresh token cannot be done.
+2025-05-04 20:52:48.484 [] [main] TRACE UserServiceImpl - Entering updateUser method in UserServiceImpl
+2025-05-04 20:52:48.485 [] [main] ERROR UserServiceImpl - Username is already taken: newUsername
+2025-05-04 20:52:48.497 [] [main] TRACE UserServiceImpl - Entering verifyEmail method in UserServiceImpl
+2025-05-04 20:52:48.499 [] [main] ERROR UserServiceImpl - User with the given verification token not found
+2025-05-04 20:52:48.511 [] [main] TRACE UserServiceImpl - Entering addRole method in UserServiceImpl
+2025-05-04 20:52:48.512 [] [main] ERROR UserServiceImpl - Role not found: NON_EXISTING_ROLE
+2025-05-04 20:52:48.525 [] [main] TRACE UserServiceImpl - Entering handlePasswordReset method in UserServiceImpl
+2025-05-04 20:52:48.525 [] [main] DEBUG UserServiceImpl - Handling password reset for token: validToken
+2025-05-04 20:52:48.526 [] [main] INFO  UserServiceImpl - Password reset successfully for user: testUser
+2025-05-04 20:52:48.526 [] [main] TRACE UserServiceImpl - Exiting handlePasswordReset method in UserServiceImpl
+2025-05-04 20:52:48.538 [] [main] TRACE UserServiceImpl - Entering createUser method in UserServiceImpl
+2025-05-04 20:52:48.539 [] [main] ERROR UserServiceImpl - No role found for registration!
+2025-05-04 20:52:48.548 [] [main] TRACE UserServiceImpl - Entering changePassword method in UserServiceImpl
+2025-05-04 20:52:48.549 [] [main] DEBUG UserServiceImpl - Password change request initiated
+2025-05-04 20:52:48.549 [] [main] ERROR UserServiceImpl - Invalid token format to change password
+2025-05-04 20:52:48.557 [] [main] TRACE UserServiceImpl - Entering refreshToken method in UserServiceImpl
+2025-05-04 20:52:48.558 [] [main] DEBUG UserServiceImpl - Attempting to refresh token
+2025-05-04 20:52:48.558 [] [main] ERROR UserServiceImpl - Invalid token format
+2025-05-04 20:52:48.572 [] [main] TRACE UserServiceImpl - Entering createUser method in UserServiceImpl
+2025-05-04 20:52:48.574 [] [main] INFO  UserServiceImpl - User 'newUser' created successfully
+2025-05-04 20:52:48.575 [] [main] INFO  UserServiceImpl - Verification email sent to 'newUser@example.com'
+2025-05-04 20:52:48.576 [] [main] TRACE UserServiceImpl - Exiting createUser method in UserServiceImpl
+2025-05-04 20:52:48.589 [] [main] TRACE UserServiceImpl - Entering deleteUser method in UserServiceImpl
+2025-05-04 20:52:48.590 [] [main] ERROR UserServiceImpl - User not found: username
+2025-05-04 20:52:48.607 [] [main] TRACE UserServiceImpl - Initializing JedisPool with Redis Host: localhost and Port: invalidPort
+2025-05-04 20:52:48.621 [] [main] TRACE UserServiceImpl - Entering updateUser method in UserServiceImpl
+2025-05-04 20:52:48.622 [] [main] INFO  UserServiceImpl - User 'newUsername' updated successfully
+2025-05-04 20:52:48.623 [] [main] TRACE UserServiceImpl - Exiting updateUser method in UserServiceImpl
+2025-05-04 20:52:48.638 [] [main] TRACE UserServiceImpl - Entering handlePasswordReset method in UserServiceImpl
+2025-05-04 20:52:48.639 [] [main] DEBUG UserServiceImpl - Handling password reset for token: invalidToken
+2025-05-04 20:52:48.639 [] [main] ERROR UserServiceImpl - Invalid reset token provided
+2025-05-04 20:52:48.650 [] [main] TRACE UserServiceImpl - Entering deleteUser method in UserServiceImpl
+2025-05-04 20:52:48.652 [] [main] ERROR UserServiceImpl - User not found: username
+2025-05-04 20:52:48.662 [] [main] TRACE UserServiceImpl - Entering addRole method in UserServiceImpl
+2025-05-04 20:52:48.663 [] [main] INFO  UserServiceImpl - Role 'TECHNICIAN' added to user 'testUser'
+2025-05-04 20:52:48.663 [] [main] TRACE UserServiceImpl - Exiting addRole method in UserServiceImpl
+2025-05-04 20:52:48.675 [] [main] TRACE UserServiceImpl - Entering updateUser method in UserServiceImpl
+2025-05-04 20:52:48.676 [] [main] ERROR UserServiceImpl - User not found
+2025-05-04 20:52:48.687 [] [main] TRACE UserServiceImpl - Entering restoreUser method in UserServiceImpl
+2025-05-04 20:52:48.688 [] [main] TRACE UserServiceImpl - Entering revokeAllTokensByUser method in UserServiceImpl
+2025-05-04 20:52:48.688 [] [main] DEBUG UserServiceImpl - Revoking all tokens for user ID: 1
+2025-05-04 20:52:48.688 [] [main] INFO  UserServiceImpl - No valid tokens found for user ID: 1
+2025-05-04 20:52:48.689 [] [main] INFO  UserServiceImpl - User 'username' restored successfully
+2025-05-04 20:52:48.689 [] [main] TRACE UserServiceImpl - Exiting restoreUser method in UserServiceImpl
+2025-05-04 20:52:48.698 [] [main] TRACE UserServiceImpl - Entering deleteUser method in UserServiceImpl
+2025-05-04 20:52:48.699 [] [main] TRACE UserServiceImpl - Entering revokeAllTokensByUser method in UserServiceImpl
+2025-05-04 20:52:48.699 [] [main] DEBUG UserServiceImpl - Revoking all tokens for user ID: 1
+2025-05-04 20:52:48.699 [] [main] INFO  UserServiceImpl - No valid tokens found for user ID: 1
+2025-05-04 20:52:48.700 [] [main] INFO  UserServiceImpl - User 'username' marked as deleted
+2025-05-04 20:52:48.700 [] [main] TRACE UserServiceImpl - Exiting deleteUser method in UserServiceImpl
+2025-05-04 20:52:48.711 [] [main] TRACE UserServiceImpl - Entering refreshToken method in UserServiceImpl
+2025-05-04 20:52:48.712 [] [main] DEBUG UserServiceImpl - Attempting to refresh token
+2025-05-04 20:52:48.712 [] [main] INFO  UserServiceImpl - Extracted username from refresh token: null
+2025-05-04 20:52:48.712 [] [main] ERROR UserServiceImpl - Username extraction failed from token
+2025-05-04 20:52:48.723 [] [main] TRACE UserServiceImpl - Entering addRole method in UserServiceImpl
+2025-05-04 20:52:48.724 [] [main] ERROR UserServiceImpl - No user found to add role: nonExistingUser
+2025-05-04 20:52:48.731 [] [main] TRACE UserServiceImpl - Entering removeRole method in UserServiceImpl
+2025-05-04 20:52:48.732 [] [main] INFO  UserServiceImpl - Role 'ADMIN' removed from user 'testUser'
+2025-05-04 20:52:48.732 [] [main] TRACE UserServiceImpl - Exiting removeRole method in UserServiceImpl
+2025-05-04 20:52:48.740 [] [main] TRACE UserServiceImpl - Entering changePassword method in UserServiceImpl
+2025-05-04 20:52:48.741 [] [main] DEBUG UserServiceImpl - Password change request initiated
+2025-05-04 20:52:48.741 [] [main] TRACE UserServiceImpl - Entering revokeAllTokensByUser method in UserServiceImpl
+2025-05-04 20:52:48.742 [] [main] DEBUG UserServiceImpl - Revoking all tokens for user ID: 1
+2025-05-04 20:52:48.742 [] [main] INFO  UserServiceImpl - No valid tokens found for user ID: 1
+2025-05-04 20:52:48.742 [] [main] INFO  UserServiceImpl - Password changed successfully for user: testUser
+2025-05-04 20:52:48.742 [] [main] TRACE UserServiceImpl - Exiting changePassword method in UserServiceImpl
+2025-05-04 20:52:48.753 [] [main] TRACE UserServiceImpl - Entering createUser method in UserServiceImpl
+2025-05-04 20:52:48.754 [] [main] ERROR UserServiceImpl - Username 'existingUser' is already taken
+2025-05-04 20:52:48.761 [] [main] TRACE UserServiceImpl - Entering refreshToken method in UserServiceImpl
+2025-05-04 20:52:48.763 [] [main] DEBUG UserServiceImpl - Attempting to refresh token
+2025-05-04 20:52:48.763 [] [main] INFO  UserServiceImpl - Extracted username from refresh token: testUser
+2025-05-04 20:52:48.764 [] [main] ERROR UserServiceImpl - User not found : testUser
+2025-05-04 20:52:48.771 [] [main] TRACE UserServiceImpl - Entering changePassword method in UserServiceImpl
+2025-05-04 20:52:48.771 [] [main] DEBUG UserServiceImpl - Password change request initiated
+2025-05-04 20:52:48.772 [] [main] ERROR UserServiceImpl - Old password is incorrect for user: testUser
+2025-05-04 20:52:48.776 [] [main] TRACE UserServiceImpl - Entering verifyEmail method in UserServiceImpl
+2025-05-04 20:52:48.776 [] [main] INFO  UserServiceImpl - Email verified for user: testUser
+2025-05-04 20:52:48.777 [] [main] TRACE UserServiceImpl - Exiting verifyEmail method in UserServiceImpl
+2025-05-04 20:52:48.782 [] [main] TRACE UserServiceImpl - Entering handlePasswordReset method in UserServiceImpl
+2025-05-04 20:52:48.782 [] [main] DEBUG UserServiceImpl - Handling password reset for token: validToken
+2025-05-04 20:52:48.782 [] [main] ERROR UserServiceImpl - Reset token has expired for user: testUser
+2025-05-04 20:52:48.790 [] [main] TRACE UserServiceImpl - Entering removeRole method in UserServiceImpl
+2025-05-04 20:52:48.791 [] [main] ERROR UserServiceImpl - Role not found to remove: NON_EXISTING_ROLE
+2025-05-04 20:52:48.799 [] [main] TRACE UserServiceImpl - Entering logout method in UserServiceImpl
+2025-05-04 20:52:48.799 [] [main] DEBUG UserServiceImpl - Logout initiated
+2025-05-04 20:52:48.799 [] [main] ERROR UserServiceImpl - Invalid token
+2025-05-04 20:52:48.807 [] [main] TRACE UserServiceImpl - Entering login method in UserServiceImpl
+2025-05-04 20:52:48.808 [] [main] DEBUG UserServiceImpl - Attempting to authenticate user: testUser
+2025-05-04 20:52:48.808 [] [main] INFO  UserServiceImpl - User authenticated successfully: testUser
+2025-05-04 20:52:48.809 [] [main] TRACE UserServiceImpl - Entering getRolesAsString method in UserServiceImpl
+2025-05-04 20:52:48.809 [] [main] TRACE UserServiceImpl - Exiting getRolesAsString method in UserServiceImpl
+2025-05-04 20:52:48.810 [] [main] TRACE UserServiceImpl - Entering revokeAllTokensByUser method in UserServiceImpl
+2025-05-04 20:52:48.811 [] [main] DEBUG UserServiceImpl - Revoking all tokens for user ID: 1
+2025-05-04 20:52:48.811 [] [main] INFO  UserServiceImpl - No valid tokens found for user ID: 1
+2025-05-04 20:52:48.811 [] [main] TRACE UserServiceImpl - Entering saveUserToken method in UserServiceImpl
+2025-05-04 20:52:48.812 [] [main] DEBUG UserServiceImpl - Saving token for user: testUser
+2025-05-04 20:52:48.817 [] [main] INFO  UserServiceImpl - Token saved in Redis for user: testUser
+2025-05-04 20:52:48.817 [] [main] TRACE UserServiceImpl - Exiting saveUserToken method in UserServiceImpl
+2025-05-04 20:52:48.818 [] [main] TRACE UserServiceImpl - Exiting login method in UserServiceImpl
+2025-05-04 20:52:48.826 [] [main] TRACE UserServiceImpl - Entering logout method in UserServiceImpl
+2025-05-04 20:52:48.827 [] [main] DEBUG UserServiceImpl - Logout initiated
+2025-05-04 20:52:48.827 [] [main] ERROR UserServiceImpl - Token not found in repository
+2025-05-04 20:52:48.838 [] [main] TRACE UserServiceImpl - Entering refreshToken method in UserServiceImpl
+2025-05-04 20:52:48.839 [] [main] DEBUG UserServiceImpl - Attempting to refresh token
+2025-05-04 20:52:48.839 [] [main] INFO  UserServiceImpl - Extracted username from refresh token: testUser
+2025-05-04 20:52:48.840 [] [main] INFO  UserServiceImpl - Generating new tokens for user: testUser
+2025-05-04 20:52:48.840 [] [main] TRACE UserServiceImpl - Entering getRolesAsString method in UserServiceImpl
+2025-05-04 20:52:48.840 [] [main] TRACE UserServiceImpl - Exiting getRolesAsString method in UserServiceImpl
+2025-05-04 20:52:48.840 [] [main] TRACE UserServiceImpl - Entering revokeAllTokensByUser method in UserServiceImpl
+2025-05-04 20:52:48.840 [] [main] DEBUG UserServiceImpl - Revoking all tokens for user ID: 1
+2025-05-04 20:52:48.841 [] [main] INFO  UserServiceImpl - No valid tokens found for user ID: 1
+2025-05-04 20:52:48.841 [] [main] TRACE UserServiceImpl - Entering saveUserToken method in UserServiceImpl
+2025-05-04 20:52:48.841 [] [main] DEBUG UserServiceImpl - Saving token for user: testUser
+2025-05-04 20:52:48.842 [] [main] INFO  UserServiceImpl - Token saved in Redis for user: testUser
+2025-05-04 20:52:48.843 [] [main] TRACE UserServiceImpl - Exiting saveUserToken method in UserServiceImpl
+2025-05-04 20:52:48.843 [] [main] TRACE UserServiceImpl - Exiting refreshToken method in UserServiceImpl
+2025-05-04 20:52:48.928 [] [main] TRACE UserServiceImpl - Initializing JedisPool with Redis Host: localhost and Port: 6379
+2025-05-04 20:52:49.134 [] [main] TRACE UserServiceImpl - Exiting init method in UserServiceImpl
+2025-05-04 20:52:49.177 [] [main] TRACE UserController - Entering handlePasswordReset method in UserController
+2025-05-04 20:52:49.177 [] [main] TRACE UserController - Exiting handlePasswordReset method in UserController
+2025-05-04 20:52:49.221 [] [main] TRACE UserController - Entering verifyEmail method in UserController
+2025-05-04 20:52:49.222 [] [main] TRACE UserController - Exiting verifyEmail method in UserController
+2025-05-04 20:52:49.228 [] [main] TRACE UserController - Entering logout method in UserController
+2025-05-04 20:52:49.228 [] [main] TRACE UserController - Exiting logout method in UserController
+2025-05-04 20:52:49.233 [] [main] TRACE UserController - Entering changePassword method in UserController
+2025-05-04 20:52:49.234 [] [main] TRACE UserController - Exiting changePassword method in UserController
+2025-05-04 20:52:49.240 [] [main] TRACE UserController - Entering login method in UserController
+2025-05-04 20:52:49.244 [] [main] TRACE UserController - Exiting login method in UserController
+2025-05-04 20:52:49.249 [] [main] TRACE UserController - Entering refreshToken method in UserController
+2025-05-04 20:52:49.249 [] [main] TRACE UserController - Exiting refreshToken method in UserController
+2025-05-04 20:52:49.255 [] [main] TRACE UserController - Entering initiatePasswordReset method in UserController
+2025-05-04 20:52:49.255 [] [main] TRACE UserController - Exiting initiatePasswordReset method in UserController
