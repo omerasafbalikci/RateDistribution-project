@@ -1,9 +1,5 @@
-server:
-  port: 8081
-
-  kafka:
-    bootstrap-servers: localhost:9092
-
-ratehub:
-  raw-topic: ratehub.raw
-  calc-topic: ratehub.calculated
+spring:
+  application:
+    name: rate-hub-consumer-db
+  config:
+    import: "configserver:http://localhost:8888"

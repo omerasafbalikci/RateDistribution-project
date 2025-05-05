@@ -1,6 +1,7 @@
 package com.ratedistribution.ratehub.subscriber.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ratedistribution.ratehub.auth.TokenProvider;
 import com.ratedistribution.ratehub.coord.RateListener;
 import com.ratedistribution.ratehub.model.RateFields;
 import com.ratedistribution.ratehub.model.RateStatus;
@@ -26,15 +27,17 @@ public class RestSubscriber extends AbstractSubscriber {
     private final String baseUrl;
     private final ObjectMapper mapper = new ObjectMapper().findAndRegisterModules();
     private ScheduledExecutorService poller;
+    private final TokenProvider tokenProvider;
 
-    public RestSubscriber(RateListener listener, String platformName, String baseUrl, int ignored) {
+    public RestSubscriber(RateListener listener, String platformName, String baseUrl, TokenProvider tp) {
         super(listener, platformName);
         this.baseUrl = baseUrl.endsWith("/") ? baseUrl : baseUrl + "/";
+        this.tokenProvider = tp;
     }
 
     @Override
-    public void connect(String u, String p) {
-        super.connect(u, p);
+    public void connect() {
+        super.connect();
         if (poller == null || poller.isShutdown()) {
             poller = Executors.newSingleThreadScheduledExecutor();
             poller.scheduleAtFixedRate(this::pollAll, 0, 500, TimeUnit.MILLISECONDS);
@@ -69,9 +72,14 @@ public class RestSubscriber extends AbstractSubscriber {
         try {
             HttpRequest req = HttpRequest.newBuilder()
                     .uri(URI.create(baseUrl + "api/rates/" + rate))
+                    .header("Authorization", "Bearer " + tokenProvider.get())
                     .timeout(Duration.ofSeconds(2))
                     .GET().build();
             HttpResponse<String> resp = client.send(req, HttpResponse.BodyHandlers.ofString());
+            if (resp.statusCode() == 401) {
+                tokenProvider.forceRefresh();
+                return;
+            }
             if (resp.statusCode() != 200) {
                 listener.onRateStatus(platform, rate, RateStatus.ERROR);
                 return;

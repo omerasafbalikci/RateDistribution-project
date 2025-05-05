@@ -14,7 +14,8 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public record CoordinatorConfig(SystemCfg hazelcast, KafkaCfg kafka, ThreadCfg threadPool,
-                                List<SubscriberCfg> subscribers, List<CalcCfg> calculations, MailCfg mail) {
+                                List<SubscriberCfg> subscribers, List<CalcCfg> calculations,
+                                MailCfg mail, AuthCfg auth) {
 
     public record SystemCfg(String clusterName) {
     }
@@ -32,13 +33,15 @@ public record CoordinatorConfig(SystemCfg hazelcast, KafkaCfg kafka, ThreadCfg t
     public record CalcCfg(String rateName, String engine, String bid, String ask, Map<String, String> helpers) {
     }
 
-    public static CoordinatorConfig load(Path path) throws Exception {
+    public record AuthCfg(String url, String username, String password, int refreshSkewSeconds) {
+    }
+
+    public static CoordinatorConfig load(Path path) {
         try {
             CoordinatorConfig config = new ObjectMapper(new YAMLFactory())
                     .findAndRegisterModules()
                     .readValue(path.toFile(), CoordinatorConfig.class);
 
-            // Formül doğrulama (erken hata tespiti)
             Map<String, CalcDef> defs = config.toDefs();
             for (CalcDef def : defs.values()) {
                 Set<String> bidVars = FormulaValidator.extractVariables(def.bidFormula());
@@ -53,7 +56,6 @@ public record CoordinatorConfig(SystemCfg hazelcast, KafkaCfg kafka, ThreadCfg t
                     }
                 }
 
-                // Helpers kontrolü
                 Set<String> helperKeys = def.helpers() != null ? def.helpers().keySet() : Set.of();
                 if (!FormulaValidator.validateHelpers(helperKeys, def.helpers())) {
                     Set<String> missing = FormulaValidator.getMissingHelpers(helperKeys, def.helpers());

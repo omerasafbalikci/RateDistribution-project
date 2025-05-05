@@ -50,7 +50,7 @@ public class SubSupervisor implements AutoCloseable {
 
                 if (!subscriber.isConnected()) {
                     log.warn("[Supervisor] {} is disconnected! Attempting to reconnect...", subscriber.name());
-                    subscriber.connect("", "");
+                    subscriber.connect();
                 }
             } catch (Exception e) {
                 log.error("[Supervisor] Error while probing subscriber {}: {}", subscriber.name(), e.getMessage(), e);

@@ -22,7 +22,7 @@ public abstract class AbstractSubscriber implements Subscriber {
     private Thread thread;
 
     @Override
-    public void connect(String user, String pwd) {
+    public void connect() {
         if (running) return;
         running = true;
         thread = Thread.startVirtualThread(() -> {

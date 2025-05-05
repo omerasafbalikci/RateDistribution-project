@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="30">
+    <Properties>
+        <!-- Define the log file location -->
+        <Property name="LOG_DIR">logs</Property>
+        <Property name="SERVICE">rate-hub-consumer-db</Property>
+        <Property name="LOG_PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{rate}] [%thread] %-5level %c{1} - %msg%n</Property>
+        <Property name="CONSOLE_LOG_PATTERN">%style{%d{yyyy-MM-dd HH:mm:ss.SSS}}{cyan} [%style{%X{rate}}{green}] [%style{%thread}{green}] %highlight{%-5level}{FATAL=bright red, ERROR=bright red, WARN=bright yellow, INFO=cyan, DEBUG=green, TRACE=blue} %style{%c{1}}{yellow} - %msg%n
+        </Property>
+        <Property name="CURRENT_DATE">${date:yyyy-MM-dd}</Property>
+    </Properties>
+
+    <Appenders>
+        <!-- Console Appender -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${CONSOLE_LOG_PATTERN}" disableAnsi="false"/>
+        </Console>
+
+        <!-- Rolling File Appender -->
+        <RollingFile name="RollingFile" fileName="${LOG_DIR}/${SERVICE}/${CURRENT_DATE}.log"
+                     filePattern="${LOG_DIR}/${SERVICE}/${CURRENT_DATE}-%d{HH}_%i.log.gz">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <SizeBasedTriggeringPolicy size="10MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <Async name="AsyncRollingFile">
+            <AppenderRef ref="RollingFile"/>
+        </Async>
+    </Appenders>
+
+    <Loggers>
+        <!-- Root Logger -->
+        <Root level="INFO">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="AsyncRollingFile"/>
+        </Root>
+
+        <!-- Application Loggers -->
+        <Logger name="com.ratedistribution" level="trace" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="AsyncRollingFile"/>
+        </Logger>
+    </Loggers>
+</Configuration>

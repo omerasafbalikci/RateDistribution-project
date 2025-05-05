@@ -1,12 +1,14 @@
 package com.ratedistribution.ratehub.subscriber;
 
+import com.ratedistribution.ratehub.auth.TokenProvider;
 import com.ratedistribution.ratehub.config.CoordinatorConfig;
 import com.ratedistribution.ratehub.coord.RateListener;
+import com.ratedistribution.ratehub.subscriber.impl.RestSubscriber;
+import com.ratedistribution.ratehub.subscriber.impl.TcpSubscriber;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +17,7 @@ public class SubscriberLoader {
     private static final Logger log = LogManager.getLogger(SubscriberLoader.class);
     private final List<CoordinatorConfig.SubscriberCfg> configs;
     private final RateListener listener;
+    private final TokenProvider tokenProvider;
 
     public List<Subscriber> load() {
         List<Subscriber> subscribers = new ArrayList<>();
@@ -29,8 +32,21 @@ public class SubscriberLoader {
                     log.error("[SubscriberLoader] Class {} does not implement Subscriber interface", cfg.className());
                     continue;
                 }
-                Constructor<?> constructor = clazz.getConstructor(RateListener.class, String.class, String.class, int.class);
-                Subscriber subscriber = (Subscriber) constructor.newInstance(listener, cfg.name(), cfg.host(), cfg.port());
+
+                Subscriber subscriber;
+                if (clazz == TcpSubscriber.class) {
+                    var ctor = clazz.getConstructor(RateListener.class, String.class,
+                            String.class, int.class, TokenProvider.class);
+                    subscriber = (Subscriber) ctor.newInstance(listener, cfg.name(),
+                            cfg.host(), cfg.port(), tokenProvider);
+                } else if (clazz == RestSubscriber.class) {
+                    var ctor = clazz.getConstructor(RateListener.class, String.class, String.class, TokenProvider.class);
+                    subscriber = (Subscriber) ctor.newInstance(listener, cfg.name(),
+                            cfg.host(), tokenProvider);
+                } else {
+                    log.error("[SubscriberLoader] Unsupported subscriber type {}", cfg.className());
+                    continue;
+                }
 
                 if (cfg.rates() != null) {
                     cfg.rates().forEach(subscriber::subscribe);
@@ -52,6 +68,6 @@ public class SubscriberLoader {
         return cfg.className() != null && !cfg.className().isBlank()
                 && cfg.name() != null && !cfg.name().isBlank()
                 && cfg.host() != null && !cfg.host().isBlank()
-                && cfg.port() > 0;
+                && cfg.port() >= 0;
     }
 }

@@ -2,6 +2,7 @@ package com.ratedistribution.ratehub.subscriber.impl;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ratedistribution.ratehub.auth.TokenProvider;
 import com.ratedistribution.ratehub.coord.RateListener;
 import com.ratedistribution.ratehub.model.RateFields;
 import com.ratedistribution.ratehub.model.RawTick;
@@ -25,11 +26,13 @@ public class TcpSubscriber extends AbstractSubscriber {
     private final ObjectMapper mapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     private PrintWriter out;
     private final List<Long> backoffSeq = List.of(1000L, 2000L, 4000L, 8000L, 16000L, 32000L);
+    private final TokenProvider tokenProvider;
 
-    public TcpSubscriber(RateListener listener, String platformName, String host, int port) {
+    public TcpSubscriber(RateListener listener, String platformName, String host, int port, TokenProvider tp) {
         super(listener, platformName);
         this.host = host;
         this.port = port;
+        this.tokenProvider = tp;
     }
 
     @Override
@@ -53,11 +56,18 @@ public class TcpSubscriber extends AbstractSubscriber {
                  PrintWriter output = new PrintWriter(socket.getOutputStream(), true, StandardCharsets.UTF_8)) {
 
                 this.out = output;
+                authenticate();
                 resubscribeAll();
                 attempt = 0;
 
                 String line;
                 while (running && (line = in.readLine()) != null) {
+                    if (line.startsWith("AUTH_ERROR|TOKEN_EXPIRED")) {
+                        log.warn("[TCP] Token expired, re-authenticating...");
+                        authenticate();
+                        continue;
+                    }
+
                     if (CMD.matcher(line).matches() || !line.startsWith("{")) continue;
                     process(line);
                 }
@@ -71,6 +81,15 @@ public class TcpSubscriber extends AbstractSubscriber {
 
     private void resubscribeAll() {
         subs.forEach(r -> sendCmd("subscribe|" + r));
+    }
+
+    private void authenticate() {
+        try {
+            String token = tokenProvider.get();
+            sendCmd("AUTH|" + token);
+        } catch (Exception e) {
+            log.error("[TCP] Failed to authenticate with token", e);
+        }
     }
 
     private void process(String json) {

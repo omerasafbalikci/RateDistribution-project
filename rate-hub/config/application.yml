@@ -3,17 +3,23 @@ hazelcast:
 
 kafka:
   bootstrapServers: localhost:9092
-  rawTopic: ratehub.raw       # Ham veriler buraya gönderilir
-  calcTopic: ratehub.calculated  # Hesaplanmış veriler buraya gönderilir
+  rawTopic: ratehub.raw
+  calcTopic: ratehub.calculated
 
 threadPool:
-  size: 32  # CPU yoğunluklu görevler için kullanılacak sanal thread sayısı
+  size: 32
+
+auth:
+  url: http://localhost:8080/auth/login
+  username: omerasafbalikci
+  password: omerasaf18994
+  refreshSkewSeconds: 60
 
 subscribers:
   - class: com.ratedistribution.ratehub.subscriber.impl.TcpSubscriber
     name: PF1
     host: 127.0.0.1
-    port: 8800
+    port: 8084
     rates: [ "EURUSD", "USDTRY", "GBPUSD" ]
 
   - class: com.ratedistribution.ratehub.subscriber.impl.RestSubscriber

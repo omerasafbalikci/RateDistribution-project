@@ -1,6 +1,7 @@
 package com.ratedistribution.ratehub;
 
 import com.hazelcast.core.HazelcastInstance;
+import com.ratedistribution.ratehub.auth.TokenProvider;
 import com.ratedistribution.ratehub.cache.HazelcastFactory;
 import com.ratedistribution.ratehub.config.AppConfigLoader;
 import com.ratedistribution.ratehub.config.CoordinatorConfig;
@@ -57,8 +58,14 @@ public class RateHubApplication {
         // Coordinator başlat
         var coordinator = new Coordinator(hazelcast, producer, config.toDefs(), config.threadPool().size(), mailService);
 
+        var tp = new TokenProvider(
+                config.auth().url(),
+                config.auth().username(),
+                config.auth().password(),
+                config.auth().refreshSkewSeconds());
+
         // Subscriber yükle
-        var loader = new SubscriberLoader(config.subscribers(), coordinator);
+        var loader = new SubscriberLoader(config.subscribers(), coordinator, tp);
         var subscribers = loader.load();
 
         // Sistem başlasın

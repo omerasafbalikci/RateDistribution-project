@@ -85,14 +85,14 @@ simulator:
       kappa: 0.01
       theta: 18.50
 
-  #  - rateName: "XAUUSD"
-  #    initialPrice: 1850.0
-  #    drift: 0.0
-  #    baseSpread: 0.3
-  #    garchParams:
-  #      omega: 1e-12
-  #      alpha: 0.0001
-  #      beta: 0.999
-  #    useMeanReversion: true
-  #    kappa: 0.0
-  #    theta: 0.0
+    - rateName: "GBPUSD"
+      initialPrice: 1850.0
+      drift: 0.0
+      baseSpread: 0.3
+      garchParams:
+        omega: 1e-12
+        alpha: 0.0001
+        beta: 0.999
+      useMeanReversion: true
+      kappa: 0.0
+      theta: 0.0

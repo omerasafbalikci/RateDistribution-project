@@ -3,7 +3,7 @@ package com.ratedistribution.ratehub.subscriber;
 import java.util.Set;
 
 public interface Subscriber extends AutoCloseable, Runnable {
-    void connect(String user, String pwd) throws Exception;
+    void connect() throws Exception;
 
     void disconnect();
 

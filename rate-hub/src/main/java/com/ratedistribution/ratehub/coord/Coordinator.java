@@ -56,7 +56,7 @@ public class Coordinator implements RateListener, AutoCloseable {
         for (Subscriber subscriber : subscribers) {
             pool.execute(() -> {
                 try {
-                    subscriber.connect("", "");
+                    subscriber.connect();
                     log.info("[Coordinator] Connected subscriber: {}", subscriber.name());
                 } catch (Exception e) {
                     log.error("[Coordinator] Failed to connect subscriber: {}", subscriber.name(), e);
