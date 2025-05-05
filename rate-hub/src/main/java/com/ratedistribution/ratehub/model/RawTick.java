@@ -1,5 +1,6 @@
 package com.ratedistribution.ratehub.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.Instant;
 
@@ -15,7 +16,7 @@ public record RawTick(
         String dayChangePercent,
         long dayVolume,
         long lastTickVolume
-) {
+) implements Serializable {
     public Rate toRate() {
         return new Rate(rateName, bid, ask, timestamp);
     }

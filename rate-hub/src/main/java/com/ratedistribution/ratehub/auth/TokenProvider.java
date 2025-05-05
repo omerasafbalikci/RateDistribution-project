@@ -36,7 +36,7 @@ public class TokenProvider {
     private void refresh() {
         try {
             String body = String.format("""
-                    { "username":"%s", "password":"%s" }""", username, password);
+                { "username":"%s", "password":"%s" }""", username, password);
 
             HttpRequest req = HttpRequest.newBuilder()
                     .uri(URI.create(url))
@@ -45,12 +45,17 @@ public class TokenProvider {
                     .build();
 
             HttpResponse<String> resp = client.send(req, HttpResponse.BodyHandlers.ofString());
-            if (resp.statusCode() != 200) throw new IllegalStateException("Auth failed: " + resp.body());
+            if (resp.statusCode() != 200)
+                throw new IllegalStateException("Auth failed: " + resp.body());
 
             Map<?, ?> json = new ObjectMapper().readValue(resp.body(), Map.class);
-            token = (String) json.get("access_token");
-            long exp = ((Number) json.get("expires_in")).longValue();
-            expiresAt = Instant.now().plusSeconds(exp);
+
+            token = (String) json.get("accessToken");
+
+            // expires_in gelmediği için sabit bir süre kullan (örnek: 10 dakika)
+            long defaultExpSeconds = 600;
+            expiresAt = Instant.now().plusSeconds(defaultExpSeconds);
+
         } catch (Exception e) {
             throw new IllegalStateException("Token alınamadı", e);
         }

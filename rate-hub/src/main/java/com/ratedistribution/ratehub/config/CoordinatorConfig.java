@@ -4,11 +4,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.ratedistribution.ratehub.coord.CalcDef;
-import com.ratedistribution.ratehub.utilities.FormulaValidator;
 
 import java.math.BigDecimal;
 import java.nio.file.Path;
-import java.util.*;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
 import java.util.regex.MatchResult;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -30,49 +32,48 @@ public record CoordinatorConfig(SystemCfg hazelcast, KafkaCfg kafka, ThreadCfg t
                                 List<String> rates) {
     }
 
-    public record CalcCfg(String rateName, String engine, String bid, String ask, Map<String, String> helpers) {
+    public record CalcCfg(
+            String rateName,
+            String engine,
+            String scriptPath,
+            Map<String, String> helpers
+    ) {
     }
 
     public record AuthCfg(String url, String username, String password, int refreshSkewSeconds) {
     }
 
-    public static CoordinatorConfig load(Path path) {
+    public static CoordinatorConfig load(Path yaml) {
         try {
-            CoordinatorConfig config = new ObjectMapper(new YAMLFactory())
-                    .findAndRegisterModules()
-                    .readValue(path.toFile(), CoordinatorConfig.class);
+            ObjectMapper om = new ObjectMapper(new YAMLFactory()).findAndRegisterModules();
+            CoordinatorConfig original = om.readValue(yaml.toFile(), CoordinatorConfig.class);
 
-            Map<String, CalcDef> defs = config.toDefs();
-            for (CalcDef def : defs.values()) {
-                Set<String> bidVars = FormulaValidator.extractVariables(def.bidFormula());
-                Set<String> askVars = FormulaValidator.extractVariables(def.askFormula());
-                Set<String> allVars = new HashSet<>(bidVars);
-                allVars.addAll(askVars);
+            Path base = yaml.getParent();
 
-                for (String v : allVars) {
-                    String base = v.split("_")[0];
-                    if (!def.dependsOn().contains(base)) {
-                        throw new IllegalArgumentException("Formula for " + def.rateName() + " references unknown symbol: " + base);
-                    }
-                }
+            // Yeni scriptPath’ler ile yeni CalcCfg listesi oluştur
+            List<CalcCfg> updatedCalcs = original.calculations().stream()
+                    .map(c -> new CalcCfg(
+                            c.rateName(),
+                            c.engine(),
+                            base.resolve(c.scriptPath()).toAbsolutePath().toString(),
+                            c.helpers()
+                    ))
+                    .toList();
 
-                Set<String> helperKeys = def.helpers() != null ? def.helpers().keySet() : Set.of();
-                if (!FormulaValidator.validateHelpers(helperKeys, def.helpers())) {
-                    Set<String> missing = FormulaValidator.getMissingHelpers(helperKeys, def.helpers());
-                    if (!missing.isEmpty()) {
-                        throw new IllegalArgumentException("Missing helper values for " + def.rateName() + ": " + missing);
-                    }
-                }
-            }
+            // Yeni CoordinatorConfig oluştur (diğer tüm alanları koruyarak)
+            return new CoordinatorConfig(
+                    original.hazelcast(),
+                    original.kafka(),
+                    original.threadPool(),
+                    original.subscribers(),
+                    updatedCalcs,
+                    original.mail(),
+                    original.auth()
+            );
 
-            return config;
         } catch (Exception e) {
-            throw new RuntimeException("Failed to load coordinator configuration from " + path.toAbsolutePath(), e);
+            throw new RuntimeException("Unable to read config: " + yaml.toAbsolutePath(), e);
         }
-    }
-
-    public Map<String, CalcDef> toDefs() {
-        return calculations.stream().collect(Collectors.toMap(CalcCfg::rateName, this::toDef));
     }
 
     public record MailCfg(
@@ -84,20 +85,38 @@ public record CoordinatorConfig(SystemCfg hazelcast, KafkaCfg kafka, ThreadCfg t
     ) {
     }
 
-    private CalcDef toDef(CalcCfg c) {
-        Map<String, BigDecimal> hl = Optional.ofNullable(c.helpers)
-                .map(m -> m.entrySet().stream()
-                        .collect(Collectors.toMap(Map.Entry::getKey, e -> new BigDecimal(e.getValue()))))
-                .orElse(Map.of());
-
-        Set<String> refs = refs(c.bid);
-        refs.addAll(refs(c.ask));
-
-        return new CalcDef(c.rateName, c.engine, c.bid, c.ask, hl, refs);
+    public Map<String, CalcDef> toDefs() {
+        return calculations.stream()
+                .collect(Collectors.toMap(CalcCfg::rateName, this::toDef));
     }
 
-    private static Set<String> refs(String expr) {
+    private CalcDef toDef(CalcCfg c) {
+
+        /* helpers → BigDecimal */
+        Map<String,BigDecimal> helpers = Optional.ofNullable(c.helpers)
+                .map(m -> m.entrySet().stream()
+                        .collect(Collectors.toMap(Map.Entry::getKey,
+                                e -> new BigDecimal(e.getValue()))))
+                .orElseGet(Map::of);
+
+        /*  Bağımlı sembolleri sadece regex ile çıkar (script dosyasını
+            yüklemek DynamicScriptFormulaEngine’e bırakılır) */
+        Set<String> deps = refs(c.scriptPath);
+
+        return new CalcDef(
+                c.rateName,
+                c.engine,
+                c.scriptPath,
+                helpers,
+                deps);
+    }
+
+    private static Set<String> refs(String scriptPath) {
+        // Sadece path içindeki büyük harfli dizeleri alma hilesi; gerçek bağımlılık
+        //   DynamicScriptFormulaEngine içinde daima güncel okunur.
         Pattern p = Pattern.compile("[A-Z]{3,6}[A-Z0-9_/]*");
-        return p.matcher(expr).results().map(MatchResult::group).collect(Collectors.toSet());
+        return p.matcher(scriptPath).results()
+                .map(MatchResult::group)
+                .collect(Collectors.toSet());
     }
 }

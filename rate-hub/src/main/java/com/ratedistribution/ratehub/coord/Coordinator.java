@@ -8,12 +8,15 @@ import com.ratedistribution.ratehub.model.RateFields;
 import com.ratedistribution.ratehub.model.RateStatus;
 import com.ratedistribution.ratehub.model.RawTick;
 import com.ratedistribution.ratehub.subscriber.Subscriber;
+import com.ratedistribution.ratehub.utilities.DynamicScriptFormulaEngine;
 import com.ratedistribution.ratehub.utilities.ExpressionEvaluator;
 import com.ratedistribution.ratehub.utilities.MailService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.math.BigDecimal;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.time.Instant;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -49,6 +52,17 @@ public class Coordinator implements RateListener, AutoCloseable {
     }
 
     public void start(Collection<Subscriber> subs) {
+        calcDefs.values().forEach(def -> {
+            Path p = Path.of(def.getScriptPath());
+            if (Files.notExists(p)) {
+                log.error("Script file {} not found for {}", p, def.getRateName());
+                return;
+            }
+            def.setCustomEvaluator(
+                    new DynamicScriptFormulaEngine(def.getEngine(), p)
+            );
+        });
+
         this.subscribers = new ArrayList<>(subs);
         this.supervisor = new SubSupervisor(subscribers, mailService);
         supervisor.start();
@@ -140,28 +154,37 @@ public class Coordinator implements RateListener, AutoCloseable {
 
     private void recalc(String updatedSymbol) {
         calcDefs.values().stream()
-                .filter(def -> def.dependsOn().contains(updatedSymbol))
+                .filter(def -> def.getDependsOn().contains(updatedSymbol))   // ← getter
                 .forEach(this::calculate);
     }
 
     private void calculate(CalcDef def) {
+
+        /* Bağımlı kurların son değerlerini topla */
         Map<String, Rate> vars = new HashMap<>();
-        for (String dep : def.dependsOn()) {
+        for (String dep : def.getDependsOn()) {             // ← getter
             Map<String, Rate> m = platformRates.get(dep);
-            if (m == null || m.isEmpty()) return;
+            if (m == null || m.isEmpty()) return;            // veri eksik
             vars.put(dep, m.values().iterator().next());
         }
-        try {
-            ExpressionEvaluator evaluator = def.customEvaluator();
-            BigDecimal bid = evaluator.evaluate("bid", vars, def.helpers());
-            BigDecimal ask = evaluator.evaluate("ask", vars, def.helpers());
 
-            Rate calculated = new Rate(def.rateName(), bid, ask, Instant.now());
-            calcRates.put(def.rateName(), calculated);
-            kafka.sendRateAsString(calculated);
-            log.debug("[Coordinator] ✓ Calculated {}", def.rateName());
+        try {
+            ExpressionEvaluator ev = def.getCustomEvaluator();          // ← getter
+            if (ev == null) {                                           // evaluator henüz set edilmemiş
+                log.warn("[Coordinator] Skipped {}, evaluator not ready", def.getRateName());
+                return;
+            }
+
+            BigDecimal bid = ev.evaluate("bid", vars, def.getHelpers());   // ← getter
+            BigDecimal ask = ev.evaluate("ask", vars, def.getHelpers());
+
+            Rate r = new Rate(def.getRateName(), bid, ask, Instant.now()); // ← getter
+            calcRates.put(def.getRateName(), r);
+            kafka.sendRateAsString(r);
+            log.debug("[Coordinator] ✓ Calculated {}", def.getRateName());
+
         } catch (Exception ex) {
-            log.error("[Coordinator] Calculation error for {}: {}", def.rateName(), ex.getMessage(), ex);
+            log.error("[Coordinator] Calc error for {} – {}", def.getRateName(), ex.getMessage(), ex);
         }
     }
 }

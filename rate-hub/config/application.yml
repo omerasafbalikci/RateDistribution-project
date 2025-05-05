@@ -12,7 +12,7 @@ threadPool:
 auth:
   url: http://localhost:8080/auth/login
   username: omerasafbalikci
-  password: omerasaf18994
+  password: omerasaf18993
   refreshSkewSeconds: 60
 
 subscribers:
@@ -29,17 +29,21 @@ subscribers:
     rates: [ "EURUSD", "USDTRY", "GBPUSD" ]
 
 calculations:
+  - rateName: EURUSD
+    engine: groovy
+    scriptPath: formulas/eurusd.groovy
+
   - rateName: EURTRY
     engine: groovy
-    scriptPath: config/formulas/eurtry.groovy
+    scriptPath: formulas/eurtry.groovy
 
   - rateName: GBPTRY
     engine: js
-    scriptPath: config/formulas/gbptry.js
+    scriptPath: formulas/gbptry.js
 
   - rateName: USDTRY
     engine: java
-    scriptPath: config/formulas/usdtry.java
+    scriptPath: formulas/usdtry.java
 
 mail:
   from: asafmarket.ltd@gmail.com

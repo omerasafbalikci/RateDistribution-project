@@ -1,6 +1,5 @@
 package com.ratedistribution.ratehub.kafka;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ratedistribution.ratehub.model.Rate;
 import com.ratedistribution.ratehub.model.RawTick;
 import org.apache.kafka.clients.producer.KafkaProducer;
@@ -18,7 +17,6 @@ public class RateKafkaProducer implements AutoCloseable {
     private final Producer<String, String> producer;
     private final String rawTickTopic;
     private final String calcRateTopic;
-    private final ObjectMapper mapper = new ObjectMapper().findAndRegisterModules();
 
     public RateKafkaProducer(String bootstrapServers, String rawTickTopic, String calcRateTopic) {
         this.rawTickTopic = rawTickTopic;
@@ -35,7 +33,6 @@ public class RateKafkaProducer implements AutoCloseable {
         this.producer = new KafkaProducer<>(p);
     }
 
-    // Raw veriyi platform adıyla birlikte gönder
     public void sendRawTickAsString(RawTick tick, String platformName) {
         if (tick == null || tick.bid() == null || tick.ask() == null || tick.timestamp() == null) {
             log.warn("[Kafka] Skipped null or incomplete RawTick for platform: {}", platformName);
@@ -51,7 +48,6 @@ public class RateKafkaProducer implements AutoCloseable {
         sendPlain(rawTickTopic, key, value);
     }
 
-    // Hesaplanmış veriyi gönder (platformsuz)
     public void sendRateAsString(Rate rate) {
         if (rate == null || rate.bid() == null || rate.ask() == null || rate.timestamp() == null) {
             log.warn("[Kafka] Skipped null or incomplete Rate for {}", rate != null ? rate.rateName() : "unknown");

@@ -2,6 +2,8 @@ package com.ratedistribution.ratehub.subscriber.impl;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.ratedistribution.ratehub.auth.TokenProvider;
 import com.ratedistribution.ratehub.coord.RateListener;
 import com.ratedistribution.ratehub.model.RateFields;
@@ -23,7 +25,10 @@ public class TcpSubscriber extends AbstractSubscriber {
     private static final Pattern CMD = Pattern.compile("^[A-Z]+\\|.*");
     private final String host;
     private final int port;
-    private final ObjectMapper mapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+    private final ObjectMapper mapper = new ObjectMapper()
+            .registerModule(new JavaTimeModule())
+            .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
+            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     private PrintWriter out;
     private final List<Long> backoffSeq = List.of(1000L, 2000L, 4000L, 8000L, 16000L, 32000L);
     private final TokenProvider tokenProvider;

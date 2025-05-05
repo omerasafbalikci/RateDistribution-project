@@ -15,8 +15,8 @@ import java.time.format.DateTimeFormatter;
 @Component
 @RequiredArgsConstructor
 public class RateListener {
-    private final RateRepository repo;
-    private final DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
+    private final RateRepository repository;
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
 
     @KafkaListener(topics = "${ratehub.raw-topic}", containerFactory = "factory")
     public void consumeRaw(String message) {
@@ -45,7 +45,7 @@ public class RateListener {
                     .sourceType(sourceType)
                     .build();
 
-            repo.save(e);
+            repository.save(e);
             log.info("✅ [{}] Saved rate: {}", sourceType, e);
         } catch (Exception ex) {
             log.error("❌ [{}] Failed to persist: {}", sourceType, message, ex);

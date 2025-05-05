@@ -15,13 +15,13 @@ import org.apache.logging.log4j.Logger;
 import java.nio.file.Path;
 
 public class RateHubApplication {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         Logger log = LogManager.getLogger(RateHubApplication.class);
 
 
         try {
             // Konfigürasyon yolu
-            Path cfgPath = Path.of(System.getProperty("conf", "config/application.yml"));
+            Path cfgPath = Path.of(System.getProperty("conf", "rate-hub/config/application.yml"));
             log.info("Loading configuration from {}", cfgPath.toAbsolutePath());
 
             // Konfigürasyon yükle
