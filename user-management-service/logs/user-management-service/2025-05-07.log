@@ -1,0 +1,137 @@
+2025-05-07 00:04:52.694 [] [main] TRACE UserServiceImpl - Entering updateCurrentUser method in UserServiceImpl
+2025-05-07 00:04:52.707 [] [main] INFO  UserServiceImpl - Updating current user: testUser
+2025-05-07 00:04:52.712 [] [main] DEBUG UserServiceImpl - Updated first name for user: com.ratedistribution.usermanagement.entity.User@36ec4071
+2025-05-07 00:04:52.713 [] [main] DEBUG UserServiceImpl - Saved updated user: com.ratedistribution.usermanagement.entity.User@36ec4071
+2025-05-07 00:04:52.713 [] [main] TRACE UserServiceImpl - Exiting updateCurrentUser method in UserServiceImpl
+2025-05-07 00:04:52.755 [] [main] TRACE UserServiceImpl - Entering getAllUsersFilteredAndSorted method in UserServiceImpl
+2025-05-07 00:04:52.755 [] [main] INFO  UserServiceImpl - Fetching users with filters: page=0, size=10, sortBy=username, direction=ASC
+2025-05-07 00:04:52.763 [] [main] DEBUG UserServiceImpl - Fetched 1 users
+2025-05-07 00:04:52.763 [] [main] TRACE UserServiceImpl - Exiting getAllUsersFilteredAndSorted method in UserServiceImpl
+2025-05-07 00:04:52.771 [] [main] TRACE UserServiceImpl - Entering updateUser method in UserServiceImpl
+2025-05-07 00:04:52.771 [] [main] DEBUG UserServiceImpl - Updating user with id: 1
+2025-05-07 00:04:52.772 [] [main] ERROR UserServiceImpl - User doesn't exist with id 1
+2025-05-07 00:04:52.776 [] [main] TRACE UserServiceImpl - Entering createUser method in UserServiceImpl
+2025-05-07 00:04:52.776 [] [main] DEBUG UserServiceImpl - Creating user with username: newUser
+2025-05-07 00:04:52.789 [] [main] INFO  UserServiceImpl - Sent create message to RabbitMQ for user: newUser
+2025-05-07 00:04:52.789 [] [main] INFO  UserServiceImpl - User created successfully: newUser
+2025-05-07 00:04:52.789 [] [main] TRACE UserServiceImpl - Exiting createUser method in UserServiceImpl
+2025-05-07 00:04:52.793 [] [main] TRACE UserServiceImpl - Entering getUsernameByEmail method in UserServiceImpl
+2025-05-07 00:04:52.794 [] [main] INFO  UserServiceImpl - Fetching username by email: test@example.com
+2025-05-07 00:04:52.794 [] [main] DEBUG UserServiceImpl - Found username: testUser
+2025-05-07 00:04:52.794 [] [main] TRACE UserServiceImpl - Exiting getUsernameByEmail method in UserServiceImpl
+2025-05-07 00:04:52.798 [] [main] TRACE UserServiceImpl - Entering createUser method in UserServiceImpl
+2025-05-07 00:04:52.798 [] [main] DEBUG UserServiceImpl - Creating user with username: null
+2025-05-07 00:04:52.799 [] [main] ERROR UserServiceImpl - Email 'existingEmail@example.com' is already taken
+2025-05-07 00:04:52.803 [] [main] TRACE UserServiceImpl - Entering getUserById method in UserServiceImpl
+2025-05-07 00:04:52.803 [] [main] INFO  UserServiceImpl - Fetching user by ID: 1
+2025-05-07 00:04:52.804 [] [main] DEBUG UserServiceImpl - Fetched user: GetUserResponse(id=null, firstName=null, lastName=null, username=testUser, hospitalId=null, email=null, roles=null, gender=null)
+2025-05-07 00:04:52.807 [] [main] TRACE UserServiceImpl - Exiting getUserById method in UserServiceImpl
+2025-05-07 00:04:52.811 [] [main] TRACE UserServiceImpl - Entering getCurrentUser method in UserServiceImpl
+2025-05-07 00:04:52.812 [] [main] INFO  UserServiceImpl - Fetching current user by username: testUser
+2025-05-07 00:04:52.812 [] [main] DEBUG UserServiceImpl - Fetched current user: GetUserResponse(id=null, firstName=null, lastName=null, username=testUser, hospitalId=null, email=null, roles=null, gender=null)
+2025-05-07 00:04:52.812 [] [main] TRACE UserServiceImpl - Exiting getCurrentUser method in UserServiceImpl
+2025-05-07 00:04:52.816 [] [main] TRACE UserServiceImpl - Entering updateUser method in UserServiceImpl
+2025-05-07 00:04:52.816 [] [main] DEBUG UserServiceImpl - Updating user with id: null
+2025-05-07 00:04:52.817 [] [main] ERROR UserServiceImpl - Id must not be null
+2025-05-07 00:04:52.821 [] [main] TRACE UserServiceImpl - Entering restoreUser method in UserServiceImpl
+2025-05-07 00:04:52.821 [] [main] DEBUG UserServiceImpl - Restoring user with id: 1
+2025-05-07 00:04:52.822 [] [main] INFO  UserServiceImpl - Sent restore message to RabbitMQ for user: userToRestore
+2025-05-07 00:04:52.822 [] [main] INFO  UserServiceImpl - User restored successfully: userToRestore
+2025-05-07 00:04:52.823 [] [main] TRACE UserServiceImpl - Exiting restoreUser method in UserServiceImpl
+2025-05-07 00:04:52.827 [] [main] TRACE UserServiceImpl - Entering getUserById method in UserServiceImpl
+2025-05-07 00:04:52.828 [] [main] INFO  UserServiceImpl - Fetching user by ID: 1
+2025-05-07 00:04:52.828 [] [main] ERROR UserServiceImpl - User not found with ID: 1
+2025-05-07 00:04:52.832 [] [main] TRACE UserServiceImpl - Entering updateUser method in UserServiceImpl
+2025-05-07 00:04:52.833 [] [main] DEBUG UserServiceImpl - Updating user with id: 1
+2025-05-07 00:04:52.833 [] [main] ERROR UserServiceImpl - Email is already taken newEmail@example.com
+2025-05-07 00:04:52.837 [] [main] TRACE UserServiceImpl - Entering removeRole method in UserServiceImpl
+2025-05-07 00:04:52.837 [] [main] INFO  UserServiceImpl - Removing role 'ADMIN' from user with id '1'
+2025-05-07 00:04:52.839 [] [main] INFO  UserServiceImpl - Successfully sent remove role message for user 'existingUser'
+2025-05-07 00:04:52.840 [] [main] INFO  UserServiceImpl - Role 'ADMIN' removed successfully from user 'existingUser'
+2025-05-07 00:04:52.840 [] [main] TRACE UserServiceImpl - Exiting removeRole method in UserServiceImpl
+2025-05-07 00:04:52.843 [] [main] TRACE UserServiceImpl - Entering addRole method in UserServiceImpl
+2025-05-07 00:04:52.844 [] [main] INFO  UserServiceImpl - Adding role 'ADMIN' to user with id '1'
+2025-05-07 00:04:52.845 [] [main] ERROR UserServiceImpl - User not found with id '1'
+2025-05-07 00:04:52.850 [] [main] TRACE UserServiceImpl - Entering addRole method in UserServiceImpl
+2025-05-07 00:04:52.850 [] [main] INFO  UserServiceImpl - Adding role 'ADMIN' to user with id '1'
+2025-05-07 00:04:52.851 [] [main] ERROR UserServiceImpl - User 'existingUser' already has this role: 'ADMIN'
+2025-05-07 00:04:52.854 [] [main] TRACE UserServiceImpl - Entering removeRole method in UserServiceImpl
+2025-05-07 00:04:52.854 [] [main] INFO  UserServiceImpl - Removing role 'ADMIN' from user with id '1'
+2025-05-07 00:04:52.854 [] [main] ERROR UserServiceImpl - Cannot remove role. User 'existingUser' must have at least one role
+2025-05-07 00:04:52.857 [] [main] TRACE UserServiceImpl - Entering removeRole method in UserServiceImpl
+2025-05-07 00:04:52.858 [] [main] INFO  UserServiceImpl - Removing role 'ADMIN' from user with id '1'
+2025-05-07 00:04:52.858 [] [main] ERROR UserServiceImpl - User not found with id: '1'
+2025-05-07 00:04:52.860 [] [main] TRACE UserServiceImpl - Entering restoreUser method in UserServiceImpl
+2025-05-07 00:04:52.860 [] [main] DEBUG UserServiceImpl - Restoring user with id: 1
+2025-05-07 00:04:52.861 [] [main] ERROR UserServiceImpl - User does not exist with id 1
+2025-05-07 00:04:52.863 [] [main] TRACE UserServiceImpl - Entering getUsernameByEmail method in UserServiceImpl
+2025-05-07 00:04:52.863 [] [main] INFO  UserServiceImpl - Fetching username by email: test@example.com
+2025-05-07 00:04:52.863 [] [main] ERROR UserServiceImpl - No users registered to this email address: test@example.com
+2025-05-07 00:04:52.867 [] [main] TRACE UserServiceImpl - Entering updateUser method in UserServiceImpl
+2025-05-07 00:04:52.867 [] [main] DEBUG UserServiceImpl - Updating user with id: 1
+2025-05-07 00:04:52.867 [] [main] ERROR UserServiceImpl - Username is taken newUsername
+2025-05-07 00:04:52.870 [] [main] TRACE UserServiceImpl - Entering deleteUser method in UserServiceImpl
+2025-05-07 00:04:52.870 [] [main] DEBUG UserServiceImpl - Deleting user with id: 1
+2025-05-07 00:04:52.871 [] [main] ERROR UserServiceImpl - User doesn't exist with id: 1
+2025-05-07 00:04:52.874 [] [main] TRACE UserServiceImpl - Entering addRole method in UserServiceImpl
+2025-05-07 00:04:52.875 [] [main] INFO  UserServiceImpl - Adding role 'OPERATOR' to user with id '1'
+2025-05-07 00:04:52.875 [] [main] INFO  UserServiceImpl - Successfully sent add role message for user 'existingUser'
+2025-05-07 00:04:52.875 [] [main] INFO  UserServiceImpl - Role 'OPERATOR' added successfully to user 'existingUser'
+2025-05-07 00:04:52.875 [] [main] TRACE UserServiceImpl - Exiting addRole method in UserServiceImpl
+2025-05-07 00:04:52.879 [] [main] TRACE UserServiceImpl - Entering deleteUser method in UserServiceImpl
+2025-05-07 00:04:52.879 [] [main] DEBUG UserServiceImpl - Deleting user with id: 1
+2025-05-07 00:04:52.880 [] [main] INFO  UserServiceImpl - Sent delete message to RabbitMQ for user: userToDelete
+2025-05-07 00:04:52.880 [] [main] INFO  UserServiceImpl - User deleted successfully: userToDelete
+2025-05-07 00:04:52.880 [] [main] TRACE UserServiceImpl - Exiting deleteUser method in UserServiceImpl
+2025-05-07 00:04:52.882 [] [main] TRACE UserServiceImpl - Entering createUser method in UserServiceImpl
+2025-05-07 00:04:52.883 [] [main] DEBUG UserServiceImpl - Creating user with username: existingUser
+2025-05-07 00:04:52.883 [] [main] ERROR UserServiceImpl - Username 'existingUser' is already taken
+2025-05-07 00:04:52.886 [] [main] TRACE UserServiceImpl - Entering updateCurrentUser method in UserServiceImpl
+2025-05-07 00:04:52.886 [] [main] INFO  UserServiceImpl - Updating current user: testUser
+2025-05-07 00:04:52.886 [] [main] ERROR UserServiceImpl - User doesn't exist with username: testUser
+2025-05-07 00:04:52.889 [] [main] TRACE UserServiceImpl - Entering getCurrentUser method in UserServiceImpl
+2025-05-07 00:04:52.889 [] [main] INFO  UserServiceImpl - Fetching current user by username: testUser
+2025-05-07 00:04:52.890 [] [main] ERROR UserServiceImpl - User not found with username: testUser
+2025-05-07 00:04:52.958 [] [main] TRACE UserController - Entering addRole method in UserController class
+2025-05-07 00:04:52.958 [] [main] INFO  UserController - Adding role to user with id: 1
+2025-05-07 00:04:52.958 [] [main] INFO  UserController - Role added to user with id 1 successfully
+2025-05-07 00:04:52.959 [] [main] TRACE UserController - Exiting addRole method in UserController class
+2025-05-07 00:04:52.979 [] [main] TRACE UserController - Entering getUsernameByEmail method in UserController class
+2025-05-07 00:04:52.979 [] [main] INFO  UserController - Fetching username by email: test@example.com
+2025-05-07 00:04:52.979 [] [main] TRACE UserController - Exiting getUsernameByEmail method in UserController class
+2025-05-07 00:04:52.982 [] [main] TRACE UserController - Entering getCurrentUser method in UserController class
+2025-05-07 00:04:52.983 [] [main] INFO  UserController - Fetching current user by username: testUser
+2025-05-07 00:04:52.983 [] [main] INFO  UserController - Current user retrieved successfully
+2025-05-07 00:04:52.983 [] [main] TRACE UserController - Exiting getCurrentUser method in UserController class
+2025-05-07 00:04:52.986 [] [main] TRACE UserController - Entering updateUser method in UserController class
+2025-05-07 00:04:52.987 [] [main] INFO  UserController - Updating user with details: UpdateUserRequest(id=null, firstName=null, lastName=null, username=null, email=null, gender=null)
+2025-05-07 00:04:52.989 [] [main] INFO  UserController - User updated successfully
+2025-05-07 00:04:52.989 [] [main] TRACE UserController - Exiting updateUser method in UserController class
+2025-05-07 00:04:52.992 [] [main] TRACE UserController - Entering restoreUser method in UserController class
+2025-05-07 00:04:52.992 [] [main] INFO  UserController - Restoring user with id: 1
+2025-05-07 00:04:52.993 [] [main] INFO  UserController - User with id 1 restored successfully
+2025-05-07 00:04:52.993 [] [main] TRACE UserController - Exiting restoreUser method in UserController class
+2025-05-07 00:04:52.996 [] [main] TRACE UserController - Entering getAllUsersFilteredAndSorted method in UserController class
+2025-05-07 00:04:52.996 [] [main] INFO  UserController - Fetching users with filters - page: 0, size: 3, sortBy: id, direction: ASC, firstName: null, lastName: null, username: null, hospitalId: null, email: null, role: null, gender: null, deleted: null
+2025-05-07 00:04:52.996 [] [main] INFO  UserController - Users filtered and sorted fetched successfully
+2025-05-07 00:04:52.997 [] [main] TRACE UserController - Exiting getAllUsersFilteredAndSorted method in UserController class
+2025-05-07 00:04:53.001 [] [main] TRACE UserController - Entering removeRole method in UserController class
+2025-05-07 00:04:53.001 [] [main] INFO  UserController - Removing role from user with id: 1
+2025-05-07 00:04:53.001 [] [main] INFO  UserController - Role removed from user with id 1 successfully
+2025-05-07 00:04:53.002 [] [main] TRACE UserController - Exiting removeRole method in UserController class
+2025-05-07 00:04:53.004 [] [main] TRACE UserController - Entering createUser method in UserController class
+2025-05-07 00:04:53.004 [] [main] INFO  UserController - Creating a new user with details: CreateUserRequest(firstName=null, lastName=null, username=null, email=null, password=null, roles=null, gender=null)
+2025-05-07 00:04:53.007 [] [main] INFO  UserController - User created successfully
+2025-05-07 00:04:53.007 [] [main] TRACE UserController - Exiting createUser method in UserController class
+2025-05-07 00:04:53.009 [] [main] TRACE UserController - Entering deleteUser method in UserController class
+2025-05-07 00:04:53.010 [] [main] INFO  UserController - Deleting user with id: 1
+2025-05-07 00:04:53.010 [] [main] INFO  UserController - User with id 1 deleted successfully
+2025-05-07 00:04:53.010 [] [main] TRACE UserController - Exiting deleteUser method in UserController class
+2025-05-07 00:04:53.013 [] [main] TRACE UserController - Entering getUserById method in UserController class
+2025-05-07 00:04:53.013 [] [main] INFO  UserController - Fetching user by id: 1
+2025-05-07 00:04:53.013 [] [main] INFO  UserController - User with id 1 retrieved successfully
+2025-05-07 00:04:53.013 [] [main] TRACE UserController - Exiting getUserById method in UserController class
+2025-05-07 00:04:53.016 [] [main] TRACE UserController - Entering updateCurrentUser method in UserController class
+2025-05-07 00:04:53.016 [] [main] INFO  UserController - Updating current user with username: testUser
+2025-05-07 00:04:53.016 [] [main] INFO  UserController - Current user updated successfully
+2025-05-07 00:04:53.016 [] [main] TRACE UserController - Exiting updateCurrentUser method in UserController class

@@ -35,6 +35,8 @@
         <module>auth-service</module>
 		<module>api-gateway</module>
         <module>auth-common</module>
+		<module>tcp-data-provider</module>
+		<module>rate-hub</module>
     </modules>
 
 	<scm>

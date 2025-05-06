@@ -1,0 +1,74 @@
+tcp:
+  host: 127.0.0.1
+  port: 8084
+
+jwt:
+  secret-key: "6bc18dff62463c49343d083ae0e523fbfb88d4d45b4a9cb62e86d0c53bd9b870"
+  authorities-key: "roles"
+redis:
+  host: "redis"
+  port: 6380
+
+simulator:
+  update-interval-millis: 1000
+  max-updates: 0
+
+  shockConfig:
+    smallShockWeekly: 2.5
+    mediumShockMonthly: 1.5
+    bigShockYearly: 1.0
+    smallShockMinPct: 0.0001
+    smallShockMaxPct: 0.0005
+    mediumShockMinPct: 0.001
+    mediumShockMaxPct: 0.005
+    bigShockMinPct: 0.01
+    bigShockMaxPct: 0.02
+
+  eventShocks:
+    - name: "FedRateDecision"
+      dateTime: 2025-04-22T03:00:00Z
+      jumpMean: 0.01
+      jumpVol: 0.1
+
+    - name: "ECBAnnouncement"
+      dateTime: 2025-04-15T09:00:00Z
+      jumpMean: -0.01
+      jumpVol: 0.02
+
+  weekendGapVolatility: 0.002
+  weekendShockFactor: 1.0
+
+  sessionVolFactors:
+    - startHour: 0
+      endHour: 6
+      volMultiplier: 0.9
+    - startHour: 6
+      endHour: 13
+      volMultiplier: 1.1
+    - startHour: 13
+      endHour: 17
+      volMultiplier: 1.3
+    - startHour: 17
+      endHour: 24
+      volMultiplier: 1.0
+
+  holidays:
+    - startDateTime: "2025-04-04T00:00:00Z"
+      endDateTime:   "2025-04-05T00:00:00Z"
+      name: "Christmas"
+    - startDateTime: "2025-01-01T00:00:00Z"
+      endDateTime:   "2025-01-02T00:00:00Z"
+      name: "New Year"
+
+  rates:
+    - rateName: "EURUSD"
+      initialPrice: 1.0481
+      drift: 0.02
+      baseSpread: 0.0001
+      garchParams:
+        omega: 0.000000000001
+        alpha: 0.1
+        beta: 0.9
+      useMeanReversion: true
+      kappa: 0.001
+      theta: 1.0481

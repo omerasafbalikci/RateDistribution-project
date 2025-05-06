@@ -1,0 +1,24 @@
+2025-05-06 23:00:01.369 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-05-06 23:00:11.327 [] [http-nio-8761-exec-10] INFO  AbstractInstanceRegistry - Registered instance RATE-HUB-CONSUMER-DB/rate-hub-consumer-db:8085 with status UP (replication=false)
+2025-05-06 23:00:11.839 [] [http-nio-8761-exec-3] INFO  AbstractInstanceRegistry - Registered instance RATE-HUB-CONSUMER-DB/rate-hub-consumer-db:8085 with status UP (replication=true)
+2025-05-06 23:01:01.369 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-05-06 23:02:01.369 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-05-06 23:03:01.369 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-05-06 23:04:01.369 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-05-06 23:05:01.369 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-05-06 23:06:01.369 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-05-06 23:07:01.370 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-05-06 23:08:01.370 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-05-06 23:09:01.370 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-05-06 23:10:01.370 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-05-06 23:11:01.371 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-05-06 23:12:01.371 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-05-06 23:13:01.163 [] [ReplicaAwareInstanceRegistry - RenewalThresholdUpdater] INFO  PeerAwareInstanceRegistryImpl - Current renewal threshold is : 10
+2025-05-06 23:13:01.372 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-05-06 23:14:01.371 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-05-06 23:15:01.371 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-05-06 23:16:01.371 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-05-06 23:17:01.371 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-05-06 23:18:01.371 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-05-06 23:19:01.371 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-05-06 23:20:01.371 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms

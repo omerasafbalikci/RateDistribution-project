@@ -1,0 +1,6 @@
+2025-05-06 23:03:03.463 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-05-06 23:08:03.453 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-05-06 23:13:03.444 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-05-06 23:14:33.542 [] [reactor-http-epoll-9] WARN  HttpClientConnect - [e4129a9f-9, L:/172.18.0.16:50370 ! R:zipkin/172.18.0.5:9411] The connection observed an error
+reactor.netty.http.client.PrematureCloseException: Connection prematurely closed BEFORE response
+2025-05-06 23:18:03.435 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
