@@ -11,6 +11,13 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * RateListener listens to Kafka topics for raw and calculated rate messages.
+ * It parses and stores incoming rate data into the database via {@link RateRepository}.
+ *
+ * @author Ömer Asaf BALIKÇI
+ */
+
 @Log4j2
 @Component
 @RequiredArgsConstructor
@@ -20,11 +27,13 @@ public class RateListener {
 
     @KafkaListener(topics = "${ratehub.raw-topic}", containerFactory = "factory")
     public void consumeRaw(String message) {
+        log.trace("[RAW] Received message: {}", message);
         processMessage(message, "RAW");
     }
 
     @KafkaListener(topics = "${ratehub.calc-topic}", containerFactory = "factory")
     public void consumeCalculated(String message) {
+        log.trace("[CALCULATED] Received message: {}", message);
         processMessage(message, "CALCULATED");
     }
 
@@ -46,9 +55,9 @@ public class RateListener {
                     .build();
 
             repository.save(e);
-            log.info("✅ [{}] Saved rate: {}", sourceType, e);
+            log.debug("[{}] Saved rate: {}", sourceType, e.getRateName());
         } catch (Exception ex) {
-            log.error("❌ [{}] Failed to persist: {}", sourceType, message, ex);
+            log.error("[{}] Failed to process message: {} - {}", sourceType, message, ex.getMessage(), ex);
         }
     }
 }

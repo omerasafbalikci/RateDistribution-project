@@ -32,6 +32,7 @@ calculations:
   - rateName: EURUSD
     engine: groovy
     scriptPath: formulas/eurusd.groovy
+    dependsOn: [ EURUSD, USDTRY ]
 
   - rateName: EURTRY
     engine: groovy

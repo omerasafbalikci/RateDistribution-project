@@ -9,6 +9,13 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+/**
+ * Entity class representing a rate record stored in the database.
+ * Maps to the table {@code TblRates} and holds bid/ask data along with timestamps.
+ *
+ * @author Ömer Asaf BALIKÇI
+ */
+
 @Entity
 @Table(name = "TblRates")
 @Data

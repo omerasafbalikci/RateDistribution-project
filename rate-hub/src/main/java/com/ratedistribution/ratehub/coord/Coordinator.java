@@ -23,6 +23,18 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * Coordinator class is responsible for managing subscribers, receiving raw tick data,
+ * recalculating dependent rates, and broadcasting updates to Kafka and Hazelcast.
+ * Implements the RateListener interface for reacting to real-time events.
+ * This class uses:
+ * - Hazelcast for in-memory distributed caching.
+ * - Kafka for event streaming.
+ * - ExpressionEvaluator (like Groovy/JS) for dynamic rate calculations.
+ *
+ * @author Ömer Asaf BALIKÇI
+ */
+
 public class Coordinator implements RateListener, AutoCloseable {
     private static final Logger log = LogManager.getLogger(Coordinator.class);
     private final HazelcastInstance hazelcast;
@@ -36,6 +48,15 @@ public class Coordinator implements RateListener, AutoCloseable {
     private SubSupervisor supervisor;
     private List<Subscriber> subscribers = new ArrayList<>();
 
+    /**
+     * Constructs a Coordinator.
+     *
+     * @param hz             Hazelcast instance
+     * @param producer       Kafka producer
+     * @param defs           Calculated rate definitions
+     * @param threadPoolSize Number of threads for subscriber execution
+     * @param mailService    Service for sending alerts or error notifications
+     */
     public Coordinator(HazelcastInstance hz,
                        RateKafkaProducer producer,
                        Map<String, CalcDef> defs,
@@ -51,21 +72,27 @@ public class Coordinator implements RateListener, AutoCloseable {
         this.mailService = mailService;
     }
 
+    /**
+     * Starts the Coordinator and all subscribers.
+     *
+     * @param subs the list of subscribers to start and connect
+     */
     public void start(Collection<Subscriber> subs) {
+        log.info("[Coordinator] Starting coordinator with {} subscribers", subs.size());
         calcDefs.values().forEach(def -> {
             Path p = Path.of(def.getScriptPath());
             if (Files.notExists(p)) {
-                log.error("Script file {} not found for {}", p, def.getRateName());
+                log.error("[Coordinator] Script file {} not found for {}", p, def.getRateName());
                 return;
             }
-            def.setCustomEvaluator(
-                    new DynamicScriptFormulaEngine(def.getEngine(), p)
-            );
+            def.setCustomEvaluator(new DynamicScriptFormulaEngine(def.getEngine(), p));
+            log.debug("[Coordinator] Evaluator initialized for {}", def.getRateName());
         });
 
         this.subscribers = new ArrayList<>(subs);
         this.supervisor = new SubSupervisor(subscribers, mailService);
         supervisor.start();
+        log.info("[Coordinator] Supervisor started");
 
         for (Subscriber subscriber : subscribers) {
             pool.execute(() -> {
@@ -79,17 +106,23 @@ public class Coordinator implements RateListener, AutoCloseable {
         }
     }
 
+    /**
+     * Gracefully shuts down the coordinator, subscribers, and background services.
+     */
     public void shutdown() {
+        log.info("[Coordinator] Shutdown initiated");
         try {
             for (Subscriber subscriber : subscribers) {
                 try {
                     subscriber.close();
+                    log.debug("[Coordinator] Closed subscriber: {}", subscriber.name());
                 } catch (Exception e) {
                     log.warn("[Coordinator] Failed to close subscriber: {}", subscriber.name(), e);
                 }
             }
             if (supervisor != null) {
                 supervisor.close();
+                log.debug("[Coordinator] Supervisor closed");
             }
             pool.shutdownNow();
             kafka.close();
@@ -117,12 +150,14 @@ public class Coordinator implements RateListener, AutoCloseable {
 
     @Override
     public void onRateAvailable(String platform, String rateName, RawTick rawTick) {
+        log.trace("[RateListener] New rate available: {}:{}", platform, rateName);
         accept(platform, rateName, rawTick);
     }
 
     @Override
     public void onRateUpdate(String platform, String rateName, RateFields delta) {
         RawTick synthetic = new RawTick(rateName, delta.bid(), delta.ask(), delta.timestamp(), null, null, null, null, null, 0, 0);
+        log.trace("[RateListener] Rate update received: {}:{}", platform, rateName);
         accept(platform, rateName, synthetic);
     }
 
@@ -136,6 +171,13 @@ public class Coordinator implements RateListener, AutoCloseable {
         log.error("[RateListener] Error on {}:{} - {}", platformName, rateName, error.getMessage(), error);
     }
 
+    /**
+     * Accepts and processes a new or updated tick from a subscriber.
+     *
+     * @param platform the source platform
+     * @param symbol   the rate symbol
+     * @param tick     the raw tick data
+     */
     private void accept(String platform, String symbol, RawTick tick) {
         try {
             rawTicks.put(platform + "_" + symbol, tick);
@@ -145,46 +187,55 @@ public class Coordinator implements RateListener, AutoCloseable {
                     .put(platform, tick.toRate());
 
             kafka.sendRawTickAsString(tick, platform);
+            log.debug("[Coordinator] Raw tick accepted and forwarded: {}:{}", platform, symbol);
 
             recalc(symbol);
         } catch (Exception e) {
-            log.error("[Coordinator] Error in accept for {}:{}", platform, symbol, e);
+            log.error("[Coordinator] Error in accept for {}:{} - {}", platform, symbol, e.getMessage(), e);
         }
     }
 
+    /**
+     * Triggers recalculation for any CalcDef that depends on the updated symbol.
+     *
+     * @param updatedSymbol the symbol that changed
+     */
     private void recalc(String updatedSymbol) {
+        log.trace("[Coordinator] Triggering recalculations for {}", updatedSymbol);
         calcDefs.values().stream()
-                .filter(def -> def.getDependsOn().contains(updatedSymbol))   // ← getter
+                .filter(def -> def.getDependsOn().contains(updatedSymbol))
                 .forEach(this::calculate);
     }
 
+    /**
+     * Performs calculation for a given CalcDef using its expression evaluator.
+     *
+     * @param def the CalcDef to calculate
+     */
     private void calculate(CalcDef def) {
-
-        /* Bağımlı kurların son değerlerini topla */
         Map<String, Rate> vars = new HashMap<>();
-        for (String dep : def.getDependsOn()) {             // ← getter
-            Map<String, Rate> m = platformRates.get(dep);
-            if (m == null || m.isEmpty()) return;            // veri eksik
-            vars.put(dep, m.values().iterator().next());
-        }
-
-        try {
-            ExpressionEvaluator ev = def.getCustomEvaluator();          // ← getter
-            if (ev == null) {                                           // evaluator henüz set edilmemiş
-                log.warn("[Coordinator] Skipped {}, evaluator not ready", def.getRateName());
+        for (String dep : def.getDependsOn()) {
+            Map<String, Rate> perPlatform = platformRates.get(dep);
+            if (perPlatform == null || perPlatform.isEmpty()) {
+                log.warn("[Coordinator] Missing dep {} for {}", dep, def.getRateName());
                 return;
             }
-
-            BigDecimal bid = ev.evaluate("bid", vars, def.getHelpers());   // ← getter
+            perPlatform.forEach((pf, r) -> vars.put(pf + "_" + dep, r));
+        }
+        try {
+            ExpressionEvaluator ev = def.getCustomEvaluator();
+            if (ev == null) {
+                log.warn("[Coordinator] Evaluator not ready for {}", def.getRateName());
+                return;
+            }
+            BigDecimal bid = ev.evaluate("bid", vars, def.getHelpers());
             BigDecimal ask = ev.evaluate("ask", vars, def.getHelpers());
-
-            Rate r = new Rate(def.getRateName(), bid, ask, Instant.now()); // ← getter
-            calcRates.put(def.getRateName(), r);
-            kafka.sendRateAsString(r);
-            log.debug("[Coordinator] ✓ Calculated {}", def.getRateName());
-
-        } catch (Exception ex) {
-            log.error("[Coordinator] Calc error for {} – {}", def.getRateName(), ex.getMessage(), ex);
+            Rate out = new Rate(def.getRateName(), bid, ask, Instant.now());
+            calcRates.put(def.getRateName(), out);
+            kafka.sendRateAsString(out);
+            log.debug("[Coordinator] ✓ Calculated {} = [{},{}]", def.getRateName(), bid, ask);
+        } catch (Exception e) {
+            log.error("[Coordinator] calc error {}", def.getRateName(), e);
         }
     }
 }

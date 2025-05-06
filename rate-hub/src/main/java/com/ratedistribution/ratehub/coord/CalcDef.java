@@ -2,27 +2,26 @@ package com.ratedistribution.ratehub.coord;
 
 import com.ratedistribution.ratehub.utilities.ExpressionEvaluator;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.Map;
 import java.util.Set;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
+
+/**
+ * Definition of a calculated rate configuration.
+ * Holds metadata, dependency info, and runtime evaluator for the calculation engine.
+ *
+ * @author Ömer Asaf BALIKÇI
+ */
 
 @Data
 public class CalcDef {
     private final String rateName;
     private final String engine;
-    private String scriptPath;     // …/eurtry.groovy vb.
+    private String scriptPath;
     private final Map<String, BigDecimal> helpers;
     private final Set<String> dependsOn;
-
-    @Setter
-    private transient ExpressionEvaluator customEvaluator;   // Coordinator-da set edilir
+    private transient ExpressionEvaluator customEvaluator;
 
     public CalcDef(String rateName,
                    String engine,

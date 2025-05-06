@@ -4,6 +4,13 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.Instant;
 
+/**
+ * Represents a full market tick including price data and daily statistics.
+ * Used as the primary structure for incoming data from platforms.
+ *
+ * @author Ömer Asaf BALIKÇI
+ */
+
 public record RawTick(
         String rateName,
         BigDecimal bid,

@@ -13,6 +13,13 @@ import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * KafkaConfig provides configuration for Kafka consumer setup.
+ * Defines properties, consumer factory, and listener container factory beans.
+ *
+ * @author Ömer Asaf BALIKÇI
+ */
+
 @Configuration
 @EnableKafka
 public class KafkaConfig {

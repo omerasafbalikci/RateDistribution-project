@@ -132,7 +132,7 @@ public class RateSimulator {
     private boolean isWeekend(Instant instant) {
         DayOfWeek dow = instant.atZone(ZoneId.systemDefault()).getDayOfWeek();
         log.debug("Checked if date {} is dow: {}", instant, dow);
-        return dow == DayOfWeek.MONDAY || dow == DayOfWeek.SUNDAY;
+        return dow == DayOfWeek.SATURDAY || dow == DayOfWeek.SUNDAY;
     }
 
     /**

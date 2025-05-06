@@ -36,18 +36,22 @@ services:
       - microservices-net
 
   # ELK STACK
-  elasticsearch:
-    image: elasticsearch:7.17.22
-    container_name: elasticsearch
+  opensearch:
+    image: opensearchproject/opensearch:2.14.0
+    container_name: opensearch
     environment:
+      - discovery.type=single-node
+      - plugins.security.disabled=true
       - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms512m -Xms512m"
-      - "discovery.type=single-node"
-      - xpack.security.enabled=false
+      - "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
     ports:
       - "9200:9200"
     healthcheck:
-      test: [ "CMD-SHELL", "curl -f http://localhost:9200/_cluster/health || exit 1" ]
+      test: [ "CMD-SHELL", "curl -f http://localhost:9200 || exit 1" ]
       interval: 10s
       timeout: 10s
       retries: 10
@@ -55,39 +59,17 @@ services:
     networks:
       - microservices-net
 
-  logstash:
-    image: logstash:7.17.22
-    container_name: logstash
+  opensearch-dashboards:
+    image: opensearchproject/opensearch-dashboards:2.14.0
+    container_name: opensearch-dashboards
     environment:
-      LS_JAVA_OPTS: "-Xmx256m  -Xms256m"
-    ports:
-      - "5000:5000/tcp"
-      - "9600:9600"
-    volumes:
-      - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf
-    healthcheck:
-      test: [ "CMD-SHELL", "curl -f http://localhost:9600/_node/pipelines || exit 1" ]
-      interval: 10s
-      timeout: 10s
-      retries: 15
-      start_period: 30s
-    networks:
-      - microservices-net
-    depends_on:
-      elasticsearch:
-        condition: service_healthy
-
-  kibana:
-    image: kibana:7.17.22
-    container_name: kibana
-    environment:
-      ELASTICSEARCH_HOSTS: '["http://elasticsearch:9200"]'
+      - OPENSEARCH_HOSTS=["http://opensearch:9200"]
     ports:
       - "5601:5601"
     networks:
       - microservices-net
     depends_on:
-      elasticsearch:
+      opensearch:
         condition: service_healthy
 
   # REDIS
@@ -216,30 +198,16 @@ services:
       - microservices-net
     restart: always
 
-  postgres-patient:
+  postgres-rate:
     image: postgres:alpine
-    container_name: postgres-patient
+    container_name: postgres-rate
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: patient-service
+      POSTGRES_DB: rates
     ports:
       - "5435:5435"
     command: -p 5435
-    networks:
-      - microservices-net
-    restart: always
-
-  postgres-report:
-    image: postgres:alpine
-    container_name: postgres-report
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: report-service
-    ports:
-      - "5436:5436"
-    command: -p 5436
     networks:
       - microservices-net
     restart: always
@@ -255,14 +223,12 @@ services:
     networks:
       - microservices-net
     depends_on:
-      logstash:
-        condition: service_healthy
       zipkin:
         condition: service_started
       prometheus:
         condition: service_started
     healthcheck:
-      test: ["CMD", "wget", "--spider", "http://localhost:8888/actuator/health"]
+      test: [ "CMD", "wget", "--spider", "http://localhost:8888/actuator/health" ]
       interval: 30s
       timeout: 60s
       retries: 5

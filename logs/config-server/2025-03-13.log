@@ -1,5 +1,0 @@
-2025-03-13 05:06:47.953 [http-nio-8888-exec-10] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [C:\Users\omera\AppData\Local\Temp\config-repo-15632964576292939564\rest-data-provider.yml]' via location 'file:/C:/Users/omera/AppData/Local/Temp/config-repo-15632964576292939564/'
-2025-03-13 05:07:29.259 [http-nio-8888-exec-1] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [C:\Users\omera\AppData\Local\Temp\config-repo-15632964576292939564\rest-data-provider.yml]' via location 'file:/C:/Users/omera/AppData/Local/Temp/config-repo-15632964576292939564/'
-2025-03-13 05:10:18.262 [Thread-2] WARN  MultipleJGitEnvironmentRepository - Failed to delete temporary directory on exit: java.nio.file.AccessDeniedException: C:\Users\omera\AppData\Local\Temp\config-repo-15632964576292939564\.git\objects\pack\pack-934f5eaa27b5f55f398fc7e38c45c00a77467303.idx
-2025-03-13 05:10:18.301 [SpringApplicationShutdownHook] INFO  GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-03-13 05:10:18.319 [tomcat-shutdown] INFO  GracefulShutdown - Graceful shutdown complete

@@ -72,27 +72,3 @@ simulator:
       useMeanReversion: true
       kappa: 0.001
       theta: 1.0481
-
-    - rateName: "USDTRY"
-      initialPrice: 18.50
-      drift: 0.05
-      baseSpread: 0.02
-      garchParams:
-        omega: 1e-12
-        alpha: 0.0001
-        beta: 0.999
-      useMeanReversion: true
-      kappa: 0.01
-      theta: 18.50
-
-    - rateName: "GBPUSD"
-      initialPrice: 1850.0
-      drift: 0.0
-      baseSpread: 0.3
-      garchParams:
-        omega: 1e-12
-        alpha: 0.0001
-        beta: 0.999
-      useMeanReversion: true
-      kappa: 0.0
-      theta: 0.0

@@ -7,6 +7,14 @@ import jakarta.mail.internet.MimeMessage;
 
 import java.util.Properties;
 
+/**
+ * MailService provides functionality to send alert emails
+ * using SMTP configuration provided in {@link CoordinatorConfig.MailCfg}.
+ * Typically used to notify failures in subscribers or background tasks.
+ *
+ * @author Ömer Asaf BALIKÇI
+ */
+
 public class MailService {
     private final CoordinatorConfig.MailCfg cfg;
     private final Session session;

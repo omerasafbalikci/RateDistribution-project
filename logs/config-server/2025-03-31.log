@@ -1,3 +1,0 @@
-2025-03-31 03:24:33.759 [Thread-2] WARN  MultipleJGitEnvironmentRepository - Failed to delete temporary directory on exit: java.nio.file.AccessDeniedException: C:\Users\omera\AppData\Local\Temp\config-repo-12117814817541785279\.git\objects\pack\pack-569f53f13f2bc5806fe84e765025fd87008373b2.idx
-2025-03-31 03:24:34.120 [SpringApplicationShutdownHook] INFO  GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-03-31 03:24:34.169 [tomcat-shutdown] INFO  GracefulShutdown - Graceful shutdown complete

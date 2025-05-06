@@ -3,7 +3,7 @@
     <Properties>
         <!-- Define the log file location -->
         <Property name="LOG_DIR">logs</Property>
-        <Property name="SERVICE">rate-hub-consumer-db</Property>
+        <Property name="SERVICE">consumer-db</Property>
         <Property name="LOG_PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{rate}] [%thread] %-5level %c{1} - %msg%n</Property>
         <Property name="CONSOLE_LOG_PATTERN">%style{%d{yyyy-MM-dd HH:mm:ss.SSS}}{cyan} [%style{%X{rate}}{green}] [%style{%thread}{green}] %highlight{%-5level}{FATAL=bright red, ERROR=bright red, WARN=bright yellow, INFO=cyan, DEBUG=green, TRACE=blue} %style{%c{1}}{yellow} - %msg%n
         </Property>
