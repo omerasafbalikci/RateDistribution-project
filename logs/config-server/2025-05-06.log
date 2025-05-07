@@ -7,3 +7,5 @@
 2025-05-06 23:00:02.064 [] [http-nio-8888-exec-10] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-6468224349366622073/rate-hub-consumer-db.yml]' via location 'file:/tmp/config-repo-6468224349366622073/'
 2025-05-06 23:00:02.674 [] [http-nio-8888-exec-3] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-6468224349366622073/rate-hub-consumer-opensearch-docker.yml]' via location 'file:/tmp/config-repo-6468224349366622073/'
 2025-05-06 23:00:02.674 [] [http-nio-8888-exec-3] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-6468224349366622073/rate-hub-consumer-opensearch.yml]' via location 'file:/tmp/config-repo-6468224349366622073/'
+2025-05-06 23:29:57.734 [] [SpringApplicationShutdownHook] INFO  GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-06 23:29:57.748 [] [tomcat-shutdown] INFO  GracefulShutdown - Graceful shutdown complete

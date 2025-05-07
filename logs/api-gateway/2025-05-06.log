@@ -4,3 +4,15 @@
 2025-05-06 23:14:33.542 [] [reactor-http-epoll-9] WARN  HttpClientConnect - [e4129a9f-9, L:/172.18.0.16:50370 ! R:zipkin/172.18.0.5:9411] The connection observed an error
 reactor.netty.http.client.PrematureCloseException: Connection prematurely closed BEFORE response
 2025-05-06 23:18:03.435 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-05-06 23:23:03.424 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-05-06 23:28:03.414 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-05-06 23:29:49.962 [] [SpringApplicationShutdownHook] INFO  EurekaServiceRegistry - Unregistering application API-GATEWAY with eureka with status DOWN
+2025-05-06 23:29:49.976 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1746574189976, current=DOWN, previous=UP]
+2025-05-06 23:29:49.979 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_API-GATEWAY/api-gateway:8080: registering service...
+2025-05-06 23:29:50.013 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_API-GATEWAY/api-gateway:8080 - registration status: 204
+2025-05-06 23:29:50.026 [] [SpringApplicationShutdownHook] INFO  GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-06 23:29:50.038 [] [netty-shutdown] INFO  GracefulShutdown - Graceful shutdown complete
+2025-05-06 23:29:52.985 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Shutting down DiscoveryClient ...
+2025-05-06 23:29:55.986 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Unregistering ...
+2025-05-06 23:29:55.993 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - DiscoveryClient_API-GATEWAY/api-gateway:8080 - deregister  status: 200
+2025-05-06 23:29:55.994 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Completed shut down of DiscoveryClient

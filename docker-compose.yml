@@ -302,10 +302,8 @@ services:
   tcp-data-provider:
     image: omerasafbalikci/tcp-data-provider
     container_name: tcp-data-provider
-    ports:
-      - "8084:8084"
     volumes:
-      - ./RateDistribution-project/tcp-data-provider/config:/app/tcp-data-provider/config
+      - ./RateDistribution-project/config:/config
     networks:
       - microservices-net
     depends_on:
@@ -315,8 +313,6 @@ services:
   rate-hub:
     image: omerasafbalikci/rate-hub
     container_name: rate-hub
-    ports:
-      - "8085:8085"
     volumes:
       - ./RateDistribution-project/rate-hub/config:/app/rate-hub/config
     networks:

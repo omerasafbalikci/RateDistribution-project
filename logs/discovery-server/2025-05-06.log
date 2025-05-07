@@ -22,3 +22,72 @@
 2025-05-06 23:18:01.371 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
 2025-05-06 23:19:01.371 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
 2025-05-06 23:20:01.371 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-05-06 23:21:01.371 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-05-06 23:22:01.371 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-05-06 23:23:01.371 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-05-06 23:24:01.372 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-05-06 23:25:01.371 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-05-06 23:26:01.371 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-05-06 23:27:01.371 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-05-06 23:28:01.163 [] [ReplicaAwareInstanceRegistry - RenewalThresholdUpdater] INFO  PeerAwareInstanceRegistryImpl - Current renewal threshold is : 10
+2025-05-06 23:28:01.374 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 4ms
+2025-05-06 23:29:01.373 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-05-06 23:29:33.020 [] [http-nio-8761-exec-1] INFO  AbstractInstanceRegistry - Registered instance RATE-HUB-CONSUMER-DB/rate-hub-consumer-db:8085 with status DOWN (replication=false)
+2025-05-06 23:29:33.126 [] [http-nio-8761-exec-6] INFO  AbstractInstanceRegistry - Registered instance USER-MANAGEMENT-SERVICE/user-management-service:8082 with status DOWN (replication=false)
+2025-05-06 23:29:33.535 [] [http-nio-8761-exec-4] INFO  AbstractInstanceRegistry - Registered instance RATE-HUB-CONSUMER-DB/rate-hub-consumer-db:8085 with status DOWN (replication=true)
+2025-05-06 23:29:33.536 [] [http-nio-8761-exec-4] INFO  AbstractInstanceRegistry - Registered instance USER-MANAGEMENT-SERVICE/user-management-service:8082 with status DOWN (replication=true)
+2025-05-06 23:29:36.685 [] [http-nio-8761-exec-7] INFO  AbstractInstanceRegistry - Cancelled instance RATE-HUB-CONSUMER-DB/rate-hub-consumer-db:8085 (replication=false)
+2025-05-06 23:29:37.163 [] [http-nio-8761-exec-6] WARN  AbstractInstanceRegistry - DS: Registry: cancel failed because Lease is not registered for: RATE-HUB-CONSUMER-DB/rate-hub-consumer-db:8085
+2025-05-06 23:29:37.164 [] [http-nio-8761-exec-6] INFO  InstanceResource - Not Found (Cancel): RATE-HUB-CONSUMER-DB - rate-hub-consumer-db:8085
+2025-05-06 23:29:37.166 [] [TaskBatchingWorker-target_localhost-2] WARN  ReplicationTask - The replication of task RATE-HUB-CONSUMER-DB/rate-hub-consumer-db:8085:Cancel@localhost failed with response code 404
+2025-05-06 23:29:37.166 [] [TaskBatchingWorker-target_localhost-2] WARN  PeerEurekaNode - RATE-HUB-CONSUMER-DB/rate-hub-consumer-db:8085:Cancel@localhost: missing entry.
+2025-05-06 23:29:37.299 [] [http-nio-8761-exec-4] INFO  AbstractInstanceRegistry - Cancelled instance USER-MANAGEMENT-SERVICE/user-management-service:8082 (replication=false)
+2025-05-06 23:29:37.811 [] [http-nio-8761-exec-10] WARN  AbstractInstanceRegistry - DS: Registry: cancel failed because Lease is not registered for: USER-MANAGEMENT-SERVICE/user-management-service:8082
+2025-05-06 23:29:37.811 [] [http-nio-8761-exec-10] INFO  InstanceResource - Not Found (Cancel): USER-MANAGEMENT-SERVICE - user-management-service:8082
+2025-05-06 23:29:37.812 [] [TaskBatchingWorker-target_localhost-19] WARN  ReplicationTask - The replication of task USER-MANAGEMENT-SERVICE/user-management-service:8082:Cancel@localhost failed with response code 404
+2025-05-06 23:29:37.812 [] [TaskBatchingWorker-target_localhost-19] WARN  PeerEurekaNode - USER-MANAGEMENT-SERVICE/user-management-service:8082:Cancel@localhost: missing entry.
+2025-05-06 23:29:38.294 [] [http-nio-8761-exec-8] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/rest-data-provider:8083 with status DOWN (replication=false)
+2025-05-06 23:29:38.805 [] [http-nio-8761-exec-2] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/rest-data-provider:8083 with status DOWN (replication=true)
+2025-05-06 23:29:42.236 [] [http-nio-8761-exec-7] INFO  AbstractInstanceRegistry - Cancelled instance REST-DATA-PROVIDER/rest-data-provider:8083 (replication=false)
+2025-05-06 23:29:42.749 [] [http-nio-8761-exec-6] WARN  AbstractInstanceRegistry - DS: Registry: cancel failed because Lease is not registered for: REST-DATA-PROVIDER/rest-data-provider:8083
+2025-05-06 23:29:42.749 [] [http-nio-8761-exec-6] INFO  InstanceResource - Not Found (Cancel): REST-DATA-PROVIDER - rest-data-provider:8083
+2025-05-06 23:29:42.750 [] [TaskBatchingWorker-target_localhost-19] WARN  ReplicationTask - The replication of task REST-DATA-PROVIDER/rest-data-provider:8083:Cancel@localhost failed with response code 404
+2025-05-06 23:29:42.751 [] [TaskBatchingWorker-target_localhost-19] WARN  PeerEurekaNode - REST-DATA-PROVIDER/rest-data-provider:8083:Cancel@localhost: missing entry.
+2025-05-06 23:29:42.903 [] [http-nio-8761-exec-4] INFO  AbstractInstanceRegistry - Registered instance AUTH-SERVICE/auth-service:8081 with status DOWN (replication=false)
+2025-05-06 23:29:43.410 [] [http-nio-8761-exec-10] INFO  AbstractInstanceRegistry - Registered instance AUTH-SERVICE/auth-service:8081 with status DOWN (replication=true)
+2025-05-06 23:29:49.066 [] [http-nio-8761-exec-2] INFO  AbstractInstanceRegistry - Cancelled instance AUTH-SERVICE/auth-service:8081 (replication=false)
+2025-05-06 23:29:49.575 [] [http-nio-8761-exec-9] WARN  AbstractInstanceRegistry - DS: Registry: cancel failed because Lease is not registered for: AUTH-SERVICE/auth-service:8081
+2025-05-06 23:29:49.575 [] [http-nio-8761-exec-9] INFO  InstanceResource - Not Found (Cancel): AUTH-SERVICE - auth-service:8081
+2025-05-06 23:29:49.576 [] [TaskBatchingWorker-target_localhost-8] WARN  ReplicationTask - The replication of task AUTH-SERVICE/auth-service:8081:Cancel@localhost failed with response code 404
+2025-05-06 23:29:49.576 [] [TaskBatchingWorker-target_localhost-8] WARN  PeerEurekaNode - AUTH-SERVICE/auth-service:8081:Cancel@localhost: missing entry.
+2025-05-06 23:29:50.009 [] [http-nio-8761-exec-6] INFO  AbstractInstanceRegistry - Registered instance API-GATEWAY/api-gateway:8080 with status DOWN (replication=false)
+2025-05-06 23:29:50.512 [] [http-nio-8761-exec-4] INFO  AbstractInstanceRegistry - Registered instance API-GATEWAY/api-gateway:8080 with status DOWN (replication=true)
+2025-05-06 23:29:55.992 [] [http-nio-8761-exec-5] INFO  AbstractInstanceRegistry - Cancelled instance API-GATEWAY/api-gateway:8080 (replication=false)
+2025-05-06 23:29:56.501 [] [http-nio-8761-exec-8] WARN  AbstractInstanceRegistry - DS: Registry: cancel failed because Lease is not registered for: API-GATEWAY/api-gateway:8080
+2025-05-06 23:29:56.501 [] [http-nio-8761-exec-8] INFO  InstanceResource - Not Found (Cancel): API-GATEWAY - api-gateway:8080
+2025-05-06 23:29:56.502 [] [TaskBatchingWorker-target_localhost-8] WARN  ReplicationTask - The replication of task API-GATEWAY/api-gateway:8080:Cancel@localhost failed with response code 404
+2025-05-06 23:29:56.502 [] [TaskBatchingWorker-target_localhost-8] WARN  PeerEurekaNode - API-GATEWAY/api-gateway:8080:Cancel@localhost: missing entry.
+2025-05-06 23:29:56.756 [] [SpringApplicationShutdownHook] INFO  EurekaServiceRegistry - Unregistering application DISCOVERY-SERVER with eureka with status DOWN
+2025-05-06 23:29:56.776 [] [SpringApplicationShutdownHook] INFO  GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-06 23:29:56.795 [] [tomcat-shutdown] INFO  GracefulShutdown - Graceful shutdown complete
+2025-05-06 23:29:56.801 [] [SpringApplicationShutdownHook] INFO  EurekaServerBootstrap - Shutting down Eureka Server..
+2025-05-06 23:29:56.801 [] [SpringApplicationShutdownHook] INFO  DefaultEurekaServerContext - Shutting down ...
+2025-05-06 23:29:56.812 [] [SpringApplicationShutdownHook] INFO  DefaultEurekaServerContext - Shut down
+2025-05-06 23:29:56.812 [] [SpringApplicationShutdownHook] INFO  EurekaServerBootstrap - Eureka Service is now shutdown...
+2025-05-06 23:29:56.814 [] [SpringApplicationShutdownHook] INFO  DefaultEurekaServerContext - Shutting down ...
+2025-05-06 23:29:56.816 [] [SpringApplicationShutdownHook] INFO  DefaultEurekaServerContext - Shut down
+2025-05-06 23:29:56.807 [] [Eureka-Jersey3Client-Conn-Cleaner2] ERROR EurekaJersey3ClientImpl - Cannot clean connections
+java.lang.IllegalStateException: Client instance has been closed.
+	at org.glassfish.jersey.internal.guava.Preconditions.checkState(Preconditions.java:169) ~[jersey-common-3.1.10.jar!/:?]
+	at org.glassfish.jersey.client.JerseyClient.checkNotClosed(JerseyClient.java:248) ~[jersey-client-3.1.10.jar!/:?]
+	at org.glassfish.jersey.client.JerseyClient.getConfiguration(JerseyClient.java:363) ~[jersey-client-3.1.10.jar!/:?]
+	at org.glassfish.jersey.client.JerseyClient.getConfiguration(JerseyClient.java:54) ~[jersey-client-3.1.10.jar!/:?]
+	at com.netflix.discovery.shared.transport.jersey3.EurekaJersey3ClientImpl$ConnectionCleanerTask.run(EurekaJersey3ClientImpl.java:338) ~[eureka-client-jersey3-2.0.4.jar!/:2.0.4]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[?:?]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[?:?]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2025-05-06 23:29:56.826 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Shutting down DiscoveryClient ...
+2025-05-06 23:29:56.826 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Completed shut down of DiscoveryClient

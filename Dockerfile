@@ -15,7 +15,7 @@ WORKDIR /app
 
 COPY --from=builder /build/tcp-data-provider/target/tcp-data-provider-*.jar app.jar
 
-RUN mkdir /config2
+RUN mkdir /config
 ENV TZ=Europe/Istanbul
 EXPOSE 8084
 
