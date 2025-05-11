@@ -106,8 +106,6 @@ services:
     image: bitnami/zookeeper:latest
     platform: linux/amd64
     container_name: zookeeper
-    ports:
-      - "2181:2181"
     environment:
       ALLOW_ANONYMOUS_LOGIN: yes
     networks:
@@ -302,8 +300,10 @@ services:
   tcp-data-provider:
     image: omerasafbalikci/tcp-data-provider
     container_name: tcp-data-provider
+    ports:
+      - "8084:8084"
     volumes:
-      - ./RateDistribution-project/config:/config
+      - ./tcp-data-provider/config:/config:rw
     networks:
       - microservices-net
     depends_on:

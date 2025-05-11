@@ -4,8 +4,10 @@ import com.ratedistribution.ratehub.advice.GlobalExceptionHandler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.IOException;
-import java.nio.file.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.WatchService;
+import java.nio.file.attribute.FileTime;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
@@ -32,40 +34,29 @@ public class AppConfigReloader {
     }
 
     public void startWatching() {
-        try {
-            watchService = FileSystems.getDefault().newWatchService();
-            Path dir = configPath.getParent();
-            dir.register(watchService, StandardWatchEventKinds.ENTRY_MODIFY);
-            log.info("[AppConfigReloader] Watching config directory: {}", dir);
+        Thread.startVirtualThread(() -> {
+            try {
+                FileTime lastModified = Files.getLastModifiedTime(configPath);
+                log.info("[AppConfigReloader] Starting polling for config changes: {}", configPath);
 
-            Thread.startVirtualThread(() -> {
                 while (true) {
-                    try {
-                        WatchKey key = watchService.take();
-                        for (WatchEvent<?> event : key.pollEvents()) {
-                            Path changed = (Path) event.context();
-                            if (changed.endsWith(configPath.getFileName())) {
-                                log.warn("[AppConfigReloader] Configuration file changed. Reloading...");
-                                CoordinatorConfig updated = AppConfigLoader.load(configPath);
-                                if (updated != null) {
-                                    currentConfig.set(updated);
-                                    log.info("[AppConfigReloader] Configuration reloaded successfully.");
-                                } else {
-                                    log.warn("[AppConfigReloader] Failed to reload configuration.");
-                                }
-                            }
+                    Thread.sleep(3000); // Check every 3 seconds
+                    FileTime currentModified = Files.getLastModifiedTime(configPath);
+                    if (!currentModified.equals(lastModified)) {
+                        lastModified = currentModified;
+                        log.warn("[AppConfigReloader] Configuration file changed. Reloading...");
+                        CoordinatorConfig updated = AppConfigLoader.load(configPath);
+                        if (updated != null) {
+                            currentConfig.set(updated);
+                            log.info("[AppConfigReloader] Configuration reloaded successfully.");
+                        } else {
+                            log.warn("[AppConfigReloader] Failed to reload configuration.");
                         }
-                        key.reset();
-                    } catch (InterruptedException e) {
-                        log.info("[AppConfigReloader] Watcher interrupted. Stopping...");
-                        return;
-                    } catch (Exception e) {
-                        GlobalExceptionHandler.handle("AppConfigReloader.startWatching", e);
                     }
                 }
-            });
-        } catch (IOException e) {
-            GlobalExceptionHandler.fatal("AppConfigReloader.init", e);
-        }
+            } catch (Exception e) {
+                GlobalExceptionHandler.handle("AppConfigReloader.pollingWatcher", e);
+            }
+        });
     }
 }

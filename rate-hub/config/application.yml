@@ -2,7 +2,7 @@ hazelcast:
   clusterName: fx-rates
 
 kafka:
-  bootstrapServers: localhost:9092
+  bootstrapServers: kafka:9092
   rawTopic: ratehub.raw
   calcTopic: ratehub.calculated
 
@@ -10,7 +10,7 @@ threadPool:
   size: 32
 
 auth:
-  url: http://localhost:8080/auth/login
+  url: http://auth-service:8081/auth/login
   username: omerasafbalikci
   password: omerasaf18993
   refreshSkewSeconds: 60
@@ -18,29 +18,21 @@ auth:
 subscribers:
   - class: com.ratedistribution.ratehub.subscriber.impl.TcpSubscriber
     name: PF1
-    host: 127.0.0.1
+    host: tcp-data-provider
     port: 8084
-    rates: [ "EURUSD", "USDTRY", "GBPUSD" ]
+    rates: [ "EURUSD", "USDTRY" ]
 
   - class: com.ratedistribution.ratehub.subscriber.impl.RestSubscriber
     name: PF2
-    host: http://localhost:8080
-    port: 0
-    rates: [ "EURUSD", "USDTRY", "GBPUSD" ]
+    host: http://rest-data-provider:8083
+    port: 8083
+    rates: [ "EURUSD", "USDTRY" ]
 
 calculations:
   - rateName: EURUSD
     engine: groovy
     scriptPath: formulas/eurusd.groovy
     dependsOn: [ EURUSD, USDTRY ]
-
-  - rateName: EURTRY
-    engine: groovy
-    scriptPath: formulas/eurtry.groovy
-
-  - rateName: GBPTRY
-    engine: js
-    scriptPath: formulas/gbptry.js
 
   - rateName: USDTRY
     engine: java

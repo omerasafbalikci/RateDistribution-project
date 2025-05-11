@@ -1,0 +1,23 @@
+2025.05.07 08:23:18 INFO  app[][o.s.a.AppFileSystem] Cleaning or creating temp directory /opt/sonarqube/temp
+2025.05.07 08:23:18 INFO  app[][o.s.a.es.EsSettings] Elasticsearch listening on [HTTP: 127.0.0.1:9001, TCP: 127.0.0.1:36749]
+2025.05.07 08:23:18 INFO  app[][o.s.a.ProcessLauncherImpl] Launch process[ELASTICSEARCH] from [/opt/sonarqube/elasticsearch]: /opt/sonarqube/elasticsearch/bin/elasticsearch
+2025.05.07 08:23:18 INFO  app[][o.s.a.SchedulerImpl] Waiting for Elasticsearch to be up and running
+2025.05.07 08:23:22 INFO  app[][o.s.a.SchedulerImpl] Process[es] is up
+2025.05.07 08:23:22 INFO  app[][o.s.a.ProcessLauncherImpl] Launch process[WEB_SERVER] from [/opt/sonarqube]: /opt/java/openjdk/bin/java -Djava.awt.headless=true -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/opt/sonarqube/temp -XX:-OmitStackTraceInFastThrow --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED --add-exports=java.base/jdk.internal.ref=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.management/sun.management=ALL-UNNAMED --add-opens=jdk.management/com.sun.management.internal=ALL-UNNAMED -Dcom.redhat.fips=false -Xmx512m -Xms128m -XX:+HeapDumpOnOutOfMemoryError -Dhttp.nonProxyHosts=localhost|127.*|[::1] -cp ./lib/sonar-application-9.9.8.100196.jar:/opt/sonarqube/lib/jdbc/postgresql/postgresql-42.5.1.jar org.sonar.server.app.WebServer /opt/sonarqube/temp/sq-process18073392356379856511properties
+2025.05.07 08:23:56 INFO  app[][o.s.a.SchedulerImpl] Process[web] is up
+2025.05.07 08:23:56 INFO  app[][o.s.a.ProcessLauncherImpl] Launch process[COMPUTE_ENGINE] from [/opt/sonarqube]: /opt/java/openjdk/bin/java -Djava.awt.headless=true -Dfile.encoding=UTF-8 -Djava.io.tmpdir=/opt/sonarqube/temp -XX:-OmitStackTraceInFastThrow --add-opens=java.base/java.util=ALL-UNNAMED --add-exports=java.base/jdk.internal.ref=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.management/sun.management=ALL-UNNAMED --add-opens=jdk.management/com.sun.management.internal=ALL-UNNAMED -Dcom.redhat.fips=false -Xmx512m -Xms128m -XX:+HeapDumpOnOutOfMemoryError -Dhttp.nonProxyHosts=localhost|127.*|[::1] -cp ./lib/sonar-application-9.9.8.100196.jar:/opt/sonarqube/lib/jdbc/postgresql/postgresql-42.5.1.jar org.sonar.ce.app.CeServer /opt/sonarqube/temp/sq-process3251874368638220992properties
+2025.05.07 08:23:56 WARN  app[][startup] ####################################################################################################################
+2025.05.07 08:23:56 WARN  app[][startup] Default Administrator credentials are still being used. Make sure to change the password or deactivate the account.
+2025.05.07 08:23:56 WARN  app[][startup] ####################################################################################################################
+2025.05.07 08:23:59 INFO  app[][o.s.a.SchedulerImpl] Process[ce] is up
+2025.05.07 08:23:59 INFO  app[][o.s.a.SchedulerImpl] SonarQube is operational
+2025.05.07 09:03:31 INFO  app[][o.s.a.SchedulerImpl] Stopping SonarQube
+2025.05.07 09:03:31 INFO  app[][o.s.a.SchedulerImpl] Sonarqube has been requested to stop
+2025.05.07 09:03:31 INFO  app[][o.s.a.SchedulerImpl] Stopping [Compute Engine] process...
+2025.05.07 09:03:31 INFO  app[][o.s.a.SchedulerImpl] Process[Compute Engine] is stopped
+2025.05.07 09:03:31 INFO  app[][o.s.a.SchedulerImpl] Stopping [Web Server] process...
+2025.05.07 09:03:32 INFO  app[][o.s.a.SchedulerImpl] Process[Web Server] is stopped
+2025.05.07 09:03:32 INFO  app[][o.s.a.SchedulerImpl] Stopping [ElasticSearch] process...
+2025.05.07 09:03:32 INFO  app[][o.s.a.SchedulerImpl] Process[ElasticSearch] is stopped
+2025.05.07 09:03:32 WARN  app[][o.s.a.p.AbstractManagedProcess] Process exited with exit value [ElasticSearch]: 143
+2025.05.07 09:03:32 INFO  app[][o.s.a.SchedulerImpl] SonarQube is stopped

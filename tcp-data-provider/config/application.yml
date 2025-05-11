@@ -1,13 +1,13 @@
 tcp:
-  host: 127.0.0.1
+  host: tcp-data-provider
   port: 8084
 
 jwt:
   secret-key: "6bc18dff62463c49343d083ae0e523fbfb88d4d45b4a9cb62e86d0c53bd9b870"
   authorities-key: "roles"
 redis:
-  host: "localhost"
-  port: 6379
+  host: "redis"
+  port: 6380
 
 simulator:
   update-interval-millis: 1000
@@ -72,3 +72,15 @@ simulator:
       useMeanReversion: true
       kappa: 0.001
       theta: 1.0481
+
+    - rateName: "USDTRY"
+      initialPrice: 32.00
+      drift: 0.015
+      baseSpread: 0.002
+      garchParams:
+        omega: 0.000000000005
+        alpha: 0.12
+        beta: 0.85
+      useMeanReversion: true
+      kappa: 0.002
+      theta: 32.00

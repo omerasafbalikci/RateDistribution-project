@@ -34,14 +34,6 @@ calculations:
     scriptPath: formulas/eurusd.groovy
     dependsOn: [ EURUSD, USDTRY ]
 
-  - rateName: EURTRY
-    engine: groovy
-    scriptPath: formulas/eurtry.groovy
-
-  - rateName: GBPTRY
-    engine: js
-    scriptPath: formulas/gbptry.js
-
   - rateName: USDTRY
     engine: java
     scriptPath: formulas/usdtry.java

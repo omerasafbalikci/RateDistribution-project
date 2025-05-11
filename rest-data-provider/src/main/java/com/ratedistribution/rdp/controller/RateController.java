@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping("/api/rates")
+//@RequestMapping("/api/rates")
 @RequiredArgsConstructor
 @Log4j2
 public class RateController {
