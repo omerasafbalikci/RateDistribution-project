@@ -24,11 +24,10 @@ public class JwtUtil {
      * Constructs a JwtUtil instance by initializing the underlying JwtValidator
      * with required JWT and Redis configuration.
      *
-     * @param secretKey the base64 URL-encoded secret key
+     * @param secretKey      the base64 URL-encoded secret key
      * @param authoritiesKey the claim key used to extract roles
-     * @param redisHost Redis host for logout token tracking
-     * @param redisPort Redis port
-     *
+     * @param redisHost      Redis host for logout token tracking
+     * @param redisPort      Redis port
      */
     public JwtUtil(@Value("${jwt.secret-key}") String secretKey,
                    @Value("${jwt.authorities-key}") String authoritiesKey,
@@ -42,7 +41,6 @@ public class JwtUtil {
      *
      * @param token the JWT token
      * @return the token claims if valid
-     *
      */
     public Claims getClaimsAndValidate(String token) {
         return delegate.getClaimsAndValidate(token);
@@ -53,7 +51,6 @@ public class JwtUtil {
      *
      * @param token the JWT token
      * @return true if token is logged out; false otherwise
-     *
      */
     public boolean isLoggedOut(String token) {
         return delegate.isLoggedOut(token);
@@ -64,7 +61,6 @@ public class JwtUtil {
      *
      * @param claims the JWT claims
      * @return a list of roles
-     *
      */
     public List<String> getRoles(Claims claims) {
         return delegate.getRoles(claims);

@@ -1,6 +1,7 @@
 package com.ratedistribution.gateway.controller;
 
 import com.ratedistribution.gateway.utilities.exceptions.AuthServiceUnavailableException;
+import com.ratedistribution.gateway.utilities.exceptions.RestDataProviderUnavailableException;
 import com.ratedistribution.gateway.utilities.exceptions.UserServiceUnavailableException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -31,5 +32,14 @@ public class FallbackControllerTest {
                 () -> fallbackController.fallbackUser());
 
         assertEquals("User management service is temporarily unavailable. Please try again later.", exception.getMessage());
+    }
+
+    @Test
+    void whenFallbackRestEndpointIsCalled_thenRestDataProviderUnavailableExceptionIsThrown() {
+        // Act & Assert
+        Exception exception = assertThrows(RestDataProviderUnavailableException.class,
+                () -> fallbackController.fallbackRest());
+
+        assertEquals("Rest data provider is temporarily unavailable. Please try again later.", exception.getMessage());
     }
 }

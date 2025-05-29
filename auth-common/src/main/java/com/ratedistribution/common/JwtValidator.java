@@ -37,10 +37,9 @@ public class JwtValidator {
      * Constructs a JwtValidator with the given secret, roles claim key, and Redis configuration.
      *
      * @param secretBase64Url the base64 URL-encoded secret key for JWT verification
-     * @param rolesClaim the name of the claim that holds user roles
-     * @param redisHost the Redis server host
-     * @param redisPort the Redis server port
-     *
+     * @param rolesClaim      the name of the claim that holds user roles
+     * @param redisHost       the Redis server host
+     * @param redisPort       the Redis server port
      */
     public JwtValidator(String secretBase64Url,
                         String rolesClaim,
@@ -142,7 +141,6 @@ public class JwtValidator {
      *
      * @param secretKey the base64 URL-encoded secret
      * @return the generated SecretKey instance
-     *
      */
     private SecretKey getSignInKey(String secretKey) {
         log.trace("Entering getSignInKey method in JwtUtils");

@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
 
 import java.time.Duration;
 
-
 /**
  * Resilience4JConfig is a configuration class that customizes the default settings for circuit breakers
  * using Resilience4J in a Spring Cloud Gateway application. It defines circuit breaker and time limiter
