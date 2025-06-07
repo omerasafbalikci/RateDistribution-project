@@ -4,6 +4,7 @@ import com.ratedistribution.rdp.config.SimulatorProperties;
 import com.ratedistribution.rdp.model.HolidayDefinition;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
@@ -17,6 +18,7 @@ import java.time.Instant;
 
 @Service
 @RequiredArgsConstructor
+@RefreshScope
 @Log4j2
 public class HolidayCalendarService {
     private final SimulatorProperties simulatorProperties;

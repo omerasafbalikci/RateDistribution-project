@@ -10,6 +10,7 @@ import java.time.Instant;
  *
  * @author Ömer Asaf BALIKÇI
  */
+
 public interface ShockService {
     /**
      * Applies automatic shocks based on internal configuration.

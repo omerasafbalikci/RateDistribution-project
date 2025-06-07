@@ -7,6 +7,7 @@ import com.ratedistribution.rdp.model.ShockConfigDefinition;
 import com.ratedistribution.rdp.service.abstracts.ShockService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Service;
 
 import java.time.Duration;
@@ -23,6 +24,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 @RequiredArgsConstructor
+@RefreshScope
 @Log4j2
 public class ShockServiceImpl implements ShockService {
     private final SimulatorProperties simulatorProperties;

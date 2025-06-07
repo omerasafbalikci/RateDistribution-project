@@ -1,0 +1,548 @@
+2025-06-03 23:01:52.034 [] [background-preinit] INFO  Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-06-03 23:01:52.103 [] [main] INFO  ApiGatewayApplication - Starting ApiGatewayApplication v0.0.1-SNAPSHOT using Java 21.0.7 with PID 1 (/app.jar started by root in /)
+2025-06-03 23:01:52.105 [] [main] DEBUG ApiGatewayApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-06-03 23:01:52.106 [] [main] INFO  ApiGatewayApplication - The following 1 profile is active: "docker"
+2025-06-03 23:01:52.162 [] [main] INFO  ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+2025-06-03 23:01:52.162 [] [main] INFO  ConfigServerConfigDataLoader - Located environment: name=api-gateway, profiles=[default], label=null, version=4ee865fb8de4533689bf6ea5eafbe87cb4d988a5, state=
+2025-06-03 23:01:52.162 [] [main] INFO  ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+2025-06-03 23:01:52.162 [] [main] INFO  ConfigServerConfigDataLoader - Located environment: name=api-gateway, profiles=[docker], label=null, version=4ee865fb8de4533689bf6ea5eafbe87cb4d988a5, state=
+2025-06-03 23:01:54.999 [] [main] INFO  GenericScope - BeanFactory id=a35c85b8-7577-36ea-b43a-b0b26f2710bb
+2025-06-03 23:01:55.885 [] [main] TRACE JwtValidator - Entering getSignInKey method in JwtUtils
+2025-06-03 23:01:55.886 [] [main] DEBUG JwtValidator - Retrieving secret key for JWT validation.
+2025-06-03 23:01:55.894 [] [main] DEBUG JwtValidator - Secret key retrieved successfully.
+2025-06-03 23:01:55.894 [] [main] TRACE JwtValidator - Exiting getSignInKey method in JwtUtils
+2025-06-03 23:01:56.204 [] [main] TRACE AuthGatewayFilterFactory - Entering apply method in AuthGatewayFilterFactory class
+2025-06-03 23:01:56.532 [] [main] TRACE AuthGatewayFilterFactory - Entering apply method in AuthGatewayFilterFactory class
+2025-06-03 23:01:56.535 [] [main] TRACE AuthGatewayFilterFactory - Entering apply method in AuthGatewayFilterFactory class
+2025-06-03 23:01:58.032 [] [main] INFO  RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [After]
+2025-06-03 23:01:58.032 [] [main] INFO  RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Before]
+2025-06-03 23:01:58.033 [] [main] INFO  RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Between]
+2025-06-03 23:01:58.033 [] [main] INFO  RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Cookie]
+2025-06-03 23:01:58.033 [] [main] INFO  RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Header]
+2025-06-03 23:01:58.033 [] [main] INFO  RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Host]
+2025-06-03 23:01:58.034 [] [main] INFO  RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Method]
+2025-06-03 23:01:58.035 [] [main] INFO  RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Path]
+2025-06-03 23:01:58.035 [] [main] INFO  RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Query]
+2025-06-03 23:01:58.035 [] [main] INFO  RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [ReadBody]
+2025-06-03 23:01:58.035 [] [main] INFO  RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [RemoteAddr]
+2025-06-03 23:01:58.035 [] [main] INFO  RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2025-06-03 23:01:58.035 [] [main] INFO  RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Weight]
+2025-06-03 23:01:58.035 [] [main] INFO  RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2025-06-03 23:01:59.208 [] [main] INFO  EndpointLinksResolver - Exposing 32 endpoints beneath base path '/actuator'
+2025-06-03 23:02:00.373 [] [main] INFO  DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-06-03 23:02:00.534 [] [main] WARN  LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-06-03 23:02:00.724 [] [main] INFO  InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-06-03 23:02:00.828 [] [main] INFO  DiscoveryClient - Initializing Eureka in region us-east-1
+2025-06-03 23:02:00.834 [] [main] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-06-03 23:02:00.858 [] [main] INFO  DiscoveryClient - Disable delta property : false
+2025-06-03 23:02:00.858 [] [main] INFO  DiscoveryClient - Single vip registry refresh property : null
+2025-06-03 23:02:00.858 [] [main] INFO  DiscoveryClient - Force full registry fetch : false
+2025-06-03 23:02:00.859 [] [main] INFO  DiscoveryClient - Application is null : false
+2025-06-03 23:02:00.859 [] [main] INFO  DiscoveryClient - Registered Applications size is zero : true
+2025-06-03 23:02:00.859 [] [main] INFO  DiscoveryClient - Application version is -1: true
+2025-06-03 23:02:00.859 [] [main] INFO  DiscoveryClient - Getting all instance registry info from the eureka server
+2025-06-03 23:02:01.731 [] [main] INFO  DiscoveryClient - The response status is 200
+2025-06-03 23:02:01.734 [] [main] INFO  DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-06-03 23:02:01.738 [] [main] INFO  InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-06-03 23:02:01.741 [] [main] INFO  DiscoveryClient - Discovery Client initialized at timestamp 1748991721740 with initial instances count: 0
+2025-06-03 23:02:01.746 [] [main] INFO  EurekaServiceRegistry - Registering application API-GATEWAY with eureka with status UP
+2025-06-03 23:02:01.748 [] [main] INFO  DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1748991721748, current=UP, previous=STARTING]
+2025-06-03 23:02:01.750 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_API-GATEWAY/api-gateway:8080: registering service...
+2025-06-03 23:02:02.106 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_API-GATEWAY/api-gateway:8080 - registration status: 204
+2025-06-03 23:02:02.149 [] [main] INFO  NettyWebServer - Netty started on port 8080 (http)
+2025-06-03 23:02:02.152 [] [main] INFO  EurekaAutoServiceRegistration - Updating port to 8080
+2025-06-03 23:02:02.185 [] [main] INFO  ApiGatewayApplication - Started ApiGatewayApplication in 13.329 seconds (process running for 15.202)
+2025-06-03 23:02:31.733 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - Disable delta property : false
+2025-06-03 23:02:31.734 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - Single vip registry refresh property : null
+2025-06-03 23:02:31.734 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - Force full registry fetch : false
+2025-06-03 23:02:31.734 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - Application is null : false
+2025-06-03 23:02:31.734 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - Registered Applications size is zero : true
+2025-06-03 23:02:31.734 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - Application version is -1: false
+2025-06-03 23:02:31.734 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - Getting all instance registry info from the eureka server
+2025-06-03 23:02:31.750 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - The response status is 200
+2025-06-03 23:03:34.097 [] [reactor-http-epoll-5] WARN  HttpClientConnect - [6b4009cc-4, L:/172.18.0.10:50796 - R:zipkin/172.18.0.3:9411] The connection observed an error, the request cannot be retried as the headers/body were sent
+io.netty.channel.unix.Errors$NativeIoException: recvAddress(..) failed: Connection reset by peer
+2025-06-03 23:03:34.107 [] [AsyncReporter{ZipkinWebClientSender{http://zipkin:9411/api/v2/spans}}] WARN  AsyncReporter$BoundedAsyncReporter - Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
+2025-06-03 23:03:34.107 [] [AsyncReporter{ZipkinWebClientSender{http://zipkin:9411/api/v2/spans}}] WARN  AsyncReporter$BoundedAsyncReporter - Dropped 1 spans due to WebClientRequestException(recvAddress(..) failed: Connection reset by peer)
+org.springframework.web.reactive.function.client.WebClientRequestException: recvAddress(..) failed: Connection reset by peer
+	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:137) ~[spring-webflux-6.2.2.jar!/:6.2.2]
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ Request to POST http://zipkin:9411/api/v2/spans [DefaultWebClient]
+Original Stack Trace:
+		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:137) ~[spring-webflux-6.2.2.jar!/:6.2.2]
+		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:55) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4576) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:205) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:229) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:279) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.maybeOnError(FluxConcatMapNoPrefetch.java:327) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.onNext(FluxConcatMapNoPrefetch.java:212) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.SinkManyEmitterProcessor.drain(SinkManyEmitterProcessor.java:476) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.SinkManyEmitterProcessor$EmitterInner.drainParent(SinkManyEmitterProcessor.java:620) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxPublish$PubSubInner.request(FluxPublish.java:874) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.request(FluxConcatMapNoPrefetch.java:337) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.Operators$DeferredSubscription.request(Operators.java:1743) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:196) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.netty.http.client.HttpClientConnect$HttpObserver.onUncaughtException(HttpClientConnect.java:410) ~[reactor-netty-http-1.2.2.jar!/:1.2.2]
+		at reactor.netty.ReactorNetty$CompositeConnectionObserver.onUncaughtException(ReactorNetty.java:709) ~[reactor-netty-core-1.2.2.jar!/:1.2.2]
+		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onUncaughtException(DefaultPooledConnectionProvider.java:225) ~[reactor-netty-core-1.2.2.jar!/:1.2.2]
+		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnection.onUncaughtException(DefaultPooledConnectionProvider.java:478) ~[reactor-netty-core-1.2.2.jar!/:1.2.2]
+		at reactor.netty.channel.FluxReceive.drainReceiver(FluxReceive.java:245) ~[reactor-netty-core-1.2.2.jar!/:1.2.2]
+		at reactor.netty.channel.FluxReceive.onInboundError(FluxReceive.java:466) ~[reactor-netty-core-1.2.2.jar!/:1.2.2]
+		at reactor.netty.channel.ChannelOperations.onInboundError(ChannelOperations.java:526) ~[reactor-netty-core-1.2.2.jar!/:1.2.2]
+		at reactor.netty.channel.ChannelOperationsHandler.exceptionCaught(ChannelOperationsHandler.java:153) ~[reactor-netty-core-1.2.2.jar!/:1.2.2]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:346) ~[netty-transport-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:325) ~[netty-transport-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireExceptionCaught(AbstractChannelHandlerContext.java:317) ~[netty-transport-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireExceptionCaught(CombinedChannelDuplexHandler.java:424) ~[netty-transport-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.ChannelHandlerAdapter.exceptionCaught(ChannelHandlerAdapter.java:92) ~[netty-transport-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler$1.fireExceptionCaught(CombinedChannelDuplexHandler.java:145) ~[netty-transport-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.ChannelInboundHandlerAdapter.exceptionCaught(ChannelInboundHandlerAdapter.java:143) ~[netty-transport-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler.exceptionCaught(CombinedChannelDuplexHandler.java:231) ~[netty-transport-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:346) ~[netty-transport-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:325) ~[netty-transport-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireExceptionCaught(AbstractChannelHandlerContext.java:317) ~[netty-transport-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.DefaultChannelPipeline$HeadContext.exceptionCaught(DefaultChannelPipeline.java:1324) ~[netty-transport-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:346) ~[netty-transport-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeExceptionCaught(AbstractChannelHandlerContext.java:325) ~[netty-transport-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.DefaultChannelPipeline.fireExceptionCaught(DefaultChannelPipeline.java:856) ~[netty-transport-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.handleReadException(AbstractEpollStreamChannel.java:727) ~[netty-transport-classes-epoll-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:825) ~[netty-transport-classes-epoll-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:501) ~[netty-transport-classes-epoll-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:399) ~[netty-transport-classes-epoll-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+	Suppressed: java.lang.Exception: #block terminated with an error
+		at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:104) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.Mono.block(Mono.java:1779) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinWebClientSender.postSpans(ZipkinWebClientSender.java:58) ~[spring-boot-actuator-autoconfigure-3.4.2.jar!/:3.4.2]
+		at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.HttpSender.postSpans(HttpSender.java:69) ~[spring-boot-actuator-autoconfigure-3.4.2.jar!/:3.4.2]
+		at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.HttpSender.postSpans(HttpSender.java:41) ~[spring-boot-actuator-autoconfigure-3.4.2.jar!/:3.4.2]
+		at zipkin2.reporter.BaseHttpSender.send(BaseHttpSender.java:123) ~[zipkin-reporter-3.4.3.jar!/:?]
+		at zipkin2.reporter.internal.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:266) ~[zipkin-reporter-3.4.3.jar!/:?]
+		at zipkin2.reporter.internal.AsyncReporter$Flusher.run(AsyncReporter.java:352) ~[zipkin-reporter-3.4.3.jar!/:?]
+		at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: io.netty.channel.unix.Errors$NativeIoException: recvAddress(..) failed: Connection reset by peer
+2025-06-03 23:06:19.209 [] [reactor-http-epoll-8] WARN  HttpClientConnect - [3a7deba7-2, L:/172.18.0.10:33732 ! R:zipkin/172.18.0.3:9411] The connection observed an error
+reactor.netty.http.client.PrematureCloseException: Connection prematurely closed BEFORE response
+2025-06-03 23:07:00.850 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-06-03 23:12:00.841 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-06-03 23:14:34.450 [] [reactor-http-epoll-3] WARN  HttpClientConnect - [38ce21fd-11, L:/172.18.0.10:44774 - R:zipkin/172.18.0.3:9411] The connection observed an error, the request cannot be retried as the headers/body were sent
+io.netty.channel.unix.Errors$NativeIoException: recvAddress(..) failed: Connection reset by peer
+2025-06-03 23:16:03.488 [] [reactor-http-epoll-4] WARN  HttpClientConnect - [373f756b-6, L:/172.18.0.10:33702 ! R:zipkin/172.18.0.3:9411] The connection observed an error
+reactor.netty.http.client.PrematureCloseException: Connection prematurely closed BEFORE response
+2025-06-03 23:17:00.830 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-06-03 23:22:00.821 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-06-03 23:22:04.081 [] [SpringApplicationShutdownHook] INFO  EurekaServiceRegistry - Unregistering application API-GATEWAY with eureka with status DOWN
+2025-06-03 23:22:04.084 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1748992924084, current=DOWN, previous=UP]
+2025-06-03 23:22:04.085 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_API-GATEWAY/api-gateway:8080: registering service...
+2025-06-03 23:22:04.102 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_API-GATEWAY/api-gateway:8080 - registration status: 204
+2025-06-03 23:22:04.106 [] [SpringApplicationShutdownHook] INFO  GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-03 23:22:04.113 [] [netty-shutdown] INFO  GracefulShutdown - Graceful shutdown complete
+2025-06-03 23:22:06.899 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Shutting down DiscoveryClient ...
+2025-06-03 23:22:09.900 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Unregistering ...
+2025-06-03 23:22:09.911 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - DiscoveryClient_API-GATEWAY/api-gateway:8080 - deregister  status: 200
+2025-06-03 23:22:09.912 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Completed shut down of DiscoveryClient
+2025-06-03 23:22:54.338 [] [background-preinit] INFO  Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-06-03 23:22:54.403 [] [main] INFO  ApiGatewayApplication - Starting ApiGatewayApplication v0.0.1-SNAPSHOT using Java 21.0.7 with PID 1 (/app.jar started by root in /)
+2025-06-03 23:22:54.404 [] [main] DEBUG ApiGatewayApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-06-03 23:22:54.406 [] [main] INFO  ApiGatewayApplication - The following 1 profile is active: "docker"
+2025-06-03 23:22:54.449 [] [main] INFO  ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+2025-06-03 23:22:54.450 [] [main] INFO  ConfigServerConfigDataLoader - Located environment: name=api-gateway, profiles=[default], label=null, version=4ee865fb8de4533689bf6ea5eafbe87cb4d988a5, state=
+2025-06-03 23:22:54.451 [] [main] INFO  ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+2025-06-03 23:22:54.452 [] [main] INFO  ConfigServerConfigDataLoader - Located environment: name=api-gateway, profiles=[docker], label=null, version=4ee865fb8de4533689bf6ea5eafbe87cb4d988a5, state=
+2025-06-03 23:22:55.915 [] [main] INFO  GenericScope - BeanFactory id=a35c85b8-7577-36ea-b43a-b0b26f2710bb
+2025-06-03 23:22:56.262 [] [main] TRACE JwtValidator - Entering getSignInKey method in JwtUtils
+2025-06-03 23:22:56.262 [] [main] DEBUG JwtValidator - Retrieving secret key for JWT validation.
+2025-06-03 23:22:56.266 [] [main] DEBUG JwtValidator - Secret key retrieved successfully.
+2025-06-03 23:22:56.266 [] [main] TRACE JwtValidator - Exiting getSignInKey method in JwtUtils
+2025-06-03 23:22:56.372 [] [main] TRACE AuthGatewayFilterFactory - Entering apply method in AuthGatewayFilterFactory class
+2025-06-03 23:22:56.504 [] [main] TRACE AuthGatewayFilterFactory - Entering apply method in AuthGatewayFilterFactory class
+2025-06-03 23:22:56.505 [] [main] TRACE AuthGatewayFilterFactory - Entering apply method in AuthGatewayFilterFactory class
+2025-06-03 23:22:56.917 [] [main] INFO  RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [After]
+2025-06-03 23:22:56.917 [] [main] INFO  RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Before]
+2025-06-03 23:22:56.917 [] [main] INFO  RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Between]
+2025-06-03 23:22:56.917 [] [main] INFO  RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Cookie]
+2025-06-03 23:22:56.918 [] [main] INFO  RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Header]
+2025-06-03 23:22:56.918 [] [main] INFO  RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Host]
+2025-06-03 23:22:56.918 [] [main] INFO  RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Method]
+2025-06-03 23:22:56.918 [] [main] INFO  RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Path]
+2025-06-03 23:22:56.918 [] [main] INFO  RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Query]
+2025-06-03 23:22:56.918 [] [main] INFO  RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [ReadBody]
+2025-06-03 23:22:56.918 [] [main] INFO  RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [RemoteAddr]
+2025-06-03 23:22:56.918 [] [main] INFO  RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2025-06-03 23:22:56.918 [] [main] INFO  RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Weight]
+2025-06-03 23:22:56.918 [] [main] INFO  RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2025-06-03 23:22:57.284 [] [main] INFO  EndpointLinksResolver - Exposing 32 endpoints beneath base path '/actuator'
+2025-06-03 23:22:57.585 [] [main] INFO  DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-06-03 23:22:57.613 [] [main] WARN  LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-06-03 23:22:57.676 [] [main] INFO  InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-06-03 23:22:57.704 [] [main] INFO  DiscoveryClient - Initializing Eureka in region us-east-1
+2025-06-03 23:22:57.709 [] [main] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-06-03 23:22:57.719 [] [main] INFO  DiscoveryClient - Disable delta property : false
+2025-06-03 23:22:57.720 [] [main] INFO  DiscoveryClient - Single vip registry refresh property : null
+2025-06-03 23:22:57.720 [] [main] INFO  DiscoveryClient - Force full registry fetch : false
+2025-06-03 23:22:57.720 [] [main] INFO  DiscoveryClient - Application is null : false
+2025-06-03 23:22:57.720 [] [main] INFO  DiscoveryClient - Registered Applications size is zero : true
+2025-06-03 23:22:57.720 [] [main] INFO  DiscoveryClient - Application version is -1: true
+2025-06-03 23:22:57.721 [] [main] INFO  DiscoveryClient - Getting all instance registry info from the eureka server
+2025-06-03 23:22:58.095 [] [main] INFO  DiscoveryClient - The response status is 200
+2025-06-03 23:22:58.097 [] [main] INFO  DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-06-03 23:22:58.098 [] [main] INFO  InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-06-03 23:22:58.100 [] [main] INFO  DiscoveryClient - Discovery Client initialized at timestamp 1748992978100 with initial instances count: 0
+2025-06-03 23:22:58.102 [] [main] INFO  EurekaServiceRegistry - Registering application API-GATEWAY with eureka with status UP
+2025-06-03 23:22:58.103 [] [main] INFO  DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1748992978103, current=UP, previous=STARTING]
+2025-06-03 23:22:58.105 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_API-GATEWAY/api-gateway:8080: registering service...
+2025-06-03 23:22:58.194 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_API-GATEWAY/api-gateway:8080 - registration status: 204
+2025-06-03 23:22:58.229 [] [main] INFO  NettyWebServer - Netty started on port 8080 (http)
+2025-06-03 23:22:58.231 [] [main] INFO  EurekaAutoServiceRegistration - Updating port to 8080
+2025-06-03 23:22:58.248 [] [main] INFO  ApiGatewayApplication - Started ApiGatewayApplication in 5.856 seconds (process running for 6.802)
+2025-06-03 23:23:28.096 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - Disable delta property : false
+2025-06-03 23:23:28.096 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - Single vip registry refresh property : null
+2025-06-03 23:23:28.096 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - Force full registry fetch : false
+2025-06-03 23:23:28.096 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - Application is null : false
+2025-06-03 23:23:28.097 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - Registered Applications size is zero : true
+2025-06-03 23:23:28.097 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - Application version is -1: false
+2025-06-03 23:23:28.097 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - Getting all instance registry info from the eureka server
+2025-06-03 23:23:28.113 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - The response status is 200
+2025-06-03 23:27:57.713 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-06-03 23:29:17.094 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - Processing request for path: /api/rates/EURUSD
+2025-06-03 23:29:17.095 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Request is to a secured route: /api/rates/EURUSD
+2025-06-03 23:29:17.095 [] [reactor-http-epoll-10] ERROR AuthGatewayFilterFactory - Missing or invalid authorization header for request path: /api/rates/EURUSD
+2025-06-03 23:29:24.282 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - Processing request for path: /auth/login
+2025-06-03 23:29:24.282 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Request is to an unsecured route: /auth/login
+2025-06-03 23:29:29.334 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - Processing request for path: /auth/login
+2025-06-03 23:29:29.335 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Request is to an unsecured route: /auth/login
+2025-06-03 23:29:45.870 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - Processing request for path: /api/rates/EURUSD
+2025-06-03 23:29:45.871 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Request is to a secured route: /api/rates/EURUSD
+2025-06-03 23:29:45.871 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Extracted token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:45.871 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering getClaimsAndValidate method in JwtUtils
+2025-06-03 23:29:45.871 [] [reactor-http-epoll-10] DEBUG JwtValidator - Validating token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:45.977 [] [reactor-http-epoll-10] INFO  JwtValidator - Token validated successfully. Claims: {sub=super, roles=[ADMIN, OPERATOR, ANALYST], iat=1748993369, exp=1748996969}
+2025-06-03 23:29:45.977 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting getClaimsAndValidate method in JwtUtils
+2025-06-03 23:29:45.977 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering isLoggedOut method in JwtUtils
+2025-06-03 23:29:45.977 [] [reactor-http-epoll-10] DEBUG JwtValidator - Checking if token is logged out: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:45.979 [] [reactor-http-epoll-10] INFO  JwtValidator - Token eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13 logout status: false
+2025-06-03 23:29:45.980 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting isLoggedOut method in JwtUtils
+2025-06-03 23:29:45.980 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - Authenticated user: super
+2025-06-03 23:29:45.994 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Role-based authorization needed for path: /api/rates/EURUSD
+2025-06-03 23:29:45.995 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering getRoles method in JwtUtils
+2025-06-03 23:29:45.995 [] [reactor-http-epoll-10] DEBUG JwtValidator - Extracting roles from claims: {sub=super, roles=[ADMIN, OPERATOR, ANALYST], iat=1748993369, exp=1748996969}
+2025-06-03 23:29:45.995 [] [reactor-http-epoll-10] INFO  JwtValidator - Roles extracted: [ADMIN, OPERATOR, ANALYST]
+2025-06-03 23:29:45.995 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting getRoles method in JwtUtils
+2025-06-03 23:29:45.996 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - User super authorized for path: /api/rates/EURUSD
+2025-06-03 23:29:45.996 [] [reactor-http-epoll-10] TRACE AuthGatewayFilterFactory - Exiting apply method in AuthGatewayFilterFactory class with successful authentication
+2025-06-03 23:29:47.569 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - Processing request for path: /api/rates/EURUSD
+2025-06-03 23:29:47.569 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Request is to a secured route: /api/rates/EURUSD
+2025-06-03 23:29:47.569 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Extracted token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:47.569 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering getClaimsAndValidate method in JwtUtils
+2025-06-03 23:29:47.569 [] [reactor-http-epoll-10] DEBUG JwtValidator - Validating token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:47.571 [] [reactor-http-epoll-10] INFO  JwtValidator - Token validated successfully. Claims: {sub=super, roles=[ADMIN, OPERATOR, ANALYST], iat=1748993369, exp=1748996969}
+2025-06-03 23:29:47.571 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting getClaimsAndValidate method in JwtUtils
+2025-06-03 23:29:47.571 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering isLoggedOut method in JwtUtils
+2025-06-03 23:29:47.571 [] [reactor-http-epoll-10] DEBUG JwtValidator - Checking if token is logged out: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:47.572 [] [reactor-http-epoll-10] INFO  JwtValidator - Token eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13 logout status: false
+2025-06-03 23:29:47.572 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting isLoggedOut method in JwtUtils
+2025-06-03 23:29:47.572 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - Authenticated user: super
+2025-06-03 23:29:47.573 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Role-based authorization needed for path: /api/rates/EURUSD
+2025-06-03 23:29:47.573 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering getRoles method in JwtUtils
+2025-06-03 23:29:47.573 [] [reactor-http-epoll-10] DEBUG JwtValidator - Extracting roles from claims: {sub=super, roles=[ADMIN, OPERATOR, ANALYST], iat=1748993369, exp=1748996969}
+2025-06-03 23:29:47.573 [] [reactor-http-epoll-10] INFO  JwtValidator - Roles extracted: [ADMIN, OPERATOR, ANALYST]
+2025-06-03 23:29:47.573 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting getRoles method in JwtUtils
+2025-06-03 23:29:47.573 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - User super authorized for path: /api/rates/EURUSD
+2025-06-03 23:29:47.573 [] [reactor-http-epoll-10] TRACE AuthGatewayFilterFactory - Exiting apply method in AuthGatewayFilterFactory class with successful authentication
+2025-06-03 23:29:48.394 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - Processing request for path: /api/rates/EURUSD
+2025-06-03 23:29:48.395 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Request is to a secured route: /api/rates/EURUSD
+2025-06-03 23:29:48.395 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Extracted token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:48.395 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering getClaimsAndValidate method in JwtUtils
+2025-06-03 23:29:48.395 [] [reactor-http-epoll-10] DEBUG JwtValidator - Validating token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:48.397 [] [reactor-http-epoll-10] INFO  JwtValidator - Token validated successfully. Claims: {sub=super, roles=[ADMIN, OPERATOR, ANALYST], iat=1748993369, exp=1748996969}
+2025-06-03 23:29:48.397 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting getClaimsAndValidate method in JwtUtils
+2025-06-03 23:29:48.397 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering isLoggedOut method in JwtUtils
+2025-06-03 23:29:48.397 [] [reactor-http-epoll-10] DEBUG JwtValidator - Checking if token is logged out: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:48.398 [] [reactor-http-epoll-10] INFO  JwtValidator - Token eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13 logout status: false
+2025-06-03 23:29:48.398 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting isLoggedOut method in JwtUtils
+2025-06-03 23:29:48.398 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - Authenticated user: super
+2025-06-03 23:29:48.398 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Role-based authorization needed for path: /api/rates/EURUSD
+2025-06-03 23:29:48.399 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering getRoles method in JwtUtils
+2025-06-03 23:29:48.399 [] [reactor-http-epoll-10] DEBUG JwtValidator - Extracting roles from claims: {sub=super, roles=[ADMIN, OPERATOR, ANALYST], iat=1748993369, exp=1748996969}
+2025-06-03 23:29:48.399 [] [reactor-http-epoll-10] INFO  JwtValidator - Roles extracted: [ADMIN, OPERATOR, ANALYST]
+2025-06-03 23:29:48.400 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting getRoles method in JwtUtils
+2025-06-03 23:29:48.400 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - User super authorized for path: /api/rates/EURUSD
+2025-06-03 23:29:48.400 [] [reactor-http-epoll-10] TRACE AuthGatewayFilterFactory - Exiting apply method in AuthGatewayFilterFactory class with successful authentication
+2025-06-03 23:29:49.234 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - Processing request for path: /api/rates/EURUSD
+2025-06-03 23:29:49.234 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Request is to a secured route: /api/rates/EURUSD
+2025-06-03 23:29:49.234 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Extracted token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:49.234 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering getClaimsAndValidate method in JwtUtils
+2025-06-03 23:29:49.234 [] [reactor-http-epoll-10] DEBUG JwtValidator - Validating token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:49.236 [] [reactor-http-epoll-10] INFO  JwtValidator - Token validated successfully. Claims: {sub=super, roles=[ADMIN, OPERATOR, ANALYST], iat=1748993369, exp=1748996969}
+2025-06-03 23:29:49.236 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting getClaimsAndValidate method in JwtUtils
+2025-06-03 23:29:49.236 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering isLoggedOut method in JwtUtils
+2025-06-03 23:29:49.236 [] [reactor-http-epoll-10] DEBUG JwtValidator - Checking if token is logged out: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:49.238 [] [reactor-http-epoll-10] INFO  JwtValidator - Token eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13 logout status: false
+2025-06-03 23:29:49.239 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting isLoggedOut method in JwtUtils
+2025-06-03 23:29:49.239 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - Authenticated user: super
+2025-06-03 23:29:49.240 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Role-based authorization needed for path: /api/rates/EURUSD
+2025-06-03 23:29:49.240 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering getRoles method in JwtUtils
+2025-06-03 23:29:49.241 [] [reactor-http-epoll-10] DEBUG JwtValidator - Extracting roles from claims: {sub=super, roles=[ADMIN, OPERATOR, ANALYST], iat=1748993369, exp=1748996969}
+2025-06-03 23:29:49.241 [] [reactor-http-epoll-10] INFO  JwtValidator - Roles extracted: [ADMIN, OPERATOR, ANALYST]
+2025-06-03 23:29:49.241 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting getRoles method in JwtUtils
+2025-06-03 23:29:49.241 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - User super authorized for path: /api/rates/EURUSD
+2025-06-03 23:29:49.241 [] [reactor-http-epoll-10] TRACE AuthGatewayFilterFactory - Exiting apply method in AuthGatewayFilterFactory class with successful authentication
+2025-06-03 23:29:50.036 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - Processing request for path: /api/rates/EURUSD
+2025-06-03 23:29:50.036 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Request is to a secured route: /api/rates/EURUSD
+2025-06-03 23:29:50.036 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Extracted token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:50.036 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering getClaimsAndValidate method in JwtUtils
+2025-06-03 23:29:50.036 [] [reactor-http-epoll-10] DEBUG JwtValidator - Validating token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:50.038 [] [reactor-http-epoll-10] INFO  JwtValidator - Token validated successfully. Claims: {sub=super, roles=[ADMIN, OPERATOR, ANALYST], iat=1748993369, exp=1748996969}
+2025-06-03 23:29:50.038 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting getClaimsAndValidate method in JwtUtils
+2025-06-03 23:29:50.038 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering isLoggedOut method in JwtUtils
+2025-06-03 23:29:50.038 [] [reactor-http-epoll-10] DEBUG JwtValidator - Checking if token is logged out: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:50.039 [] [reactor-http-epoll-10] INFO  JwtValidator - Token eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13 logout status: false
+2025-06-03 23:29:50.039 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting isLoggedOut method in JwtUtils
+2025-06-03 23:29:50.039 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - Authenticated user: super
+2025-06-03 23:29:50.040 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Role-based authorization needed for path: /api/rates/EURUSD
+2025-06-03 23:29:50.040 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering getRoles method in JwtUtils
+2025-06-03 23:29:50.040 [] [reactor-http-epoll-10] DEBUG JwtValidator - Extracting roles from claims: {sub=super, roles=[ADMIN, OPERATOR, ANALYST], iat=1748993369, exp=1748996969}
+2025-06-03 23:29:50.040 [] [reactor-http-epoll-10] INFO  JwtValidator - Roles extracted: [ADMIN, OPERATOR, ANALYST]
+2025-06-03 23:29:50.041 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting getRoles method in JwtUtils
+2025-06-03 23:29:50.041 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - User super authorized for path: /api/rates/EURUSD
+2025-06-03 23:29:50.041 [] [reactor-http-epoll-10] TRACE AuthGatewayFilterFactory - Exiting apply method in AuthGatewayFilterFactory class with successful authentication
+2025-06-03 23:29:51.375 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - Processing request for path: /api/rates/EURUSD
+2025-06-03 23:29:51.375 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Request is to a secured route: /api/rates/EURUSD
+2025-06-03 23:29:51.376 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Extracted token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:51.376 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering getClaimsAndValidate method in JwtUtils
+2025-06-03 23:29:51.376 [] [reactor-http-epoll-10] DEBUG JwtValidator - Validating token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:51.377 [] [reactor-http-epoll-10] INFO  JwtValidator - Token validated successfully. Claims: {sub=super, roles=[ADMIN, OPERATOR, ANALYST], iat=1748993369, exp=1748996969}
+2025-06-03 23:29:51.377 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting getClaimsAndValidate method in JwtUtils
+2025-06-03 23:29:51.377 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering isLoggedOut method in JwtUtils
+2025-06-03 23:29:51.378 [] [reactor-http-epoll-10] DEBUG JwtValidator - Checking if token is logged out: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:51.378 [] [reactor-http-epoll-10] INFO  JwtValidator - Token eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13 logout status: false
+2025-06-03 23:29:51.379 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting isLoggedOut method in JwtUtils
+2025-06-03 23:29:51.379 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - Authenticated user: super
+2025-06-03 23:29:51.379 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Role-based authorization needed for path: /api/rates/EURUSD
+2025-06-03 23:29:51.379 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering getRoles method in JwtUtils
+2025-06-03 23:29:51.380 [] [reactor-http-epoll-10] DEBUG JwtValidator - Extracting roles from claims: {sub=super, roles=[ADMIN, OPERATOR, ANALYST], iat=1748993369, exp=1748996969}
+2025-06-03 23:29:51.380 [] [reactor-http-epoll-10] INFO  JwtValidator - Roles extracted: [ADMIN, OPERATOR, ANALYST]
+2025-06-03 23:29:51.380 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting getRoles method in JwtUtils
+2025-06-03 23:29:51.381 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - User super authorized for path: /api/rates/EURUSD
+2025-06-03 23:29:51.381 [] [reactor-http-epoll-10] TRACE AuthGatewayFilterFactory - Exiting apply method in AuthGatewayFilterFactory class with successful authentication
+2025-06-03 23:29:52.289 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - Processing request for path: /api/rates/EURUSD
+2025-06-03 23:29:52.291 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Request is to a secured route: /api/rates/EURUSD
+2025-06-03 23:29:52.291 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Extracted token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:52.291 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering getClaimsAndValidate method in JwtUtils
+2025-06-03 23:29:52.291 [] [reactor-http-epoll-10] DEBUG JwtValidator - Validating token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:52.293 [] [reactor-http-epoll-10] INFO  JwtValidator - Token validated successfully. Claims: {sub=super, roles=[ADMIN, OPERATOR, ANALYST], iat=1748993369, exp=1748996969}
+2025-06-03 23:29:52.293 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting getClaimsAndValidate method in JwtUtils
+2025-06-03 23:29:52.293 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering isLoggedOut method in JwtUtils
+2025-06-03 23:29:52.293 [] [reactor-http-epoll-10] DEBUG JwtValidator - Checking if token is logged out: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:52.301 [] [reactor-http-epoll-10] INFO  JwtValidator - Token eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13 logout status: false
+2025-06-03 23:29:52.307 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting isLoggedOut method in JwtUtils
+2025-06-03 23:29:52.307 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - Authenticated user: super
+2025-06-03 23:29:52.308 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Role-based authorization needed for path: /api/rates/EURUSD
+2025-06-03 23:29:52.308 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering getRoles method in JwtUtils
+2025-06-03 23:29:52.308 [] [reactor-http-epoll-10] DEBUG JwtValidator - Extracting roles from claims: {sub=super, roles=[ADMIN, OPERATOR, ANALYST], iat=1748993369, exp=1748996969}
+2025-06-03 23:29:52.308 [] [reactor-http-epoll-10] INFO  JwtValidator - Roles extracted: [ADMIN, OPERATOR, ANALYST]
+2025-06-03 23:29:52.308 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting getRoles method in JwtUtils
+2025-06-03 23:29:52.308 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - User super authorized for path: /api/rates/EURUSD
+2025-06-03 23:29:52.308 [] [reactor-http-epoll-10] TRACE AuthGatewayFilterFactory - Exiting apply method in AuthGatewayFilterFactory class with successful authentication
+2025-06-03 23:29:53.115 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - Processing request for path: /api/rates/EURUSD
+2025-06-03 23:29:53.115 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Request is to a secured route: /api/rates/EURUSD
+2025-06-03 23:29:53.115 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Extracted token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:53.115 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering getClaimsAndValidate method in JwtUtils
+2025-06-03 23:29:53.116 [] [reactor-http-epoll-10] DEBUG JwtValidator - Validating token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:53.117 [] [reactor-http-epoll-10] INFO  JwtValidator - Token validated successfully. Claims: {sub=super, roles=[ADMIN, OPERATOR, ANALYST], iat=1748993369, exp=1748996969}
+2025-06-03 23:29:53.117 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting getClaimsAndValidate method in JwtUtils
+2025-06-03 23:29:53.117 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering isLoggedOut method in JwtUtils
+2025-06-03 23:29:53.117 [] [reactor-http-epoll-10] DEBUG JwtValidator - Checking if token is logged out: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:53.119 [] [reactor-http-epoll-10] INFO  JwtValidator - Token eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13 logout status: false
+2025-06-03 23:29:53.119 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting isLoggedOut method in JwtUtils
+2025-06-03 23:29:53.119 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - Authenticated user: super
+2025-06-03 23:29:53.120 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Role-based authorization needed for path: /api/rates/EURUSD
+2025-06-03 23:29:53.120 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering getRoles method in JwtUtils
+2025-06-03 23:29:53.120 [] [reactor-http-epoll-10] DEBUG JwtValidator - Extracting roles from claims: {sub=super, roles=[ADMIN, OPERATOR, ANALYST], iat=1748993369, exp=1748996969}
+2025-06-03 23:29:53.120 [] [reactor-http-epoll-10] INFO  JwtValidator - Roles extracted: [ADMIN, OPERATOR, ANALYST]
+2025-06-03 23:29:53.120 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting getRoles method in JwtUtils
+2025-06-03 23:29:53.120 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - User super authorized for path: /api/rates/EURUSD
+2025-06-03 23:29:53.120 [] [reactor-http-epoll-10] TRACE AuthGatewayFilterFactory - Exiting apply method in AuthGatewayFilterFactory class with successful authentication
+2025-06-03 23:29:53.919 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - Processing request for path: /api/rates/EURUSD
+2025-06-03 23:29:53.919 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Request is to a secured route: /api/rates/EURUSD
+2025-06-03 23:29:53.920 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Extracted token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:53.920 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering getClaimsAndValidate method in JwtUtils
+2025-06-03 23:29:53.920 [] [reactor-http-epoll-10] DEBUG JwtValidator - Validating token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:53.921 [] [reactor-http-epoll-10] INFO  JwtValidator - Token validated successfully. Claims: {sub=super, roles=[ADMIN, OPERATOR, ANALYST], iat=1748993369, exp=1748996969}
+2025-06-03 23:29:53.921 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting getClaimsAndValidate method in JwtUtils
+2025-06-03 23:29:53.921 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering isLoggedOut method in JwtUtils
+2025-06-03 23:29:53.921 [] [reactor-http-epoll-10] DEBUG JwtValidator - Checking if token is logged out: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:53.922 [] [reactor-http-epoll-10] INFO  JwtValidator - Token eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13 logout status: false
+2025-06-03 23:29:53.923 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting isLoggedOut method in JwtUtils
+2025-06-03 23:29:53.923 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - Authenticated user: super
+2025-06-03 23:29:53.923 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Role-based authorization needed for path: /api/rates/EURUSD
+2025-06-03 23:29:53.923 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering getRoles method in JwtUtils
+2025-06-03 23:29:53.923 [] [reactor-http-epoll-10] DEBUG JwtValidator - Extracting roles from claims: {sub=super, roles=[ADMIN, OPERATOR, ANALYST], iat=1748993369, exp=1748996969}
+2025-06-03 23:29:53.924 [] [reactor-http-epoll-10] INFO  JwtValidator - Roles extracted: [ADMIN, OPERATOR, ANALYST]
+2025-06-03 23:29:53.924 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting getRoles method in JwtUtils
+2025-06-03 23:29:53.924 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - User super authorized for path: /api/rates/EURUSD
+2025-06-03 23:29:53.924 [] [reactor-http-epoll-10] TRACE AuthGatewayFilterFactory - Exiting apply method in AuthGatewayFilterFactory class with successful authentication
+2025-06-03 23:29:54.730 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - Processing request for path: /api/rates/EURUSD
+2025-06-03 23:29:54.730 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Request is to a secured route: /api/rates/EURUSD
+2025-06-03 23:29:54.731 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Extracted token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:54.731 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering getClaimsAndValidate method in JwtUtils
+2025-06-03 23:29:54.731 [] [reactor-http-epoll-10] DEBUG JwtValidator - Validating token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:54.732 [] [reactor-http-epoll-10] INFO  JwtValidator - Token validated successfully. Claims: {sub=super, roles=[ADMIN, OPERATOR, ANALYST], iat=1748993369, exp=1748996969}
+2025-06-03 23:29:54.732 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting getClaimsAndValidate method in JwtUtils
+2025-06-03 23:29:54.732 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering isLoggedOut method in JwtUtils
+2025-06-03 23:29:54.732 [] [reactor-http-epoll-10] DEBUG JwtValidator - Checking if token is logged out: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:54.733 [] [reactor-http-epoll-10] INFO  JwtValidator - Token eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13 logout status: false
+2025-06-03 23:29:54.733 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting isLoggedOut method in JwtUtils
+2025-06-03 23:29:54.734 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - Authenticated user: super
+2025-06-03 23:29:54.734 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Role-based authorization needed for path: /api/rates/EURUSD
+2025-06-03 23:29:54.734 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering getRoles method in JwtUtils
+2025-06-03 23:29:54.734 [] [reactor-http-epoll-10] DEBUG JwtValidator - Extracting roles from claims: {sub=super, roles=[ADMIN, OPERATOR, ANALYST], iat=1748993369, exp=1748996969}
+2025-06-03 23:29:54.734 [] [reactor-http-epoll-10] INFO  JwtValidator - Roles extracted: [ADMIN, OPERATOR, ANALYST]
+2025-06-03 23:29:54.734 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting getRoles method in JwtUtils
+2025-06-03 23:29:54.735 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - User super authorized for path: /api/rates/EURUSD
+2025-06-03 23:29:54.735 [] [reactor-http-epoll-10] TRACE AuthGatewayFilterFactory - Exiting apply method in AuthGatewayFilterFactory class with successful authentication
+2025-06-03 23:29:55.568 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - Processing request for path: /api/rates/EURUSD
+2025-06-03 23:29:55.568 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Request is to a secured route: /api/rates/EURUSD
+2025-06-03 23:29:55.569 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Extracted token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:55.569 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering getClaimsAndValidate method in JwtUtils
+2025-06-03 23:29:55.569 [] [reactor-http-epoll-10] DEBUG JwtValidator - Validating token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:55.570 [] [reactor-http-epoll-10] INFO  JwtValidator - Token validated successfully. Claims: {sub=super, roles=[ADMIN, OPERATOR, ANALYST], iat=1748993369, exp=1748996969}
+2025-06-03 23:29:55.570 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting getClaimsAndValidate method in JwtUtils
+2025-06-03 23:29:55.570 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering isLoggedOut method in JwtUtils
+2025-06-03 23:29:55.571 [] [reactor-http-epoll-10] DEBUG JwtValidator - Checking if token is logged out: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:55.571 [] [reactor-http-epoll-10] INFO  JwtValidator - Token eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13 logout status: false
+2025-06-03 23:29:55.572 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting isLoggedOut method in JwtUtils
+2025-06-03 23:29:55.572 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - Authenticated user: super
+2025-06-03 23:29:55.572 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Role-based authorization needed for path: /api/rates/EURUSD
+2025-06-03 23:29:55.572 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering getRoles method in JwtUtils
+2025-06-03 23:29:55.572 [] [reactor-http-epoll-10] DEBUG JwtValidator - Extracting roles from claims: {sub=super, roles=[ADMIN, OPERATOR, ANALYST], iat=1748993369, exp=1748996969}
+2025-06-03 23:29:55.572 [] [reactor-http-epoll-10] INFO  JwtValidator - Roles extracted: [ADMIN, OPERATOR, ANALYST]
+2025-06-03 23:29:55.573 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting getRoles method in JwtUtils
+2025-06-03 23:29:55.573 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - User super authorized for path: /api/rates/EURUSD
+2025-06-03 23:29:55.573 [] [reactor-http-epoll-10] TRACE AuthGatewayFilterFactory - Exiting apply method in AuthGatewayFilterFactory class with successful authentication
+2025-06-03 23:29:56.371 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - Processing request for path: /api/rates/EURUSD
+2025-06-03 23:29:56.372 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Request is to a secured route: /api/rates/EURUSD
+2025-06-03 23:29:56.372 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Extracted token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:56.372 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering getClaimsAndValidate method in JwtUtils
+2025-06-03 23:29:56.372 [] [reactor-http-epoll-10] DEBUG JwtValidator - Validating token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:56.373 [] [reactor-http-epoll-10] INFO  JwtValidator - Token validated successfully. Claims: {sub=super, roles=[ADMIN, OPERATOR, ANALYST], iat=1748993369, exp=1748996969}
+2025-06-03 23:29:56.373 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting getClaimsAndValidate method in JwtUtils
+2025-06-03 23:29:56.373 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering isLoggedOut method in JwtUtils
+2025-06-03 23:29:56.373 [] [reactor-http-epoll-10] DEBUG JwtValidator - Checking if token is logged out: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:56.374 [] [reactor-http-epoll-10] INFO  JwtValidator - Token eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13 logout status: false
+2025-06-03 23:29:56.375 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting isLoggedOut method in JwtUtils
+2025-06-03 23:29:56.375 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - Authenticated user: super
+2025-06-03 23:29:56.375 [] [reactor-http-epoll-10] DEBUG AuthGatewayFilterFactory - Role-based authorization needed for path: /api/rates/EURUSD
+2025-06-03 23:29:56.375 [] [reactor-http-epoll-10] TRACE JwtValidator - Entering getRoles method in JwtUtils
+2025-06-03 23:29:56.375 [] [reactor-http-epoll-10] DEBUG JwtValidator - Extracting roles from claims: {sub=super, roles=[ADMIN, OPERATOR, ANALYST], iat=1748993369, exp=1748996969}
+2025-06-03 23:29:56.376 [] [reactor-http-epoll-10] INFO  JwtValidator - Roles extracted: [ADMIN, OPERATOR, ANALYST]
+2025-06-03 23:29:56.376 [] [reactor-http-epoll-10] TRACE JwtValidator - Exiting getRoles method in JwtUtils
+2025-06-03 23:29:56.376 [] [reactor-http-epoll-10] INFO  AuthGatewayFilterFactory - User super authorized for path: /api/rates/EURUSD
+2025-06-03 23:29:56.376 [] [reactor-http-epoll-10] TRACE AuthGatewayFilterFactory - Exiting apply method in AuthGatewayFilterFactory class with successful authentication
+2025-06-03 23:31:49.097 [] [reactor-http-epoll-11] WARN  HttpClientConnect - [804c00f3-7, L:/172.18.0.5:38236 ! R:zipkin/172.18.0.3:9411] The connection observed an error
+reactor.netty.http.client.PrematureCloseException: Connection prematurely closed BEFORE response
+2025-06-03 23:31:49.110 [] [AsyncReporter{ZipkinWebClientSender{http://zipkin:9411/api/v2/spans}}] WARN  AsyncReporter$BoundedAsyncReporter - Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
+2025-06-03 23:31:49.111 [] [AsyncReporter{ZipkinWebClientSender{http://zipkin:9411/api/v2/spans}}] WARN  AsyncReporter$BoundedAsyncReporter - Dropped 1 spans due to WebClientRequestException(Connection prematurely closed BEFORE response)
+org.springframework.web.reactive.function.client.WebClientRequestException: Connection prematurely closed BEFORE response
+	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:137) ~[spring-webflux-6.2.2.jar!/:6.2.2]
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ Request to POST http://zipkin:9411/api/v2/spans [DefaultWebClient]
+Original Stack Trace:
+		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:137) ~[spring-webflux-6.2.2.jar!/:6.2.2]
+		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:55) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4576) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:205) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:229) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:279) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.maybeOnError(FluxConcatMapNoPrefetch.java:327) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.onNext(FluxConcatMapNoPrefetch.java:212) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.SinkManyEmitterProcessor.drain(SinkManyEmitterProcessor.java:476) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.SinkManyEmitterProcessor$EmitterInner.drainParent(SinkManyEmitterProcessor.java:620) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxPublish$PubSubInner.request(FluxPublish.java:874) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.request(FluxConcatMapNoPrefetch.java:337) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.Operators$DeferredSubscription.request(Operators.java:1743) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:196) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.netty.http.client.HttpClientConnect$HttpObserver.onUncaughtException(HttpClientConnect.java:410) ~[reactor-netty-http-1.2.2.jar!/:1.2.2]
+		at reactor.netty.ReactorNetty$CompositeConnectionObserver.onUncaughtException(ReactorNetty.java:709) ~[reactor-netty-core-1.2.2.jar!/:1.2.2]
+		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onUncaughtException(DefaultPooledConnectionProvider.java:225) ~[reactor-netty-core-1.2.2.jar!/:1.2.2]
+		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnection.onUncaughtException(DefaultPooledConnectionProvider.java:478) ~[reactor-netty-core-1.2.2.jar!/:1.2.2]
+		at reactor.netty.http.client.HttpClientOperations.onInboundClose(HttpClientOperations.java:346) ~[reactor-netty-http-1.2.2.jar!/:1.2.2]
+		at reactor.netty.channel.ChannelOperationsHandler.channelInactive(ChannelOperationsHandler.java:73) ~[reactor-netty-core-1.2.2.jar!/:1.2.2]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:303) ~[netty-transport-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:281) ~[netty-transport-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:274) ~[netty-transport-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.ChannelInboundHandlerAdapter.channelInactive(ChannelInboundHandlerAdapter.java:81) ~[netty-transport-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.handler.codec.http.HttpContentDecoder.channelInactive(HttpContentDecoder.java:235) ~[netty-codec-http-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:303) ~[netty-transport-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:281) ~[netty-transport-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:274) ~[netty-transport-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelInactive(CombinedChannelDuplexHandler.java:418) ~[netty-transport-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.channelInputClosed(ByteToMessageDecoder.java:412) ~[netty-codec-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.channelInactive(ByteToMessageDecoder.java:377) ~[netty-codec-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.handler.codec.http.HttpClientCodec$Decoder.channelInactive(HttpClientCodec.java:410) ~[netty-codec-http-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler.channelInactive(CombinedChannelDuplexHandler.java:221) ~[netty-transport-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:303) ~[netty-transport-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:281) ~[netty-transport-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelInactive(AbstractChannelHandlerContext.java:274) ~[netty-transport-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.DefaultChannelPipeline$HeadContext.channelInactive(DefaultChannelPipeline.java:1352) ~[netty-transport-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:301) ~[netty-transport-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelInactive(AbstractChannelHandlerContext.java:281) ~[netty-transport-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.DefaultChannelPipeline.fireChannelInactive(DefaultChannelPipeline.java:850) ~[netty-transport-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.AbstractChannel$AbstractUnsafe$7.run(AbstractChannel.java:811) ~[netty-transport-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:405) ~[netty-transport-classes-epoll-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+	Suppressed: java.lang.Exception: #block terminated with an error
+		at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:104) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.Mono.block(Mono.java:1779) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinWebClientSender.postSpans(ZipkinWebClientSender.java:58) ~[spring-boot-actuator-autoconfigure-3.4.2.jar!/:3.4.2]
+		at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.HttpSender.postSpans(HttpSender.java:69) ~[spring-boot-actuator-autoconfigure-3.4.2.jar!/:3.4.2]
+		at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.HttpSender.postSpans(HttpSender.java:41) ~[spring-boot-actuator-autoconfigure-3.4.2.jar!/:3.4.2]
+		at zipkin2.reporter.BaseHttpSender.send(BaseHttpSender.java:123) ~[zipkin-reporter-3.4.3.jar!/:?]
+		at zipkin2.reporter.internal.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:266) ~[zipkin-reporter-3.4.3.jar!/:?]
+		at zipkin2.reporter.internal.AsyncReporter$Flusher.run(AsyncReporter.java:352) ~[zipkin-reporter-3.4.3.jar!/:?]
+		at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: reactor.netty.http.client.PrematureCloseException: Connection prematurely closed BEFORE response
+2025-06-03 23:32:03.013 [] [SpringApplicationShutdownHook] INFO  EurekaServiceRegistry - Unregistering application API-GATEWAY with eureka with status DOWN
+2025-06-03 23:32:03.014 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1748993523014, current=DOWN, previous=UP]
+2025-06-03 23:32:03.015 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_API-GATEWAY/api-gateway:8080: registering service...
+2025-06-03 23:32:03.024 [] [SpringApplicationShutdownHook] INFO  GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-03 23:32:03.029 [] [netty-shutdown] INFO  GracefulShutdown - Graceful shutdown complete
+2025-06-03 23:32:03.039 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_API-GATEWAY/api-gateway:8080 - registration status: 204
+2025-06-03 23:32:05.133 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Shutting down DiscoveryClient ...
+2025-06-03 23:32:08.133 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Unregistering ...
+2025-06-03 23:32:08.141 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - DiscoveryClient_API-GATEWAY/api-gateway:8080 - deregister  status: 200
+2025-06-03 23:32:08.142 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Completed shut down of DiscoveryClient

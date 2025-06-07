@@ -1,0 +1,50 @@
+2025-06-04 00:53:14.684 [] [main] TRACE AuthGatewayFilterFactory - Entering apply method in AuthGatewayFilterFactory class
+2025-06-04 00:53:14.703 [] [main] INFO  AuthGatewayFilterFactory - Processing request for path: null
+2025-06-04 00:53:14.704 [] [main] DEBUG AuthGatewayFilterFactory - Request is to a secured route: null
+2025-06-04 00:53:14.705 [] [main] DEBUG AuthGatewayFilterFactory - Extracted token: ValidToken
+2025-06-04 00:53:14.705 [] [main] INFO  AuthGatewayFilterFactory - Authenticated user: testuser
+2025-06-04 00:53:14.705 [] [main] DEBUG AuthGatewayFilterFactory - Role-based authorization needed for path: null
+2025-06-04 00:53:14.705 [] [main] ERROR AuthGatewayFilterFactory - No roles found in token for user: testuser
+2025-06-04 00:53:14.750 [] [main] TRACE AuthGatewayFilterFactory - Entering apply method in AuthGatewayFilterFactory class
+2025-06-04 00:53:14.751 [] [main] INFO  AuthGatewayFilterFactory - Processing request for path: null
+2025-06-04 00:53:14.751 [] [main] DEBUG AuthGatewayFilterFactory - Request is to a secured route: null
+2025-06-04 00:53:14.751 [] [main] DEBUG AuthGatewayFilterFactory - Extracted token: ValidToken
+2025-06-04 00:53:14.753 [] [main] INFO  AuthGatewayFilterFactory - Authenticated user: testuser
+2025-06-04 00:53:14.754 [] [main] TRACE AuthGatewayFilterFactory - Exiting apply method in AuthGatewayFilterFactory class with successful authentication
+2025-06-04 00:53:14.805 [] [main] TRACE AuthGatewayFilterFactory - Entering apply method in AuthGatewayFilterFactory class
+2025-06-04 00:53:14.807 [] [main] INFO  AuthGatewayFilterFactory - Processing request for path: /user/me
+2025-06-04 00:53:14.807 [] [main] DEBUG AuthGatewayFilterFactory - Request is to a secured route: /user/me
+2025-06-04 00:53:14.807 [] [main] DEBUG AuthGatewayFilterFactory - Extracted token: ValidToken
+2025-06-04 00:53:14.808 [] [main] INFO  AuthGatewayFilterFactory - Authenticated user: testuser
+2025-06-04 00:53:14.808 [] [main] DEBUG AuthGatewayFilterFactory - Role-based authorization needed for path: /user/me
+2025-06-04 00:53:14.809 [] [main] ERROR AuthGatewayFilterFactory - User testuser does not have sufficient roles for path: /user/me
+2025-06-04 00:53:14.816 [] [main] TRACE AuthGatewayFilterFactory - Entering apply method in AuthGatewayFilterFactory class
+2025-06-04 00:53:14.817 [] [main] INFO  AuthGatewayFilterFactory - Processing request for path: null
+2025-06-04 00:53:14.818 [] [main] DEBUG AuthGatewayFilterFactory - Request is to a secured route: null
+2025-06-04 00:53:14.818 [] [main] ERROR AuthGatewayFilterFactory - Missing or invalid authorization header for request path: null
+2025-06-04 00:53:14.823 [] [main] TRACE AuthGatewayFilterFactory - Entering apply method in AuthGatewayFilterFactory class
+2025-06-04 00:53:14.824 [] [main] INFO  AuthGatewayFilterFactory - Processing request for path: null
+2025-06-04 00:53:14.824 [] [main] DEBUG AuthGatewayFilterFactory - Request is to a secured route: null
+2025-06-04 00:53:14.825 [] [main] DEBUG AuthGatewayFilterFactory - Extracted token: InvalidToken
+2025-06-04 00:53:14.825 [] [main] ERROR AuthGatewayFilterFactory - Invalid token for request path: null
+2025-06-04 00:53:14.831 [] [main] TRACE AuthGatewayFilterFactory - Entering apply method in AuthGatewayFilterFactory class
+2025-06-04 00:53:14.831 [] [main] INFO  AuthGatewayFilterFactory - Processing request for path: null
+2025-06-04 00:53:14.832 [] [main] DEBUG AuthGatewayFilterFactory - Request is to a secured route: null
+2025-06-04 00:53:14.832 [] [main] ERROR AuthGatewayFilterFactory - Missing or invalid authorization header for request path: null
+2025-06-04 00:53:14.840 [] [main] TRACE AuthGatewayFilterFactory - Entering apply method in AuthGatewayFilterFactory class
+2025-06-04 00:53:14.840 [] [main] INFO  AuthGatewayFilterFactory - Processing request for path: null
+2025-06-04 00:53:14.841 [] [main] DEBUG AuthGatewayFilterFactory - Request is to a secured route: null
+2025-06-04 00:53:14.841 [] [main] DEBUG AuthGatewayFilterFactory - Extracted token: LoggedOutToken
+2025-06-04 00:53:14.841 [] [main] ERROR AuthGatewayFilterFactory - Token is logged out: LoggedOutToken
+2025-06-04 00:53:14.848 [] [main] TRACE AuthGatewayFilterFactory - Entering apply method in AuthGatewayFilterFactory class
+2025-06-04 00:53:14.848 [] [main] INFO  AuthGatewayFilterFactory - Processing request for path: null
+2025-06-04 00:53:14.848 [] [main] DEBUG AuthGatewayFilterFactory - Request is to an unsecured route: null
+2025-06-04 00:53:15.122 [] [main] TRACE FallbackController - Entering fallbackUser method in FallbackController
+2025-06-04 00:53:15.123 [] [main] ERROR FallbackController - User service is unavailable, executing fallback method
+2025-06-04 00:53:15.123 [] [main] TRACE FallbackController - Exiting fallbackUser method in FallbackController
+2025-06-04 00:53:15.128 [] [main] TRACE FallbackController - Entering fallbackRest method in FallbackController
+2025-06-04 00:53:15.128 [] [main] ERROR FallbackController - Rest data provider is unavailable, executing fallback method
+2025-06-04 00:53:15.128 [] [main] TRACE FallbackController - Exiting fallbackRest method in FallbackController
+2025-06-04 00:53:15.132 [] [main] TRACE FallbackController - Entering fallbackAuth method in FallbackController
+2025-06-04 00:53:15.132 [] [main] ERROR FallbackController - Auth service is unavailable, executing fallback method
+2025-06-04 00:53:15.132 [] [main] TRACE FallbackController - Exiting fallbackAuth method in FallbackController

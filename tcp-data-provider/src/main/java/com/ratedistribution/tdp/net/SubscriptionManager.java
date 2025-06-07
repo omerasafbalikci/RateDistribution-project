@@ -63,9 +63,9 @@ public class SubscriptionManager {
      * Protected by a circuit breaker to prevent overload.
      *
      * @param sym  The symbol to broadcast for.
-     * @param json The JSON message to send.
+     * @param message The JSON message to send.
      */
-    public void broadcast(String sym, String json) {
+    public void broadcast(String sym, Object message) {
         String key = sym.toUpperCase(Locale.ROOT);
         Set<ClientSession> sessions = map.get(key);
         if (sessions == null || sessions.isEmpty()) {
@@ -75,7 +75,7 @@ public class SubscriptionManager {
 
         Runnable push = () -> sessions.forEach(cs -> {
             try {
-                cs.push(json);
+                cs.push(message);
             } catch (Exception e) {
                 GlobalExceptionHandler.handle("Broadcast to " + key, e);
                 log.warn("Failed to push update to client {}", cs.getSocket().getRemoteSocketAddress());

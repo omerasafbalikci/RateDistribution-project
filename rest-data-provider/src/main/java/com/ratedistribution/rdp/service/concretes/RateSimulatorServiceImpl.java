@@ -8,6 +8,9 @@ import com.ratedistribution.rdp.service.abstracts.ShockService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.apache.logging.log4j.ThreadContext;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.cloud.context.scope.refresh.RefreshScopeRefreshedEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
@@ -34,6 +37,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
+@RefreshScope
 @Log4j2
 public class RateSimulatorServiceImpl implements RateSimulatorService {
     private final SimulatorProperties simulatorProperties;
@@ -42,9 +46,15 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
     private final HolidayCalendarService holidayCalendarService;
     private final ShockService shockService;
     private final ThreadPoolTaskExecutor rateUpdateExecutor;
-    private Instant lastUpdate = null;
+    private Instant lastUpdate;
     private static final String ASSET_STATE_KEY = "ASSET_STATES";
     private static final String RATE_RESPONSE_KEY = "RATES";
+
+    @EventListener(RefreshScopeRefreshedEvent.class)
+    public void onRefresh() {
+        lastUpdate = null;
+        log.info("Rebuilt RateSimulatorServiceImpl → reset internal counters");
+    }
 
     /**
      * Updates all defined rates asynchronously.
@@ -439,7 +449,7 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
     private boolean isWeekend(Instant instant) {
         DayOfWeek dow = instant.atZone(ZoneId.systemDefault()).getDayOfWeek();
         log.debug("Checked if date {} is dow: {}", instant, dow);
-        return dow == DayOfWeek.SATURDAY || dow == DayOfWeek.MONDAY;
+        return dow == DayOfWeek.MONDAY || dow == DayOfWeek.SUNDAY;
     }
 
     /**

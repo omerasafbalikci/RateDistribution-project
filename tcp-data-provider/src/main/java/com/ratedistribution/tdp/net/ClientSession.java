@@ -2,6 +2,7 @@ package com.ratedistribution.tdp.net;
 
 import com.ratedistribution.common.JwtValidator;
 import com.ratedistribution.tdp.advice.GlobalExceptionHandler;
+import com.ratedistribution.tdp.utilities.serializer.JsonUtils;
 import io.jsonwebtoken.Claims;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -174,11 +175,14 @@ public class ClientSession implements Runnable {
     /**
      * Sends a message to the client as a data push.
      *
-     * @param json JSON-encoded message
+     * @param payload JSON-encoded message
      */
-    void push(String json) {
+    void push(Object payload) {
         try {
-            send(json);
+            String msg = (payload instanceof String)
+                    ? (String) payload
+                    : JsonUtils.toJson(payload);
+            send(msg);
         } catch (Exception e) {
             log.warn("Failed to push to {}: {}", socket.getRemoteSocketAddress(), e.getMessage());
             GlobalExceptionHandler.handle("ClientSession.push", e);

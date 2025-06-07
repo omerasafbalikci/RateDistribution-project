@@ -1,0 +1,20 @@
+2025-06-07 23:03:15.323 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-06-07 23:04:20.325 [] [reactor-http-epoll-7] WARN  HttpClientConnect - [c9cf17b7-7, L:/172.18.0.10:59020 - R:zipkin/172.18.0.5:9411] The connection observed an error, the request cannot be retried as the headers/body were sent
+io.netty.channel.unix.Errors$NativeIoException: recvAddress(..) failed: Connection reset by peer
+2025-06-07 23:08:15.313 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-06-07 23:13:15.300 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-06-07 23:14:20.503 [] [reactor-http-epoll-3] WARN  HttpClientConnect - [f14042ac-7, L:/172.18.0.10:57248 ! R:zipkin/172.18.0.5:9411] The connection observed an error
+reactor.netty.http.client.PrematureCloseException: Connection prematurely closed BEFORE response
+2025-06-07 23:18:15.287 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-06-07 23:21:34.632 [] [reactor-http-epoll-7] WARN  HttpClientConnect - [425b911f-8, L:/172.18.0.10:42454 - R:zipkin/172.18.0.5:9411] The connection observed an error, the request cannot be retried as the headers/body were sent
+io.netty.channel.unix.Errors$NativeIoException: recvAddress(..) failed: Connection reset by peer
+2025-06-07 23:23:15.274 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-06-07 23:28:15.262 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-06-07 23:32:34.837 [] [reactor-http-epoll-1] WARN  HttpClientConnect - [bfefb39b-2, L:/172.18.0.10:41548 - R:zipkin/172.18.0.5:9411] The connection observed an error, the request cannot be retried as the headers/body were sent
+io.netty.channel.unix.Errors$NativeIoException: recvAddress(..) failed: Connection reset by peer
+2025-06-07 23:33:15.251 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-06-07 23:38:15.240 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-06-07 23:38:49.956 [] [reactor-http-epoll-6] WARN  HttpClientConnect - [0d03d684-2, L:/172.18.0.10:33106 ! R:zipkin/172.18.0.5:9411] The connection observed an error
+reactor.netty.http.client.PrematureCloseException: Connection prematurely closed BEFORE response
+2025-06-07 23:40:50.003 [] [reactor-http-epoll-7] WARN  HttpClientConnect - [63466076-8, L:/172.18.0.10:60200 ! R:zipkin/172.18.0.5:9411] The connection observed an error
+reactor.netty.http.client.PrematureCloseException: Connection prematurely closed BEFORE response

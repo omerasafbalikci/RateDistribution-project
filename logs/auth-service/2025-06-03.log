@@ -1,0 +1,964 @@
+2025-06-03 23:01:55.127 [] [background-preinit] INFO  Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-06-03 23:01:55.261 [] [main] INFO  AuthServiceApplication - Starting AuthServiceApplication v0.0.1-SNAPSHOT using Java 21.0.7 with PID 1 (/app.jar started by root in /)
+2025-06-03 23:01:55.269 [] [main] DEBUG AuthServiceApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-06-03 23:01:55.273 [] [main] INFO  AuthServiceApplication - The following 1 profile is active: "docker"
+2025-06-03 23:01:55.367 [] [main] INFO  ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+2025-06-03 23:01:55.367 [] [main] INFO  ConfigServerConfigDataLoader - Located environment: name=auth-service, profiles=[default], label=null, version=4ee865fb8de4533689bf6ea5eafbe87cb4d988a5, state=
+2025-06-03 23:01:55.368 [] [main] INFO  ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+2025-06-03 23:01:55.368 [] [main] INFO  ConfigServerConfigDataLoader - Located environment: name=auth-service, profiles=[docker], label=null, version=4ee865fb8de4533689bf6ea5eafbe87cb4d988a5, state=
+2025-06-03 23:02:00.559 [] [main] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-03 23:02:00.563 [] [main] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-03 23:02:00.979 [] [main] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 368 ms. Found 3 JPA repository interfaces.
+2025-06-03 23:02:01.022 [] [main] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-03 23:02:01.027 [] [main] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-06-03 23:02:01.084 [] [main] INFO  RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ratedistribution.auth.repository.RoleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-06-03 23:02:01.085 [] [main] INFO  RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ratedistribution.auth.repository.TokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-06-03 23:02:01.085 [] [main] INFO  RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ratedistribution.auth.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-06-03 23:02:01.085 [] [main] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 17 ms. Found 0 Redis repository interfaces.
+2025-06-03 23:02:01.854 [] [main] INFO  GenericScope - BeanFactory id=1b0d3377-b80a-348a-9738-cf32f1a608be
+2025-06-03 23:02:03.145 [] [main] INFO  TomcatWebServer - Tomcat initialized with port 8081 (http)
+2025-06-03 23:02:03.169 [] [main] INFO  Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2025-06-03 23:02:03.173 [] [main] INFO  StandardService - Starting service [Tomcat]
+2025-06-03 23:02:03.174 [] [main] INFO  StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-06-03 23:02:03.219 [] [main] INFO  [/] - Initializing Spring embedded WebApplicationContext
+2025-06-03 23:02:03.221 [] [main] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 7849 ms
+2025-06-03 23:02:04.695 [] [main] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-03 23:02:04.816 [] [main] INFO  Version - HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-06-03 23:02:04.906 [] [main] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-06-03 23:02:05.550 [] [main] INFO  SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-03 23:02:05.622 [] [main] INFO  HikariDataSource - HikariPool-1 - Starting...
+2025-06-03 23:02:05.919 [] [main] INFO  HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@776b7fa2
+2025-06-03 23:02:05.921 [] [main] INFO  HikariDataSource - HikariPool-1 - Start completed.
+2025-06-03 23:02:06.013 [] [main] INFO  pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-03 23:02:07.277 [] [main] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-03 23:02:07.364 [] [main] INFO  LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-03 23:02:07.928 [] [main] INFO  InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2025-06-03 23:02:08.010 [] [main] INFO  QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-03 23:02:08.701 [] [main] TRACE UserServiceImpl - Initializing JedisPool with Redis Host: redis and Port: 6380
+2025-06-03 23:02:08.831 [] [main] TRACE UserServiceImpl - Exiting init method in UserServiceImpl
+2025-06-03 23:02:10.902 [] [main] INFO  EndpointLinksResolver - Exposing 18 endpoints beneath base path '/actuator'
+2025-06-03 23:02:10.996 [] [main] INFO  DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-06-03 23:02:11.075 [] [main] WARN  LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-06-03 23:02:11.181 [] [main] INFO  InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-06-03 23:02:11.213 [] [main] INFO  DiscoveryClient - Initializing Eureka in region us-east-1
+2025-06-03 23:02:11.217 [] [main] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-06-03 23:02:11.225 [] [main] INFO  DiscoveryClient - Disable delta property : false
+2025-06-03 23:02:11.225 [] [main] INFO  DiscoveryClient - Single vip registry refresh property : null
+2025-06-03 23:02:11.226 [] [main] INFO  DiscoveryClient - Force full registry fetch : false
+2025-06-03 23:02:11.226 [] [main] INFO  DiscoveryClient - Application is null : false
+2025-06-03 23:02:11.226 [] [main] INFO  DiscoveryClient - Registered Applications size is zero : true
+2025-06-03 23:02:11.226 [] [main] INFO  DiscoveryClient - Application version is -1: true
+2025-06-03 23:02:11.226 [] [main] INFO  DiscoveryClient - Getting all instance registry info from the eureka server
+2025-06-03 23:02:11.477 [] [main] INFO  DiscoveryClient - The response status is 200
+2025-06-03 23:02:11.479 [] [main] INFO  DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-06-03 23:02:11.481 [] [main] INFO  InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-06-03 23:02:11.483 [] [main] INFO  DiscoveryClient - Discovery Client initialized at timestamp 1748991731483 with initial instances count: 0
+2025-06-03 23:02:11.488 [] [main] INFO  EurekaServiceRegistry - Registering application AUTH-SERVICE with eureka with status UP
+2025-06-03 23:02:11.489 [] [main] INFO  DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1748991731489, current=UP, previous=STARTING]
+2025-06-03 23:02:11.490 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_AUTH-SERVICE/auth-service:8081: registering service...
+2025-06-03 23:02:11.491 [] [main] INFO  Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2025-06-03 23:02:11.503 [] [main] INFO  TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2025-06-03 23:02:11.504 [] [main] INFO  EurekaAutoServiceRegistration - Updating port to 8081
+2025-06-03 23:02:11.509 [] [main] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:02:11.537 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_AUTH-SERVICE/auth-service:8081 - registration status: 204
+2025-06-03 23:02:11.579 [] [main] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#73b669b5:0/SimpleConnection@34b28d08 [delegate=amqp://guest@172.18.0.4:5672/, localPort=37718]
+2025-06-03 23:02:11.589 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-create) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-06-03 23:02:11.589 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-update) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-06-03 23:02:11.589 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-delete) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-06-03 23:02:11.589 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-restore) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-06-03 23:02:11.590 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-add-role) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-06-03 23:02:11.590 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-remove-role) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-06-03 23:02:11.702 [] [main] INFO  AuthServiceApplication - Started AuthServiceApplication in 21.714 seconds (process running for 24.353)
+2025-06-03 23:02:41.478 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - Disable delta property : false
+2025-06-03 23:02:41.479 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - Single vip registry refresh property : null
+2025-06-03 23:02:41.479 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - Force full registry fetch : false
+2025-06-03 23:02:41.479 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - Application is null : false
+2025-06-03 23:02:41.479 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - Registered Applications size is zero : true
+2025-06-03 23:02:41.479 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - Application version is -1: false
+2025-06-03 23:02:41.479 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - Getting all instance registry info from the eureka server
+2025-06-03 23:02:41.494 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - The response status is 200
+2025-06-03 23:07:11.217 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-06-03 23:12:11.208 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-06-03 23:17:11.197 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-06-03 23:21:57.594 [] [SpringApplicationShutdownHook] INFO  EurekaServiceRegistry - Unregistering application AUTH-SERVICE with eureka with status DOWN
+2025-06-03 23:21:57.595 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1748992917595, current=DOWN, previous=UP]
+2025-06-03 23:21:57.595 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_AUTH-SERVICE/auth-service:8081: registering service...
+2025-06-03 23:21:57.611 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-06-03 23:21:57.611 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_AUTH-SERVICE/auth-service:8081 - registration status: 204
+2025-06-03 23:21:57.626 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-06-03 23:21:57.630 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-06-03 23:21:57.632 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-06-03 23:21:57.635 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-06-03 23:21:57.636 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-06-03 23:21:57.813 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-06-03 23:21:57.813 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-06-03 23:21:57.813 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-06-03 23:21:57.813 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-06-03 23:21:57.813 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-06-03 23:21:57.823 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-06-03 23:21:57.824 [] [SpringApplicationShutdownHook] INFO  GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-03 23:21:57.855 [] [tomcat-shutdown] INFO  GracefulShutdown - Graceful shutdown complete
+2025-06-03 23:21:59.910 [] [SpringApplicationShutdownHook] TRACE UserServiceImpl - Shutting down JedisPool
+2025-06-03 23:21:59.912 [] [SpringApplicationShutdownHook] INFO  LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-03 23:21:59.916 [] [SpringApplicationShutdownHook] INFO  HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-06-03 23:21:59.921 [] [SpringApplicationShutdownHook] INFO  HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-06-03 23:22:00.273 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Shutting down DiscoveryClient ...
+2025-06-03 23:22:03.274 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Unregistering ...
+2025-06-03 23:22:03.281 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - DiscoveryClient_AUTH-SERVICE/auth-service:8081 - deregister  status: 200
+2025-06-03 23:22:03.282 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Completed shut down of DiscoveryClient
+2025-06-03 23:23:34.914 [] [background-preinit] INFO  Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-06-03 23:23:34.950 [] [main] INFO  AuthServiceApplication - Starting AuthServiceApplication v0.0.1-SNAPSHOT using Java 21.0.7 with PID 1 (/app.jar started by root in /)
+2025-06-03 23:23:34.954 [] [main] DEBUG AuthServiceApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-06-03 23:23:34.956 [] [main] INFO  AuthServiceApplication - The following 1 profile is active: "docker"
+2025-06-03 23:23:34.990 [] [main] INFO  ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+2025-06-03 23:23:34.990 [] [main] INFO  ConfigServerConfigDataLoader - Located environment: name=auth-service, profiles=[default], label=null, version=4ee865fb8de4533689bf6ea5eafbe87cb4d988a5, state=
+2025-06-03 23:23:34.991 [] [main] INFO  ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+2025-06-03 23:23:34.991 [] [main] INFO  ConfigServerConfigDataLoader - Located environment: name=auth-service, profiles=[docker], label=null, version=4ee865fb8de4533689bf6ea5eafbe87cb4d988a5, state=
+2025-06-03 23:23:36.222 [] [main] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-03 23:23:36.224 [] [main] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-03 23:23:36.355 [] [main] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 121 ms. Found 3 JPA repository interfaces.
+2025-06-03 23:23:36.371 [] [main] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-03 23:23:36.373 [] [main] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-06-03 23:23:36.396 [] [main] INFO  RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ratedistribution.auth.repository.RoleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-06-03 23:23:36.396 [] [main] INFO  RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ratedistribution.auth.repository.TokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-06-03 23:23:36.397 [] [main] INFO  RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ratedistribution.auth.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-06-03 23:23:36.397 [] [main] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2025-06-03 23:23:36.725 [] [main] INFO  GenericScope - BeanFactory id=1b0d3377-b80a-348a-9738-cf32f1a608be
+2025-06-03 23:23:37.256 [] [main] INFO  TomcatWebServer - Tomcat initialized with port 8081 (http)
+2025-06-03 23:23:37.270 [] [main] INFO  Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2025-06-03 23:23:37.272 [] [main] INFO  StandardService - Starting service [Tomcat]
+2025-06-03 23:23:37.273 [] [main] INFO  StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-06-03 23:23:37.301 [] [main] INFO  [/] - Initializing Spring embedded WebApplicationContext
+2025-06-03 23:23:37.303 [] [main] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2309 ms
+2025-06-03 23:23:38.121 [] [main] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-03 23:23:38.185 [] [main] INFO  Version - HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-06-03 23:23:38.224 [] [main] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-06-03 23:23:38.544 [] [main] INFO  SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-03 23:23:38.574 [] [main] INFO  HikariDataSource - HikariPool-1 - Starting...
+2025-06-03 23:23:43.577 [] [main] WARN  SqlExceptionHelper - SQL Error: 0, SQLState: 08001
+2025-06-03 23:23:43.577 [] [main] ERROR SqlExceptionHelper - The connection attempt failed.
+2025-06-03 23:23:43.578 [] [main] WARN  JdbcEnvironmentInitiator - HHH000342: Could not obtain connection to query metadata
+org.hibernate.exception.JDBCConnectionException: unable to obtain isolated JDBC connection [The connection attempt failed.] [n/a]
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:100) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:116) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:320) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:129) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:81) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:226) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:194) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:171) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1431) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1502) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.2.2.jar!/:6.2.2]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.2.2.jar!/:6.2.2]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419) ~[spring-orm-6.2.2.jar!/:6.2.2]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400) ~[spring-orm-6.2.2.jar!/:6.2.2]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.2.2.jar!/:6.2.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1859) ~[spring-beans-6.2.2.jar!/:6.2.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1808) ~[spring-beans-6.2.2.jar!/:6.2.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601) ~[spring-beans-6.2.2.jar!/:6.2.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.2.2.jar!/:6.2.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336) ~[spring-beans-6.2.2.jar!/:6.2.2]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:307) [spring-beans-6.2.2.jar!/:6.2.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334) [spring-beans-6.2.2.jar!/:6.2.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204) [spring-beans-6.2.2.jar!/:6.2.2]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) [spring-context-6.2.2.jar!/:6.2.2]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) [spring-context-6.2.2.jar!/:6.2.2]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) [spring-boot-3.4.2.jar!/:3.4.2]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) [spring-boot-3.4.2.jar!/:3.4.2]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) [spring-boot-3.4.2.jar!/:3.4.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) [spring-boot-3.4.2.jar!/:3.4.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) [spring-boot-3.4.2.jar!/:3.4.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) [spring-boot-3.4.2.jar!/:3.4.2]
+	at com.ratedistribution.auth.AuthServiceApplication.main(AuthServiceApplication.java:12) [!/:0.0.1-SNAPSHOT]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:102) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:64) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.launch.JarLauncher.main(JarLauncher.java:40) [app.jar:0.0.1-SNAPSHOT]
+Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:364) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at org.postgresql.Driver.makeConnection(Driver.java:446) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-5.1.0.jar!/:?]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:126) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:467) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:61) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	... 40 more
+Caused by: java.net.UnknownHostException: postgres-auth
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:567) ~[?:?]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[?:?]
+	at java.base/java.net.Socket.connect(Socket.java:751) ~[?:?]
+	at org.postgresql.core.PGStream.createSocket(PGStream.java:260) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at org.postgresql.core.PGStream.<init>(PGStream.java:121) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:140) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:268) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at org.postgresql.Driver.makeConnection(Driver.java:446) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.5.jar!/:42.7.5]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98) ~[HikariCP-5.1.0.jar!/:?]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-5.1.0.jar!/:?]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:126) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:467) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:61) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	... 40 more
+2025-06-03 23:23:43.586 [] [main] ERROR LocalContainerEntityManagerFactoryBean - Failed to initialize JPA EntityManagerFactory: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+2025-06-03 23:23:43.590 [] [main] WARN  AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+2025-06-03 23:23:44.592 [] [main] WARN  AsyncReporter$BoundedAsyncReporter - Timed out waiting for in-flight spans to send
+2025-06-03 23:23:44.596 [] [main] INFO  StandardService - Stopping service [Tomcat]
+2025-06-03 23:23:44.613 [] [main] INFO  ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-06-03 23:23:44.628 [] [main] ERROR SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1812) ~[spring-beans-6.2.2.jar!/:6.2.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601) ~[spring-beans-6.2.2.jar!/:6.2.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.2.2.jar!/:6.2.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336) ~[spring-beans-6.2.2.jar!/:6.2.2]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:307) ~[spring-beans-6.2.2.jar!/:6.2.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334) ~[spring-beans-6.2.2.jar!/:6.2.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204) ~[spring-beans-6.2.2.jar!/:6.2.2]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.2.jar!/:6.2.2]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.2.jar!/:6.2.2]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.4.2.jar!/:3.4.2]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) [spring-boot-3.4.2.jar!/:3.4.2]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) [spring-boot-3.4.2.jar!/:3.4.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) [spring-boot-3.4.2.jar!/:3.4.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) [spring-boot-3.4.2.jar!/:3.4.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) [spring-boot-3.4.2.jar!/:3.4.2]
+	at com.ratedistribution.auth.AuthServiceApplication.main(AuthServiceApplication.java:12) [!/:0.0.1-SNAPSHOT]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:102) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:64) [app.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.launch.JarLauncher.main(JarLauncher.java:40) [app.jar:0.0.1-SNAPSHOT]
+Caused by: org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:276) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:226) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:194) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:171) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1431) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1502) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.2.2.jar!/:6.2.2]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.2.2.jar!/:6.2.2]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419) ~[spring-orm-6.2.2.jar!/:6.2.2]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400) ~[spring-orm-6.2.2.jar!/:6.2.2]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.2.2.jar!/:6.2.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1859) ~[spring-beans-6.2.2.jar!/:6.2.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1808) ~[spring-beans-6.2.2.jar!/:6.2.2]
+	... 20 more
+Caused by: org.hibernate.HibernateException: Unable to determine Dialect without JDBC metadata (please set 'jakarta.persistence.jdbc.url' for common cases or 'hibernate.dialect' when a custom Dialect implementation must be provided)
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.determineDialect(DialectFactoryImpl.java:191) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.buildDialect(DialectFactoryImpl.java:87) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentWithDefaults(JdbcEnvironmentInitiator.java:181) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:392) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:129) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:81) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:226) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:194) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:171) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1431) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1502) ~[hibernate-core-6.6.5.Final.jar!/:6.6.5.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.2.2.jar!/:6.2.2]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.2.2.jar!/:6.2.2]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419) ~[spring-orm-6.2.2.jar!/:6.2.2]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400) ~[spring-orm-6.2.2.jar!/:6.2.2]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.2.2.jar!/:6.2.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1859) ~[spring-beans-6.2.2.jar!/:6.2.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1808) ~[spring-beans-6.2.2.jar!/:6.2.2]
+	... 20 more
+2025-06-03 23:24:31.326 [] [background-preinit] INFO  Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-06-03 23:24:31.363 [] [main] INFO  AuthServiceApplication - Starting AuthServiceApplication v0.0.1-SNAPSHOT using Java 21.0.7 with PID 1 (/app.jar started by root in /)
+2025-06-03 23:24:31.367 [] [main] DEBUG AuthServiceApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-06-03 23:24:31.372 [] [main] INFO  AuthServiceApplication - The following 1 profile is active: "docker"
+2025-06-03 23:24:31.415 [] [main] INFO  ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+2025-06-03 23:24:31.415 [] [main] INFO  ConfigServerConfigDataLoader - Located environment: name=auth-service, profiles=[default], label=null, version=4ee865fb8de4533689bf6ea5eafbe87cb4d988a5, state=
+2025-06-03 23:24:31.415 [] [main] INFO  ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+2025-06-03 23:24:31.416 [] [main] INFO  ConfigServerConfigDataLoader - Located environment: name=auth-service, profiles=[docker], label=null, version=4ee865fb8de4533689bf6ea5eafbe87cb4d988a5, state=
+2025-06-03 23:24:32.652 [] [main] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-03 23:24:32.655 [] [main] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-03 23:24:32.790 [] [main] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 125 ms. Found 3 JPA repository interfaces.
+2025-06-03 23:24:32.808 [] [main] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-06-03 23:24:32.815 [] [main] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-06-03 23:24:32.831 [] [main] INFO  RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ratedistribution.auth.repository.RoleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-06-03 23:24:32.831 [] [main] INFO  RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ratedistribution.auth.repository.TokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-06-03 23:24:32.831 [] [main] INFO  RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ratedistribution.auth.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-06-03 23:24:32.832 [] [main] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2025-06-03 23:24:33.246 [] [main] INFO  GenericScope - BeanFactory id=1b0d3377-b80a-348a-9738-cf32f1a608be
+2025-06-03 23:24:33.845 [] [main] INFO  TomcatWebServer - Tomcat initialized with port 8081 (http)
+2025-06-03 23:24:33.861 [] [main] INFO  Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2025-06-03 23:24:33.863 [] [main] INFO  StandardService - Starting service [Tomcat]
+2025-06-03 23:24:33.864 [] [main] INFO  StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-06-03 23:24:33.895 [] [main] INFO  [/] - Initializing Spring embedded WebApplicationContext
+2025-06-03 23:24:33.898 [] [main] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2478 ms
+2025-06-03 23:24:34.741 [] [main] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-03 23:24:34.789 [] [main] INFO  Version - HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-06-03 23:24:34.818 [] [main] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-06-03 23:24:35.107 [] [main] INFO  SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-03 23:24:35.136 [] [main] INFO  HikariDataSource - HikariPool-1 - Starting...
+2025-06-03 23:24:35.293 [] [main] INFO  HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@51a06fd5
+2025-06-03 23:24:35.295 [] [main] INFO  HikariDataSource - HikariPool-1 - Start completed.
+2025-06-03 23:24:35.352 [] [main] INFO  pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-03 23:24:36.095 [] [main] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-03 23:24:36.284 [] [main] INFO  LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-03 23:24:36.725 [] [main] INFO  InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2025-06-03 23:24:36.764 [] [main] INFO  QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-06-03 23:24:37.263 [] [main] TRACE UserServiceImpl - Initializing JedisPool with Redis Host: redis and Port: 6380
+2025-06-03 23:24:37.358 [] [main] TRACE UserServiceImpl - Exiting init method in UserServiceImpl
+2025-06-03 23:24:39.238 [] [main] INFO  EndpointLinksResolver - Exposing 18 endpoints beneath base path '/actuator'
+2025-06-03 23:24:39.328 [] [main] INFO  DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-06-03 23:24:39.394 [] [main] WARN  LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-06-03 23:24:39.500 [] [main] INFO  InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-06-03 23:24:39.529 [] [main] INFO  DiscoveryClient - Initializing Eureka in region us-east-1
+2025-06-03 23:24:39.535 [] [main] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-06-03 23:24:39.546 [] [main] INFO  DiscoveryClient - Disable delta property : false
+2025-06-03 23:24:39.546 [] [main] INFO  DiscoveryClient - Single vip registry refresh property : null
+2025-06-03 23:24:39.546 [] [main] INFO  DiscoveryClient - Force full registry fetch : false
+2025-06-03 23:24:39.547 [] [main] INFO  DiscoveryClient - Application is null : false
+2025-06-03 23:24:39.548 [] [main] INFO  DiscoveryClient - Registered Applications size is zero : true
+2025-06-03 23:24:39.549 [] [main] INFO  DiscoveryClient - Application version is -1: true
+2025-06-03 23:24:39.549 [] [main] INFO  DiscoveryClient - Getting all instance registry info from the eureka server
+2025-06-03 23:24:39.767 [] [main] INFO  DiscoveryClient - The response status is 200
+2025-06-03 23:24:39.769 [] [main] INFO  DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-06-03 23:24:39.772 [] [main] INFO  InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-06-03 23:24:39.775 [] [main] INFO  DiscoveryClient - Discovery Client initialized at timestamp 1748993079774 with initial instances count: 1
+2025-06-03 23:24:39.779 [] [main] INFO  EurekaServiceRegistry - Registering application AUTH-SERVICE with eureka with status UP
+2025-06-03 23:24:39.780 [] [main] INFO  DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1748993079780, current=UP, previous=STARTING]
+2025-06-03 23:24:39.782 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_AUTH-SERVICE/auth-service:8081: registering service...
+2025-06-03 23:24:39.783 [] [main] INFO  Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2025-06-03 23:24:39.795 [] [main] INFO  TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2025-06-03 23:24:39.797 [] [main] INFO  EurekaAutoServiceRegistration - Updating port to 8081
+2025-06-03 23:24:39.802 [] [main] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:39.831 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_AUTH-SERVICE/auth-service:8081 - registration status: 204
+2025-06-03 23:24:43.779 [] [main] INFO  SimpleMessageListenerContainer - Broker not available; cannot force queue declarations during start: java.net.UnknownHostException: rabbitmq: Name or service not known
+2025-06-03 23:24:43.791 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:43.793 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+org.springframework.amqp.AmqpIOException: java.net.UnknownHostException: rabbitmq
+	at org.springframework.amqp.rabbit.support.RabbitExceptionTranslator.convertRabbitAccessException(RabbitExceptionTranslator.java:70) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:633) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory.createConnection(CachingConnectionFactory.java:726) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.connection.ConnectionFactoryUtils.createConnection(ConnectionFactoryUtils.java:257) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.doExecute(RabbitTemplate.java:2262) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.execute(RabbitTemplate.java:2235) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.execute(RabbitTemplate.java:2215) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.core.RabbitAdmin.getQueueInfo(RabbitAdmin.java:468) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.core.RabbitAdmin.getQueueProperties(RabbitAdmin.java:452) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.attemptDeclarations(AbstractMessageListenerContainer.java:1960) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.redeclareElementsIfNecessary(AbstractMessageListenerContainer.java:1924) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.initialize(SimpleMessageListenerContainer.java:1483) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.run(SimpleMessageListenerContainer.java:1324) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: java.net.UnknownHostException: rabbitmq
+	at java.base/java.net.InetAddress$CachedLookup.get(InetAddress.java:988) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688) ~[?:?]
+	at com.rabbitmq.client.DnsRecordIpAddressResolver.resolveIpAddresses(DnsRecordIpAddressResolver.java:83) ~[amqp-client-5.22.0.jar!/:5.22.0]
+	at com.rabbitmq.client.DnsRecordIpAddressResolver.getAddresses(DnsRecordIpAddressResolver.java:73) ~[amqp-client-5.22.0.jar!/:5.22.0]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1245) ~[amqp-client-5.22.0.jar!/:5.22.0]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1198) ~[amqp-client-5.22.0.jar!/:5.22.0]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.connectAddresses(AbstractConnectionFactory.java:679) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.connect(AbstractConnectionFactory.java:648) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:594) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	... 12 more
+2025-06-03 23:24:43.800 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:43.802 [] [main] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:43.802 [] [main] INFO  SimpleMessageListenerContainer - Broker not available; cannot force queue declarations during start: java.net.UnknownHostException: rabbitmq
+2025-06-03 23:24:43.805 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:43.806 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+org.springframework.amqp.AmqpIOException: java.net.UnknownHostException: rabbitmq
+	at org.springframework.amqp.rabbit.support.RabbitExceptionTranslator.convertRabbitAccessException(RabbitExceptionTranslator.java:70) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:633) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory.createConnection(CachingConnectionFactory.java:726) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.connection.ConnectionFactoryUtils.createConnection(ConnectionFactoryUtils.java:257) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.doExecute(RabbitTemplate.java:2262) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.execute(RabbitTemplate.java:2235) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.execute(RabbitTemplate.java:2215) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.core.RabbitAdmin.getQueueInfo(RabbitAdmin.java:468) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.core.RabbitAdmin.getQueueProperties(RabbitAdmin.java:452) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.attemptDeclarations(AbstractMessageListenerContainer.java:1960) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.redeclareElementsIfNecessary(AbstractMessageListenerContainer.java:1924) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.initialize(SimpleMessageListenerContainer.java:1483) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.run(SimpleMessageListenerContainer.java:1324) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: java.net.UnknownHostException: rabbitmq
+	at java.base/java.net.InetAddress$CachedLookup.get(InetAddress.java:988) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688) ~[?:?]
+	at com.rabbitmq.client.DnsRecordIpAddressResolver.resolveIpAddresses(DnsRecordIpAddressResolver.java:83) ~[amqp-client-5.22.0.jar!/:5.22.0]
+	at com.rabbitmq.client.DnsRecordIpAddressResolver.getAddresses(DnsRecordIpAddressResolver.java:73) ~[amqp-client-5.22.0.jar!/:5.22.0]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1245) ~[amqp-client-5.22.0.jar!/:5.22.0]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1198) ~[amqp-client-5.22.0.jar!/:5.22.0]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.connectAddresses(AbstractConnectionFactory.java:679) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.connect(AbstractConnectionFactory.java:648) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:594) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	... 12 more
+2025-06-03 23:24:43.806 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:43.808 [] [main] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:43.809 [] [main] INFO  SimpleMessageListenerContainer - Broker not available; cannot force queue declarations during start: java.net.UnknownHostException: rabbitmq
+2025-06-03 23:24:43.821 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:43.821 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+org.springframework.amqp.AmqpIOException: java.net.UnknownHostException: rabbitmq
+	at org.springframework.amqp.rabbit.support.RabbitExceptionTranslator.convertRabbitAccessException(RabbitExceptionTranslator.java:70) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:633) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory.createConnection(CachingConnectionFactory.java:726) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.connection.ConnectionFactoryUtils.createConnection(ConnectionFactoryUtils.java:257) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.doExecute(RabbitTemplate.java:2262) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.execute(RabbitTemplate.java:2235) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.execute(RabbitTemplate.java:2215) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.core.RabbitAdmin.getQueueInfo(RabbitAdmin.java:468) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.core.RabbitAdmin.getQueueProperties(RabbitAdmin.java:452) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.attemptDeclarations(AbstractMessageListenerContainer.java:1960) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.redeclareElementsIfNecessary(AbstractMessageListenerContainer.java:1924) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.initialize(SimpleMessageListenerContainer.java:1483) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.run(SimpleMessageListenerContainer.java:1324) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: java.net.UnknownHostException: rabbitmq
+	at java.base/java.net.InetAddress$CachedLookup.get(InetAddress.java:988) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688) ~[?:?]
+	at com.rabbitmq.client.DnsRecordIpAddressResolver.resolveIpAddresses(DnsRecordIpAddressResolver.java:83) ~[amqp-client-5.22.0.jar!/:5.22.0]
+	at com.rabbitmq.client.DnsRecordIpAddressResolver.getAddresses(DnsRecordIpAddressResolver.java:73) ~[amqp-client-5.22.0.jar!/:5.22.0]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1245) ~[amqp-client-5.22.0.jar!/:5.22.0]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1198) ~[amqp-client-5.22.0.jar!/:5.22.0]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.connectAddresses(AbstractConnectionFactory.java:679) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.connect(AbstractConnectionFactory.java:648) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:594) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	... 12 more
+2025-06-03 23:24:43.822 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:43.824 [] [main] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:43.824 [] [main] INFO  SimpleMessageListenerContainer - Broker not available; cannot force queue declarations during start: java.net.UnknownHostException: rabbitmq
+2025-06-03 23:24:43.828 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-1] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:43.829 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-1] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+org.springframework.amqp.AmqpIOException: java.net.UnknownHostException: rabbitmq
+	at org.springframework.amqp.rabbit.support.RabbitExceptionTranslator.convertRabbitAccessException(RabbitExceptionTranslator.java:70) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:633) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory.createConnection(CachingConnectionFactory.java:726) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.connection.ConnectionFactoryUtils.createConnection(ConnectionFactoryUtils.java:257) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.doExecute(RabbitTemplate.java:2262) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.execute(RabbitTemplate.java:2235) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.execute(RabbitTemplate.java:2215) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.core.RabbitAdmin.getQueueInfo(RabbitAdmin.java:468) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.core.RabbitAdmin.getQueueProperties(RabbitAdmin.java:452) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.attemptDeclarations(AbstractMessageListenerContainer.java:1960) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.redeclareElementsIfNecessary(AbstractMessageListenerContainer.java:1924) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.initialize(SimpleMessageListenerContainer.java:1483) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.run(SimpleMessageListenerContainer.java:1324) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: java.net.UnknownHostException: rabbitmq
+	at java.base/java.net.InetAddress$CachedLookup.get(InetAddress.java:988) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688) ~[?:?]
+	at com.rabbitmq.client.DnsRecordIpAddressResolver.resolveIpAddresses(DnsRecordIpAddressResolver.java:83) ~[amqp-client-5.22.0.jar!/:5.22.0]
+	at com.rabbitmq.client.DnsRecordIpAddressResolver.getAddresses(DnsRecordIpAddressResolver.java:73) ~[amqp-client-5.22.0.jar!/:5.22.0]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1245) ~[amqp-client-5.22.0.jar!/:5.22.0]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1198) ~[amqp-client-5.22.0.jar!/:5.22.0]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.connectAddresses(AbstractConnectionFactory.java:679) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.connect(AbstractConnectionFactory.java:648) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:594) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	... 12 more
+2025-06-03 23:24:43.829 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-1] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:43.832 [] [main] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:43.833 [] [main] INFO  SimpleMessageListenerContainer - Broker not available; cannot force queue declarations during start: java.net.UnknownHostException: rabbitmq
+2025-06-03 23:24:43.837 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-1] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:43.837 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-1] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+org.springframework.amqp.AmqpIOException: java.net.UnknownHostException: rabbitmq
+	at org.springframework.amqp.rabbit.support.RabbitExceptionTranslator.convertRabbitAccessException(RabbitExceptionTranslator.java:70) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:633) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory.createConnection(CachingConnectionFactory.java:726) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.connection.ConnectionFactoryUtils.createConnection(ConnectionFactoryUtils.java:257) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.doExecute(RabbitTemplate.java:2262) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.execute(RabbitTemplate.java:2235) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.execute(RabbitTemplate.java:2215) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.core.RabbitAdmin.getQueueInfo(RabbitAdmin.java:468) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.core.RabbitAdmin.getQueueProperties(RabbitAdmin.java:452) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.attemptDeclarations(AbstractMessageListenerContainer.java:1960) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.redeclareElementsIfNecessary(AbstractMessageListenerContainer.java:1924) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.initialize(SimpleMessageListenerContainer.java:1483) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.run(SimpleMessageListenerContainer.java:1324) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: java.net.UnknownHostException: rabbitmq
+	at java.base/java.net.InetAddress$CachedLookup.get(InetAddress.java:988) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688) ~[?:?]
+	at com.rabbitmq.client.DnsRecordIpAddressResolver.resolveIpAddresses(DnsRecordIpAddressResolver.java:83) ~[amqp-client-5.22.0.jar!/:5.22.0]
+	at com.rabbitmq.client.DnsRecordIpAddressResolver.getAddresses(DnsRecordIpAddressResolver.java:73) ~[amqp-client-5.22.0.jar!/:5.22.0]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1245) ~[amqp-client-5.22.0.jar!/:5.22.0]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1198) ~[amqp-client-5.22.0.jar!/:5.22.0]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.connectAddresses(AbstractConnectionFactory.java:679) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.connect(AbstractConnectionFactory.java:648) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:594) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	... 12 more
+2025-06-03 23:24:43.838 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-1] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:43.841 [] [main] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:43.842 [] [main] INFO  SimpleMessageListenerContainer - Broker not available; cannot force queue declarations during start: java.net.UnknownHostException: rabbitmq
+2025-06-03 23:24:43.846 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-1] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:43.847 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-1] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+org.springframework.amqp.AmqpIOException: java.net.UnknownHostException: rabbitmq
+	at org.springframework.amqp.rabbit.support.RabbitExceptionTranslator.convertRabbitAccessException(RabbitExceptionTranslator.java:70) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:633) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory.createConnection(CachingConnectionFactory.java:726) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.connection.ConnectionFactoryUtils.createConnection(ConnectionFactoryUtils.java:257) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.doExecute(RabbitTemplate.java:2262) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.execute(RabbitTemplate.java:2235) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.execute(RabbitTemplate.java:2215) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.core.RabbitAdmin.getQueueInfo(RabbitAdmin.java:468) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.core.RabbitAdmin.getQueueProperties(RabbitAdmin.java:452) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.attemptDeclarations(AbstractMessageListenerContainer.java:1960) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.redeclareElementsIfNecessary(AbstractMessageListenerContainer.java:1924) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.initialize(SimpleMessageListenerContainer.java:1483) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.run(SimpleMessageListenerContainer.java:1324) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: java.net.UnknownHostException: rabbitmq
+	at java.base/java.net.InetAddress$CachedLookup.get(InetAddress.java:988) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688) ~[?:?]
+	at com.rabbitmq.client.DnsRecordIpAddressResolver.resolveIpAddresses(DnsRecordIpAddressResolver.java:83) ~[amqp-client-5.22.0.jar!/:5.22.0]
+	at com.rabbitmq.client.DnsRecordIpAddressResolver.getAddresses(DnsRecordIpAddressResolver.java:73) ~[amqp-client-5.22.0.jar!/:5.22.0]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1245) ~[amqp-client-5.22.0.jar!/:5.22.0]
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1198) ~[amqp-client-5.22.0.jar!/:5.22.0]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.connectAddresses(AbstractConnectionFactory.java:679) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.connect(AbstractConnectionFactory.java:648) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:594) ~[spring-rabbit-3.2.2.jar!/:3.2.2]
+	... 12 more
+2025-06-03 23:24:43.847 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-1] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:43.875 [] [main] INFO  AuthServiceApplication - Started AuthServiceApplication in 14.441 seconds (process running for 15.561)
+2025-06-03 23:24:48.805 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  SimpleMessageListenerContainer - Restarting Consumer@25b56ad5: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:24:48.811 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:48.811 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  SimpleMessageListenerContainer - Restarting Consumer@29dbf03f: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:24:48.811 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:24:48.812 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:48.813 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:48.813 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:24:48.814 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:48.826 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] INFO  SimpleMessageListenerContainer - Restarting Consumer@7d5e2461: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:24:48.829 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:48.829 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:24:48.829 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:48.834 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-1] INFO  SimpleMessageListenerContainer - Restarting Consumer@5a32a00a: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:24:48.835 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-2] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:48.836 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-2] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:24:48.836 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-2] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:48.842 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-1] INFO  SimpleMessageListenerContainer - Restarting Consumer@37a20de7: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:24:48.845 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-2] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:48.845 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-2] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:24:48.845 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-2] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:48.852 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-1] INFO  SimpleMessageListenerContainer - Restarting Consumer@23a7f0db: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:24:48.854 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-2] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:48.854 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-2] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:24:48.855 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-2] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:53.815 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Restarting Consumer@266c534f: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:24:53.817 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Restarting Consumer@48dec7e9: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:24:53.818 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:53.833 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  SimpleMessageListenerContainer - Restarting Consumer@13cc8e06: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:24:53.840 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-2] INFO  SimpleMessageListenerContainer - Restarting Consumer@2eb71abc: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:24:53.848 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-2] INFO  SimpleMessageListenerContainer - Restarting Consumer@6aa41d2a: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:24:53.858 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-2] INFO  SimpleMessageListenerContainer - Restarting Consumer@5038bec0: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:24:57.785 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-3] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:57.785 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:24:57.786 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-3] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:24:57.786 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-3] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:57.786 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-3] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:24:57.786 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-3] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:57.786 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-3] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:24:57.786 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-3] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:57.786 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-3] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:24:57.786 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-3] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:57.787 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-3] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:24:57.787 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:57.787 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-3] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:57.787 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-3] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:57.787 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-3] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:57.788 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-3] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:24:57.788 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-3] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:02.791 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-3] INFO  SimpleMessageListenerContainer - Restarting Consumer@4bb89a59: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:02.791 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-3] INFO  SimpleMessageListenerContainer - Restarting Consumer@4997810f: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:02.791 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-3] INFO  SimpleMessageListenerContainer - Restarting Consumer@7e4f0a0f: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:02.791 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-3] INFO  SimpleMessageListenerContainer - Restarting Consumer@13336874: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:02.791 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-3] INFO  SimpleMessageListenerContainer - Restarting Consumer@c1e61d7: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:02.791 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-3] INFO  SimpleMessageListenerContainer - Restarting Consumer@1cbbaeed: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:02.793 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-4] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:02.793 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-4] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:02.793 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-4] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:02.794 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-4] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:02.794 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:02.794 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:02.794 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:02.794 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-4] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:02.794 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-4] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:02.794 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-4] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:02.795 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-4] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:02.795 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-4] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:02.795 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-4] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:02.795 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-4] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:02.795 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-4] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:02.795 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-4] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:02.796 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-4] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:02.796 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-4] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:07.799 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-4] INFO  SimpleMessageListenerContainer - Restarting Consumer@c6f35ad: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:07.799 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-4] INFO  SimpleMessageListenerContainer - Restarting Consumer@2a74d90d: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:07.799 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-4] INFO  SimpleMessageListenerContainer - Restarting Consumer@4269640b: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:07.799 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-4] INFO  SimpleMessageListenerContainer - Restarting Consumer@3bb86506: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:07.799 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-4] INFO  SimpleMessageListenerContainer - Restarting Consumer@fdb7d93: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:07.801 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-4] INFO  SimpleMessageListenerContainer - Restarting Consumer@3ad4e6e2: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:07.801 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-5] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:11.764 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-5] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:11.764 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-5] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:11.764 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-5] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:11.764 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-5] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:11.764 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-5] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:11.764 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-5] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:11.765 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-5] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:11.765 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-5] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:11.765 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-5] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:11.765 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-5] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:11.765 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-5] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:11.765 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-5] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:11.765 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-5] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:11.765 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-5] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:11.766 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-5] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:11.766 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-5] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:11.766 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-5] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:16.769 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-5] INFO  SimpleMessageListenerContainer - Restarting Consumer@471efc07: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:16.769 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-5] INFO  SimpleMessageListenerContainer - Restarting Consumer@4dc2ea78: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:16.769 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-5] INFO  SimpleMessageListenerContainer - Restarting Consumer@377e0bfb: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:16.769 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-5] INFO  SimpleMessageListenerContainer - Restarting Consumer@42958493: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:16.769 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-5] INFO  SimpleMessageListenerContainer - Restarting Consumer@4bdbc18e: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:16.769 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-5] INFO  SimpleMessageListenerContainer - Restarting Consumer@5b68737a: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:16.772 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-6] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:16.773 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-6] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:16.773 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-6] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:16.775 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-6] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:16.776 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-6] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:16.776 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-6] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:16.778 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-6] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:16.778 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-6] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:16.778 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-6] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:16.779 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-6] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:16.779 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-6] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:16.779 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-6] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:16.779 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-6] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:16.779 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-6] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:16.779 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-6] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:16.779 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-6] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:16.780 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-6] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:16.781 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-6] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:21.777 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-6] INFO  SimpleMessageListenerContainer - Restarting Consumer@182509da: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:21.780 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-7] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:21.781 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-6] INFO  SimpleMessageListenerContainer - Restarting Consumer@24806ed3: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:21.784 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-6] INFO  SimpleMessageListenerContainer - Restarting Consumer@ddd10cb: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:21.784 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-6] INFO  SimpleMessageListenerContainer - Restarting Consumer@43597dd7: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:21.786 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-6] INFO  SimpleMessageListenerContainer - Restarting Consumer@7dcce6aa: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:21.786 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-6] INFO  SimpleMessageListenerContainer - Restarting Consumer@40c82622: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:25.728 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-7] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:25.728 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-7] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:25.728 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-7] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:25.728 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-7] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:25.728 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-7] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:25.728 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-7] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:25.729 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-7] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:25.729 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-7] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:25.729 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-7] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:25.729 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-7] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:25.729 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-7] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:25.729 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-7] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:25.729 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-7] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:25.729 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-7] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:25.730 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-7] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:25.730 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-7] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:25.731 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-7] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:30.733 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-7] INFO  SimpleMessageListenerContainer - Restarting Consumer@40704c7c: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:30.733 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-7] INFO  SimpleMessageListenerContainer - Restarting Consumer@eb8943: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:30.733 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-7] INFO  SimpleMessageListenerContainer - Restarting Consumer@25d03333: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:30.733 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-7] INFO  SimpleMessageListenerContainer - Restarting Consumer@319ea16e: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:30.734 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-7] INFO  SimpleMessageListenerContainer - Restarting Consumer@2d9ab2d4: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:30.734 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-7] INFO  SimpleMessageListenerContainer - Restarting Consumer@196d187f: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:30.735 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-8] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:30.735 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-8] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:30.735 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-8] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:30.736 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-8] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:30.736 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-8] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:30.736 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-8] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:30.736 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:30.736 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:30.736 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:30.737 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-8] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:30.737 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-8] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:30.737 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-8] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:30.737 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-8] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:30.737 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-8] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:30.737 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-8] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:30.738 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-8] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:30.738 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-8] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:30.738 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-8] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:35.739 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-8] INFO  SimpleMessageListenerContainer - Restarting Consumer@78926aa1: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:35.740 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-8] INFO  SimpleMessageListenerContainer - Restarting Consumer@5bc3419f: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:35.740 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-8] INFO  SimpleMessageListenerContainer - Restarting Consumer@4f268576: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:35.740 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-8] INFO  SimpleMessageListenerContainer - Restarting Consumer@4c77af36: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:35.742 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-9] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:35.743 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-8] INFO  SimpleMessageListenerContainer - Restarting Consumer@1a72fd30: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:35.744 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-8] INFO  SimpleMessageListenerContainer - Restarting Consumer@7aff680d: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:39.717 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-9] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:39.717 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-9] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:39.718 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-9] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:39.718 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-9] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:39.718 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-9] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:39.718 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-9] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:39.718 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-9] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:39.718 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-9] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:39.718 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-9] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:39.718 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-9] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:39.719 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-9] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:39.719 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-9] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:39.719 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-9] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:39.720 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-9] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:39.721 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-9] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:39.721 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-9] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:39.722 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-9] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:40.086 [] [AsyncReporter{ZipkinWebClientSender{http://zipkin:9411/api/v2/spans}}] WARN  AsyncReporter$BoundedAsyncReporter - Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
+2025-06-03 23:25:40.087 [] [AsyncReporter{ZipkinWebClientSender{http://zipkin:9411/api/v2/spans}}] WARN  AsyncReporter$BoundedAsyncReporter - Dropped 2 spans due to WebClientRequestException(finishConnect(..) failed: Connection refused: zipkin/172.18.0.2:9411)
+org.springframework.web.reactive.function.client.WebClientRequestException: finishConnect(..) failed: Connection refused: zipkin/172.18.0.2:9411
+	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:137) ~[spring-webflux-6.2.2.jar!/:6.2.2]
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ Request to POST http://zipkin:9411/api/v2/spans [DefaultWebClient]
+Original Stack Trace:
+		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:137) ~[spring-webflux-6.2.2.jar!/:6.2.2]
+		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:55) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4576) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:205) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:229) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:279) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.maybeOnError(FluxConcatMapNoPrefetch.java:327) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.onNext(FluxConcatMapNoPrefetch.java:212) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.SinkManyEmitterProcessor.drain(SinkManyEmitterProcessor.java:476) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.SinkManyEmitterProcessor$EmitterInner.drainParent(SinkManyEmitterProcessor.java:620) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxPublish$PubSubInner.request(FluxPublish.java:874) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.request(FluxConcatMapNoPrefetch.java:337) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.Operators$DeferredSubscription.request(Operators.java:1743) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:196) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.netty.http.client.HttpClientConnect$MonoHttpConnect$ClientTransportSubscriber.onError(HttpClientConnect.java:318) ~[reactor-netty-http-1.2.2.jar!/:1.2.2]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onError(DefaultPooledConnectionProvider.java:174) ~[reactor-netty-core-1.2.2.jar!/:1.2.2]
+		at reactor.netty.internal.shaded.reactor.pool.AbstractPool$Borrower.fail(AbstractPool.java:479) ~[reactor-netty-core-1.2.2.jar!/:1.2.2]
+		at reactor.netty.internal.shaded.reactor.pool.SimpleDequePool.lambda$drainLoop$9(SimpleDequePool.java:442) ~[reactor-netty-core-1.2.2.jar!/:1.2.2]
+		at reactor.core.publisher.FluxDoOnEach$DoOnEachSubscriber.onError(FluxDoOnEach.java:186) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnectionAllocator$PooledConnectionInitializer.onError(DefaultPooledConnectionProvider.java:593) ~[reactor-netty-core-1.2.2.jar!/:1.2.2]
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.secondError(MonoFlatMap.java:241) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.MonoFlatMap$FlatMapInner.onError(MonoFlatMap.java:315) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:106) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.Operators.error(Operators.java:198) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.MonoError.subscribe(MonoError.java:53) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4576) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.tryFailure(TransportConnector.java:576) ~[reactor-netty-core-1.2.2.jar!/:1.2.2]
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.setFailure(TransportConnector.java:522) ~[reactor-netty-core-1.2.2.jar!/:1.2.2]
+		at reactor.netty.transport.TransportConnector.lambda$doConnect$7(TransportConnector.java:261) ~[reactor-netty-core-1.2.2.jar!/:1.2.2]
+		at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:583) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:559) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:118) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.fulfillConnectPromise(AbstractEpollChannel.java:679) ~[netty-transport-classes-epoll-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.finishConnect(AbstractEpollChannel.java:698) ~[netty-transport-classes-epoll-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.epollOutReady(AbstractEpollChannel.java:567) ~[netty-transport-classes-epoll-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:491) ~[netty-transport-classes-epoll-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:399) ~[netty-transport-classes-epoll-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+	Suppressed: java.lang.Exception: #block terminated with an error
+		at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:104) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.Mono.block(Mono.java:1779) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinWebClientSender.postSpans(ZipkinWebClientSender.java:58) ~[spring-boot-actuator-autoconfigure-3.4.2.jar!/:3.4.2]
+		at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.HttpSender.postSpans(HttpSender.java:69) ~[spring-boot-actuator-autoconfigure-3.4.2.jar!/:3.4.2]
+		at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.HttpSender.postSpans(HttpSender.java:41) ~[spring-boot-actuator-autoconfigure-3.4.2.jar!/:3.4.2]
+		at zipkin2.reporter.BaseHttpSender.send(BaseHttpSender.java:123) ~[zipkin-reporter-3.4.3.jar!/:?]
+		at zipkin2.reporter.internal.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:266) ~[zipkin-reporter-3.4.3.jar!/:?]
+		at zipkin2.reporter.internal.AsyncReporter$Flusher.run(AsyncReporter.java:352) ~[zipkin-reporter-3.4.3.jar!/:?]
+		at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: finishConnect(..) failed: Connection refused: zipkin/172.18.0.2:9411
+Caused by: java.net.ConnectException: finishConnect(..) failed: Connection refused
+	at io.netty.channel.unix.Errors.newConnectException0(Errors.java:166) ~[netty-transport-native-unix-common-4.1.117.Final.jar!/:4.1.117.Final]
+	at io.netty.channel.unix.Errors.handleConnectErrno(Errors.java:131) ~[netty-transport-native-unix-common-4.1.117.Final.jar!/:4.1.117.Final]
+	at io.netty.channel.unix.Socket.finishConnect(Socket.java:359) ~[netty-transport-native-unix-common-4.1.117.Final.jar!/:4.1.117.Final]
+	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.doFinishConnect(AbstractEpollChannel.java:715) ~[netty-transport-classes-epoll-4.1.117.Final.jar!/:4.1.117.Final]
+	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.finishConnect(AbstractEpollChannel.java:692) ~[netty-transport-classes-epoll-4.1.117.Final.jar!/:4.1.117.Final]
+	at io.netty.channel.epoll.AbstractEpollChannel$AbstractEpollUnsafe.epollOutReady(AbstractEpollChannel.java:567) ~[netty-transport-classes-epoll-4.1.117.Final.jar!/:4.1.117.Final]
+	at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:491) ~[netty-transport-classes-epoll-4.1.117.Final.jar!/:4.1.117.Final]
+	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:399) ~[netty-transport-classes-epoll-4.1.117.Final.jar!/:4.1.117.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2025-06-03 23:25:44.724 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-9] INFO  SimpleMessageListenerContainer - Restarting Consumer@639b04d7: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:44.724 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-9] INFO  SimpleMessageListenerContainer - Restarting Consumer@db51a4a: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:44.724 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-9] INFO  SimpleMessageListenerContainer - Restarting Consumer@4fc46126: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:44.724 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-9] INFO  SimpleMessageListenerContainer - Restarting Consumer@d977672: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:44.724 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-9] INFO  SimpleMessageListenerContainer - Restarting Consumer@3ca04842: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:44.725 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-9] INFO  SimpleMessageListenerContainer - Restarting Consumer@515da334: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:44.726 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-10] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:44.727 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-10] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:44.727 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-10] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:44.727 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-10] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:44.727 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-10] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:44.728 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-10] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:44.728 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-10] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:44.728 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-10] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:44.728 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-10] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:44.728 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-10] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:44.728 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-10] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:44.729 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-10] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:44.729 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-10] ERROR SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+2025-06-03 23:25:44.729 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-10] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:44.729 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-10] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:44.729 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-10] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:44.729 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-10] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:44.730 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-10] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:49.731 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-10] INFO  SimpleMessageListenerContainer - Restarting Consumer@1076dacf: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:49.731 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-10] INFO  SimpleMessageListenerContainer - Restarting Consumer@7065f447: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:49.732 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-10] INFO  SimpleMessageListenerContainer - Restarting Consumer@e0c502b: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:49.732 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-10] INFO  SimpleMessageListenerContainer - Restarting Consumer@1c1e4a2d: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:49.733 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-10] INFO  SimpleMessageListenerContainer - Restarting Consumer@605dcd9b: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:49.733 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-10] INFO  SimpleMessageListenerContainer - Restarting Consumer@4f720eb1: tags=[[]], channel=null, acknowledgeMode=AUTO local queue size=0
+2025-06-03 23:25:49.733 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-11] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-06-03 23:25:49.798 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-11] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#108f206f:126/SimpleConnection@323701d4 [delegate=amqp://guest@172.18.0.10:5672/, localPort=51682]
+2025-06-03 23:25:49.809 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-11] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-create) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-06-03 23:25:49.809 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-11] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-update) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-06-03 23:25:49.809 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-11] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-delete) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-06-03 23:25:49.809 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-11] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-restore) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-06-03 23:25:49.810 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-11] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-add-role) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-06-03 23:25:49.810 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-11] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-remove-role) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-06-03 23:29:24.481 [] [http-nio-8081-exec-1] INFO  [/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-03 23:29:24.482 [] [http-nio-8081-exec-1] INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-06-03 23:29:24.485 [] [http-nio-8081-exec-1] INFO  DispatcherServlet - Completed initialization in 3 ms
+2025-06-03 23:29:24.637 [] [http-nio-8081-exec-1] TRACE UserController - Entering login method in UserController
+2025-06-03 23:29:24.637 [] [http-nio-8081-exec-1] TRACE UserServiceImpl - Entering login method in UserServiceImpl
+2025-06-03 23:29:24.637 [] [http-nio-8081-exec-1] DEBUG UserServiceImpl - Attempting to authenticate user: super
+2025-06-03 23:29:24.767 [] [http-nio-8081-exec-1] TRACE UserDetailsServiceImpl - Entering loadUserByUsername with username: super
+2025-06-03 23:29:24.793 [] [http-nio-8081-exec-1] INFO  UserDetailsServiceImpl - User found: super
+2025-06-03 23:29:24.796 [] [http-nio-8081-exec-1] DEBUG UserDetailsServiceImpl - Mapping role ADMIN to authority ROLE_ADMIN
+2025-06-03 23:29:24.796 [] [http-nio-8081-exec-1] DEBUG UserDetailsServiceImpl - Mapping role OPERATOR to authority ROLE_OPERATOR
+2025-06-03 23:29:24.796 [] [http-nio-8081-exec-1] DEBUG UserDetailsServiceImpl - Mapping role ANALYST to authority ROLE_ANALYST
+2025-06-03 23:29:24.796 [] [http-nio-8081-exec-1] INFO  UserDetailsServiceImpl - User authorities: [ROLE_OPERATOR, ROLE_ANALYST, ROLE_ADMIN]
+2025-06-03 23:29:24.801 [] [http-nio-8081-exec-1] TRACE UserDetailsServiceImpl - Exiting loadUserByUsername method in UserDetailsServiceImpl with username: super
+2025-06-03 23:29:24.916 [] [http-nio-8081-exec-1] ERROR UserServiceImpl - Authentication failed for user: super
+2025-06-03 23:29:29.344 [] [http-nio-8081-exec-2] TRACE UserController - Entering login method in UserController
+2025-06-03 23:29:29.344 [] [http-nio-8081-exec-2] TRACE UserServiceImpl - Entering login method in UserServiceImpl
+2025-06-03 23:29:29.345 [] [http-nio-8081-exec-2] DEBUG UserServiceImpl - Attempting to authenticate user: super
+2025-06-03 23:29:29.346 [] [http-nio-8081-exec-2] TRACE UserDetailsServiceImpl - Entering loadUserByUsername with username: super
+2025-06-03 23:29:29.351 [] [http-nio-8081-exec-2] INFO  UserDetailsServiceImpl - User found: super
+2025-06-03 23:29:29.351 [] [http-nio-8081-exec-2] DEBUG UserDetailsServiceImpl - Mapping role ADMIN to authority ROLE_ADMIN
+2025-06-03 23:29:29.352 [] [http-nio-8081-exec-2] DEBUG UserDetailsServiceImpl - Mapping role OPERATOR to authority ROLE_OPERATOR
+2025-06-03 23:29:29.352 [] [http-nio-8081-exec-2] DEBUG UserDetailsServiceImpl - Mapping role ANALYST to authority ROLE_ANALYST
+2025-06-03 23:29:29.352 [] [http-nio-8081-exec-2] INFO  UserDetailsServiceImpl - User authorities: [ROLE_OPERATOR, ROLE_ANALYST, ROLE_ADMIN]
+2025-06-03 23:29:29.352 [] [http-nio-8081-exec-2] TRACE UserDetailsServiceImpl - Exiting loadUserByUsername method in UserDetailsServiceImpl with username: super
+2025-06-03 23:29:29.416 [] [http-nio-8081-exec-2] INFO  UserServiceImpl - User authenticated successfully: super
+2025-06-03 23:29:29.416 [] [http-nio-8081-exec-2] TRACE UserServiceImpl - Entering getRolesAsString method in UserServiceImpl
+2025-06-03 23:29:29.416 [] [http-nio-8081-exec-2] TRACE UserServiceImpl - Exiting getRolesAsString method in UserServiceImpl
+2025-06-03 23:29:29.416 [] [http-nio-8081-exec-2] TRACE JwtServiceImpl - Entering generateAccessToken method in JwtUtils class with username: super
+2025-06-03 23:29:29.447 [] [http-nio-8081-exec-2] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 3600000
+2025-06-03 23:29:29.483 [] [http-nio-8081-exec-2] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-06-03 23:29:29.484 [] [http-nio-8081-exec-2] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-06-03 23:29:29.510 [] [http-nio-8081-exec-2] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:29.510 [] [http-nio-8081-exec-2] TRACE JwtServiceImpl - Exiting generateAccessToken method in JwtUtils class with accessToken: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ4OTk2OTY5fQ.nKniIchTgPywxil3ke2Lh9SiczoFpl8N5v_qB_Z5oN10AtAjB4R9fcPIRnJABD13
+2025-06-03 23:29:29.510 [] [http-nio-8081-exec-2] TRACE JwtServiceImpl - Entering generateRefreshToken method in JwtUtils class with username: super
+2025-06-03 23:29:29.510 [] [http-nio-8081-exec-2] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 86400000
+2025-06-03 23:29:29.511 [] [http-nio-8081-exec-2] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-06-03 23:29:29.511 [] [http-nio-8081-exec-2] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-06-03 23:29:29.514 [] [http-nio-8081-exec-2] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ5MDc5NzY5fQ.aYKpt5HUid9APnhiVxiEop5cz1UmAZFSqgmpX2t9T_6pihnu-LG2inl9rqWl3YUd
+2025-06-03 23:29:29.514 [] [http-nio-8081-exec-2] TRACE JwtServiceImpl - Exiting generateRefreshToken method in JwtUtils class with refreshToken: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsImlhdCI6MTc0ODk5MzM2OSwiZXhwIjoxNzQ5MDc5NzY5fQ.aYKpt5HUid9APnhiVxiEop5cz1UmAZFSqgmpX2t9T_6pihnu-LG2inl9rqWl3YUd
+2025-06-03 23:29:29.514 [] [http-nio-8081-exec-2] TRACE UserServiceImpl - Entering revokeAllTokensByUser method in UserServiceImpl
+2025-06-03 23:29:29.514 [] [http-nio-8081-exec-2] DEBUG UserServiceImpl - Revoking all tokens for user ID: 4
+2025-06-03 23:29:29.527 [] [http-nio-8081-exec-2] INFO  UserServiceImpl - No valid tokens found for user ID: 4
+2025-06-03 23:29:29.528 [] [http-nio-8081-exec-2] TRACE UserServiceImpl - Entering saveUserToken method in UserServiceImpl
+2025-06-03 23:29:29.528 [] [http-nio-8081-exec-2] DEBUG UserServiceImpl - Saving token for user: super
+2025-06-03 23:29:29.617 [] [http-nio-8081-exec-2] INFO  UserServiceImpl - Token saved in Redis for user: super
+2025-06-03 23:29:29.618 [] [http-nio-8081-exec-2] TRACE UserServiceImpl - Exiting saveUserToken method in UserServiceImpl
+2025-06-03 23:29:29.618 [] [http-nio-8081-exec-2] TRACE UserServiceImpl - Exiting login method in UserServiceImpl
+2025-06-03 23:29:29.619 [] [http-nio-8081-exec-2] TRACE UserController - Exiting login method in UserController
+2025-06-03 23:29:39.541 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-06-03 23:31:56.014 [] [SpringApplicationShutdownHook] INFO  EurekaServiceRegistry - Unregistering application AUTH-SERVICE with eureka with status DOWN
+2025-06-03 23:31:56.015 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1748993516015, current=DOWN, previous=UP]
+2025-06-03 23:31:56.015 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_AUTH-SERVICE/auth-service:8081: registering service...
+2025-06-03 23:31:56.037 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-12] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-06-03 23:31:56.038 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_AUTH-SERVICE/auth-service:8081 - registration status: 204
+2025-06-03 23:31:56.048 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-12] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-06-03 23:31:56.055 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-12] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-06-03 23:31:56.057 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-12] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-06-03 23:31:56.059 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-12] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-06-03 23:31:56.062 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-12] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-06-03 23:31:56.917 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-12] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-06-03 23:31:56.917 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-12] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-06-03 23:31:56.918 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-12] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-06-03 23:31:56.922 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-12] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-06-03 23:31:56.926 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-12] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-06-03 23:31:56.929 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-12] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-06-03 23:31:56.931 [] [SpringApplicationShutdownHook] INFO  GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-03 23:31:56.935 [] [tomcat-shutdown] INFO  GracefulShutdown - Graceful shutdown complete
+2025-06-03 23:31:58.980 [] [SpringApplicationShutdownHook] TRACE UserServiceImpl - Shutting down JedisPool
+2025-06-03 23:31:58.983 [] [SpringApplicationShutdownHook] INFO  LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-03 23:31:58.987 [] [SpringApplicationShutdownHook] INFO  HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-06-03 23:31:58.992 [] [SpringApplicationShutdownHook] INFO  HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-06-03 23:31:59.235 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Shutting down DiscoveryClient ...
+2025-06-03 23:32:02.236 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Unregistering ...
+2025-06-03 23:32:02.244 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - DiscoveryClient_AUTH-SERVICE/auth-service:8081 - deregister  status: 200
+2025-06-03 23:32:02.245 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Completed shut down of DiscoveryClient

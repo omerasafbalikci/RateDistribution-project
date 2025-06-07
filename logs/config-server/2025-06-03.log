@@ -1,0 +1,108 @@
+2025-06-03 23:01:17.073 [] [background-preinit] INFO  Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-06-03 23:01:17.185 [] [main] INFO  ConfigServerApplication - Starting ConfigServerApplication v0.0.1-SNAPSHOT using Java 21.0.7 with PID 1 (/app.jar started by root in /)
+2025-06-03 23:01:17.187 [] [main] DEBUG ConfigServerApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-06-03 23:01:17.191 [] [main] INFO  ConfigServerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-06-03 23:01:18.941 [] [main] INFO  GenericScope - BeanFactory id=3fc2552f-3cb1-3d29-a470-686acc4ddbb3
+2025-06-03 23:01:19.347 [] [main] INFO  TomcatWebServer - Tomcat initialized with port 8888 (http)
+2025-06-03 23:01:19.383 [] [main] INFO  Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+2025-06-03 23:01:19.388 [] [main] INFO  StandardService - Starting service [Tomcat]
+2025-06-03 23:01:19.393 [] [main] INFO  StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-06-03 23:01:19.485 [] [main] INFO  [/] - Initializing Spring embedded WebApplicationContext
+2025-06-03 23:01:19.488 [] [main] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2235 ms
+2025-06-03 23:01:25.977 [] [main] INFO  EndpointLinksResolver - Exposing 17 endpoints beneath base path '/actuator'
+2025-06-03 23:01:26.030 [] [main] INFO  Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+2025-06-03 23:01:26.048 [] [main] INFO  TomcatWebServer - Tomcat started on port 8888 (http) with context path '/'
+2025-06-03 23:01:26.066 [] [main] INFO  ConfigServerApplication - Started ConfigServerApplication in 9.474 seconds (process running for 11.286)
+2025-06-03 23:01:31.087 [] [http-nio-8888-exec-1] INFO  [/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-03 23:01:31.087 [] [http-nio-8888-exec-1] INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-06-03 23:01:31.089 [] [http-nio-8888-exec-1] INFO  DispatcherServlet - Completed initialization in 1 ms
+2025-06-03 23:01:49.397 [] [http-nio-8888-exec-5] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-15067941631438071620/discovery-server.yml]' via location 'file:/tmp/config-repo-15067941631438071620/'
+2025-06-03 23:01:50.232 [] [http-nio-8888-exec-6] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-15067941631438071620/discovery-server-docker.yml]' via location 'file:/tmp/config-repo-15067941631438071620/'
+2025-06-03 23:01:50.233 [] [http-nio-8888-exec-6] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-15067941631438071620/discovery-server.yml]' via location 'file:/tmp/config-repo-15067941631438071620/'
+2025-06-03 23:01:51.047 [] [http-nio-8888-exec-7] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-15067941631438071620/api-gateway.yml]' via location 'file:/tmp/config-repo-15067941631438071620/'
+2025-06-03 23:01:51.853 [] [http-nio-8888-exec-8] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-15067941631438071620/api-gateway-docker.yml]' via location 'file:/tmp/config-repo-15067941631438071620/'
+2025-06-03 23:01:51.854 [] [http-nio-8888-exec-8] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-15067941631438071620/api-gateway.yml]' via location 'file:/tmp/config-repo-15067941631438071620/'
+2025-06-03 23:01:52.421 [] [http-nio-8888-exec-10] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-15067941631438071620/user-management-service.properties]' via location 'file:/tmp/config-repo-15067941631438071620/'
+2025-06-03 23:01:52.421 [] [http-nio-8888-exec-10] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-15067941631438071620/user-management-service.yml]' via location 'file:/tmp/config-repo-15067941631438071620/'
+2025-06-03 23:01:53.005 [] [http-nio-8888-exec-9] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-15067941631438071620/auth-service.properties]' via location 'file:/tmp/config-repo-15067941631438071620/'
+2025-06-03 23:01:53.005 [] [http-nio-8888-exec-9] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-15067941631438071620/auth-service.yml]' via location 'file:/tmp/config-repo-15067941631438071620/'
+2025-06-03 23:01:53.574 [] [http-nio-8888-exec-2] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-15067941631438071620/user-management-service-docker.properties]' via location 'file:/tmp/config-repo-15067941631438071620/'
+2025-06-03 23:01:53.575 [] [http-nio-8888-exec-2] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-15067941631438071620/user-management-service-docker.yml]' via location 'file:/tmp/config-repo-15067941631438071620/'
+2025-06-03 23:01:53.575 [] [http-nio-8888-exec-2] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-15067941631438071620/user-management-service.properties]' via location 'file:/tmp/config-repo-15067941631438071620/'
+2025-06-03 23:01:53.575 [] [http-nio-8888-exec-2] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-15067941631438071620/user-management-service.yml]' via location 'file:/tmp/config-repo-15067941631438071620/'
+2025-06-03 23:01:54.185 [] [http-nio-8888-exec-1] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-15067941631438071620/rest-data-provider.yml]' via location 'file:/tmp/config-repo-15067941631438071620/'
+2025-06-03 23:01:54.801 [] [http-nio-8888-exec-3] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-15067941631438071620/auth-service-docker.properties]' via location 'file:/tmp/config-repo-15067941631438071620/'
+2025-06-03 23:01:54.802 [] [http-nio-8888-exec-3] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-15067941631438071620/auth-service-docker.yml]' via location 'file:/tmp/config-repo-15067941631438071620/'
+2025-06-03 23:01:54.802 [] [http-nio-8888-exec-3] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-15067941631438071620/auth-service.properties]' via location 'file:/tmp/config-repo-15067941631438071620/'
+2025-06-03 23:01:54.802 [] [http-nio-8888-exec-3] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-15067941631438071620/auth-service.yml]' via location 'file:/tmp/config-repo-15067941631438071620/'
+2025-06-03 23:01:55.414 [] [http-nio-8888-exec-4] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-15067941631438071620/rest-data-provider-docker.yml]' via location 'file:/tmp/config-repo-15067941631438071620/'
+2025-06-03 23:01:55.415 [] [http-nio-8888-exec-4] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-15067941631438071620/rest-data-provider.yml]' via location 'file:/tmp/config-repo-15067941631438071620/'
+2025-06-03 23:17:20.633 [] [SpringApplicationShutdownHook] INFO  GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-03 23:17:20.637 [] [tomcat-shutdown] INFO  GracefulShutdown - Graceful shutdown complete
+2025-06-03 23:22:33.741 [] [background-preinit] INFO  Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-06-03 23:22:33.804 [] [main] INFO  ConfigServerApplication - Starting ConfigServerApplication v0.0.1-SNAPSHOT using Java 21.0.7 with PID 1 (/app.jar started by root in /)
+2025-06-03 23:22:33.805 [] [main] DEBUG ConfigServerApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-06-03 23:22:33.806 [] [main] INFO  ConfigServerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-06-03 23:22:34.845 [] [main] INFO  GenericScope - BeanFactory id=3fc2552f-3cb1-3d29-a470-686acc4ddbb3
+2025-06-03 23:22:35.116 [] [main] INFO  TomcatWebServer - Tomcat initialized with port 8888 (http)
+2025-06-03 23:22:35.130 [] [main] INFO  Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+2025-06-03 23:22:35.132 [] [main] INFO  StandardService - Starting service [Tomcat]
+2025-06-03 23:22:35.133 [] [main] INFO  StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-06-03 23:22:35.182 [] [main] INFO  [/] - Initializing Spring embedded WebApplicationContext
+2025-06-03 23:22:35.186 [] [main] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1338 ms
+2025-06-03 23:22:37.807 [] [main] INFO  EndpointLinksResolver - Exposing 17 endpoints beneath base path '/actuator'
+2025-06-03 23:22:37.872 [] [main] INFO  Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+2025-06-03 23:22:37.890 [] [main] INFO  TomcatWebServer - Tomcat started on port 8888 (http) with context path '/'
+2025-06-03 23:22:37.908 [] [main] INFO  ConfigServerApplication - Started ConfigServerApplication in 4.449 seconds (process running for 5.491)
+2025-06-03 23:22:42.610 [] [http-nio-8888-exec-1] INFO  [/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-03 23:22:42.610 [] [http-nio-8888-exec-1] INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-06-03 23:22:42.613 [] [http-nio-8888-exec-1] INFO  DispatcherServlet - Completed initialization in 2 ms
+2025-06-03 23:22:43.339 [] [http-nio-8888-exec-1] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-12935533770810394169/discovery-server.yml]' via location 'file:/tmp/config-repo-12935533770810394169/'
+2025-06-03 23:22:44.022 [] [http-nio-8888-exec-2] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-12935533770810394169/discovery-server-docker.yml]' via location 'file:/tmp/config-repo-12935533770810394169/'
+2025-06-03 23:22:44.022 [] [http-nio-8888-exec-2] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-12935533770810394169/discovery-server.yml]' via location 'file:/tmp/config-repo-12935533770810394169/'
+2025-06-03 23:22:53.598 [] [http-nio-8888-exec-3] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-12935533770810394169/api-gateway.yml]' via location 'file:/tmp/config-repo-12935533770810394169/'
+2025-06-03 23:22:54.225 [] [http-nio-8888-exec-4] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-12935533770810394169/api-gateway-docker.yml]' via location 'file:/tmp/config-repo-12935533770810394169/'
+2025-06-03 23:22:54.225 [] [http-nio-8888-exec-4] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-12935533770810394169/api-gateway.yml]' via location 'file:/tmp/config-repo-12935533770810394169/'
+2025-06-03 23:23:34.189 [] [http-nio-8888-exec-7] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-12935533770810394169/auth-service.properties]' via location 'file:/tmp/config-repo-12935533770810394169/'
+2025-06-03 23:23:34.190 [] [http-nio-8888-exec-7] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-12935533770810394169/auth-service.yml]' via location 'file:/tmp/config-repo-12935533770810394169/'
+2025-06-03 23:23:34.802 [] [http-nio-8888-exec-8] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-12935533770810394169/auth-service-docker.properties]' via location 'file:/tmp/config-repo-12935533770810394169/'
+2025-06-03 23:23:34.802 [] [http-nio-8888-exec-8] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-12935533770810394169/auth-service-docker.yml]' via location 'file:/tmp/config-repo-12935533770810394169/'
+2025-06-03 23:23:34.802 [] [http-nio-8888-exec-8] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-12935533770810394169/auth-service.properties]' via location 'file:/tmp/config-repo-12935533770810394169/'
+2025-06-03 23:23:34.802 [] [http-nio-8888-exec-8] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-12935533770810394169/auth-service.yml]' via location 'file:/tmp/config-repo-12935533770810394169/'
+2025-06-03 23:24:30.597 [] [http-nio-8888-exec-3] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-12935533770810394169/auth-service.properties]' via location 'file:/tmp/config-repo-12935533770810394169/'
+2025-06-03 23:24:30.598 [] [http-nio-8888-exec-3] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-12935533770810394169/auth-service.yml]' via location 'file:/tmp/config-repo-12935533770810394169/'
+2025-06-03 23:24:31.217 [] [http-nio-8888-exec-4] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-12935533770810394169/auth-service-docker.properties]' via location 'file:/tmp/config-repo-12935533770810394169/'
+2025-06-03 23:24:31.218 [] [http-nio-8888-exec-4] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-12935533770810394169/auth-service-docker.yml]' via location 'file:/tmp/config-repo-12935533770810394169/'
+2025-06-03 23:24:31.218 [] [http-nio-8888-exec-4] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-12935533770810394169/auth-service.properties]' via location 'file:/tmp/config-repo-12935533770810394169/'
+2025-06-03 23:24:31.218 [] [http-nio-8888-exec-4] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-12935533770810394169/auth-service.yml]' via location 'file:/tmp/config-repo-12935533770810394169/'
+2025-06-03 23:25:31.833 [] [SpringApplicationShutdownHook] INFO  GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-03 23:25:31.837 [] [tomcat-shutdown] INFO  GracefulShutdown - Graceful shutdown complete
+2025-06-03 23:25:39.559 [] [background-preinit] INFO  Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-06-03 23:25:39.699 [] [main] INFO  ConfigServerApplication - Starting ConfigServerApplication v0.0.1-SNAPSHOT using Java 21.0.7 with PID 1 (/app.jar started by root in /)
+2025-06-03 23:25:39.700 [] [main] DEBUG ConfigServerApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-06-03 23:25:39.701 [] [main] INFO  ConfigServerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-06-03 23:25:41.369 [] [main] INFO  GenericScope - BeanFactory id=3fc2552f-3cb1-3d29-a470-686acc4ddbb3
+2025-06-03 23:25:41.805 [] [main] INFO  TomcatWebServer - Tomcat initialized with port 8888 (http)
+2025-06-03 23:25:41.830 [] [main] INFO  Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+2025-06-03 23:25:41.835 [] [main] INFO  StandardService - Starting service [Tomcat]
+2025-06-03 23:25:41.836 [] [main] INFO  StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-06-03 23:25:41.905 [] [main] INFO  [/] - Initializing Spring embedded WebApplicationContext
+2025-06-03 23:25:41.909 [] [main] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2131 ms
+2025-06-03 23:25:45.350 [] [main] INFO  EndpointLinksResolver - Exposing 17 endpoints beneath base path '/actuator'
+2025-06-03 23:25:45.403 [] [main] INFO  Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+2025-06-03 23:25:45.421 [] [main] INFO  TomcatWebServer - Tomcat started on port 8888 (http) with context path '/'
+2025-06-03 23:25:45.446 [] [main] INFO  ConfigServerApplication - Started ConfigServerApplication in 6.28 seconds (process running for 7.801)
+2025-06-03 23:25:46.088 [] [http-nio-8888-exec-1] INFO  [/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-03 23:25:46.088 [] [http-nio-8888-exec-1] INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-06-03 23:25:46.091 [] [http-nio-8888-exec-1] INFO  DispatcherServlet - Completed initialization in 3 ms
+2025-06-03 23:26:14.601 [] [http-nio-8888-exec-4] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-201354939463238331/user-management-service.properties]' via location 'file:/tmp/config-repo-201354939463238331/'
+2025-06-03 23:26:14.603 [] [http-nio-8888-exec-4] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-201354939463238331/user-management-service.yml]' via location 'file:/tmp/config-repo-201354939463238331/'
+2025-06-03 23:26:15.235 [] [http-nio-8888-exec-5] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-201354939463238331/rest-data-provider.yml]' via location 'file:/tmp/config-repo-201354939463238331/'
+2025-06-03 23:26:15.823 [] [http-nio-8888-exec-6] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-201354939463238331/user-management-service-docker.properties]' via location 'file:/tmp/config-repo-201354939463238331/'
+2025-06-03 23:26:15.823 [] [http-nio-8888-exec-6] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-201354939463238331/user-management-service-docker.yml]' via location 'file:/tmp/config-repo-201354939463238331/'
+2025-06-03 23:26:15.823 [] [http-nio-8888-exec-6] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-201354939463238331/user-management-service.properties]' via location 'file:/tmp/config-repo-201354939463238331/'
+2025-06-03 23:26:15.824 [] [http-nio-8888-exec-6] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-201354939463238331/user-management-service.yml]' via location 'file:/tmp/config-repo-201354939463238331/'
+2025-06-03 23:26:16.410 [] [http-nio-8888-exec-7] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-201354939463238331/rest-data-provider-docker.yml]' via location 'file:/tmp/config-repo-201354939463238331/'
+2025-06-03 23:26:16.410 [] [http-nio-8888-exec-7] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-201354939463238331/rest-data-provider.yml]' via location 'file:/tmp/config-repo-201354939463238331/'
+2025-06-03 23:32:09.800 [] [SpringApplicationShutdownHook] INFO  GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-03 23:32:09.805 [] [tomcat-shutdown] INFO  GracefulShutdown - Graceful shutdown complete

@@ -1,7 +1,7 @@
 package com.ratedistribution.tdp.service;
 
+import com.ratedistribution.tdp.utilities.serializer.JsonUtils;
 import com.ratedistribution.tdp.net.SubscriptionManager;
-import com.ratedistribution.tdp.utilities.serializer.JsonUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -91,7 +91,7 @@ public class RateUpdateScheduler {
         if (maxUpdates > 0 && tick.incrementAndGet() >= maxUpdates) return;
 
         simulator.updateAllRates().forEach(rate ->
-                subscriptionManager.broadcast(rate.getRateName(), JsonUtil.toJson(rate))
+                subscriptionManager.broadcast(rate.getRateName(), JsonUtils.toJson(rate))
         );
     }
 

@@ -288,6 +288,7 @@ services:
     image: omerasafbalikci/rest-data-provider
     environment:
       - SPRING_PROFILES_ACTIVE=docker
+      - SPRING_CLOUD_CONFIG_OVERRIDE_NONE=true
     volumes:
       - ./logs:/logs
     networks:
@@ -295,6 +296,7 @@ services:
     depends_on:
       - api-gateway
       - auth-service
+      - user-service
       - redis
 
   tcp-data-provider:
@@ -309,6 +311,8 @@ services:
     depends_on:
       - api-gateway
       - auth-service
+      - user-service
+      - redis
 
   rate-hub:
     image: omerasafbalikci/rate-hub

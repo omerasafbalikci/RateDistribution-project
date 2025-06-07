@@ -1,0 +1,19 @@
+2025-06-08 00:36:21.429 [] [main] INFO  TcpDataProviderApplication - === Starting TCP Data Provider Application ===
+2025-06-08 00:36:21.435 [] [main] DEBUG TcpDataProviderApplication - Attempting to load configuration...
+2025-06-08 00:36:21.565 [] [main] ERROR GlobalExceptionHandler - Error in [Startup - Config Load] [ConfigurationLoadException]: Initial config load failed
+com.ratedistribution.tdp.utilities.exceptions.ConfigurationLoadException: Initial config load failed
+	at com.ratedistribution.tdp.config.SimulatorConfigLoader.<init>(SimulatorConfigLoader.java:41) ~[classes/:?]
+	at com.ratedistribution.tdp.TcpDataProviderApplication.main(TcpDataProviderApplication.java:34) [classes/:?]
+Caused by: java.nio.file.NoSuchFileException: \config\application-docker.yml
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85) ~[?:?]
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[?:?]
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[?:?]
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:234) ~[?:?]
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:379) ~[?:?]
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:431) ~[?:?]
+	at java.base/java.nio.file.spi.FileSystemProvider.newInputStream(FileSystemProvider.java:420) ~[?:?]
+	at java.base/java.nio.file.Files.newInputStream(Files.java:159) ~[?:?]
+	at com.ratedistribution.tdp.config.SimulatorConfigLoader.load(SimulatorConfigLoader.java:68) ~[classes/:?]
+	at com.ratedistribution.tdp.config.SimulatorConfigLoader.<init>(SimulatorConfigLoader.java:39) ~[classes/:?]
+	... 1 more
+2025-06-08 00:36:21.579 [] [main] FATAL TcpDataProviderApplication - Application terminated due to configuration error.

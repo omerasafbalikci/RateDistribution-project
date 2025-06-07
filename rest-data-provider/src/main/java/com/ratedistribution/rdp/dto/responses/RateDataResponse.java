@@ -1,6 +1,5 @@
 package com.ratedistribution.rdp.dto.responses;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.ratedistribution.rdp.utilities.serializer.PercentSerializer;

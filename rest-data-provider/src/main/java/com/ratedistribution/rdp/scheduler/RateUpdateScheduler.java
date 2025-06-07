@@ -5,11 +5,14 @@ import com.ratedistribution.rdp.service.abstracts.RateSimulatorService;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import org.springframework.stereotype.Component;
 
 import java.time.Instant;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Executor;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Schedules and runs periodic rate updates based on simulator config.
@@ -20,12 +23,13 @@ import java.util.concurrent.CompletableFuture;
 
 @Component
 @RequiredArgsConstructor
+@RefreshScope
 @Log4j2
 public class RateUpdateScheduler {
     private final RateSimulatorService rateSimulatorService;
     private final SimulatorProperties simulatorProperties;
     private final ThreadPoolTaskScheduler taskScheduler;
-    private int updateCount = 0;
+    private final AtomicInteger updateCount = new AtomicInteger(0);
 
     /**
      * Starts the scheduler after component initialization.
@@ -40,13 +44,10 @@ public class RateUpdateScheduler {
      */
     private void scheduleNextRun() {
         long intervalMillis = simulatorProperties.getUpdateIntervalMillis();
+        Instant nextRunTime = Instant.now().plusMillis(intervalMillis);
 
-        taskScheduler.schedule(() -> {
-            performUpdate();
-            scheduleNextRun();
-        }, Instant.now().plusMillis(intervalMillis));
-
-        log.info("Next update scheduled after {} ms", intervalMillis);
+        taskScheduler.schedule(this::performUpdate, nextRunTime);
+        log.info("Next rate update scheduled in {} ms", intervalMillis);
     }
 
     /**
@@ -54,20 +55,28 @@ public class RateUpdateScheduler {
      * Stops scheduler if max update count is reached.
      */
     private void performUpdate() {
-        if (simulatorProperties.getMaxUpdates() > 0 && updateCount >= simulatorProperties.getMaxUpdates()) {
-            log.info("Max updates reached => stopping...");
+        int currentCount = updateCount.get();
+
+        if (simulatorProperties.getMaxUpdates() > 0 && currentCount >= simulatorProperties.getMaxUpdates()) {
+            log.info("Maximum update count ({}) reached. Scheduler stopping...", currentCount);
             taskScheduler.shutdown();
             return;
         }
-        log.info("Starting rate update process... Iteration: {}", updateCount + 1);
 
-        CompletableFuture.supplyAsync(rateSimulatorService::updateAllRates)
+        log.info("Executing rate update... Iteration {}", currentCount + 1);
+
+        Executor executor = taskScheduler.getScheduledExecutor();
+
+        CompletableFuture
+                .supplyAsync(rateSimulatorService::updateAllRates, executor)
                 .thenAccept(updatedRates -> {
-                    updateCount++;
-                    log.info("Rates updated => iteration={} totalUpdated={}", updateCount, updatedRates.size());
+                    int newCount = updateCount.incrementAndGet();
+                    log.info("Rate update completed: iteration={}, updatedCount={}", newCount, updatedRates.size());
+                    scheduleNextRun();
                 })
                 .exceptionally(ex -> {
-                    log.error("Error during rate update process", ex);
+                    log.error("Exception during rate update execution", ex);
+                    scheduleNextRun();
                     return null;
                 });
     }

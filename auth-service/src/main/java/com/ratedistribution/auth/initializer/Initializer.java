@@ -56,7 +56,7 @@ public class Initializer implements CommandLineRunner {
         boolean result = userRepository.existsByUsernameAndDeletedIsFalse("ozlembalikci");
         if (!result) {
             String encodedPassword = this.passwordEncoder.encode("omerasaf18991");
-            Role secretaryRole = this.roleRepository.findByName(ANALYST).orElseThrow();
+            Role analystRole = this.roleRepository.findByName(ANALYST).orElseThrow();
 
             this.userRepository.save(User.builder()
                     .username("ozlembalikci")
@@ -65,7 +65,7 @@ public class Initializer implements CommandLineRunner {
                     .emailVerificationToken(null)
                     .resetToken(null)
                     .resetTokenExpiration(null)
-                    .roles(List.of(secretaryRole))
+                    .roles(List.of(analystRole))
                     .build());
         }
     }
@@ -74,7 +74,7 @@ public class Initializer implements CommandLineRunner {
         boolean result = userRepository.existsByUsernameAndDeletedIsFalse("kadircanbalikci");
         if (!result) {
             String encodedPassword = this.passwordEncoder.encode("omerasaf18992");
-            Role technicianRole = this.roleRepository.findByName(OPERATOR).orElseThrow();
+            Role operatorRole = this.roleRepository.findByName(OPERATOR).orElseThrow();
 
             this.userRepository.save(User.builder()
                     .username("kadircanbalikci")
@@ -83,7 +83,7 @@ public class Initializer implements CommandLineRunner {
                     .emailVerificationToken(null)
                     .resetToken(null)
                     .resetTokenExpiration(null)
-                    .roles(List.of(technicianRole))
+                    .roles(List.of(operatorRole))
                     .build());
         }
     }
@@ -111,8 +111,8 @@ public class Initializer implements CommandLineRunner {
         if (!result) {
             String encodedPassword = this.passwordEncoder.encode("omerasaf18994");
             Role adminRole = this.roleRepository.findByName(ADMIN).orElseThrow();
-            Role technicianRole = this.roleRepository.findByName(OPERATOR).orElseThrow();
-            Role secretaryRole = this.roleRepository.findByName(ANALYST).orElseThrow();
+            Role operatorRole = this.roleRepository.findByName(OPERATOR).orElseThrow();
+            Role analystRole = this.roleRepository.findByName(ANALYST).orElseThrow();
 
             this.userRepository.save(User.builder()
                     .username("super")
@@ -121,7 +121,7 @@ public class Initializer implements CommandLineRunner {
                     .emailVerificationToken(null)
                     .resetToken(null)
                     .resetTokenExpiration(null)
-                    .roles(List.of(adminRole, technicianRole, secretaryRole))
+                    .roles(List.of(adminRole, operatorRole, analystRole))
                     .build());
         }
     }

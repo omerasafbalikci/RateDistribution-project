@@ -12,7 +12,7 @@ import java.time.Instant;
 /**
  * Service responsible for determining whether a given instant falls within a configured holiday period.
  * Holidays are used to pause rate updates during predefined intervals.
- * Loaded dynamically from {@code application.yml} through {@link SimulatorConfigLoader}.
+ * Loaded dynamically from {@code application-docker.yml} through {@link SimulatorConfigLoader}.
  *
  * @author Ömer Asaf BALIKÇI
  */

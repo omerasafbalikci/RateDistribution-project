@@ -18,7 +18,7 @@ import java.util.List;
  * It provides validation and dynamic refresh capabilities for simulator settings used in rate simulation logic.
  *
  * <p>Configuration prefix: <b>simulator</b></p>
- *
+ * <p>
  * Supported configuration parameters:
  * <ul>
  *     <li><b>updateIntervalMillis</b> – Update interval in milliseconds (must be positive)</li>
@@ -31,7 +31,7 @@ import java.util.List;
  *     <li><b>holidays</b> – Holiday definitions affecting simulation</li>
  *     <li><b>rates</b> – Definitions of multi-rate simulation sources</li>
  * </ul>
- *
+ * <p>
  * This bean is annotated with {@link RefreshScope} to allow live reloading from the configuration server.
  *
  * @author Ömer Asaf BALIKÇI

@@ -1,0 +1,39 @@
+2025-06-04 01:00:40.595 [] [reactor-http-epoll-12] INFO  AuthGatewayFilterFactory - Processing request for path: /api/rates/EURUSD
+2025-06-04 01:00:40.595 [] [reactor-http-epoll-12] DEBUG AuthGatewayFilterFactory - Request is to a secured route: /api/rates/EURUSD
+2025-06-04 01:00:40.595 [] [reactor-http-epoll-12] DEBUG AuthGatewayFilterFactory - Extracted token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5ODc1OCwiZXhwIjoxNzQ5MDAyMzU4fQ.vahKbHhXJ65jnG7UXwDrZN7dViUV6QL6qnZU7bOjdkhVrrdr51IAezkbSeHW_f0g
+2025-06-04 01:00:40.595 [] [reactor-http-epoll-12] TRACE JwtValidator - Entering getClaimsAndValidate method in JwtUtils
+2025-06-04 01:00:40.595 [] [reactor-http-epoll-12] DEBUG JwtValidator - Validating token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5ODc1OCwiZXhwIjoxNzQ5MDAyMzU4fQ.vahKbHhXJ65jnG7UXwDrZN7dViUV6QL6qnZU7bOjdkhVrrdr51IAezkbSeHW_f0g
+2025-06-04 01:00:40.596 [] [reactor-http-epoll-12] INFO  JwtValidator - Token validated successfully. Claims: {sub=super, roles=[ADMIN, OPERATOR, ANALYST], iat=1748998758, exp=1749002358}
+2025-06-04 01:00:40.596 [] [reactor-http-epoll-12] TRACE JwtValidator - Exiting getClaimsAndValidate method in JwtUtils
+2025-06-04 01:00:40.596 [] [reactor-http-epoll-12] TRACE JwtValidator - Entering isLoggedOut method in JwtUtils
+2025-06-04 01:00:40.596 [] [reactor-http-epoll-12] DEBUG JwtValidator - Checking if token is logged out: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5ODc1OCwiZXhwIjoxNzQ5MDAyMzU4fQ.vahKbHhXJ65jnG7UXwDrZN7dViUV6QL6qnZU7bOjdkhVrrdr51IAezkbSeHW_f0g
+2025-06-04 01:00:40.597 [] [reactor-http-epoll-12] INFO  JwtValidator - Token eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5ODc1OCwiZXhwIjoxNzQ5MDAyMzU4fQ.vahKbHhXJ65jnG7UXwDrZN7dViUV6QL6qnZU7bOjdkhVrrdr51IAezkbSeHW_f0g logout status: false
+2025-06-04 01:00:40.597 [] [reactor-http-epoll-12] TRACE JwtValidator - Exiting isLoggedOut method in JwtUtils
+2025-06-04 01:00:40.597 [] [reactor-http-epoll-12] INFO  AuthGatewayFilterFactory - Authenticated user: super
+2025-06-04 01:00:40.597 [] [reactor-http-epoll-12] DEBUG AuthGatewayFilterFactory - Role-based authorization needed for path: /api/rates/EURUSD
+2025-06-04 01:00:40.597 [] [reactor-http-epoll-12] TRACE JwtValidator - Entering getRoles method in JwtUtils
+2025-06-04 01:00:40.597 [] [reactor-http-epoll-12] DEBUG JwtValidator - Extracting roles from claims: {sub=super, roles=[ADMIN, OPERATOR, ANALYST], iat=1748998758, exp=1749002358}
+2025-06-04 01:00:40.597 [] [reactor-http-epoll-12] INFO  JwtValidator - Roles extracted: [ADMIN, OPERATOR, ANALYST]
+2025-06-04 01:00:40.598 [] [reactor-http-epoll-12] TRACE JwtValidator - Exiting getRoles method in JwtUtils
+2025-06-04 01:00:40.598 [] [reactor-http-epoll-12] INFO  AuthGatewayFilterFactory - User super authorized for path: /api/rates/EURUSD
+2025-06-04 01:00:40.598 [] [reactor-http-epoll-12] TRACE AuthGatewayFilterFactory - Exiting apply method in AuthGatewayFilterFactory class with successful authentication
+2025-06-04 01:00:42.832 [] [reactor-http-epoll-12] INFO  AuthGatewayFilterFactory - Processing request for path: /api/rates/EURUSD
+2025-06-04 01:00:42.832 [] [reactor-http-epoll-12] DEBUG AuthGatewayFilterFactory - Request is to a secured route: /api/rates/EURUSD
+2025-06-04 01:00:42.832 [] [reactor-http-epoll-12] DEBUG AuthGatewayFilterFactory - Extracted token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5ODc1OCwiZXhwIjoxNzQ5MDAyMzU4fQ.vahKbHhXJ65jnG7UXwDrZN7dViUV6QL6qnZU7bOjdkhVrrdr51IAezkbSeHW_f0g
+2025-06-04 01:00:42.832 [] [reactor-http-epoll-12] TRACE JwtValidator - Entering getClaimsAndValidate method in JwtUtils
+2025-06-04 01:00:42.832 [] [reactor-http-epoll-12] DEBUG JwtValidator - Validating token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5ODc1OCwiZXhwIjoxNzQ5MDAyMzU4fQ.vahKbHhXJ65jnG7UXwDrZN7dViUV6QL6qnZU7bOjdkhVrrdr51IAezkbSeHW_f0g
+2025-06-04 01:00:42.832 [] [reactor-http-epoll-12] INFO  JwtValidator - Token validated successfully. Claims: {sub=super, roles=[ADMIN, OPERATOR, ANALYST], iat=1748998758, exp=1749002358}
+2025-06-04 01:00:42.832 [] [reactor-http-epoll-12] TRACE JwtValidator - Exiting getClaimsAndValidate method in JwtUtils
+2025-06-04 01:00:42.832 [] [reactor-http-epoll-12] TRACE JwtValidator - Entering isLoggedOut method in JwtUtils
+2025-06-04 01:00:42.832 [] [reactor-http-epoll-12] DEBUG JwtValidator - Checking if token is logged out: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5ODc1OCwiZXhwIjoxNzQ5MDAyMzU4fQ.vahKbHhXJ65jnG7UXwDrZN7dViUV6QL6qnZU7bOjdkhVrrdr51IAezkbSeHW_f0g
+2025-06-04 01:00:42.833 [] [reactor-http-epoll-12] INFO  JwtValidator - Token eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc0ODk5ODc1OCwiZXhwIjoxNzQ5MDAyMzU4fQ.vahKbHhXJ65jnG7UXwDrZN7dViUV6QL6qnZU7bOjdkhVrrdr51IAezkbSeHW_f0g logout status: false
+2025-06-04 01:00:42.833 [] [reactor-http-epoll-12] TRACE JwtValidator - Exiting isLoggedOut method in JwtUtils
+2025-06-04 01:00:42.833 [] [reactor-http-epoll-12] INFO  AuthGatewayFilterFactory - Authenticated user: super
+2025-06-04 01:00:42.833 [] [reactor-http-epoll-12] DEBUG AuthGatewayFilterFactory - Role-based authorization needed for path: /api/rates/EURUSD
+2025-06-04 01:00:42.833 [] [reactor-http-epoll-12] TRACE JwtValidator - Entering getRoles method in JwtUtils
+2025-06-04 01:00:42.834 [] [reactor-http-epoll-12] DEBUG JwtValidator - Extracting roles from claims: {sub=super, roles=[ADMIN, OPERATOR, ANALYST], iat=1748998758, exp=1749002358}
+2025-06-04 01:00:42.834 [] [reactor-http-epoll-12] INFO  JwtValidator - Roles extracted: [ADMIN, OPERATOR, ANALYST]
+2025-06-04 01:00:42.834 [] [reactor-http-epoll-12] TRACE JwtValidator - Exiting getRoles method in JwtUtils
+2025-06-04 01:00:42.834 [] [reactor-http-epoll-12] INFO  AuthGatewayFilterFactory - User super authorized for path: /api/rates/EURUSD
+2025-06-04 01:00:42.834 [] [reactor-http-epoll-12] TRACE AuthGatewayFilterFactory - Exiting apply method in AuthGatewayFilterFactory class with successful authentication
+2025-06-04 01:03:45.471 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration

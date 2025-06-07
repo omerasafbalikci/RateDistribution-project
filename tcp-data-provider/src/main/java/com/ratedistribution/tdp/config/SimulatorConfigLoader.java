@@ -10,7 +10,9 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.nio.file.attribute.FileTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +27,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class SimulatorConfigLoader {
     private static final Logger log = LogManager.getLogger(SimulatorConfigLoader.class);
-    private static final Path YAML_PATH = Paths.get("/config/application.yml");
+    private static final Path YAML_PATH = Paths.get("/config/application-docker.yml");
     private final ObjectMapper mapper;
     private final AtomicReference<ApplicationConfig> appCfg = new AtomicReference<>();
     private final List<Runnable> listeners = new ArrayList<>();

@@ -24,6 +24,7 @@ public class EventShockDefinition {
     private String name;
     @NotNull
     private Instant dateTime;
+    @NotNull
     private double jumpMean;
     @DecimalMin("0.0")
     private double jumpVol;
