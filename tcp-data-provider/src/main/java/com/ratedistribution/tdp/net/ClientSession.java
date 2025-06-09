@@ -186,7 +186,6 @@ public class ClientSession implements Runnable {
         } catch (Exception e) {
             log.warn("Failed to push to {}: {}", socket.getRemoteSocketAddress(), e.getMessage());
             GlobalExceptionHandler.handle("ClientSession.push", e);
-            close();
         }
     }
 
@@ -203,6 +202,7 @@ public class ClientSession implements Runnable {
         } catch (IOException e) {
             log.error("Failed to send message to {}: {}", socket.getRemoteSocketAddress(), s);
             GlobalExceptionHandler.handle("ClientSession.send", e);
+            close();
         }
     }
 

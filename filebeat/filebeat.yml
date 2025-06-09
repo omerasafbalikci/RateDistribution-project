@@ -136,8 +136,11 @@ processors:
   - add_host_metadata: ~
   - add_cloud_metadata: ~
 
+setup.template.name: "logs"
+setup.template.pattern: "logs-*"
+
 ##################### Output to OpenSearch #####################
-output.opensearch:
+output.elasticsearch:
   hosts: ["http://opensearch:9200"]
   index: "logs-%{[service]}-%{+yyyy.MM.dd}"
   pipeline: "logs_pipeline"

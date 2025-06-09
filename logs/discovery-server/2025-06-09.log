@@ -1,43 +1,16 @@
-2025-06-09 11:00:00.176 [] [http-nio-8761-exec-2] INFO  AbstractInstanceRegistry - Cancelled instance USER-MANAGEMENT-SERVICE/user-management-service:8082 (replication=false)
-2025-06-09 11:00:00.669 [] [http-nio-8761-exec-7] INFO  AbstractInstanceRegistry - Registered instance AUTH-SERVICE/auth-service:8081 with status DOWN (replication=false)
-2025-06-09 11:00:00.686 [] [http-nio-8761-exec-8] WARN  AbstractInstanceRegistry - DS: Registry: cancel failed because Lease is not registered for: USER-MANAGEMENT-SERVICE/user-management-service:8082
-2025-06-09 11:00:00.686 [] [http-nio-8761-exec-8] INFO  InstanceResource - Not Found (Cancel): USER-MANAGEMENT-SERVICE - user-management-service:8082
-2025-06-09 11:00:00.686 [] [http-nio-8761-exec-8] INFO  AbstractInstanceRegistry - Registered instance AUTH-SERVICE/auth-service:8081 with status DOWN (replication=true)
-2025-06-09 11:00:00.701 [] [TaskBatchingWorker-target_localhost-4] WARN  ReplicationTask - The replication of task USER-MANAGEMENT-SERVICE/user-management-service:8082:Cancel@localhost failed with response code 404
-2025-06-09 11:00:00.701 [] [TaskBatchingWorker-target_localhost-4] WARN  PeerEurekaNode - USER-MANAGEMENT-SERVICE/user-management-service:8082:Cancel@localhost: missing entry.
-2025-06-09 11:00:06.242 [] [http-nio-8761-exec-9] INFO  AbstractInstanceRegistry - Cancelled instance AUTH-SERVICE/auth-service:8081 (replication=false)
-2025-06-09 11:00:06.751 [] [http-nio-8761-exec-4] WARN  AbstractInstanceRegistry - DS: Registry: cancel failed because Lease is not registered for: AUTH-SERVICE/auth-service:8081
-2025-06-09 11:00:06.752 [] [http-nio-8761-exec-4] INFO  InstanceResource - Not Found (Cancel): AUTH-SERVICE - auth-service:8081
-2025-06-09 11:00:06.754 [] [TaskBatchingWorker-target_localhost-5] WARN  ReplicationTask - The replication of task AUTH-SERVICE/auth-service:8081:Cancel@localhost failed with response code 404
-2025-06-09 11:00:06.755 [] [TaskBatchingWorker-target_localhost-5] WARN  PeerEurekaNode - AUTH-SERVICE/auth-service:8081:Cancel@localhost: missing entry.
-2025-06-09 11:00:06.963 [] [http-nio-8761-exec-3] INFO  AbstractInstanceRegistry - Registered instance API-GATEWAY/api-gateway:8080 with status DOWN (replication=false)
-2025-06-09 11:00:07.471 [] [http-nio-8761-exec-2] INFO  AbstractInstanceRegistry - Registered instance API-GATEWAY/api-gateway:8080 with status DOWN (replication=true)
-2025-06-09 11:00:12.584 [] [http-nio-8761-exec-8] INFO  AbstractInstanceRegistry - Cancelled instance API-GATEWAY/api-gateway:8080 (replication=false)
-2025-06-09 11:00:13.098 [] [http-nio-8761-exec-10] WARN  AbstractInstanceRegistry - DS: Registry: cancel failed because Lease is not registered for: API-GATEWAY/api-gateway:8080
-2025-06-09 11:00:13.098 [] [http-nio-8761-exec-10] INFO  InstanceResource - Not Found (Cancel): API-GATEWAY - api-gateway:8080
-2025-06-09 11:00:13.101 [] [TaskBatchingWorker-target_localhost-0] WARN  ReplicationTask - The replication of task API-GATEWAY/api-gateway:8080:Cancel@localhost failed with response code 404
-2025-06-09 11:00:13.101 [] [TaskBatchingWorker-target_localhost-0] WARN  PeerEurekaNode - API-GATEWAY/api-gateway:8080:Cancel@localhost: missing entry.
-2025-06-09 11:00:13.325 [] [SpringApplicationShutdownHook] INFO  EurekaServiceRegistry - Unregistering application DISCOVERY-SERVER with eureka with status DOWN
-2025-06-09 11:00:13.328 [] [SpringApplicationShutdownHook] INFO  GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-06-09 11:00:13.347 [] [tomcat-shutdown] INFO  GracefulShutdown - Graceful shutdown complete
-2025-06-09 11:00:13.353 [] [SpringApplicationShutdownHook] INFO  EurekaServerBootstrap - Shutting down Eureka Server..
-2025-06-09 11:00:13.353 [] [SpringApplicationShutdownHook] INFO  DefaultEurekaServerContext - Shutting down ...
-2025-06-09 11:00:13.359 [] [SpringApplicationShutdownHook] INFO  DefaultEurekaServerContext - Shut down
-2025-06-09 11:00:13.359 [] [SpringApplicationShutdownHook] INFO  EurekaServerBootstrap - Eureka Service is now shutdown...
-2025-06-09 11:00:13.360 [] [SpringApplicationShutdownHook] INFO  DefaultEurekaServerContext - Shutting down ...
-2025-06-09 11:00:13.360 [] [SpringApplicationShutdownHook] INFO  DefaultEurekaServerContext - Shut down
-2025-06-09 11:00:13.370 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Shutting down DiscoveryClient ...
-2025-06-09 11:00:13.370 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Completed shut down of DiscoveryClient
-2025-06-09 11:00:13.354 [] [Eureka-Jersey3Client-Conn-Cleaner2] ERROR EurekaJersey3ClientImpl - Cannot clean connections
-java.lang.IllegalStateException: Client instance has been closed.
-	at org.glassfish.jersey.internal.guava.Preconditions.checkState(Preconditions.java:169) ~[jersey-common-3.1.10.jar!/:?]
-	at org.glassfish.jersey.client.JerseyClient.checkNotClosed(JerseyClient.java:248) ~[jersey-client-3.1.10.jar!/:?]
-	at org.glassfish.jersey.client.JerseyClient.getConfiguration(JerseyClient.java:363) ~[jersey-client-3.1.10.jar!/:?]
-	at org.glassfish.jersey.client.JerseyClient.getConfiguration(JerseyClient.java:54) ~[jersey-client-3.1.10.jar!/:?]
-	at com.netflix.discovery.shared.transport.jersey3.EurekaJersey3ClientImpl$ConnectionCleanerTask.run(EurekaJersey3ClientImpl.java:338) ~[eureka-client-jersey3-2.0.4.jar!/:2.0.4]
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[?:?]
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[?:?]
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[?:?]
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
-	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2025-06-09 15:00:02.905 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 5ms
+2025-06-09 15:01:02.906 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 6ms
+2025-06-09 15:02:02.906 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 3ms
+2025-06-09 15:03:02.906 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 3ms
+2025-06-09 15:04:02.906 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 3ms
+2025-06-09 15:05:02.907 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 3ms
+2025-06-09 15:06:02.906 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 3ms
+2025-06-09 15:07:02.907 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 3ms
+2025-06-09 15:08:02.906 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 3ms
+2025-06-09 15:09:02.906 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 3ms
+2025-06-09 15:10:02.908 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 3ms
+2025-06-09 15:11:02.906 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 13ms
+2025-06-09 15:12:00.994 [] [ReplicaAwareInstanceRegistry - RenewalThresholdUpdater] INFO  PeerAwareInstanceRegistryImpl - Current renewal threshold is : 11
+2025-06-09 15:12:02.908 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-06-09 15:13:02.913 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 3ms
+2025-06-09 15:14:02.909 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 6ms

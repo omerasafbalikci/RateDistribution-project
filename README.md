@@ -48,6 +48,7 @@ this data, was developed.
           <li>JUnit 5</li>
           <li>JUnit Suite Engine</li>
           <li>JaCoCo</li>
+          <li>Filebeat</li>
         </ul>
     </td>
     <td>

@@ -37,16 +37,17 @@ services:
 
   # FILEBEAT
   filebeat:
-    image: docker.elastic.co/beats/filebeat:8.8.3
+    image: docker.elastic.co/beats/filebeat:8.11.3
     container_name: filebeat
     user: root
     volumes:
-      - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+      - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
       - ./logs:/var/log/myapps:ro
+    depends_on:
+      opensearch:
+        condition: service_healthy
     networks:
       - microservices-net
-    depends_on:
-      - opensearch
 
   # OPENSEARCH
   opensearch:
@@ -340,12 +341,6 @@ services:
       - auth-service
       - user-service
       - redis
-    healthcheck:
-      test: [ "CMD", "nc", "-z", "localhost", "8084" ]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-      start_period: 20s
 
   rate-hub:
     image: omerasafbalikci/rate-hub
@@ -360,7 +355,7 @@ services:
       hazelcast:
         condition: service_started
       tcp-data-provider:
-        condition: service_healthy
+        condition: service_started
       rest-data-provider:
         condition: service_healthy
 

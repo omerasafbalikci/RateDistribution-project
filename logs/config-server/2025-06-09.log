@@ -1,2 +1,2 @@
-2025-06-09 11:00:14.009 [] [SpringApplicationShutdownHook] INFO  GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-06-09 11:00:14.023 [] [tomcat-shutdown] INFO  GracefulShutdown - Graceful shutdown complete
+2025-06-09 15:27:07.402 [] [http-nio-8888-exec-9] WARN  MultipleJGitEnvironmentRepository - Could not fetch remote for main remote: https://github.com/omerasafbalikci/RateDistribution-config-repo
+2025-06-09 15:27:11.206 [] [http-nio-8888-exec-9] WARN  HealthEndpointSupport - Health contributor org.springframework.cloud.config.server.config.ConfigServerHealthIndicator (configServer) took 17597ms to respond

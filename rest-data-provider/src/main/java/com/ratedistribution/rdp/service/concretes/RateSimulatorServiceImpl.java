@@ -442,7 +442,7 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
     private boolean isWeekend(Instant instant) {
         DayOfWeek dow = instant.atZone(ZoneId.systemDefault()).getDayOfWeek();
         log.debug("Checked if date {} is dow: {}", instant, dow);
-        return dow == DayOfWeek.SATURDAY || dow == DayOfWeek.MONDAY;
+        return dow == DayOfWeek.SATURDAY || dow == DayOfWeek.SUNDAY;
     }
 
     /**
