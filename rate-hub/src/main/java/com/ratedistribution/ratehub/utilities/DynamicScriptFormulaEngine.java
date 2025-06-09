@@ -1,7 +1,6 @@
 package com.ratedistribution.ratehub.utilities;
 
 import com.ratedistribution.ratehub.advice.GlobalExceptionHandler;
-import com.ratedistribution.ratehub.kafka.RateKafkaProducer;
 import com.ratedistribution.ratehub.model.Rate;
 import groovy.lang.Binding;
 import groovy.lang.GroovyShell;
@@ -32,7 +31,7 @@ import java.util.function.BiConsumer;
  */
 
 public class DynamicScriptFormulaEngine implements ExpressionEvaluator {
-    private static final Logger log = LogManager.getLogger(RateKafkaProducer.class);
+    private static final Logger log = LogManager.getLogger(DynamicScriptFormulaEngine.class);
     private final String engine;
     private final Path scriptFile;
     private long lastModified = 0;
@@ -89,11 +88,23 @@ public class DynamicScriptFormulaEngine implements ExpressionEvaluator {
     }
 
 
-    private BigDecimal evalGroovy(String s, Map<String, Rate> vars, Map<String, BigDecimal> helpers) {
+    private BigDecimal evalGroovy(String script, Map<String, Rate> vars, Map<String, BigDecimal> helpers) {
         try {
-            Binding b = new Binding();
-            inject(b::setProperty, vars, helpers);
-            return toBD(new GroovyShell(b, new CompilerConfiguration()).evaluate(s));
+            Binding binding = new Binding();
+            vars.forEach((k, r) -> {
+                binding.setVariable(k + "_bid", r.bid());
+                binding.setVariable(k + "_ask", r.ask());
+            });
+
+            if (helpers != null) {
+                helpers.forEach(binding::setVariable);
+
+            }
+
+            CompilerConfiguration config = new CompilerConfiguration();
+            GroovyShell shell = new GroovyShell(binding, config);
+            Object result = shell.evaluate(script);
+            return toBD(result);
         } catch (Exception e) {
             GlobalExceptionHandler.handle("DynamicScriptFormulaEngine.evalGroovy", e);
             return null;
@@ -113,18 +124,24 @@ public class DynamicScriptFormulaEngine implements ExpressionEvaluator {
     }
 
     private BigDecimal evalJava(String script, Map<String, Rate> vars, Map<String, BigDecimal> helpers) {
+        Map<String, BigDecimal> flat = flatten(vars, helpers);
+
         String full = """
-                    import java.math.*;
-                    public class _F {
-                        public static BigDecimal f(java.util.Map<String,BigDecimal> m) {
-                            %s
-                        }
+                import java.math.BigDecimal;
+                import java.util.Map;
+                
+                public class _F {
+                    public static BigDecimal f(Map<String, BigDecimal> m) {
+                        %s
                     }
+                }
                 """.formatted(script);
         SimpleCompiler sc = new SimpleCompiler();
         try {
             sc.cook(full);
-            return (BigDecimal) sc.getClassLoader().loadClass("_F").getMethod("f", Map.class).invoke(null, flatten(vars, helpers));
+            Class<?> cls = sc.getClassLoader().loadClass("_F");
+            Object raw = cls.getMethod("f", Map.class).invoke(null, flat);
+            return toBD(raw);
         } catch (Exception e) {
             GlobalExceptionHandler.fatal("DynamicScriptFormulaEngine.evalJava", e);
             return null;

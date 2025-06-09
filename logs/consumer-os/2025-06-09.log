@@ -1,0 +1,631 @@
+2025-06-09 01:09:05.018 [] [main] INFO  RateHubConsumerOpensearchApplication - Starting RateHubConsumerOpensearchApplication v0.0.1-SNAPSHOT using Java 21.0.7 with PID 1 (/app.jar started by root in /)
+2025-06-09 01:09:05.065 [] [main] DEBUG RateHubConsumerOpensearchApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-06-09 01:09:05.070 [] [main] INFO  RateHubConsumerOpensearchApplication - The following 1 profile is active: "docker"
+2025-06-09 01:09:05.275 [] [main] INFO  ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+2025-06-09 01:09:05.278 [] [main] INFO  ConfigServerConfigDataLoader - Located environment: name=rate-hub-consumer-opensearch, profiles=[default], label=null, version=a6bc4ea78d3411a780993e9350e9f53eea5ffe8c, state=
+2025-06-09 01:09:05.282 [] [main] INFO  ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+2025-06-09 01:09:05.283 [] [main] INFO  ConfigServerConfigDataLoader - Located environment: name=rate-hub-consumer-opensearch, profiles=[docker], label=null, version=a6bc4ea78d3411a780993e9350e9f53eea5ffe8c, state=
+2025-06-09 01:09:11.181 [] [main] INFO  GenericScope - BeanFactory id=973d7318-2dca-36de-93bd-206764875de3
+2025-06-09 01:09:12.021 [] [main] INFO  TomcatWebServer - Tomcat initialized with port 8086 (http)
+2025-06-09 01:09:12.053 [] [main] INFO  Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8086"]
+2025-06-09 01:09:12.061 [] [main] INFO  StandardService - Starting service [Tomcat]
+2025-06-09 01:09:12.063 [] [main] INFO  StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-06-09 01:09:12.126 [] [main] INFO  [/] - Initializing Spring embedded WebApplicationContext
+2025-06-09 01:09:12.132 [] [main] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 6839 ms
+2025-06-09 01:09:17.513 [] [main] INFO  DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-06-09 01:09:17.626 [] [main] WARN  LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-06-09 01:09:17.673 [] [main] INFO  EndpointLinksResolver - Exposing 18 endpoints beneath base path '/actuator'
+2025-06-09 01:09:17.865 [] [main] INFO  InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-06-09 01:09:17.902 [] [main] INFO  DiscoveryClient - Initializing Eureka in region us-east-1
+2025-06-09 01:09:17.907 [] [main] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-06-09 01:09:17.915 [] [main] INFO  DiscoveryClient - Disable delta property : false
+2025-06-09 01:09:17.916 [] [main] INFO  DiscoveryClient - Single vip registry refresh property : null
+2025-06-09 01:09:17.916 [] [main] INFO  DiscoveryClient - Force full registry fetch : false
+2025-06-09 01:09:17.916 [] [main] INFO  DiscoveryClient - Application is null : false
+2025-06-09 01:09:17.916 [] [main] INFO  DiscoveryClient - Registered Applications size is zero : true
+2025-06-09 01:09:17.916 [] [main] INFO  DiscoveryClient - Application version is -1: true
+2025-06-09 01:09:17.916 [] [main] INFO  DiscoveryClient - Getting all instance registry info from the eureka server
+2025-06-09 01:09:18.199 [] [main] INFO  DiscoveryClient - The response status is 200
+2025-06-09 01:09:18.202 [] [main] INFO  DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-06-09 01:09:18.209 [] [main] INFO  InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-06-09 01:09:18.220 [] [main] INFO  DiscoveryClient - Discovery Client initialized at timestamp 1749431358219 with initial instances count: 4
+2025-06-09 01:09:18.224 [] [main] INFO  EurekaServiceRegistry - Registering application RATE-HUB-CONSUMER-OPENSEARCH with eureka with status UP
+2025-06-09 01:09:18.225 [] [main] INFO  DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1749431358225, current=UP, previous=STARTING]
+2025-06-09 01:09:18.269 [] [main] INFO  Http11NioProtocol - Starting ProtocolHandler ["http-nio-8086"]
+2025-06-09 01:09:18.276 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_RATE-HUB-CONSUMER-OPENSEARCH/rate-hub-consumer-opensearch:8086: registering service...
+2025-06-09 01:09:18.335 [] [main] INFO  TomcatWebServer - Tomcat started on port 8086 (http) with context path '/'
+2025-06-09 01:09:18.337 [] [main] INFO  EurekaAutoServiceRegistration - Updating port to 8086
+2025-06-09 01:09:18.437 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_RATE-HUB-CONSUMER-OPENSEARCH/rate-hub-consumer-opensearch:8086 - registration status: 204
+2025-06-09 01:09:18.503 [] [main] INFO  ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [kafka:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-rate-os-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = rate-os
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-06-09 01:09:18.671 [] [main] INFO  KafkaMetricsCollector - initializing Kafka metrics collector
+2025-06-09 01:09:19.124 [] [main] INFO  AppInfoParser - Kafka version: 3.8.1
+2025-06-09 01:09:19.125 [] [main] INFO  AppInfoParser - Kafka commitId: 70d6ff42debf7e17
+2025-06-09 01:09:19.128 [] [main] INFO  AppInfoParser - Kafka startTimeMs: 1749431359121
+2025-06-09 01:09:19.148 [] [main] INFO  LegacyKafkaConsumer - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Subscribed to topic(s): ratehub.raw
+2025-06-09 01:09:19.169 [] [main] INFO  ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [kafka:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-rate-os-2
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = rate-os
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-06-09 01:09:19.172 [] [main] INFO  KafkaMetricsCollector - initializing Kafka metrics collector
+2025-06-09 01:09:19.192 [] [main] INFO  AppInfoParser - Kafka version: 3.8.1
+2025-06-09 01:09:19.192 [] [main] INFO  AppInfoParser - Kafka commitId: 70d6ff42debf7e17
+2025-06-09 01:09:19.192 [] [main] INFO  AppInfoParser - Kafka startTimeMs: 1749431359192
+2025-06-09 01:09:19.194 [] [main] INFO  LegacyKafkaConsumer - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Subscribed to topic(s): ratehub.calculated
+2025-06-09 01:09:19.221 [] [main] INFO  RateHubConsumerOpensearchApplication - Started RateHubConsumerOpensearchApplication in 20.16 seconds (process running for 23.657)
+2025-06-09 01:09:19.807 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  Metadata - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Cluster ID: 2qgg8_BFQ36_61db7Xta1g
+2025-06-09 01:09:19.812 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  Metadata - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Cluster ID: 2qgg8_BFQ36_61db7Xta1g
+2025-06-09 01:09:19.816 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Discovered group coordinator kafka:9092 (id: 2147483646 rack: null)
+2025-06-09 01:09:19.822 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Discovered group coordinator kafka:9092 (id: 2147483646 rack: null)
+2025-06-09 01:09:19.824 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] (Re-)joining group
+2025-06-09 01:09:19.827 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] (Re-)joining group
+2025-06-09 01:09:19.902 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Request joining group due to: need to re-join with the given member-id: consumer-rate-os-1-126d03ca-5d72-4011-92b6-a9ca6d7d2a65
+2025-06-09 01:09:19.905 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] (Re-)joining group
+2025-06-09 01:09:19.900 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Request joining group due to: need to re-join with the given member-id: consumer-rate-os-2-002640e8-2daa-4ba5-8677-e3913e0329ab
+2025-06-09 01:09:19.910 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] (Re-)joining group
+2025-06-09 01:09:25.944 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Successfully joined group with generation Generation{generationId=1, memberId='consumer-rate-os-2-002640e8-2daa-4ba5-8677-e3913e0329ab', protocol='range'}
+2025-06-09 01:09:25.954 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Successfully joined group with generation Generation{generationId=1, memberId='consumer-rate-os-1-126d03ca-5d72-4011-92b6-a9ca6d7d2a65', protocol='range'}
+2025-06-09 01:09:25.981 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Finished assignment for group at generation 1: {consumer-rate-os-2-002640e8-2daa-4ba5-8677-e3913e0329ab=Assignment(partitions=[ratehub.calculated-0]), consumer-rate-os-1-126d03ca-5d72-4011-92b6-a9ca6d7d2a65=Assignment(partitions=[ratehub.raw-0])}
+2025-06-09 01:09:26.009 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Successfully synced group in generation Generation{generationId=1, memberId='consumer-rate-os-2-002640e8-2daa-4ba5-8677-e3913e0329ab', protocol='range'}
+2025-06-09 01:09:26.011 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Notifying assignor about the new Assignment(partitions=[ratehub.calculated-0])
+2025-06-09 01:09:26.014 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Adding newly assigned partitions: ratehub.calculated-0
+2025-06-09 01:09:26.021 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Successfully synced group in generation Generation{generationId=1, memberId='consumer-rate-os-1-126d03ca-5d72-4011-92b6-a9ca6d7d2a65', protocol='range'}
+2025-06-09 01:09:26.021 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Notifying assignor about the new Assignment(partitions=[ratehub.raw-0])
+2025-06-09 01:09:26.022 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Adding newly assigned partitions: ratehub.raw-0
+2025-06-09 01:09:26.030 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Found no committed offset for partition ratehub.raw-0
+2025-06-09 01:09:26.030 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Found no committed offset for partition ratehub.calculated-0
+2025-06-09 01:09:26.040 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Found no committed offset for partition ratehub.raw-0
+2025-06-09 01:09:26.041 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Found no committed offset for partition ratehub.calculated-0
+2025-06-09 01:09:26.056 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  SubscriptionState - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Resetting offset for partition ratehub.calculated-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}.
+2025-06-09 01:09:26.056 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  SubscriptionState - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Resetting offset for partition ratehub.raw-0 to position FetchPosition{offset=76, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}.
+2025-06-09 01:09:26.075 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  KafkaMessageListenerContainer - rate-os: partitions assigned: [ratehub.calculated-0]
+2025-06-09 01:09:26.084 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  KafkaMessageListenerContainer - rate-os: partitions assigned: [ratehub.raw-0]
+2025-06-09 01:14:17.908 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-06-09 01:14:39.776 [] [SpringApplicationShutdownHook] INFO  EurekaServiceRegistry - Unregistering application RATE-HUB-CONSUMER-OPENSEARCH with eureka with status DOWN
+2025-06-09 01:14:39.785 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1749431679784, current=DOWN, previous=UP]
+2025-06-09 01:14:39.786 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_RATE-HUB-CONSUMER-OPENSEARCH/rate-hub-consumer-opensearch:8086: registering service...
+2025-06-09 01:14:39.890 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_RATE-HUB-CONSUMER-OPENSEARCH/rate-hub-consumer-opensearch:8086 - registration status: 204
+2025-06-09 01:14:39.975 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Revoke previously assigned partitions ratehub.calculated-0
+2025-06-09 01:14:39.987 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  KafkaMessageListenerContainer - rate-os: partitions revoked: [ratehub.calculated-0]
+2025-06-09 01:14:39.993 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Revoke previously assigned partitions ratehub.raw-0
+2025-06-09 01:14:40.012 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  KafkaMessageListenerContainer - rate-os: partitions revoked: [ratehub.raw-0]
+2025-06-09 01:14:40.037 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Member consumer-rate-os-2-002640e8-2daa-4ba5-8677-e3913e0329ab sending LeaveGroup request to coordinator kafka:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2025-06-09 01:14:40.042 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Member consumer-rate-os-1-126d03ca-5d72-4011-92b6-a9ca6d7d2a65 sending LeaveGroup request to coordinator kafka:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2025-06-09 01:14:40.057 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-06-09 01:14:40.058 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Request joining group due to: consumer pro-actively leaving the group
+2025-06-09 01:14:40.058 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  LegacyKafkaConsumer - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Unsubscribed all topics or patterns and assigned partitions
+2025-06-09 01:14:40.073 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-06-09 01:14:40.074 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Request joining group due to: consumer pro-actively leaving the group
+2025-06-09 01:14:40.075 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  LegacyKafkaConsumer - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Unsubscribed all topics or patterns and assigned partitions
+2025-06-09 01:14:40.092 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-06-09 01:14:40.093 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Request joining group due to: consumer pro-actively leaving the group
+2025-06-09 01:14:40.100 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-06-09 01:14:40.101 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Request joining group due to: consumer pro-actively leaving the group
+2025-06-09 01:14:40.128 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  Metrics - Metrics scheduler closed
+2025-06-09 01:14:40.128 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-06-09 01:14:40.136 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  Metrics - Metrics scheduler closed
+2025-06-09 01:14:40.130 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-06-09 01:14:40.137 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  Metrics - Metrics reporters closed
+2025-06-09 01:14:40.139 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-06-09 01:14:40.140 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-06-09 01:14:40.140 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  Metrics - Metrics reporters closed
+2025-06-09 01:14:40.189 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  AppInfoParser - App info kafka.consumer for consumer-rate-os-2 unregistered
+2025-06-09 01:14:40.207 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  AppInfoParser - App info kafka.consumer for consumer-rate-os-1 unregistered
+2025-06-09 01:14:40.208 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  KafkaMessageListenerContainer - rate-os: Consumer stopped
+2025-06-09 01:14:40.210 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  KafkaMessageListenerContainer - rate-os: Consumer stopped
+2025-06-09 01:14:40.228 [] [SpringApplicationShutdownHook] INFO  GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-09 01:14:40.261 [] [tomcat-shutdown] INFO  GracefulShutdown - Graceful shutdown complete
+2025-06-09 01:14:40.561 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Shutting down DiscoveryClient ...
+2025-06-09 01:14:43.563 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Unregistering ...
+2025-06-09 01:14:43.619 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - DiscoveryClient_RATE-HUB-CONSUMER-OPENSEARCH/rate-hub-consumer-opensearch:8086 - deregister  status: 200
+2025-06-09 01:14:43.620 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Completed shut down of DiscoveryClient
+2025-06-09 01:37:27.191 [] [main] INFO  RateHubConsumerOpensearchApplication - Starting RateHubConsumerOpensearchApplication v0.0.1-SNAPSHOT using Java 21.0.7 with PID 1 (/app.jar started by root in /)
+2025-06-09 01:37:27.410 [] [main] DEBUG RateHubConsumerOpensearchApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-06-09 01:37:27.412 [] [main] INFO  RateHubConsumerOpensearchApplication - The following 1 profile is active: "docker"
+2025-06-09 01:37:27.944 [] [main] INFO  ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+2025-06-09 01:37:27.945 [] [main] INFO  ConfigServerConfigDataLoader - Located environment: name=rate-hub-consumer-opensearch, profiles=[default], label=null, version=a6bc4ea78d3411a780993e9350e9f53eea5ffe8c, state=
+2025-06-09 01:37:27.955 [] [main] INFO  ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+2025-06-09 01:37:27.956 [] [main] INFO  ConfigServerConfigDataLoader - Located environment: name=rate-hub-consumer-opensearch, profiles=[docker], label=null, version=a6bc4ea78d3411a780993e9350e9f53eea5ffe8c, state=
+2025-06-09 01:37:40.813 [] [main] INFO  GenericScope - BeanFactory id=973d7318-2dca-36de-93bd-206764875de3
+2025-06-09 01:37:42.680 [] [main] INFO  TomcatWebServer - Tomcat initialized with port 8086 (http)
+2025-06-09 01:37:42.813 [] [main] INFO  Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8086"]
+2025-06-09 01:37:42.827 [] [main] INFO  StandardService - Starting service [Tomcat]
+2025-06-09 01:37:42.834 [] [main] INFO  StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-06-09 01:37:43.046 [] [main] INFO  [/] - Initializing Spring embedded WebApplicationContext
+2025-06-09 01:37:43.048 [] [main] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 15080 ms
+2025-06-09 01:37:53.044 [] [main] INFO  DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-06-09 01:37:53.219 [] [main] WARN  LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-06-09 01:37:53.263 [] [main] INFO  EndpointLinksResolver - Exposing 18 endpoints beneath base path '/actuator'
+2025-06-09 01:37:54.127 [] [main] INFO  InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-06-09 01:37:54.297 [] [main] INFO  DiscoveryClient - Initializing Eureka in region us-east-1
+2025-06-09 01:37:54.327 [] [main] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-06-09 01:37:54.367 [] [main] INFO  DiscoveryClient - Disable delta property : false
+2025-06-09 01:37:54.379 [] [main] INFO  DiscoveryClient - Single vip registry refresh property : null
+2025-06-09 01:37:54.380 [] [main] INFO  DiscoveryClient - Force full registry fetch : false
+2025-06-09 01:37:54.380 [] [main] INFO  DiscoveryClient - Application is null : false
+2025-06-09 01:37:54.381 [] [main] INFO  DiscoveryClient - Registered Applications size is zero : true
+2025-06-09 01:37:54.384 [] [main] INFO  DiscoveryClient - Application version is -1: true
+2025-06-09 01:37:54.386 [] [main] INFO  DiscoveryClient - Getting all instance registry info from the eureka server
+2025-06-09 01:37:55.249 [] [main] INFO  DiscoveryClient - The response status is 200
+2025-06-09 01:37:55.253 [] [main] INFO  DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-06-09 01:37:55.295 [] [main] INFO  InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-06-09 01:37:55.298 [] [main] INFO  DiscoveryClient - Discovery Client initialized at timestamp 1749433075298 with initial instances count: 0
+2025-06-09 01:37:55.308 [] [main] INFO  EurekaServiceRegistry - Registering application RATE-HUB-CONSUMER-OPENSEARCH with eureka with status UP
+2025-06-09 01:37:55.324 [] [main] INFO  DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1749433075324, current=UP, previous=STARTING]
+2025-06-09 01:37:55.333 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_RATE-HUB-CONSUMER-OPENSEARCH/rate-hub-consumer-opensearch:8086: registering service...
+2025-06-09 01:37:55.394 [] [main] INFO  Http11NioProtocol - Starting ProtocolHandler ["http-nio-8086"]
+2025-06-09 01:37:55.690 [] [main] INFO  TomcatWebServer - Tomcat started on port 8086 (http) with context path '/'
+2025-06-09 01:37:55.699 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_RATE-HUB-CONSUMER-OPENSEARCH/rate-hub-consumer-opensearch:8086 - registration status: 204
+2025-06-09 01:37:55.704 [] [main] INFO  EurekaAutoServiceRegistration - Updating port to 8086
+2025-06-09 01:37:56.005 [] [main] INFO  ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [kafka:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-rate-os-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = rate-os
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-06-09 01:37:56.538 [] [main] INFO  KafkaMetricsCollector - initializing Kafka metrics collector
+2025-06-09 01:37:57.967 [] [main] INFO  AppInfoParser - Kafka version: 3.8.1
+2025-06-09 01:37:57.968 [] [main] INFO  AppInfoParser - Kafka commitId: 70d6ff42debf7e17
+2025-06-09 01:37:57.968 [] [main] INFO  AppInfoParser - Kafka startTimeMs: 1749433077943
+2025-06-09 01:37:58.018 [] [main] INFO  LegacyKafkaConsumer - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Subscribed to topic(s): ratehub.raw
+2025-06-09 01:37:58.091 [] [main] INFO  ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [kafka:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-rate-os-2
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = rate-os
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-06-09 01:37:58.110 [] [main] INFO  KafkaMetricsCollector - initializing Kafka metrics collector
+2025-06-09 01:37:58.262 [] [main] INFO  AppInfoParser - Kafka version: 3.8.1
+2025-06-09 01:37:58.271 [] [main] INFO  AppInfoParser - Kafka commitId: 70d6ff42debf7e17
+2025-06-09 01:37:58.273 [] [main] INFO  AppInfoParser - Kafka startTimeMs: 1749433078262
+2025-06-09 01:37:58.290 [] [main] INFO  LegacyKafkaConsumer - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Subscribed to topic(s): ratehub.calculated
+2025-06-09 01:37:58.401 [] [main] INFO  RateHubConsumerOpensearchApplication - Started RateHubConsumerOpensearchApplication in 46.643 seconds (process running for 69.007)
+2025-06-09 01:38:00.314 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  Metadata - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Cluster ID: 2qgg8_BFQ36_61db7Xta1g
+2025-06-09 01:38:00.318 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  Metadata - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Cluster ID: 2qgg8_BFQ36_61db7Xta1g
+2025-06-09 01:38:00.325 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Discovered group coordinator kafka:9092 (id: 2147483646 rack: null)
+2025-06-09 01:38:00.330 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Discovered group coordinator kafka:9092 (id: 2147483646 rack: null)
+2025-06-09 01:38:00.354 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] (Re-)joining group
+2025-06-09 01:38:00.392 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] (Re-)joining group
+2025-06-09 01:38:00.429 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Request joining group due to: need to re-join with the given member-id: consumer-rate-os-1-1b7a6328-eb8b-4a7a-928d-5e738d0a35fd
+2025-06-09 01:38:00.431 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Request joining group due to: need to re-join with the given member-id: consumer-rate-os-2-f36cf09b-3421-4e02-b7fb-f971a5f302be
+2025-06-09 01:38:00.434 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] (Re-)joining group
+2025-06-09 01:38:00.436 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] (Re-)joining group
+2025-06-09 01:38:03.495 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Successfully joined group with generation Generation{generationId=3, memberId='consumer-rate-os-1-1b7a6328-eb8b-4a7a-928d-5e738d0a35fd', protocol='range'}
+2025-06-09 01:38:03.556 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Successfully joined group with generation Generation{generationId=3, memberId='consumer-rate-os-2-f36cf09b-3421-4e02-b7fb-f971a5f302be', protocol='range'}
+2025-06-09 01:38:03.571 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Finished assignment for group at generation 3: {consumer-rate-os-1-1b7a6328-eb8b-4a7a-928d-5e738d0a35fd=Assignment(partitions=[ratehub.raw-0]), consumer-rate-os-2-f36cf09b-3421-4e02-b7fb-f971a5f302be=Assignment(partitions=[ratehub.calculated-0])}
+2025-06-09 01:38:03.932 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Successfully synced group in generation Generation{generationId=3, memberId='consumer-rate-os-1-1b7a6328-eb8b-4a7a-928d-5e738d0a35fd', protocol='range'}
+2025-06-09 01:38:03.933 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Notifying assignor about the new Assignment(partitions=[ratehub.raw-0])
+2025-06-09 01:38:03.937 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Adding newly assigned partitions: ratehub.raw-0
+2025-06-09 01:38:03.941 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Successfully synced group in generation Generation{generationId=3, memberId='consumer-rate-os-2-f36cf09b-3421-4e02-b7fb-f971a5f302be', protocol='range'}
+2025-06-09 01:38:03.942 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Notifying assignor about the new Assignment(partitions=[ratehub.calculated-0])
+2025-06-09 01:38:03.942 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Adding newly assigned partitions: ratehub.calculated-0
+2025-06-09 01:38:03.976 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerUtils - Setting offset for partition ratehub.raw-0 to the committed offset FetchPosition{offset=3838, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}
+2025-06-09 01:38:03.976 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerUtils - Setting offset for partition ratehub.calculated-0 to the committed offset FetchPosition{offset=3756, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}
+2025-06-09 01:38:03.977 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  KafkaMessageListenerContainer - rate-os: partitions assigned: [ratehub.calculated-0]
+2025-06-09 01:38:03.985 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  KafkaMessageListenerContainer - rate-os: partitions assigned: [ratehub.raw-0]
+2025-06-09 01:38:25.253 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - Disable delta property : false
+2025-06-09 01:38:25.253 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - Single vip registry refresh property : null
+2025-06-09 01:38:25.253 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - Force full registry fetch : false
+2025-06-09 01:38:25.253 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - Application is null : false
+2025-06-09 01:38:25.253 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - Registered Applications size is zero : true
+2025-06-09 01:38:25.253 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - Application version is -1: false
+2025-06-09 01:38:25.253 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - Getting all instance registry info from the eureka server
+2025-06-09 01:38:25.275 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - The response status is 200
+2025-06-09 01:42:54.382 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-06-09 01:46:23.945 [] [SpringApplicationShutdownHook] INFO  EurekaServiceRegistry - Unregistering application RATE-HUB-CONSUMER-OPENSEARCH with eureka with status DOWN
+2025-06-09 01:46:23.998 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1749433583988, current=DOWN, previous=UP]
+2025-06-09 01:46:24.001 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_RATE-HUB-CONSUMER-OPENSEARCH/rate-hub-consumer-opensearch:8086: registering service...
+2025-06-09 01:46:24.145 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_RATE-HUB-CONSUMER-OPENSEARCH/rate-hub-consumer-opensearch:8086 - registration status: 204
+2025-06-09 01:46:24.431 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Revoke previously assigned partitions ratehub.calculated-0
+2025-06-09 01:46:24.431 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Revoke previously assigned partitions ratehub.raw-0
+2025-06-09 01:46:24.438 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  KafkaMessageListenerContainer - rate-os: partitions revoked: [ratehub.calculated-0]
+2025-06-09 01:46:24.438 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  KafkaMessageListenerContainer - rate-os: partitions revoked: [ratehub.raw-0]
+2025-06-09 01:46:24.446 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Member consumer-rate-os-2-f36cf09b-3421-4e02-b7fb-f971a5f302be sending LeaveGroup request to coordinator kafka:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2025-06-09 01:46:24.447 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Member consumer-rate-os-1-1b7a6328-eb8b-4a7a-928d-5e738d0a35fd sending LeaveGroup request to coordinator kafka:9092 (id: 2147483646 rack: null) due to the consumer unsubscribed from all topics
+2025-06-09 01:46:24.452 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-06-09 01:46:24.452 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-06-09 01:46:24.453 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Request joining group due to: consumer pro-actively leaving the group
+2025-06-09 01:46:24.452 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Request joining group due to: consumer pro-actively leaving the group
+2025-06-09 01:46:24.454 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  LegacyKafkaConsumer - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Unsubscribed all topics or patterns and assigned partitions
+2025-06-09 01:46:24.453 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  LegacyKafkaConsumer - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Unsubscribed all topics or patterns and assigned partitions
+2025-06-09 01:46:24.490 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-06-09 01:46:24.490 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Request joining group due to: consumer pro-actively leaving the group
+2025-06-09 01:46:24.491 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Resetting generation and member id due to: consumer pro-actively leaving the group
+2025-06-09 01:46:24.491 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Request joining group due to: consumer pro-actively leaving the group
+2025-06-09 01:46:24.668 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  Metrics - Metrics scheduler closed
+2025-06-09 01:46:24.668 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-06-09 01:46:24.668 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-06-09 01:46:24.668 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  Metrics - Metrics reporters closed
+2025-06-09 01:46:24.696 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  AppInfoParser - App info kafka.consumer for consumer-rate-os-2 unregistered
+2025-06-09 01:46:24.702 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  KafkaMessageListenerContainer - rate-os: Consumer stopped
+2025-06-09 01:46:24.841 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  FetchSessionHandler - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Node 1 sent an invalid full fetch response with extraIds=(nJyoqkdZS1qxhgxt2GLvoA), response=()
+2025-06-09 01:46:24.843 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  Metrics - Metrics scheduler closed
+2025-06-09 01:46:24.844 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-06-09 01:46:24.844 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2025-06-09 01:46:24.845 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  Metrics - Metrics reporters closed
+2025-06-09 01:46:24.914 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  AppInfoParser - App info kafka.consumer for consumer-rate-os-1 unregistered
+2025-06-09 01:46:24.914 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  KafkaMessageListenerContainer - rate-os: Consumer stopped
+2025-06-09 01:46:24.943 [] [SpringApplicationShutdownHook] INFO  GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-09 01:46:25.082 [] [tomcat-shutdown] INFO  GracefulShutdown - Graceful shutdown complete
+2025-06-09 01:46:26.085 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Shutting down DiscoveryClient ...
+2025-06-09 01:46:29.088 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Unregistering ...
+2025-06-09 01:46:29.201 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - DiscoveryClient_RATE-HUB-CONSUMER-OPENSEARCH/rate-hub-consumer-opensearch:8086 - deregister  status: 200
+2025-06-09 01:46:29.203 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Completed shut down of DiscoveryClient

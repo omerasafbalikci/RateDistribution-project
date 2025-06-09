@@ -58,8 +58,15 @@ public class SubscriberLoader {
                 } else if (clazz == RestSubscriber.class) {
                     log.debug("[SubscriberLoader] Instantiating RestSubscriber for {}", cfg.name());
                     var ctor = clazz.getConstructor(RateListener.class, String.class, String.class, TokenProvider.class);
-                    subscriber = (Subscriber) ctor.newInstance(listener, cfg.name(),
-                            cfg.host(), tokenProvider);
+                    String baseUrl = cfg.host().endsWith("/")
+                            ? cfg.host().substring(0, cfg.host().length() - 1)
+                            : cfg.host();
+                    if (cfg.port() > 0) {
+                        baseUrl = baseUrl + ":" + cfg.port();
+                    }
+
+                    subscriber = (Subscriber) ctor.newInstance(
+                            listener, cfg.name(), baseUrl, tokenProvider);
                 } else {
                     log.error("[SubscriberLoader] Unsupported subscriber type: {}", cfg.className());
                     continue;

@@ -1,0 +1,54 @@
+2025-06-09 00:00:37.160 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-09 00:01:37.160 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-09 00:02:37.161 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-09 00:03:37.162 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 3ms
+2025-06-09 00:04:36.047 [] [http-nio-8761-exec-1] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/1c850cfc0d0b:rest-data-provider with status DOWN (replication=false)
+2025-06-09 00:04:36.558 [] [http-nio-8761-exec-5] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/1c850cfc0d0b:rest-data-provider with status DOWN (replication=true)
+2025-06-09 00:04:37.162 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-09 00:04:40.032 [] [http-nio-8761-exec-10] INFO  AbstractInstanceRegistry - Cancelled instance REST-DATA-PROVIDER/1c850cfc0d0b:rest-data-provider (replication=false)
+2025-06-09 00:04:40.548 [] [http-nio-8761-exec-2] WARN  AbstractInstanceRegistry - DS: Registry: cancel failed because Lease is not registered for: REST-DATA-PROVIDER/1c850cfc0d0b:rest-data-provider
+2025-06-09 00:04:40.548 [] [http-nio-8761-exec-2] INFO  InstanceResource - Not Found (Cancel): REST-DATA-PROVIDER - 1c850cfc0d0b:rest-data-provider
+2025-06-09 00:04:40.550 [] [TaskBatchingWorker-target_localhost-8] WARN  ReplicationTask - The replication of task REST-DATA-PROVIDER/1c850cfc0d0b:rest-data-provider:Cancel@localhost failed with response code 404
+2025-06-09 00:04:40.551 [] [TaskBatchingWorker-target_localhost-8] WARN  PeerEurekaNode - REST-DATA-PROVIDER/1c850cfc0d0b:rest-data-provider:Cancel@localhost: missing entry.
+2025-06-09 00:04:56.610 [] [http-nio-8761-exec-9] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/3b9cf1b65d96:rest-data-provider with status UP (replication=false)
+2025-06-09 00:04:57.120 [] [http-nio-8761-exec-6] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/3b9cf1b65d96:rest-data-provider with status UP (replication=true)
+2025-06-09 00:05:37.162 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-09 00:06:37.163 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-09 00:07:13.812 [] [http-nio-8761-exec-10] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/3b9cf1b65d96:rest-data-provider with status DOWN (replication=false)
+2025-06-09 00:07:14.322 [] [http-nio-8761-exec-7] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/3b9cf1b65d96:rest-data-provider with status DOWN (replication=true)
+2025-06-09 00:07:17.607 [] [http-nio-8761-exec-2] INFO  AbstractInstanceRegistry - Cancelled instance REST-DATA-PROVIDER/3b9cf1b65d96:rest-data-provider (replication=false)
+2025-06-09 00:07:18.144 [] [http-nio-8761-exec-5] WARN  AbstractInstanceRegistry - DS: Registry: cancel failed because Lease is not registered for: REST-DATA-PROVIDER/3b9cf1b65d96:rest-data-provider
+2025-06-09 00:07:18.145 [] [http-nio-8761-exec-5] INFO  InstanceResource - Not Found (Cancel): REST-DATA-PROVIDER - 3b9cf1b65d96:rest-data-provider
+2025-06-09 00:07:18.146 [] [TaskBatchingWorker-target_localhost-8] WARN  ReplicationTask - The replication of task REST-DATA-PROVIDER/3b9cf1b65d96:rest-data-provider:Cancel@localhost failed with response code 404
+2025-06-09 00:07:18.147 [] [TaskBatchingWorker-target_localhost-8] WARN  PeerEurekaNode - REST-DATA-PROVIDER/3b9cf1b65d96:rest-data-provider:Cancel@localhost: missing entry.
+2025-06-09 00:07:31.771 [] [http-nio-8761-exec-9] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/9bcee8e091e9:rest-data-provider with status UP (replication=false)
+2025-06-09 00:07:32.283 [] [http-nio-8761-exec-8] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/9bcee8e091e9:rest-data-provider with status UP (replication=true)
+2025-06-09 00:07:37.164 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 3ms
+2025-06-09 00:08:37.163 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-06-09 00:09:37.163 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-09 00:10:37.163 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-06-09 00:11:37.163 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-09 00:12:36.750 [] [ReplicaAwareInstanceRegistry - RenewalThresholdUpdater] INFO  PeerAwareInstanceRegistryImpl - Current renewal threshold is : 8
+2025-06-09 00:12:37.163 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-09 00:13:37.163 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-09 00:14:37.163 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-09 00:15:37.164 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-09 00:16:37.163 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-09 00:17:37.163 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-09 00:18:37.164 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-09 00:19:37.165 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 13ms
+2025-06-09 00:20:37.165 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 5ms
+2025-06-09 00:21:08.888 [] [http-nio-8761-exec-8] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/9bcee8e091e9:rest-data-provider with status DOWN (replication=false)
+2025-06-09 00:21:09.409 [] [http-nio-8761-exec-6] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/9bcee8e091e9:rest-data-provider with status DOWN (replication=true)
+2025-06-09 00:21:13.385 [] [http-nio-8761-exec-1] INFO  AbstractInstanceRegistry - Cancelled instance REST-DATA-PROVIDER/9bcee8e091e9:rest-data-provider (replication=false)
+2025-06-09 00:21:13.896 [] [http-nio-8761-exec-10] WARN  AbstractInstanceRegistry - DS: Registry: cancel failed because Lease is not registered for: REST-DATA-PROVIDER/9bcee8e091e9:rest-data-provider
+2025-06-09 00:21:13.896 [] [http-nio-8761-exec-10] INFO  InstanceResource - Not Found (Cancel): REST-DATA-PROVIDER - 9bcee8e091e9:rest-data-provider
+2025-06-09 00:21:13.897 [] [TaskBatchingWorker-target_localhost-17] WARN  ReplicationTask - The replication of task REST-DATA-PROVIDER/9bcee8e091e9:rest-data-provider:Cancel@localhost failed with response code 404
+2025-06-09 00:21:13.898 [] [TaskBatchingWorker-target_localhost-17] WARN  PeerEurekaNode - REST-DATA-PROVIDER/9bcee8e091e9:rest-data-provider:Cancel@localhost: missing entry.
+2025-06-09 00:21:37.166 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 7ms
+2025-06-09 00:22:23.024 [] [http-nio-8761-exec-7] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/91bd024e6d7e:rest-data-provider with status UP (replication=false)
+2025-06-09 00:22:23.535 [] [http-nio-8761-exec-1] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/91bd024e6d7e:rest-data-provider with status UP (replication=true)
+2025-06-09 00:22:27.005 [] [http-nio-8761-exec-5] INFO  AbstractInstanceRegistry - Registered instance RATE-HUB-CONSUMER-DB/rate-hub-consumer-db:8085 with status UP (replication=false)
+2025-06-09 00:22:27.509 [] [http-nio-8761-exec-3] INFO  AbstractInstanceRegistry - Registered instance RATE-HUB-CONSUMER-DB/rate-hub-consumer-db:8085 with status UP (replication=true)
+2025-06-09 00:22:37.165 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 5ms
+2025-06-09 00:23:37.166 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 9ms

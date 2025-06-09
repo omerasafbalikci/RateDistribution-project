@@ -1,45 +1,97 @@
-2025-06-07 23:00:14.283 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
-2025-06-07 23:01:14.284 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
-2025-06-07 23:02:14.284 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
-2025-06-07 23:03:13.826 [] [ReplicaAwareInstanceRegistry - RenewalThresholdUpdater] INFO  PeerAwareInstanceRegistryImpl - Current renewal threshold is : 6
-2025-06-07 23:03:14.284 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
-2025-06-07 23:04:14.284 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
-2025-06-07 23:05:14.284 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
-2025-06-07 23:06:14.284 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
-2025-06-07 23:07:14.284 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
-2025-06-07 23:08:14.285 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
-2025-06-07 23:09:14.285 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
-2025-06-07 23:10:14.285 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
-2025-06-07 23:11:14.285 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
-2025-06-07 23:12:14.285 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
-2025-06-07 23:13:14.285 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 3ms
-2025-06-07 23:14:14.285 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 3ms
-2025-06-07 23:15:14.286 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
-2025-06-07 23:16:14.285 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
-2025-06-07 23:17:14.285 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
-2025-06-07 23:18:13.826 [] [ReplicaAwareInstanceRegistry - RenewalThresholdUpdater] INFO  PeerAwareInstanceRegistryImpl - Current renewal threshold is : 6
-2025-06-07 23:18:14.286 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 3ms
-2025-06-07 23:19:14.286 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 3ms
-2025-06-07 23:20:14.286 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
-2025-06-07 23:21:14.286 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
-2025-06-07 23:22:14.286 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
-2025-06-07 23:23:14.286 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
-2025-06-07 23:24:14.286 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
-2025-06-07 23:25:14.286 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
-2025-06-07 23:26:14.286 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
-2025-06-07 23:27:14.286 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
-2025-06-07 23:28:14.287 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 3ms
-2025-06-07 23:29:14.287 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
-2025-06-07 23:30:14.287 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
-2025-06-07 23:31:14.287 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
-2025-06-07 23:32:14.287 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
-2025-06-07 23:33:13.825 [] [ReplicaAwareInstanceRegistry - RenewalThresholdUpdater] INFO  PeerAwareInstanceRegistryImpl - Current renewal threshold is : 6
-2025-06-07 23:33:14.287 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
-2025-06-07 23:34:14.288 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 3ms
-2025-06-07 23:35:14.288 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
-2025-06-07 23:36:14.288 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
-2025-06-07 23:37:14.288 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
-2025-06-07 23:38:14.288 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
-2025-06-07 23:39:14.288 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
-2025-06-07 23:40:14.288 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
-2025-06-07 23:41:14.288 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-06-08 00:00:14.290 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-08 00:01:14.290 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-08 00:02:14.290 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-06-08 00:03:13.825 [] [ReplicaAwareInstanceRegistry - RenewalThresholdUpdater] INFO  PeerAwareInstanceRegistryImpl - Current renewal threshold is : 6
+2025-06-08 00:03:14.290 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-08 00:04:14.290 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-08 00:05:14.290 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-08 00:06:14.291 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-08 00:07:14.290 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-06-08 00:08:14.291 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-08 00:09:14.290 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-06-08 00:10:14.290 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-08 00:11:14.290 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-06-08 00:12:14.291 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-08 00:13:14.290 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-06-08 00:14:14.291 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-08 00:15:14.291 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-08 00:16:14.292 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-08 00:17:14.292 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-08 00:26:11.875 [] [ReplicaAwareInstanceRegistry - RenewalThresholdUpdater] INFO  PeerAwareInstanceRegistryImpl - Current renewal threshold is : 6
+2025-06-08 00:26:12.373 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-06-08 00:26:12.375 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Evicting 1 items (expired=3, evictionLimit=1)
+2025-06-08 00:26:12.379 [] [Eureka-EvictionTimer] WARN  AbstractInstanceRegistry - DS: Registry: expired lease for USER-MANAGEMENT-SERVICE/user-management-service:8082
+2025-06-08 00:26:12.382 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Cancelled instance USER-MANAGEMENT-SERVICE/user-management-service:8082 (replication=false)
+2025-06-08 00:26:21.614 [] [http-nio-8761-exec-5] WARN  AbstractInstanceRegistry - DS: Registry: lease doesn't exist, registering resource: USER-MANAGEMENT-SERVICE - user-management-service:8082
+2025-06-08 00:26:21.614 [] [http-nio-8761-exec-5] WARN  InstanceResource - Not Found (Renew): USER-MANAGEMENT-SERVICE - user-management-service:8082
+2025-06-08 00:26:22.068 [] [http-nio-8761-exec-2] INFO  AbstractInstanceRegistry - Registered instance USER-MANAGEMENT-SERVICE/user-management-service:8082 with status UP (replication=false)
+2025-06-08 00:26:22.579 [] [http-nio-8761-exec-7] INFO  AbstractInstanceRegistry - Registered instance USER-MANAGEMENT-SERVICE/user-management-service:8082 with status UP (replication=true)
+2025-06-08 00:27:12.373 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 3ms
+2025-06-08 00:28:12.373 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-08 00:29:12.373 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-08 00:30:12.373 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-08 00:31:12.373 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-08 00:32:12.373 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-08 00:33:12.373 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-08 00:34:12.373 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-08 00:35:12.373 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-08 00:36:12.373 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-08 00:37:12.374 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-08 00:38:12.374 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-08 00:39:12.374 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-08 00:40:12.374 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-08 00:41:11.875 [] [ReplicaAwareInstanceRegistry - RenewalThresholdUpdater] INFO  PeerAwareInstanceRegistryImpl - Current renewal threshold is : 6
+2025-06-08 00:41:12.375 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 3ms
+2025-06-08 00:42:12.374 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-06-08 00:43:12.374 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-08 00:44:12.375 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-08 00:45:12.374 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-06-08 00:46:12.374 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-08 00:47:12.375 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 3ms
+2025-06-08 00:48:12.375 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-08 00:49:12.376 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-06-08 00:49:44.776 [] [http-nio-8761-exec-8] INFO  AbstractInstanceRegistry - Registered instance USER-MANAGEMENT-SERVICE/user-management-service:8082 with status DOWN (replication=false)
+2025-06-08 00:49:45.286 [] [http-nio-8761-exec-7] INFO  AbstractInstanceRegistry - Registered instance USER-MANAGEMENT-SERVICE/user-management-service:8082 with status DOWN (replication=true)
+2025-06-08 00:49:48.255 [] [http-nio-8761-exec-9] INFO  AbstractInstanceRegistry - Cancelled instance USER-MANAGEMENT-SERVICE/user-management-service:8082 (replication=false)
+2025-06-08 00:49:48.769 [] [http-nio-8761-exec-5] WARN  AbstractInstanceRegistry - DS: Registry: cancel failed because Lease is not registered for: USER-MANAGEMENT-SERVICE/user-management-service:8082
+2025-06-08 00:49:48.769 [] [http-nio-8761-exec-5] INFO  InstanceResource - Not Found (Cancel): USER-MANAGEMENT-SERVICE - user-management-service:8082
+2025-06-08 00:49:48.770 [] [TaskBatchingWorker-target_localhost-12] WARN  ReplicationTask - The replication of task USER-MANAGEMENT-SERVICE/user-management-service:8082:Cancel@localhost failed with response code 404
+2025-06-08 00:49:48.770 [] [TaskBatchingWorker-target_localhost-12] WARN  PeerEurekaNode - USER-MANAGEMENT-SERVICE/user-management-service:8082:Cancel@localhost: missing entry.
+2025-06-08 00:49:49.014 [] [http-nio-8761-exec-8] INFO  AbstractInstanceRegistry - Registered instance AUTH-SERVICE/auth-service:8081 with status DOWN (replication=false)
+2025-06-08 00:49:49.522 [] [http-nio-8761-exec-7] INFO  AbstractInstanceRegistry - Registered instance AUTH-SERVICE/auth-service:8081 with status DOWN (replication=true)
+2025-06-08 00:49:55.560 [] [http-nio-8761-exec-4] INFO  AbstractInstanceRegistry - Cancelled instance AUTH-SERVICE/auth-service:8081 (replication=false)
+2025-06-08 00:49:56.066 [] [http-nio-8761-exec-6] WARN  AbstractInstanceRegistry - DS: Registry: cancel failed because Lease is not registered for: AUTH-SERVICE/auth-service:8081
+2025-06-08 00:49:56.066 [] [http-nio-8761-exec-6] INFO  InstanceResource - Not Found (Cancel): AUTH-SERVICE - auth-service:8081
+2025-06-08 00:49:56.067 [] [TaskBatchingWorker-target_localhost-11] WARN  ReplicationTask - The replication of task AUTH-SERVICE/auth-service:8081:Cancel@localhost failed with response code 404
+2025-06-08 00:49:56.067 [] [TaskBatchingWorker-target_localhost-11] WARN  PeerEurekaNode - AUTH-SERVICE/auth-service:8081:Cancel@localhost: missing entry.
+2025-06-08 00:49:56.600 [] [http-nio-8761-exec-5] INFO  AbstractInstanceRegistry - Registered instance API-GATEWAY/api-gateway:8080 with status DOWN (replication=false)
+2025-06-08 00:49:57.108 [] [http-nio-8761-exec-8] INFO  AbstractInstanceRegistry - Registered instance API-GATEWAY/api-gateway:8080 with status DOWN (replication=true)
+2025-06-08 00:50:02.277 [] [http-nio-8761-exec-2] INFO  AbstractInstanceRegistry - Cancelled instance API-GATEWAY/api-gateway:8080 (replication=false)
+2025-06-08 00:50:02.786 [] [http-nio-8761-exec-4] WARN  AbstractInstanceRegistry - DS: Registry: cancel failed because Lease is not registered for: API-GATEWAY/api-gateway:8080
+2025-06-08 00:50:02.786 [] [http-nio-8761-exec-4] INFO  InstanceResource - Not Found (Cancel): API-GATEWAY - api-gateway:8080
+2025-06-08 00:50:02.787 [] [TaskBatchingWorker-target_localhost-11] WARN  ReplicationTask - The replication of task API-GATEWAY/api-gateway:8080:Cancel@localhost failed with response code 404
+2025-06-08 00:50:02.787 [] [TaskBatchingWorker-target_localhost-11] WARN  PeerEurekaNode - API-GATEWAY/api-gateway:8080:Cancel@localhost: missing entry.
+2025-06-08 00:50:03.069 [] [SpringApplicationShutdownHook] INFO  EurekaServiceRegistry - Unregistering application DISCOVERY-SERVER with eureka with status DOWN
+2025-06-08 00:50:03.088 [] [SpringApplicationShutdownHook] INFO  GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-08 00:50:03.097 [] [tomcat-shutdown] INFO  GracefulShutdown - Graceful shutdown complete
+2025-06-08 00:50:03.104 [] [SpringApplicationShutdownHook] INFO  EurekaServerBootstrap - Shutting down Eureka Server..
+2025-06-08 00:50:03.104 [] [SpringApplicationShutdownHook] INFO  DefaultEurekaServerContext - Shutting down ...
+2025-06-08 00:50:03.117 [] [SpringApplicationShutdownHook] INFO  DefaultEurekaServerContext - Shut down
+2025-06-08 00:50:03.117 [] [SpringApplicationShutdownHook] INFO  EurekaServerBootstrap - Eureka Service is now shutdown...
+2025-06-08 00:50:03.119 [] [SpringApplicationShutdownHook] INFO  DefaultEurekaServerContext - Shutting down ...
+2025-06-08 00:50:03.121 [] [SpringApplicationShutdownHook] INFO  DefaultEurekaServerContext - Shut down
+2025-06-08 00:50:03.145 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Shutting down DiscoveryClient ...
+2025-06-08 00:50:03.145 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Completed shut down of DiscoveryClient
+2025-06-08 00:50:03.110 [] [Eureka-Jersey3Client-Conn-Cleaner2] ERROR EurekaJersey3ClientImpl - Cannot clean connections
+java.lang.IllegalStateException: Client instance has been closed.
+	at org.glassfish.jersey.internal.guava.Preconditions.checkState(Preconditions.java:169) ~[jersey-common-3.1.10.jar!/:?]
+	at org.glassfish.jersey.client.JerseyClient.checkNotClosed(JerseyClient.java:248) ~[jersey-client-3.1.10.jar!/:?]
+	at org.glassfish.jersey.client.JerseyClient.getConfiguration(JerseyClient.java:363) ~[jersey-client-3.1.10.jar!/:?]
+	at org.glassfish.jersey.client.JerseyClient.getConfiguration(JerseyClient.java:54) ~[jersey-client-3.1.10.jar!/:?]
+	at com.netflix.discovery.shared.transport.jersey3.EurekaJersey3ClientImpl$ConnectionCleanerTask.run(EurekaJersey3ClientImpl.java:338) ~[eureka-client-jersey3-2.0.4.jar!/:2.0.4]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[?:?]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[?:?]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]

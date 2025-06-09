@@ -37,7 +37,6 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-@RefreshScope
 @Log4j2
 public class RateSimulatorServiceImpl implements RateSimulatorService {
     private final SimulatorProperties simulatorProperties;
@@ -49,12 +48,6 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
     private Instant lastUpdate;
     private static final String ASSET_STATE_KEY = "ASSET_STATES";
     private static final String RATE_RESPONSE_KEY = "RATES";
-
-    @EventListener(RefreshScopeRefreshedEvent.class)
-    public void onRefresh() {
-        lastUpdate = null;
-        log.info("Rebuilt RateSimulatorServiceImpl → reset internal counters");
-    }
 
     /**
      * Updates all defined rates asynchronously.
@@ -449,7 +442,7 @@ public class RateSimulatorServiceImpl implements RateSimulatorService {
     private boolean isWeekend(Instant instant) {
         DayOfWeek dow = instant.atZone(ZoneId.systemDefault()).getDayOfWeek();
         log.debug("Checked if date {} is dow: {}", instant, dow);
-        return dow == DayOfWeek.MONDAY || dow == DayOfWeek.SUNDAY;
+        return dow == DayOfWeek.SATURDAY || dow == DayOfWeek.MONDAY;
     }
 
     /**

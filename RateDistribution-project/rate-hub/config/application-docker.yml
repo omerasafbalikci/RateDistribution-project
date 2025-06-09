@@ -1,0 +1,47 @@
+hazelcast:
+  clusterName: fx-rates
+
+kafka:
+  bootstrapServers: kafka:9092
+  rawTopic: ratehub.raw
+  calcTopic: ratehub.calculated
+
+threadPool:
+  size: 32
+
+auth:
+  url: http://auth-service:8081/auth/login
+  username: omerasafbalikci
+  password: omerasaf18993
+  refreshSkewSeconds: 60
+
+subscribers:
+  - class: com.ratedistribution.ratehub.subscriber.impl.TcpSubscriber
+    name: PF1
+    host: tcp-data-provider
+    port: 8084
+    rates: [ "EURUSD", "USDTRY" ]
+
+  - class: com.ratedistribution.ratehub.subscriber.impl.RestSubscriber
+    name: PF2
+    host: http://api-gateway
+    port: 8080
+    rates: [ "EURUSD", "USDTRY" ]
+
+calculations:
+  - rateName: EURUSD
+    engine: groovy
+    scriptPath: formulas/eurusd.groovy
+    dependsOn: [ EURUSD ]
+
+  - rateName: USDTRY
+    engine: java
+    scriptPath: formulas/usdtry.java
+    dependsOn: [ USDTRY ]
+
+mail:
+  from: asafmarket.ltd@gmail.com
+  password: ppqp daaa lgup oscr
+  to: blkc.omerasaff@gmail.com
+  smtpHost: smtp.gmail.com
+  smtpPort: 587

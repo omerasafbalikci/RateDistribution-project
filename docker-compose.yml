@@ -35,7 +35,20 @@ services:
     networks:
       - microservices-net
 
-  # ELK STACK
+  # FILEBEAT
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:8.8.3
+    container_name: filebeat
+    user: root
+    volumes:
+      - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+      - ./logs:/var/log/myapps:ro
+    networks:
+      - microservices-net
+    depends_on:
+      - opensearch
+
+  # OPENSEARCH
   opensearch:
     image: opensearchproject/opensearch:2.14.0
     container_name: opensearch
@@ -43,14 +56,16 @@ services:
       - discovery.type=single-node
       - plugins.security.disabled=true
       - bootstrap.memory_lock=true
-      - OPENSEARCH_INITIAL_ADMIN_PASSWORD=S3cuRe!Pa55w0rd
       - OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m
+      - OPENSEARCH_INITIAL_ADMIN_PASSWORD=unused
     ulimits:
       memlock:
         soft: -1
         hard: -1
     ports:
       - "9200:9200"
+    volumes:
+      - ./config/opensearch.yml:/usr/share/opensearch/config/opensearch.yml
     healthcheck:
       test: [ "CMD-SHELL", "curl -f http://localhost:9200 || exit 1" ]
       interval: 10s
@@ -65,8 +80,11 @@ services:
     container_name: opensearch-dashboards
     environment:
       - OPENSEARCH_HOSTS=["http://opensearch:9200"]
+      - DISABLE_SECURITY_DASHBOARDS_PLUGIN=true
     ports:
       - "5601:5601"
+    volumes:
+      - ./config/opensearch_dashboards.yml:/usr/share/opensearch-dashboards/config/opensearch_dashboards.yml
     networks:
       - microservices-net
     depends_on:
@@ -126,7 +144,7 @@ services:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
     depends_on:
       zookeeper:
@@ -213,9 +231,13 @@ services:
     networks:
       - microservices-net
     depends_on:
+      rabbitmq:
+        condition: service_started
       zipkin:
         condition: service_started
       prometheus:
+        condition: service_started
+      filebeat:
         condition: service_started
     healthcheck:
       test: [ "CMD", "wget", "--spider", "http://localhost:8888/actuator/health" ]
@@ -288,7 +310,6 @@ services:
     image: omerasafbalikci/rest-data-provider
     environment:
       - SPRING_PROFILES_ACTIVE=docker
-      - SPRING_CLOUD_CONFIG_OVERRIDE_NONE=true
     volumes:
       - ./logs:/logs
     networks:
@@ -298,6 +319,12 @@ services:
       - auth-service
       - user-service
       - redis
+    healthcheck:
+      test: [ "CMD", "wget", "--spider", "-q", "http://localhost:8080/actuator/health" ]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
 
   tcp-data-provider:
     image: omerasafbalikci/tcp-data-provider
@@ -313,21 +340,29 @@ services:
       - auth-service
       - user-service
       - redis
+    healthcheck:
+      test: [ "CMD", "nc", "-z", "localhost", "8084" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
 
   rate-hub:
     image: omerasafbalikci/rate-hub
     container_name: rate-hub
     volumes:
-      - ./RateDistribution-project/rate-hub/config:/app/rate-hub/config
+      - ./RateDistribution-project/rate-hub/config:/config
     networks:
       - microservices-net
     depends_on:
-      kafka: { condition: service_healthy }
-      hazelcast: { condition: service_started }
+      kafka:
+        condition: service_healthy
+      hazelcast:
+        condition: service_started
       tcp-data-provider:
-        condition: service_started
+        condition: service_healthy
       rest-data-provider:
-        condition: service_started
+        condition: service_healthy
 
   rate-hub-consumer-db:
     container_name: rate-hub-consumer-db
@@ -339,16 +374,14 @@ services:
     networks:
       - microservices-net
     depends_on:
-      kafka: { condition: service_healthy }
-      api-gateway: {
+      kafka:
+        condition: service_healthy
+      api-gateway:
         condition: service_started
-      }
-      auth-service: {
+      auth-service:
         condition: service_started
-      }
-      rate-hub: {
+      rate-hub:
         condition: service_started
-      }
 
   rate-hub-consumer-opensearch:
     container_name: rate-hub-consumer-opensearch
@@ -360,20 +393,18 @@ services:
     networks:
       - microservices-net
     depends_on:
-      kafka: { condition: service_healthy }
+      kafka:
+        condition: service_healthy
       opensearch:
         condition: service_healthy
       opensearch-dashboards:
         condition: service_started
-      api-gateway: {
+      api-gateway:
         condition: service_started
-      }
-      auth-service: {
+      auth-service:
         condition: service_started
-      }
-      rate-hub: {
+      rate-hub:
         condition: service_started
-      }
 
 networks:
   microservices-net:

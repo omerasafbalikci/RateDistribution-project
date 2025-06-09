@@ -9,12 +9,17 @@ import com.ratedistribution.ratehub.config.AppConfigReloader;
 import com.ratedistribution.ratehub.config.CoordinatorConfig;
 import com.ratedistribution.ratehub.coord.Coordinator;
 import com.ratedistribution.ratehub.kafka.RateKafkaProducer;
+import com.ratedistribution.ratehub.subscriber.Subscriber;
 import com.ratedistribution.ratehub.subscriber.SubscriberLoader;
 import com.ratedistribution.ratehub.utilities.MailService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * Main application entry point for the RateHub system.
@@ -30,67 +35,67 @@ public class RateHubApplication {
 
     public static void main(String[] args) {
         try {
-            Path cfgPath = Path.of(System.getProperty("conf", "rate-hub/config/application.yml"));
+            String configArg = Stream.concat(
+                            Arrays.stream(args),
+                            Stream.of(System.getProperty("config", ""))
+                    )
+                    .filter(s -> s.startsWith("--config=") || s.startsWith("config="))
+                    .findFirst()
+                    .orElse("config=rate-hub/config/application-docker.yml");
+
+            Path cfgPath = Paths.get(
+                    configArg.replace("--config=", "")
+                            .replace("config=", "")
+            );
             log.info("[RateHub] Loading configuration from: {}", cfgPath.toAbsolutePath());
 
             CoordinatorConfig config = AppConfigLoader.load(cfgPath);
             log.info("[RateHub] Configuration loaded successfully.");
 
+            HazelcastInstance hz = HazelcastFactory.start(config.hazelcast().clusterName());
+            log.info("[RateHub] Hazelcast started: {}", config.hazelcast().clusterName());
+
+            var producer = new RateKafkaProducer(
+                    config.kafka().bootstrapServers(),
+                    config.kafka().rawTopic(),
+                    config.kafka().calcTopic()
+            );
+            var mailService = new MailService(config.mail());
+
+            var tokenProvider = new TokenProvider(
+                    config.auth().url(),
+                    config.auth().username(),
+                    config.auth().password(),
+                    config.auth().refreshSkewSeconds()
+            );
+
+            Coordinator coordinator = new Coordinator(
+                    hz,
+                    producer,
+                    config.subscribers(),
+                    tokenProvider,
+                    config.toDefs(),
+                    config.threadPool().size(),
+                    mailService
+            );
+
             AppConfigReloader reloader = new AppConfigReloader(cfgPath, config);
+            reloader.addListener(coordinator);
             reloader.startWatching();
 
-            var hazelcast = HazelcastFactory.start(config.hazelcast().clusterName());
-            log.info("[RateHub] Hazelcast instance started with cluster name '{}'", config.hazelcast().clusterName());
-
-            var coordinator = getCoordinator(reloader.getConfig(), hazelcast);
+            List<Subscriber> subscribers = new SubscriberLoader(
+                    config.subscribers(),
+                    coordinator,
+                    tokenProvider
+            ).load();
+            coordinator.start(subscribers);
             log.info("[RateHub] Coordinator initialized and started.");
 
-            Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-                log.info("[RateHub] Shutdown signal received. Cleaning up...");
-                coordinator.shutdown();
-            }));
+            Runtime.getRuntime().addShutdownHook(new Thread(coordinator::shutdown));
+
         } catch (Exception e) {
-            log.error("[RateHub] Fatal error during startup: {}", e.getMessage(), e);
-            GlobalExceptionHandler.fatal("Fatal error during startup: ", e);
+            log.error("[RateHub] Fatal error: {}", e.getMessage(), e);
+            GlobalExceptionHandler.fatal("Fatal error during startup", e);
         }
-    }
-
-    /**
-     * Constructs and starts the Coordinator component with necessary dependencies.
-     *
-     * @param config    loaded application configuration
-     * @param hazelcast Hazelcast instance for shared state
-     * @return initialized and started {@link Coordinator}
-     */
-    private static Coordinator getCoordinator(CoordinatorConfig config, HazelcastInstance hazelcast) {
-        log.info("[Coordinator] Initializing dependencies...");
-
-        var producer = new RateKafkaProducer(
-                config.kafka().bootstrapServers(),
-                config.kafka().rawTopic(),
-                config.kafka().calcTopic()
-        );
-        log.debug("[Coordinator] Kafka producer initialized.");
-
-        var mailService = new MailService(config.mail());
-        log.debug("[Coordinator] Mail service initialized.");
-
-        var coordinator = new Coordinator(hazelcast, producer, config.toDefs(), config.threadPool().size(), mailService);
-        log.debug("[Coordinator] Coordinator instance created.");
-
-        var tp = new TokenProvider(
-                config.auth().url(),
-                config.auth().username(),
-                config.auth().password(),
-                config.auth().refreshSkewSeconds());
-        log.debug("[Coordinator] Token provider initialized.");
-
-        var loader = new SubscriberLoader(config.subscribers(), coordinator, tp);
-        var subscribers = loader.load();
-        log.info("[Coordinator] Loaded {} subscriber(s).", subscribers.size());
-
-        coordinator.start(subscribers);
-        log.info("[Coordinator] All subscribers connected and processing started.");
-        return coordinator;
     }
 }

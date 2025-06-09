@@ -6,8 +6,9 @@ import org.apache.logging.log4j.Logger;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.WatchService;
 import java.nio.file.attribute.FileTime;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
@@ -21,16 +22,24 @@ import java.util.concurrent.atomic.AtomicReference;
 public class AppConfigReloader {
     private static final Logger log = LogManager.getLogger(AppConfigReloader.class);
     private final Path configPath;
-    private final AtomicReference<CoordinatorConfig> currentConfig;
-    private WatchService watchService;
+    private volatile CoordinatorConfig currentConfig;
+    private final List<ConfigChangeListener> listeners = new CopyOnWriteArrayList<>();
 
     public AppConfigReloader(Path configPath, CoordinatorConfig initialConfig) {
         this.configPath = configPath;
-        this.currentConfig = new AtomicReference<>(initialConfig);
+        this.currentConfig = initialConfig;
     }
 
     public CoordinatorConfig getConfig() {
-        return currentConfig.get();
+        return currentConfig;
+    }
+
+    public void addListener(ConfigChangeListener l) {
+        listeners.add(l);
+    }
+
+    public void removeListener(ConfigChangeListener l) {
+        listeners.remove(l);
     }
 
     public void startWatching() {
@@ -40,14 +49,15 @@ public class AppConfigReloader {
                 log.info("[AppConfigReloader] Starting polling for config changes: {}", configPath);
 
                 while (true) {
-                    Thread.sleep(3000); // Check every 3 seconds
+                    Thread.sleep(3000);
                     FileTime currentModified = Files.getLastModifiedTime(configPath);
                     if (!currentModified.equals(lastModified)) {
                         lastModified = currentModified;
                         log.warn("[AppConfigReloader] Configuration file changed. Reloading...");
                         CoordinatorConfig updated = AppConfigLoader.load(configPath);
                         if (updated != null) {
-                            currentConfig.set(updated);
+                            currentConfig = updated;
+                            listeners.forEach(l -> l.onConfigChange(updated));
                             log.info("[AppConfigReloader] Configuration reloaded successfully.");
                         } else {
                             log.warn("[AppConfigReloader] Failed to reload configuration.");

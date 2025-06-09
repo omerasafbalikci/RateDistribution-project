@@ -23,7 +23,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 @Component
 @RequiredArgsConstructor
-@RefreshScope
 @Log4j2
 public class RateUpdateScheduler {
     private final RateSimulatorService rateSimulatorService;

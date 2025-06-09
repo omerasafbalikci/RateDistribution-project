@@ -2,12 +2,16 @@ package com.ratedistribution.ratehub.coord;
 
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.map.IMap;
+import com.ratedistribution.ratehub.auth.TokenProvider;
+import com.ratedistribution.ratehub.config.ConfigChangeListener;
+import com.ratedistribution.ratehub.config.CoordinatorConfig;
 import com.ratedistribution.ratehub.kafka.RateKafkaProducer;
 import com.ratedistribution.ratehub.model.Rate;
 import com.ratedistribution.ratehub.model.RateFields;
 import com.ratedistribution.ratehub.model.RateStatus;
 import com.ratedistribution.ratehub.model.RawTick;
 import com.ratedistribution.ratehub.subscriber.Subscriber;
+import com.ratedistribution.ratehub.subscriber.SubscriberLoader;
 import com.ratedistribution.ratehub.utilities.DynamicScriptFormulaEngine;
 import com.ratedistribution.ratehub.utilities.ExpressionEvaluator;
 import com.ratedistribution.ratehub.utilities.MailService;
@@ -22,6 +26,7 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.stream.Collectors;
 
 /**
  * Coordinator class is responsible for managing subscribers, receiving raw tick data,
@@ -35,41 +40,102 @@ import java.util.concurrent.Executors;
  * @author Ömer Asaf BALIKÇI
  */
 
-public class Coordinator implements RateListener, AutoCloseable {
+public class Coordinator implements RateListener, ConfigChangeListener, AutoCloseable {
     private static final Logger log = LogManager.getLogger(Coordinator.class);
+
     private final HazelcastInstance hazelcast;
     private final RateKafkaProducer kafka;
-    private final Map<String, CalcDef> calcDefs;
+    private volatile Map<String, CalcDef> calcDefs;
+    private volatile List<Subscriber> subscribers = new ArrayList<>();
+
+    private final SubscriberLoader loaderTemplate;
+    private final TokenProvider tokenProvider;
+    private final MailService mailService;
+
     private final IMap<String, RawTick> rawTicks;
     private final IMap<String, Rate> calcRates;
     private final Map<String, Map<String, Rate>> platformRates = new ConcurrentHashMap<>();
     private final ExecutorService pool;
-    private final MailService mailService;
     private SubSupervisor supervisor;
-    private List<Subscriber> subscribers = new ArrayList<>();
 
-    /**
-     * Constructs a Coordinator.
-     *
-     * @param hz             Hazelcast instance
-     * @param producer       Kafka producer
-     * @param defs           Calculated rate definitions
-     * @param threadPoolSize Number of threads for subscriber execution
-     * @param mailService    Service for sending alerts or error notifications
-     */
-    public Coordinator(HazelcastInstance hz,
-                       RateKafkaProducer producer,
-                       Map<String, CalcDef> defs,
-                       int threadPoolSize,
-                       MailService mailService) {
-        this.hazelcast = hz;
-        this.kafka = producer;
-        this.calcDefs = defs;
-        this.rawTicks = hz.getMap("rawTicks");
-        this.calcRates = hz.getMap("calcRates");
+
+    public Coordinator(
+            HazelcastInstance hazelcast,
+            RateKafkaProducer kafkaProducer,
+            List<CoordinatorConfig.SubscriberCfg> initialSubscriberCfgs,
+            TokenProvider tokenProvider,
+            Map<String, CalcDef> initialCalcDefs,
+            int threadPoolSize,
+            MailService mailService
+    ) {
+        this.hazelcast = hazelcast;
+        this.kafka = kafkaProducer;
+        this.calcDefs = new HashMap<>(initialCalcDefs);
+        this.loaderTemplate = new SubscriberLoader(initialSubscriberCfgs, this, tokenProvider);
+        this.tokenProvider = tokenProvider;
+        this.mailService = mailService;
+
+        this.rawTicks = hazelcast.getMap("rawTicks");
+        this.calcRates = hazelcast.getMap("calcRates");
         this.pool = Executors.newFixedThreadPool(Math.max(2, threadPoolSize),
                 Thread.ofVirtual().factory());
-        this.mailService = mailService;
+    }
+
+    @Override
+    public void onConfigChange(CoordinatorConfig newConfig) {
+        log.info("[Coordinator] Applying new configuration...");
+
+        Map<String, CalcDef> newDefs = newConfig.toDefs().entrySet().stream()
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        e -> {
+                            CalcDef def = e.getValue();
+                            def.setCustomEvaluator(
+                                    new DynamicScriptFormulaEngine(
+                                            def.getEngine(),
+                                            Path.of(def.getScriptPath())
+                                    )
+                            );
+                            return def;
+                        }
+                ));
+        this.calcDefs = newDefs;
+        log.info("[Coordinator] calcDefs updated: {}", newDefs.keySet());
+
+        List<String> oldNames = this.subscribers.stream()
+                .map(Subscriber::name)
+                .toList();
+        List<String> newNames = newConfig.subscribers().stream()
+                .map(CoordinatorConfig.SubscriberCfg::name)
+                .toList();
+
+        this.subscribers.stream()
+                .filter(s -> !newNames.contains(s.name()))
+                .forEach(s -> {
+                    log.info("[Coordinator] Removing subscriber {}", s.name());
+                    try {
+                        s.close();
+                    } catch (Exception ex) {
+                        log.warn(ex);
+                    }
+                });
+
+        SubscriberLoader loader = new SubscriberLoader(newConfig.subscribers(), this, tokenProvider);
+        List<Subscriber> fresh = loader.load();
+
+        fresh.stream()
+                .filter(s -> !oldNames.contains(s.name()))
+                .forEach(s -> {
+                    log.info("[Coordinator] Starting new subscriber {}", s.name());
+                    try {
+                        s.connect();
+                    } catch (Exception ex) {
+                        log.warn(ex);
+                    }
+                });
+
+        this.subscribers = fresh;
+        log.info("[Coordinator] Subscriber update complete.");
     }
 
     /**
@@ -181,15 +247,10 @@ public class Coordinator implements RateListener, AutoCloseable {
     private void accept(String platform, String symbol, RawTick tick) {
         try {
             rawTicks.put(platform + "_" + symbol, tick);
-
-            platformRates
-                    .computeIfAbsent(symbol, k -> new ConcurrentHashMap<>())
-                    .put(platform, tick.toRate());
-
+            platformRates.computeIfAbsent(symbol, k -> new ConcurrentHashMap<>()).put(platform, tick.toRate());
             kafka.sendRawTickAsString(tick, platform);
-            log.debug("[Coordinator] Raw tick accepted and forwarded: {}:{}", platform, symbol);
-
             recalc(symbol);
+            log.debug("[Coordinator] Raw tick accepted and forwarded: {}:{}", platform, symbol);
         } catch (Exception e) {
             log.error("[Coordinator] Error in accept for {}:{} - {}", platform, symbol, e.getMessage(), e);
         }
@@ -213,29 +274,48 @@ public class Coordinator implements RateListener, AutoCloseable {
      * @param def the CalcDef to calculate
      */
     private void calculate(CalcDef def) {
+        // 1) Build vars
         Map<String, Rate> vars = new HashMap<>();
         for (String dep : def.getDependsOn()) {
-            Map<String, Rate> perPlatform = platformRates.get(dep);
-            if (perPlatform == null || perPlatform.isEmpty()) {
-                log.warn("[Coordinator] Missing dep {} for {}", dep, def.getRateName());
-                return;
-            }
-            perPlatform.forEach((pf, r) -> vars.put(pf + "_" + dep, r));
+            Map<String, Rate> per = platformRates.get(dep);
+            if (per == null || per.isEmpty()) return;
+            per.forEach((pf, r) -> vars.put(pf + "_" + dep, r));
         }
+        // 2) Flatten to BigDecimal map
+        Map<String, BigDecimal> flat = flatten(vars, def.getHelpers());
+        // 3) Ensure every subscriber contributed
+        for (String dep : def.getDependsOn()) {
+            for (Subscriber sub : subscribers) {
+                String bidKey = sub.name() + "_" + dep + "_bid";
+                String askKey = sub.name() + "_" + dep + "_ask";
+                if (!flat.containsKey(bidKey) || !flat.containsKey(askKey)) {
+                    log.warn("[Coordinator] Skipping {}: missing {} or {}", def.getRateName(), bidKey, askKey);
+                    return;
+                }
+            }
+        }
+        // 4) Evaluate
         try {
             ExpressionEvaluator ev = def.getCustomEvaluator();
-            if (ev == null) {
-                log.warn("[Coordinator] Evaluator not ready for {}", def.getRateName());
-                return;
-            }
+            if (ev == null) return;
             BigDecimal bid = ev.evaluate("bid", vars, def.getHelpers());
             BigDecimal ask = ev.evaluate("ask", vars, def.getHelpers());
+            if (bid == null || ask == null) return;
             Rate out = new Rate(def.getRateName(), bid, ask, Instant.now());
             calcRates.put(def.getRateName(), out);
             kafka.sendRateAsString(out);
-            log.debug("[Coordinator] ✓ Calculated {} = [{},{}]", def.getRateName(), bid, ask);
         } catch (Exception e) {
             log.error("[Coordinator] calc error {}", def.getRateName(), e);
         }
+    }
+
+    private Map<String, BigDecimal> flatten(Map<String, Rate> vars, Map<String, BigDecimal> helpers) {
+        Map<String, BigDecimal> m = new HashMap<>();
+        vars.forEach((k, r) -> {
+            m.put(k + "_bid", r.bid());
+            m.put(k + "_ask", r.ask());
+        });
+        if (helpers != null) m.putAll(helpers);
+        return m;
     }
 }

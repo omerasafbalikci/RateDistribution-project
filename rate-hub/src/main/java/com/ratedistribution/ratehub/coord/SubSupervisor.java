@@ -72,7 +72,7 @@ public class SubSupervisor implements AutoCloseable {
     private void maybeAlert(Subscriber s, String reason) {
         Instant now = Instant.now();
         Instant last = lastAlertTime.getOrDefault(s.name(), Instant.EPOCH);
-        if (Duration.between(last, now).toMinutes() >= 10) {
+        if (Duration.between(last, now).toMillis() >= 60_000) {
             log.warn("[Supervisor] ALERT {} – {}", s.name(), reason);
             mailService.sendAlert(s.name(), "Subscriber " + s.name() + " " + reason);
             lastAlertTime.put(s.name(), now);

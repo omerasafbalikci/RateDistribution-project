@@ -17,11 +17,6 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class RateListener {
     private final OpenSearchClient client;
-
-    @Value("${ratehub.raw-topic}")
-    private String rawTopic;
-    @Value("${ratehub.calc-topic}")
-    private String calcTopic;
     @Value("${opensearch.index-name}")
     private String indexName;
 
@@ -44,16 +39,14 @@ public class RateListener {
                 return;
             }
 
-            // Belgeyi bir Map olarak oluşturuyoruz:
             Map<String, Object> doc = new HashMap<>();
             doc.put("rateName", parts[0]);
             doc.put("bid", new BigDecimal(parts[1]));
             doc.put("ask", new BigDecimal(parts[2]));
-            doc.put("rateUpdateTime", parts[3]);                                // zaten ISO format
+            doc.put("rateUpdateTime", parts[3]);
             doc.put("dbUpdateTime", LocalDateTime.now().format(formatter));
             doc.put("sourceType", sourceType);
 
-            // Rastgele ID ile indexleme
             client.index(i -> i
                     .index(indexName)
                     .id(UUID.randomUUID().toString())

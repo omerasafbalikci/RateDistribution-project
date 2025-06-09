@@ -1,0 +1,144 @@
+##################### Filebeat Inputs #####################
+filebeat.inputs:
+
+  - type: log
+    enabled: true
+    paths:
+      - /var/log/myapps/api-gateway/*.log
+      - /var/log/myapps/api-gateway/*.log.gz
+    fields:
+      service: "api-gateway"
+    fields_under_root: true
+    multiline:
+      pattern: '^\d{4}-\d{2}-\d{2}'
+      negate: true
+      match: after
+
+  - type: log
+    enabled: true
+    paths:
+      - /var/log/myapps/auth-service/*.log
+      - /var/log/myapps/auth-service/*.log.gz
+    fields:
+      service: "auth-service"
+    fields_under_root: true
+    multiline:
+      pattern: '^\d{4}-\d{2}-\d{2}'
+      negate: true
+      match: after
+
+  - type: log
+    enabled: true
+    paths:
+      - /var/log/myapps/config-server/*.log
+      - /var/log/myapps/config-server/*.log.gz
+    fields:
+      service: "config-server"
+    fields_under_root: true
+    multiline:
+      pattern: '^\d{4}-\d{2}-\d{2}'
+      negate: true
+      match: after
+
+  - type: log
+    enabled: true
+    paths:
+      - /var/log/myapps/discovery-server/*.log
+      - /var/log/myapps/discovery-server/*.log.gz
+    fields:
+      service: "discovery-server"
+    fields_under_root: true
+    multiline:
+      pattern: '^\d{4}-\d{2}-\d{2}'
+      negate: true
+      match: after
+
+  - type: log
+    enabled: true
+    paths:
+      - /var/log/myapps/rate-hub/*.log
+      - /var/log/myapps/rate-hub/*.log.gz
+    fields:
+      service: "rate-hub"
+    fields_under_root: true
+    multiline:
+      pattern: '^\d{4}-\d{2}-\d{2}'
+      negate: true
+      match: after
+
+  - type: log
+    enabled: true
+    paths:
+      - /var/log/myapps/consumer-db/*.log
+      - /var/log/myapps/consumer-db/*.log.gz
+    fields:
+      service: "consumer-db"
+    fields_under_root: true
+    multiline:
+      pattern: '^\d{4}-\d{2}-\d{2}'
+      negate: true
+      match: after
+
+  - type: log
+    enabled: true
+    paths:
+      - /var/log/myapps/consumer-os/*.log
+      - /var/log/myapps/consumer-os/*.log.gz
+    fields:
+      service: "consumer-os"
+    fields_under_root: true
+    multiline:
+      pattern: '^\d{4}-\d{2}-\d{2}'
+      negate: true
+      match: after
+
+  - type: log
+    enabled: true
+    paths:
+      - /var/log/myapps/rest-data-provider/*.log
+      - /var/log/myapps/rest-data-provider/*.log.gz
+    fields:
+      service: "rest-data-provider"
+    fields_under_root: true
+    multiline:
+      pattern: '^\d{4}-\d{2}-\d{2}'
+      negate: true
+      match: after
+
+  - type: log
+    enabled: true
+    paths:
+      - /var/log/myapps/tcp-data-provider/*.log
+      - /var/log/myapps/tcp-data-provider/*.log.gz
+    fields:
+      service: "tcp-data-provider"
+    fields_under_root: true
+    multiline:
+      pattern: '^\d{4}-\d{2}-\d{2}'
+      negate: true
+      match: after
+
+  - type: log
+    enabled: true
+    paths:
+      - /var/log/myapps/user-management-service/*.log
+      - /var/log/myapps/user-management-service/*.log.gz
+    fields:
+      service: "user-management-service"
+    fields_under_root: true
+    multiline:
+      pattern: '^\d{4}-\d{2}-\d{2}'
+      negate: true
+      match: after
+
+##################### Processors #####################
+processors:
+  - add_host_metadata: ~
+  - add_cloud_metadata: ~
+
+##################### Output to OpenSearch #####################
+output.opensearch:
+  hosts: ["http://opensearch:9200"]
+  index: "logs-%{[service]}-%{+yyyy.MM.dd}"
+  pipeline: "logs_pipeline"
+  ssl.verification_mode: "none"

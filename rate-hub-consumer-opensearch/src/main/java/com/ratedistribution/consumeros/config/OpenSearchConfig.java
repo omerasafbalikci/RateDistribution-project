@@ -20,17 +20,12 @@ public class OpenSearchConfig {
 
     @Bean
     public OpenSearchClient openSearchClient() {
-        // 1) HTTP istemcisi
         RestClient restClient = RestClient.builder(
                 new HttpHost(host, port, scheme)
         ).build();
-
-        // 2) Transport (JSON-P mapper: Jackson kullanan)
         RestClientTransport transport = new RestClientTransport(
                 restClient, new JacksonJsonpMapper()
         );
-
-        // 3) OpenSearchClient nesnesi
         return new OpenSearchClient(transport);
     }
 }

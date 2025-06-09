@@ -1,0 +1,3 @@
+2025-06-09 11:00:00.169 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Unregistering ...
+2025-06-09 11:00:00.179 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - DiscoveryClient_USER-MANAGEMENT-SERVICE/user-management-service:8082 - deregister  status: 200
+2025-06-09 11:00:00.180 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Completed shut down of DiscoveryClient
