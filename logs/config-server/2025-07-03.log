@@ -1,0 +1,2 @@
+2025-07-04 00:17:31.837 [] [SpringApplicationShutdownHook] INFO  GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-04 00:17:31.863 [] [tomcat-shutdown] INFO  GracefulShutdown - Graceful shutdown complete

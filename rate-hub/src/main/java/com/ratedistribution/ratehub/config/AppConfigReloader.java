@@ -4,12 +4,14 @@ import com.ratedistribution.ratehub.advice.GlobalExceptionHandler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.attribute.FileTime;
+import java.io.IOException;
+import java.nio.file.*;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.atomic.AtomicReference;
+
+import static java.nio.file.StandardWatchEventKinds.ENTRY_CREATE;
+import static java.nio.file.StandardWatchEventKinds.ENTRY_MODIFY;
 
 /**
  * Watches the YAML configuration file and reloads {@link CoordinatorConfig}
@@ -21,52 +23,98 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class AppConfigReloader {
     private static final Logger log = LogManager.getLogger(AppConfigReloader.class);
-    private final Path configPath;
+    private final Path configFile;
+    private final Path scriptsDir;
     private volatile CoordinatorConfig currentConfig;
     private final List<ConfigChangeListener> listeners = new CopyOnWriteArrayList<>();
+    private WatchService watchService;
 
-    public AppConfigReloader(Path configPath, CoordinatorConfig initialConfig) {
-        this.configPath = configPath;
+    public AppConfigReloader(Path configFile, CoordinatorConfig initialConfig) {
+        this.configFile = configFile;
         this.currentConfig = initialConfig;
+        this.scriptsDir = configFile.getParent().resolve("formulas");
     }
 
-    public CoordinatorConfig getConfig() {
+    public CoordinatorConfig getCurrentConfig() {
         return currentConfig;
     }
 
-    public void addListener(ConfigChangeListener l) {
-        listeners.add(l);
+    public void registerListener(ConfigChangeListener listener) {
+        listeners.add(listener);
     }
 
-    public void removeListener(ConfigChangeListener l) {
-        listeners.remove(l);
+    public void start() {
+        Thread thread = new Thread(this::watchLoop, "Config-Reloader");
+        thread.setDaemon(true);
+        thread.start();
+        log.info("Started watching {} and {}", configFile, scriptsDir);
     }
 
-    public void startWatching() {
-        Thread.startVirtualThread(() -> {
-            try {
-                FileTime lastModified = Files.getLastModifiedTime(configPath);
-                log.info("[AppConfigReloader] Starting polling for config changes: {}", configPath);
+    private void watchLoop() {
+        try {
+            watchService = FileSystems.getDefault().newWatchService();
+            registerPath(configFile.getParent());
+            if (Files.isDirectory(scriptsDir)) {
+                registerRecursively(scriptsDir);
+            }
 
-                while (true) {
-                    Thread.sleep(3000);
-                    FileTime currentModified = Files.getLastModifiedTime(configPath);
-                    if (!currentModified.equals(lastModified)) {
-                        lastModified = currentModified;
-                        log.warn("[AppConfigReloader] Configuration file changed. Reloading...");
-                        CoordinatorConfig updated = AppConfigLoader.load(configPath);
-                        if (updated != null) {
-                            currentConfig = updated;
-                            listeners.forEach(l -> l.onConfigChange(updated));
-                            log.info("[AppConfigReloader] Configuration reloaded successfully.");
-                        } else {
-                            log.warn("[AppConfigReloader] Failed to reload configuration.");
-                        }
+            while (true) {
+                WatchKey key = watchService.take();
+                for (WatchEvent<?> event : key.pollEvents()) {
+                    Path changed = ((Path) key.watchable()).resolve((Path) event.context());
+                    if (isConfigFile(changed) || isScriptFile(changed)) {
+                        log.info("Change detected on {}: {}", changed, event.kind());
+                        reloadConfig();
+                    }
+                    if (event.kind() == ENTRY_CREATE && Files.isDirectory(changed)) {
+                        registerRecursively(changed);
                     }
                 }
-            } catch (Exception e) {
-                GlobalExceptionHandler.handle("AppConfigReloader.pollingWatcher", e);
+                if (!key.reset()) break;
+            }
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            log.warn("Config watcher interrupted");
+        } catch (IOException e) {
+            GlobalExceptionHandler.handle("AppConfigReloader.watchLoop", e);
+        }
+    }
+
+    private void reloadConfig() {
+        try {
+            CoordinatorConfig updated = AppConfigLoader.load(configFile);
+            if (updated != null) {
+                currentConfig = updated;
+                listeners.forEach(l -> l.onConfigChange(updated));
+                log.info("Configuration reloaded");
+            } else {
+                log.warn("Reload returned null config");
+            }
+        } catch (Exception e) {
+            GlobalExceptionHandler.handle("AppConfigReloader.reloadConfig", e);
+        }
+    }
+
+    private void registerPath(Path dir) throws IOException {
+        dir.register(watchService, ENTRY_CREATE, ENTRY_MODIFY);
+    }
+
+    private void registerRecursively(Path start) throws IOException {
+        Files.walkFileTree(start, new SimpleFileVisitor<>() {
+            @Override
+            public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
+                registerPath(dir);
+                return FileVisitResult.CONTINUE;
             }
         });
+    }
+
+    private boolean isConfigFile(Path path) {
+        return path.equals(configFile) && path.getFileName().toString().endsWith(".yml");
+    }
+
+    private boolean isScriptFile(Path path) {
+        String fn = path.getFileName().toString().toLowerCase();
+        return fn.endsWith(".groovy") || fn.endsWith(".java") || fn.endsWith(".js");
     }
 }

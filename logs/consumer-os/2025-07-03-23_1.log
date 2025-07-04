@@ -1,0 +1,1233 @@
+2025-07-03 23:07:22.546 [] [main] INFO  RateHubConsumerOpensearchApplication - Starting RateHubConsumerOpensearchApplication v0.0.1-SNAPSHOT using Java 21.0.7 with PID 1 (/app.jar started by root in /)
+2025-07-03 23:07:22.573 [] [main] DEBUG RateHubConsumerOpensearchApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-07-03 23:07:22.587 [] [main] INFO  RateHubConsumerOpensearchApplication - The following 1 profile is active: "docker"
+2025-07-03 23:07:22.894 [] [main] INFO  ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+2025-07-03 23:07:22.895 [] [main] INFO  ConfigServerConfigDataLoader - Located environment: name=rate-hub-consumer-opensearch, profiles=[default], label=null, version=bf17919cae47920d65737939efa7447c4223b9d7, state=
+2025-07-03 23:07:22.900 [] [main] INFO  ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+2025-07-03 23:07:22.902 [] [main] INFO  ConfigServerConfigDataLoader - Located environment: name=rate-hub-consumer-opensearch, profiles=[docker], label=null, version=bf17919cae47920d65737939efa7447c4223b9d7, state=
+2025-07-03 23:07:28.451 [] [main] INFO  GenericScope - BeanFactory id=973d7318-2dca-36de-93bd-206764875de3
+2025-07-03 23:07:31.214 [] [main] INFO  TomcatWebServer - Tomcat initialized with port 8086 (http)
+2025-07-03 23:07:31.325 [] [main] INFO  Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8086"]
+2025-07-03 23:07:31.336 [] [main] INFO  StandardService - Starting service [Tomcat]
+2025-07-03 23:07:31.337 [] [main] INFO  StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-07-03 23:07:31.674 [] [main] INFO  [/] - Initializing Spring embedded WebApplicationContext
+2025-07-03 23:07:31.686 [] [main] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 8774 ms
+2025-07-03 23:07:43.215 [] [main] INFO  DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-07-03 23:07:43.727 [] [main] WARN  LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-07-03 23:07:43.910 [] [main] INFO  EndpointLinksResolver - Exposing 18 endpoints beneath base path '/actuator'
+2025-07-03 23:07:45.125 [] [main] INFO  InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-07-03 23:07:45.337 [] [main] INFO  DiscoveryClient - Initializing Eureka in region us-east-1
+2025-07-03 23:07:45.401 [] [main] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-03 23:07:45.506 [] [main] INFO  DiscoveryClient - Disable delta property : false
+2025-07-03 23:07:45.510 [] [main] INFO  DiscoveryClient - Single vip registry refresh property : null
+2025-07-03 23:07:45.512 [] [main] INFO  DiscoveryClient - Force full registry fetch : false
+2025-07-03 23:07:45.512 [] [main] INFO  DiscoveryClient - Application is null : false
+2025-07-03 23:07:45.512 [] [main] INFO  DiscoveryClient - Registered Applications size is zero : true
+2025-07-03 23:07:45.512 [] [main] INFO  DiscoveryClient - Application version is -1: true
+2025-07-03 23:07:45.513 [] [main] INFO  DiscoveryClient - Getting all instance registry info from the eureka server
+2025-07-03 23:07:47.053 [] [main] INFO  DiscoveryClient - The response status is 200
+2025-07-03 23:07:47.061 [] [main] INFO  DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-07-03 23:07:47.066 [] [main] INFO  InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-07-03 23:07:47.072 [] [main] INFO  DiscoveryClient - Discovery Client initialized at timestamp 1751584067072 with initial instances count: 4
+2025-07-03 23:07:47.127 [] [main] INFO  EurekaServiceRegistry - Registering application RATE-HUB-CONSUMER-OPENSEARCH with eureka with status UP
+2025-07-03 23:07:47.128 [] [main] INFO  DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1751584067128, current=UP, previous=STARTING]
+2025-07-03 23:07:47.177 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_RATE-HUB-CONSUMER-OPENSEARCH/rate-hub-consumer-opensearch:8086: registering service...
+2025-07-03 23:07:47.222 [] [main] INFO  Http11NioProtocol - Starting ProtocolHandler ["http-nio-8086"]
+2025-07-03 23:07:47.350 [] [main] INFO  TomcatWebServer - Tomcat started on port 8086 (http) with context path '/'
+2025-07-03 23:07:47.352 [] [main] INFO  EurekaAutoServiceRegistration - Updating port to 8086
+2025-07-03 23:07:47.824 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_RATE-HUB-CONSUMER-OPENSEARCH/rate-hub-consumer-opensearch:8086 - registration status: 204
+2025-07-03 23:07:47.979 [] [main] INFO  ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [kafka:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-rate-os-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = rate-os
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-07-03 23:07:48.576 [] [main] INFO  KafkaMetricsCollector - initializing Kafka metrics collector
+2025-07-03 23:07:50.033 [] [main] INFO  AppInfoParser - Kafka version: 3.8.1
+2025-07-03 23:07:50.034 [] [main] INFO  AppInfoParser - Kafka commitId: 70d6ff42debf7e17
+2025-07-03 23:07:50.034 [] [main] INFO  AppInfoParser - Kafka startTimeMs: 1751584070030
+2025-07-03 23:07:50.067 [] [main] INFO  LegacyKafkaConsumer - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Subscribed to topic(s): ratehub.raw
+2025-07-03 23:07:50.195 [] [main] INFO  ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [kafka:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-rate-os-2
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = rate-os
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-07-03 23:07:50.209 [] [main] INFO  KafkaMetricsCollector - initializing Kafka metrics collector
+2025-07-03 23:07:50.317 [] [main] INFO  AppInfoParser - Kafka version: 3.8.1
+2025-07-03 23:07:50.318 [] [main] INFO  AppInfoParser - Kafka commitId: 70d6ff42debf7e17
+2025-07-03 23:07:50.318 [] [main] INFO  AppInfoParser - Kafka startTimeMs: 1751584070317
+2025-07-03 23:07:50.318 [] [main] INFO  LegacyKafkaConsumer - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Subscribed to topic(s): ratehub.calculated
+2025-07-03 23:07:50.440 [] [main] INFO  RateHubConsumerOpensearchApplication - Started RateHubConsumerOpensearchApplication in 39.898 seconds (process running for 51.717)
+2025-07-03 23:07:52.739 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  Metadata - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Cluster ID: 2qgg8_BFQ36_61db7Xta1g
+2025-07-03 23:07:52.748 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  Metadata - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Cluster ID: 2qgg8_BFQ36_61db7Xta1g
+2025-07-03 23:07:52.765 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Discovered group coordinator kafka:9092 (id: 2147483646 rack: null)
+2025-07-03 23:07:52.778 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] (Re-)joining group
+2025-07-03 23:07:52.780 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Discovered group coordinator kafka:9092 (id: 2147483646 rack: null)
+2025-07-03 23:07:52.784 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] (Re-)joining group
+2025-07-03 23:07:52.908 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Request joining group due to: need to re-join with the given member-id: consumer-rate-os-2-cd16538a-280b-4646-b922-4468236601ee
+2025-07-03 23:07:52.919 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Request joining group due to: need to re-join with the given member-id: consumer-rate-os-1-ccc32884-598d-4067-94a9-b50d2da20d22
+2025-07-03 23:07:52.923 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] (Re-)joining group
+2025-07-03 23:07:52.929 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] (Re-)joining group
+2025-07-03 23:07:55.967 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Successfully joined group with generation Generation{generationId=17, memberId='consumer-rate-os-2-cd16538a-280b-4646-b922-4468236601ee', protocol='range'}
+2025-07-03 23:07:55.977 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Successfully joined group with generation Generation{generationId=17, memberId='consumer-rate-os-1-ccc32884-598d-4067-94a9-b50d2da20d22', protocol='range'}
+2025-07-03 23:07:56.000 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Finished assignment for group at generation 17: {consumer-rate-os-2-cd16538a-280b-4646-b922-4468236601ee=Assignment(partitions=[ratehub.calculated-0]), consumer-rate-os-1-ccc32884-598d-4067-94a9-b50d2da20d22=Assignment(partitions=[ratehub.raw-0])}
+2025-07-03 23:07:56.053 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Successfully synced group in generation Generation{generationId=17, memberId='consumer-rate-os-2-cd16538a-280b-4646-b922-4468236601ee', protocol='range'}
+2025-07-03 23:07:56.055 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Notifying assignor about the new Assignment(partitions=[ratehub.calculated-0])
+2025-07-03 23:07:56.065 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Successfully synced group in generation Generation{generationId=17, memberId='consumer-rate-os-1-ccc32884-598d-4067-94a9-b50d2da20d22', protocol='range'}
+2025-07-03 23:07:56.068 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Notifying assignor about the new Assignment(partitions=[ratehub.raw-0])
+2025-07-03 23:07:56.086 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Adding newly assigned partitions: ratehub.calculated-0
+2025-07-03 23:07:56.091 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Adding newly assigned partitions: ratehub.raw-0
+2025-07-03 23:07:56.131 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerUtils - Setting offset for partition ratehub.calculated-0 to the committed offset FetchPosition{offset=46108, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}
+2025-07-03 23:07:56.132 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  KafkaMessageListenerContainer - rate-os: partitions assigned: [ratehub.calculated-0]
+2025-07-03 23:07:56.136 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerUtils - Setting offset for partition ratehub.raw-0 to the committed offset FetchPosition{offset=81285, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}
+2025-07-03 23:07:56.137 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  KafkaMessageListenerContainer - rate-os: partitions assigned: [ratehub.raw-0]
+2025-07-03 23:12:45.517 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-03 23:16:52.895 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  NetworkClient - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Node -1 disconnected.
+2025-07-03 23:16:52.902 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Node -1 disconnected.
+2025-07-03 23:17:45.511 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-03 23:22:45.483 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-03 23:24:59.940 [] [AsyncReporter{ZipkinRestTemplateSender{http://zipkin:9411/api/v2/spans}}] WARN  AsyncReporter$BoundedAsyncReporter - Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
+2025-07-03 23:25:00.012 [] [AsyncReporter{ZipkinRestTemplateSender{http://zipkin:9411/api/v2/spans}}] WARN  AsyncReporter$BoundedAsyncReporter - Dropped 2 spans due to ResourceAccessException(I/O error on POST request for "http://zipkin:9411/api/v2/spans": zipkin: Temporary failure in name resolution)
+org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://zipkin:9411/api/v2/spans": zipkin: Temporary failure in name resolution
+	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926) ~[spring-web-6.2.2.jar!/:6.2.2]
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906) ~[spring-web-6.2.2.jar!/:6.2.2]
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841) ~[spring-web-6.2.2.jar!/:6.2.2]
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:702) ~[spring-web-6.2.2.jar!/:6.2.2]
+	at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinRestTemplateSender.postSpans(ZipkinRestTemplateSender.java:50) ~[spring-boot-actuator-autoconfigure-3.4.2.jar!/:3.4.2]
+	at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.HttpSender.postSpans(HttpSender.java:69) ~[spring-boot-actuator-autoconfigure-3.4.2.jar!/:3.4.2]
+	at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.HttpSender.postSpans(HttpSender.java:41) ~[spring-boot-actuator-autoconfigure-3.4.2.jar!/:3.4.2]
+	at zipkin2.reporter.BaseHttpSender.send(BaseHttpSender.java:123) ~[zipkin-reporter-3.4.3.jar!/:?]
+	at zipkin2.reporter.internal.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:266) ~[zipkin-reporter-3.4.3.jar!/:?]
+	at zipkin2.reporter.internal.AsyncReporter$Flusher.run(AsyncReporter.java:352) ~[zipkin-reporter-3.4.3.jar!/:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: java.net.UnknownHostException: zipkin: Temporary failure in name resolution
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method) ~[?:?]
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Inet6AddressImpl.java:52) ~[?:?]
+	at java.base/java.net.InetAddress$PlatformResolver.lookupByName(InetAddress.java:1211) ~[?:?]
+	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1828) ~[?:?]
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:1139) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688) ~[?:?]
+	at org.apache.hc.client5.http.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:48) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:169) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:490) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:164) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:174) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:144) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:192) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:150) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:113) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:174) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99) ~[spring-web-6.2.2.jar!/:6.2.2]
+	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:71) ~[spring-web-6.2.2.jar!/:6.2.2]
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81) ~[spring-web-6.2.2.jar!/:6.2.2]
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900) ~[spring-web-6.2.2.jar!/:6.2.2]
+	... 9 more
+2025-07-03 23:27:45.131 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-03 23:32:45.148 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-03 23:37:45.172 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-03 23:42:31.524 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  NetworkClient - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Disconnecting from node 1 due to request timeout.
+2025-07-03 23:42:33.985 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  NetworkClient - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Cancelled in-flight FETCH request with correlation id 32487 due to node 1 being disconnected (elapsed time since creation: 30278ms, elapsed time since send: 30278ms, throttle time: 0ms, request timeout: 30000ms)
+2025-07-03 23:42:40.644 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  FetchSessionHandler - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Error sending fetch request (sessionId=629561698, epoch=16130) to node 1:
+org.apache.kafka.common.errors.DisconnectException: null
+2025-07-03 23:42:45.532 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-03 23:42:51.158 [] [kafka-coordinator-heartbeat-thread | rate-os] WARN  NetworkClient - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Error connecting to node kafka:9092 (id: 1 rack: null)
+java.net.UnknownHostException: kafka: Temporary failure in name resolution
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method) ~[?:?]
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Inet6AddressImpl.java:52) ~[?:?]
+	at java.base/java.net.InetAddress$PlatformResolver.lookupByName(InetAddress.java:1211) ~[?:?]
+	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1828) ~[?:?]
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:1139) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688) ~[?:?]
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:124) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.resolveAddresses(ClusterConnectionStates.java:536) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:511) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1070) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.access$800(NetworkClient.java:76) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1259) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1159) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:592) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:281) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.pollNoWakeup(ConsumerNetworkClient.java:322) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator$HeartbeatThread.run(AbstractCoordinator.java:1500) [kafka-clients-3.8.1.jar!/:?]
+2025-07-03 23:43:21.673 [] [kafka-coordinator-heartbeat-thread | rate-os] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Group coordinator kafka:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: session timed out without receiving a heartbeat response. isDisconnected: false. Rediscovery will be attempted.
+2025-07-03 23:43:21.905 [] [kafka-coordinator-heartbeat-thread | rate-os] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Requesting disconnect from last known coordinator kafka:9092 (id: 2147483646 rack: null)
+2025-07-03 23:43:27.983 [] [kafka-coordinator-heartbeat-thread | rate-os] INFO  NetworkClient - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Client requested disconnect from node 2147483646
+2025-07-03 23:43:40.955 [] [kafka-coordinator-heartbeat-thread | rate-os] WARN  NetworkClient - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Error connecting to node kafka:9092 (id: 1 rack: null)
+java.net.UnknownHostException: kafka: Temporary failure in name resolution
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method) ~[?:?]
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Inet6AddressImpl.java:52) ~[?:?]
+	at java.base/java.net.InetAddress$PlatformResolver.lookupByName(InetAddress.java:1211) ~[?:?]
+	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1828) ~[?:?]
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:1139) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688) ~[?:?]
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:124) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.resolveAddresses(ClusterConnectionStates.java:536) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:511) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1070) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.access$800(NetworkClient.java:76) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1259) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1159) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:592) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:281) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.pollNoWakeup(ConsumerNetworkClient.java:322) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator$HeartbeatThread.run(AbstractCoordinator.java:1500) [kafka-clients-3.8.1.jar!/:?]
+2025-07-03 23:44:09.278 [] [kafka-coordinator-heartbeat-thread | rate-os] INFO  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Disconnecting from node 2147483646 due to request timeout.
+2025-07-03 23:44:10.970 [] [kafka-coordinator-heartbeat-thread | rate-os] INFO  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Cancelled in-flight HEARTBEAT request with correlation id 32982 due to node 2147483646 being disconnected (elapsed time since creation: 37373ms, elapsed time since send: 37346ms, throttle time: 0ms, request timeout: 30000ms)
+2025-07-03 23:44:11.278 [] [kafka-coordinator-heartbeat-thread | rate-os] INFO  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Cancelled in-flight HEARTBEAT request with correlation id 32984 due to node 2147483646 being disconnected (elapsed time since creation: 34214ms, elapsed time since send: 34199ms, throttle time: 0ms, request timeout: 30000ms)
+2025-07-03 23:44:11.930 [] [kafka-coordinator-heartbeat-thread | rate-os] INFO  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Cancelled in-flight HEARTBEAT request with correlation id 32985 due to node 2147483646 being disconnected (elapsed time since creation: 30968ms, elapsed time since send: 30953ms, throttle time: 0ms, request timeout: 30000ms)
+2025-07-03 23:44:12.327 [] [kafka-coordinator-heartbeat-thread | rate-os] INFO  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Cancelled in-flight HEARTBEAT request with correlation id 32986 due to node 2147483646 being disconnected (elapsed time since creation: 27911ms, elapsed time since send: 27804ms, throttle time: 0ms, request timeout: 30000ms)
+2025-07-03 23:44:12.526 [] [kafka-coordinator-heartbeat-thread | rate-os] INFO  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Cancelled in-flight HEARTBEAT request with correlation id 32989 due to node 2147483646 being disconnected (elapsed time since creation: 24113ms, elapsed time since send: 24081ms, throttle time: 0ms, request timeout: 30000ms)
+2025-07-03 23:44:12.781 [] [kafka-coordinator-heartbeat-thread | rate-os] INFO  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Cancelled in-flight HEARTBEAT request with correlation id 32990 due to node 2147483646 being disconnected (elapsed time since creation: 21083ms, elapsed time since send: 21081ms, throttle time: 0ms, request timeout: 30000ms)
+2025-07-03 23:44:13.203 [] [kafka-coordinator-heartbeat-thread | rate-os] INFO  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Cancelled in-flight HEARTBEAT request with correlation id 32992 due to node 2147483646 being disconnected (elapsed time since creation: 17129ms, elapsed time since send: 17090ms, throttle time: 0ms, request timeout: 30000ms)
+2025-07-03 23:44:13.445 [] [kafka-coordinator-heartbeat-thread | rate-os] INFO  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Cancelled in-flight HEARTBEAT request with correlation id 32994 due to node 2147483646 being disconnected (elapsed time since creation: 12955ms, elapsed time since send: 12844ms, throttle time: 0ms, request timeout: 30000ms)
+2025-07-03 23:44:13.743 [] [kafka-coordinator-heartbeat-thread | rate-os] INFO  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Cancelled in-flight HEARTBEAT request with correlation id 32995 due to node 2147483646 being disconnected (elapsed time since creation: 9603ms, elapsed time since send: 9384ms, throttle time: 0ms, request timeout: 30000ms)
+2025-07-03 23:44:13.825 [] [kafka-coordinator-heartbeat-thread | rate-os] INFO  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Cancelled in-flight HEARTBEAT request with correlation id 32996 due to node 2147483646 being disconnected (elapsed time since creation: 1110ms, elapsed time since send: 997ms, throttle time: 0ms, request timeout: 30000ms)
+2025-07-03 23:44:15.404 [] [kafka-coordinator-heartbeat-thread | rate-os] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Group coordinator kafka:9092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: null. isDisconnected: true. Rediscovery will be attempted.
+2025-07-03 23:44:30.245 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  NetworkClient - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Error connecting to node kafka:9092 (id: 1 rack: null)
+java.net.UnknownHostException: kafka: Temporary failure in name resolution
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method) ~[?:?]
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Inet6AddressImpl.java:52) ~[?:?]
+	at java.base/java.net.InetAddress$PlatformResolver.lookupByName(InetAddress.java:1211) ~[?:?]
+	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1828) ~[?:?]
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:1139) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688) ~[?:?]
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:124) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.resolveAddresses(ClusterConnectionStates.java:536) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:511) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1070) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.access$800(NetworkClient.java:76) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1259) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1159) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:592) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:281) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:252) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:243) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.awaitMetadataUpdate(ConsumerNetworkClient.java:165) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureCoordinatorReady(AbstractCoordinator.java:302) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureCoordinatorReady(AbstractCoordinator.java:263) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.coordinatorUnknownAndUnreadySync(ConsumerCoordinator.java:450) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.poll(ConsumerCoordinator.java:482) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer.updateAssignmentMetadataIfNeeded(LegacyKafkaConsumer.java:652) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer.poll(LegacyKafkaConsumer.java:611) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer.poll(LegacyKafkaConsumer.java:591) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:874) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1689) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1664) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1442) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1332) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2025-07-03 23:44:53.658 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Disconnecting from node 1 due to request timeout.
+2025-07-03 23:44:54.512 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Cancelled in-flight FIND_COORDINATOR request with correlation id 32997 due to node 1 being disconnected (elapsed time since creation: 35799ms, elapsed time since send: 32055ms, throttle time: 0ms, request timeout: 30000ms)
+2025-07-03 23:44:56.920 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Cancelled in-flight FIND_COORDINATOR request with correlation id 32999 due to node 1 being disconnected (elapsed time since creation: 29062ms, elapsed time since send: 30372ms, throttle time: 0ms, request timeout: 30000ms)
+2025-07-03 23:44:58.201 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Cancelled in-flight FIND_COORDINATOR request with correlation id 33000 due to node 1 being disconnected (elapsed time since creation: 23928ms, elapsed time since send: 23578ms, throttle time: 0ms, request timeout: 30000ms)
+2025-07-03 23:44:58.388 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Cancelled in-flight FIND_COORDINATOR request with correlation id 33001 due to node 1 being disconnected (elapsed time since creation: 23320ms, elapsed time since send: 23147ms, throttle time: 0ms, request timeout: 30000ms)
+2025-07-03 23:44:58.742 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Cancelled in-flight FIND_COORDINATOR request with correlation id 33002 due to node 1 being disconnected (elapsed time since creation: 22263ms, elapsed time since send: 21875ms, throttle time: 0ms, request timeout: 30000ms)
+2025-07-03 23:44:59.238 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Cancelled in-flight FETCH request with correlation id 33003 due to node 1 being disconnected (elapsed time since creation: 21051ms, elapsed time since send: 21019ms, throttle time: 0ms, request timeout: 30000ms)
+2025-07-03 23:44:59.535 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Cancelled in-flight FIND_COORDINATOR request with correlation id 33004 due to node 1 being disconnected (elapsed time since creation: 20535ms, elapsed time since send: 20389ms, throttle time: 0ms, request timeout: 30000ms)
+2025-07-03 23:44:59.926 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Cancelled in-flight FIND_COORDINATOR request with correlation id 33005 due to node 1 being disconnected (elapsed time since creation: 19587ms, elapsed time since send: 19426ms, throttle time: 0ms, request timeout: 30000ms)
+2025-07-03 23:45:00.268 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Cancelled in-flight FIND_COORDINATOR request with correlation id 33006 due to node 1 being disconnected (elapsed time since creation: 18689ms, elapsed time since send: 18411ms, throttle time: 0ms, request timeout: 30000ms)
+2025-07-03 23:45:00.469 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Cancelled in-flight FIND_COORDINATOR request with correlation id 33007 due to node 1 being disconnected (elapsed time since creation: 18003ms, elapsed time since send: 19217ms, throttle time: 0ms, request timeout: 30000ms)
+2025-07-03 23:45:00.643 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Cancelled in-flight FIND_COORDINATOR request with correlation id 33008 due to node 1 being disconnected (elapsed time since creation: 13685ms, elapsed time since send: 13511ms, throttle time: 0ms, request timeout: 30000ms)
+2025-07-03 23:45:01.419 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Cancelled in-flight FIND_COORDINATOR request with correlation id 33009 due to node 1 being disconnected (elapsed time since creation: 12859ms, elapsed time since send: 12577ms, throttle time: 0ms, request timeout: 30000ms)
+2025-07-03 23:45:02.095 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Cancelled in-flight FIND_COORDINATOR request with correlation id 33010 due to node 1 being disconnected (elapsed time since creation: 11963ms, elapsed time since send: 11651ms, throttle time: 0ms, request timeout: 30000ms)
+2025-07-03 23:45:02.653 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Cancelled in-flight FIND_COORDINATOR request with correlation id 33011 due to node 1 being disconnected (elapsed time since creation: 11033ms, elapsed time since send: 10753ms, throttle time: 0ms, request timeout: 30000ms)
+2025-07-03 23:45:03.340 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Cancelled in-flight FIND_COORDINATOR request with correlation id 33012 due to node 1 being disconnected (elapsed time since creation: 10352ms, elapsed time since send: 10165ms, throttle time: 0ms, request timeout: 30000ms)
+2025-07-03 23:45:04.222 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Cancelled in-flight FIND_COORDINATOR request with correlation id 33013 due to node 1 being disconnected (elapsed time since creation: 9464ms, elapsed time since send: 8420ms, throttle time: 0ms, request timeout: 30000ms)
+2025-07-03 23:45:05.104 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Cancelled in-flight FIND_COORDINATOR request with correlation id 33014 due to node 1 being disconnected (elapsed time since creation: 7924ms, elapsed time since send: 8784ms, throttle time: 0ms, request timeout: 30000ms)
+2025-07-03 23:45:08.481 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  FetchSessionHandler - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Error sending fetch request (sessionId=52957221, epoch=16384) to node 1:
+org.apache.kafka.common.errors.DisconnectException: null
+2025-07-03 23:45:04.565 [] [kafka-coordinator-heartbeat-thread | rate-os] WARN  NetworkClient - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Error connecting to node kafka:9092 (id: 1 rack: null)
+java.net.UnknownHostException: kafka: Temporary failure in name resolution
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method) ~[?:?]
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Inet6AddressImpl.java:52) ~[?:?]
+	at java.base/java.net.InetAddress$PlatformResolver.lookupByName(InetAddress.java:1211) ~[?:?]
+	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1828) ~[?:?]
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:1139) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688) ~[?:?]
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:124) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.resolveAddresses(ClusterConnectionStates.java:536) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:511) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1070) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.access$800(NetworkClient.java:76) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1259) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1159) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:592) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:281) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.pollNoWakeup(ConsumerNetworkClient.java:322) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator$HeartbeatThread.run(AbstractCoordinator.java:1500) [kafka-clients-3.8.1.jar!/:?]
+2025-07-03 23:45:13.926 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] WARN  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Error connecting to node kafka:9092 (id: 1 rack: null)
+java.net.UnknownHostException: kafka
+	at java.base/java.net.InetAddress$CachedLookup.get(InetAddress.java:988) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688) ~[?:?]
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:124) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.resolveAddresses(ClusterConnectionStates.java:536) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:511) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1070) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.access$800(NetworkClient.java:76) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1259) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1159) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:592) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:281) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:252) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:243) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.awaitMetadataUpdate(ConsumerNetworkClient.java:165) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureCoordinatorReady(AbstractCoordinator.java:302) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureCoordinatorReady(AbstractCoordinator.java:263) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.coordinatorUnknownAndUnreadySync(ConsumerCoordinator.java:450) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.poll(ConsumerCoordinator.java:482) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer.updateAssignmentMetadataIfNeeded(LegacyKafkaConsumer.java:652) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer.poll(LegacyKafkaConsumer.java:611) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer.poll(LegacyKafkaConsumer.java:591) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:874) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1689) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1664) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1442) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1332) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2025-07-03 23:45:37.767 [] [kafka-coordinator-heartbeat-thread | rate-os] WARN  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Error connecting to node kafka:9092 (id: 1 rack: null)
+java.net.UnknownHostException: kafka
+	at java.base/java.net.InetAddress$CachedLookup.get(InetAddress.java:988) ~[?:?]
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:1191) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688) ~[?:?]
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:124) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.resolveAddresses(ClusterConnectionStates.java:536) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:511) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1070) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.access$800(NetworkClient.java:76) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1259) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1159) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:592) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:281) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.pollNoWakeup(ConsumerNetworkClient.java:322) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator$HeartbeatThread.run(AbstractCoordinator.java:1500) [kafka-clients-3.8.1.jar!/:?]
+2025-07-03 23:45:37.770 [] [kafka-coordinator-heartbeat-thread | rate-os] WARN  NetworkClient - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Error connecting to node kafka:9092 (id: 1 rack: null)
+java.net.UnknownHostException: kafka: Temporary failure in name resolution
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method) ~[?:?]
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Inet6AddressImpl.java:52) ~[?:?]
+	at java.base/java.net.InetAddress$PlatformResolver.lookupByName(InetAddress.java:1211) ~[?:?]
+	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1828) ~[?:?]
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:1139) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688) ~[?:?]
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:124) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.resolveAddresses(ClusterConnectionStates.java:536) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:511) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1070) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:320) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.trySend(ConsumerNetworkClient.java:514) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:271) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.pollNoWakeup(ConsumerNetworkClient.java:322) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator$HeartbeatThread.run(AbstractCoordinator.java:1500) [kafka-clients-3.8.1.jar!/:?]
+2025-07-03 23:45:53.626 [] [kafka-coordinator-heartbeat-thread | rate-os] INFO  FetchSessionHandler - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Error sending fetch request (sessionId=629561698, epoch=INITIAL) to node 1:
+org.apache.kafka.common.errors.DisconnectException: null
+2025-07-03 23:46:08.484 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  NetworkClient - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Error connecting to node kafka:9092 (id: 1 rack: null)
+java.net.UnknownHostException: kafka
+	at java.base/java.net.InetAddress$CachedLookup.get(InetAddress.java:988) ~[?:?]
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:1191) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688) ~[?:?]
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:124) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.resolveAddresses(ClusterConnectionStates.java:536) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:511) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1070) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.access$800(NetworkClient.java:76) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1259) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1159) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:592) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:283) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:252) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer.pollForFetches(LegacyKafkaConsumer.java:687) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer.poll(LegacyKafkaConsumer.java:618) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer.poll(LegacyKafkaConsumer.java:591) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:874) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1689) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1664) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1442) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1332) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2025-07-03 23:46:08.858 [] [kafka-coordinator-heartbeat-thread | rate-os] WARN  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Error connecting to node kafka:9092 (id: 1 rack: null)
+java.net.UnknownHostException: kafka: Temporary failure in name resolution
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method) ~[?:?]
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Inet6AddressImpl.java:52) ~[?:?]
+	at java.base/java.net.InetAddress$PlatformResolver.lookupByName(InetAddress.java:1211) ~[?:?]
+	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1828) ~[?:?]
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:1139) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688) ~[?:?]
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:124) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.resolveAddresses(ClusterConnectionStates.java:536) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:511) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1070) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:320) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.trySend(ConsumerNetworkClient.java:514) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:271) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.pollNoWakeup(ConsumerNetworkClient.java:322) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator$HeartbeatThread.run(AbstractCoordinator.java:1500) [kafka-clients-3.8.1.jar!/:?]
+2025-07-03 23:46:10.852 [] [kafka-coordinator-heartbeat-thread | rate-os] WARN  NetworkClient - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Error connecting to node kafka:9092 (id: 1 rack: null)
+java.net.UnknownHostException: kafka
+	at java.base/java.net.InetAddress$CachedLookup.get(InetAddress.java:988) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688) ~[?:?]
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:124) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.resolveAddresses(ClusterConnectionStates.java:536) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:511) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1070) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.access$800(NetworkClient.java:76) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1259) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1159) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:592) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:281) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.pollNoWakeup(ConsumerNetworkClient.java:322) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator$HeartbeatThread.run(AbstractCoordinator.java:1500) [kafka-clients-3.8.1.jar!/:?]
+2025-07-03 23:46:10.989 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] WARN  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Error connecting to node kafka:9092 (id: 1 rack: null)
+java.net.UnknownHostException: kafka
+	at java.base/java.net.InetAddress$CachedLookup.get(InetAddress.java:988) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688) ~[?:?]
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:124) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.resolveAddresses(ClusterConnectionStates.java:536) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:511) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1070) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:320) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.trySend(ConsumerNetworkClient.java:514) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:271) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:252) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer.pollForFetches(LegacyKafkaConsumer.java:687) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer.poll(LegacyKafkaConsumer.java:618) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer.poll(LegacyKafkaConsumer.java:591) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:874) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1689) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1664) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1442) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1332) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2025-07-03 23:46:12.410 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  NetworkClient - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Error connecting to node kafka:9092 (id: 1 rack: null)
+java.net.UnknownHostException: kafka
+	at java.base/java.net.InetAddress$CachedLookup.get(InetAddress.java:988) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688) ~[?:?]
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:124) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.resolveAddresses(ClusterConnectionStates.java:536) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:511) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1070) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:320) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.trySend(ConsumerNetworkClient.java:514) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:271) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:231) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureCoordinatorReady(AbstractCoordinator.java:289) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureCoordinatorReady(AbstractCoordinator.java:263) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.coordinatorUnknownAndUnreadySync(ConsumerCoordinator.java:450) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.poll(ConsumerCoordinator.java:482) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer.updateAssignmentMetadataIfNeeded(LegacyKafkaConsumer.java:652) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer.poll(LegacyKafkaConsumer.java:611) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer.poll(LegacyKafkaConsumer.java:591) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:874) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1689) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1664) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1442) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1332) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2025-07-03 23:46:14.814 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  FetchSessionHandler - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Error sending fetch request (sessionId=52957221, epoch=INITIAL) to node 1:
+org.apache.kafka.common.errors.DisconnectException: null
+2025-07-03 23:46:15.894 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  NetworkClient - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Error connecting to node kafka:9092 (id: 1 rack: null)
+java.net.UnknownHostException: kafka
+	at java.base/java.net.InetAddress$CachedLookup.get(InetAddress.java:988) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688) ~[?:?]
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:124) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.resolveAddresses(ClusterConnectionStates.java:536) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:511) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1070) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.access$800(NetworkClient.java:76) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1259) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1159) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:592) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:281) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:252) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:243) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.awaitMetadataUpdate(ConsumerNetworkClient.java:165) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureCoordinatorReady(AbstractCoordinator.java:302) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureCoordinatorReady(AbstractCoordinator.java:263) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.coordinatorUnknownAndUnreadySync(ConsumerCoordinator.java:450) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.poll(ConsumerCoordinator.java:482) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer.updateAssignmentMetadataIfNeeded(LegacyKafkaConsumer.java:652) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer.poll(LegacyKafkaConsumer.java:611) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer.poll(LegacyKafkaConsumer.java:591) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:874) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1689) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1664) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1442) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1332) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2025-07-03 23:46:15.459 [] [kafka-coordinator-heartbeat-thread | rate-os] WARN  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Error connecting to node kafka:9092 (id: 1 rack: null)
+java.net.UnknownHostException: kafka
+	at java.base/java.net.InetAddress$CachedLookup.get(InetAddress.java:988) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688) ~[?:?]
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:124) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.resolveAddresses(ClusterConnectionStates.java:536) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:511) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1070) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:320) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.trySend(ConsumerNetworkClient.java:514) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:271) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.pollNoWakeup(ConsumerNetworkClient.java:322) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator$HeartbeatThread.run(AbstractCoordinator.java:1500) [kafka-clients-3.8.1.jar!/:?]
+2025-07-03 23:46:41.140 [] [kafka-coordinator-heartbeat-thread | rate-os] WARN  NetworkClient - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Error connecting to node kafka:9092 (id: 1 rack: null)
+java.net.UnknownHostException: kafka: Temporary failure in name resolution
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method) ~[?:?]
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Inet6AddressImpl.java:52) ~[?:?]
+	at java.base/java.net.InetAddress$PlatformResolver.lookupByName(InetAddress.java:1211) ~[?:?]
+	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1828) ~[?:?]
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:1139) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688) ~[?:?]
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:124) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.resolveAddresses(ClusterConnectionStates.java:536) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:511) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1070) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.access$800(NetworkClient.java:76) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1259) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1159) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:592) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:281) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.pollNoWakeup(ConsumerNetworkClient.java:322) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator$HeartbeatThread.run(AbstractCoordinator.java:1500) [kafka-clients-3.8.1.jar!/:?]
+2025-07-03 23:46:41.143 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] WARN  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Error connecting to node kafka:9092 (id: 1 rack: null)
+java.net.UnknownHostException: kafka
+	at java.base/java.net.InetAddress$CachedLookup.get(InetAddress.java:988) ~[?:?]
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:1191) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688) ~[?:?]
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:124) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.resolveAddresses(ClusterConnectionStates.java:536) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:511) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1070) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:320) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.trySend(ConsumerNetworkClient.java:514) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:271) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:231) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureCoordinatorReady(AbstractCoordinator.java:289) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureCoordinatorReady(AbstractCoordinator.java:263) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.coordinatorUnknownAndUnreadySync(ConsumerCoordinator.java:450) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.poll(ConsumerCoordinator.java:482) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer.updateAssignmentMetadataIfNeeded(LegacyKafkaConsumer.java:652) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer.poll(LegacyKafkaConsumer.java:611) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer.poll(LegacyKafkaConsumer.java:591) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:874) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1689) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1664) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1442) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1332) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2025-07-03 23:46:44.577 [] [kafka-coordinator-heartbeat-thread | rate-os] WARN  NetworkClient - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Error connecting to node kafka:9092 (id: 1 rack: null)
+java.net.UnknownHostException: kafka
+	at java.base/java.net.InetAddress$CachedLookup.get(InetAddress.java:988) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688) ~[?:?]
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:124) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.resolveAddresses(ClusterConnectionStates.java:536) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:511) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1070) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:320) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.trySend(ConsumerNetworkClient.java:514) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:271) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.pollNoWakeup(ConsumerNetworkClient.java:322) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator$HeartbeatThread.run(AbstractCoordinator.java:1500) [kafka-clients-3.8.1.jar!/:?]
+2025-07-03 23:46:48.386 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] WARN  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Error connecting to node kafka:9092 (id: 1 rack: null)
+java.net.UnknownHostException: kafka
+	at java.base/java.net.InetAddress$CachedLookup.get(InetAddress.java:988) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688) ~[?:?]
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:124) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.resolveAddresses(ClusterConnectionStates.java:536) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:511) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1070) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.access$800(NetworkClient.java:76) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1259) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1159) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:592) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:281) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:252) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:243) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.awaitMetadataUpdate(ConsumerNetworkClient.java:165) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureCoordinatorReady(AbstractCoordinator.java:302) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureCoordinatorReady(AbstractCoordinator.java:263) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.coordinatorUnknownAndUnreadySync(ConsumerCoordinator.java:450) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.poll(ConsumerCoordinator.java:482) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer.updateAssignmentMetadataIfNeeded(LegacyKafkaConsumer.java:652) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer.poll(LegacyKafkaConsumer.java:611) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer.poll(LegacyKafkaConsumer.java:591) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:874) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1689) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1664) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1442) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1332) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2025-07-03 23:46:51.247 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  NetworkClient - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Error connecting to node kafka:9092 (id: 1 rack: null)
+java.net.UnknownHostException: kafka
+	at java.base/java.net.InetAddress$CachedLookup.get(InetAddress.java:988) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688) ~[?:?]
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:124) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.resolveAddresses(ClusterConnectionStates.java:536) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:511) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1070) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:320) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.trySend(ConsumerNetworkClient.java:514) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:271) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:252) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer.pollForFetches(LegacyKafkaConsumer.java:687) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer.poll(LegacyKafkaConsumer.java:618) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer.poll(LegacyKafkaConsumer.java:591) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:874) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1689) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1664) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1442) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1332) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2025-07-03 23:46:53.131 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  FetchSessionHandler - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Error sending fetch request (sessionId=629561698, epoch=INITIAL) to node 1:
+org.apache.kafka.common.errors.DisconnectException: null
+2025-07-03 23:47:03.657 [] [kafka-coordinator-heartbeat-thread | rate-os] WARN  NetworkClient - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Error connecting to node kafka:9092 (id: 1 rack: null)
+java.net.UnknownHostException: kafka
+	at java.base/java.net.InetAddress$CachedLookup.get(InetAddress.java:988) ~[?:?]
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:1191) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688) ~[?:?]
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:124) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.resolveAddresses(ClusterConnectionStates.java:536) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:511) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1070) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:320) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.trySend(ConsumerNetworkClient.java:514) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:271) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.pollNoWakeup(ConsumerNetworkClient.java:322) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator$HeartbeatThread.run(AbstractCoordinator.java:1500) [kafka-clients-3.8.1.jar!/:?]
+2025-07-03 23:47:03.640 [] [kafka-coordinator-heartbeat-thread | rate-os] WARN  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Error connecting to node kafka:9092 (id: 1 rack: null)
+java.net.UnknownHostException: kafka: Temporary failure in name resolution
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method) ~[?:?]
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Inet6AddressImpl.java:52) ~[?:?]
+	at java.base/java.net.InetAddress$PlatformResolver.lookupByName(InetAddress.java:1211) ~[?:?]
+	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1828) ~[?:?]
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:1139) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688) ~[?:?]
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:124) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.resolveAddresses(ClusterConnectionStates.java:536) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:511) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1070) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.access$800(NetworkClient.java:76) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1259) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1159) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:592) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:281) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.pollNoWakeup(ConsumerNetworkClient.java:322) [kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator$HeartbeatThread.run(AbstractCoordinator.java:1500) [kafka-clients-3.8.1.jar!/:?]
+2025-07-03 23:47:05.083 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  NetworkClient - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Error connecting to node kafka:9092 (id: 1 rack: null)
+java.net.UnknownHostException: kafka
+	at java.base/java.net.InetAddress$CachedLookup.get(InetAddress.java:988) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688) ~[?:?]
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:124) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.resolveAddresses(ClusterConnectionStates.java:536) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:511) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1070) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.access$800(NetworkClient.java:76) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1259) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient$DefaultMetadataUpdater.maybeUpdate(NetworkClient.java:1159) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:592) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:281) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:252) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:243) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.awaitMetadataUpdate(ConsumerNetworkClient.java:165) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureCoordinatorReady(AbstractCoordinator.java:302) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator.ensureCoordinatorReady(AbstractCoordinator.java:263) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.coordinatorUnknownAndUnreadySync(ConsumerCoordinator.java:450) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerCoordinator.poll(ConsumerCoordinator.java:482) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer.updateAssignmentMetadataIfNeeded(LegacyKafkaConsumer.java:652) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer.poll(LegacyKafkaConsumer.java:611) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer.poll(LegacyKafkaConsumer.java:591) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:874) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1689) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1664) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1442) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1332) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2025-07-03 23:47:04.617 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] WARN  NetworkClient - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Error connecting to node kafka:9092 (id: 1 rack: null)
+java.net.UnknownHostException: kafka
+	at java.base/java.net.InetAddress$CachedLookup.get(InetAddress.java:988) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688) ~[?:?]
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:124) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.resolveAddresses(ClusterConnectionStates.java:536) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:511) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1070) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:320) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.trySend(ConsumerNetworkClient.java:514) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:271) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:252) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer.pollForFetches(LegacyKafkaConsumer.java:687) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer.poll(LegacyKafkaConsumer.java:618) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.internals.LegacyKafkaConsumer.poll(LegacyKafkaConsumer.java:591) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.apache.kafka.clients.consumer.KafkaConsumer.poll(KafkaConsumer.java:874) ~[kafka-clients-3.8.1.jar!/:?]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollConsumer(KafkaMessageListenerContainer.java:1689) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.doPoll(KafkaMessageListenerContainer.java:1664) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.pollAndInvoke(KafkaMessageListenerContainer.java:1442) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at org.springframework.kafka.listener.KafkaMessageListenerContainer$ListenerConsumer.run(KafkaMessageListenerContainer.java:1332) ~[spring-kafka-3.3.2.jar!/:3.3.2]
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2025-07-03 23:47:46.979 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-03 23:49:13.630 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  FetchSessionHandler - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Error sending fetch request (sessionId=52957221, epoch=INITIAL) to node 1:
+org.apache.kafka.common.errors.DisconnectException: null
+2025-07-03 23:58:39.818 [] [main] INFO  RateHubConsumerOpensearchApplication - Starting RateHubConsumerOpensearchApplication v0.0.1-SNAPSHOT using Java 21.0.7 with PID 1 (/app.jar started by root in /)
+2025-07-03 23:58:39.871 [] [main] DEBUG RateHubConsumerOpensearchApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-07-03 23:58:39.877 [] [main] INFO  RateHubConsumerOpensearchApplication - The following 1 profile is active: "docker"
+2025-07-03 23:58:40.021 [] [main] INFO  ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+2025-07-03 23:58:40.023 [] [main] INFO  ConfigServerConfigDataLoader - Located environment: name=rate-hub-consumer-opensearch, profiles=[default], label=null, version=bf17919cae47920d65737939efa7447c4223b9d7, state=
+2025-07-03 23:58:40.028 [] [main] INFO  ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+2025-07-03 23:58:40.043 [] [main] INFO  ConfigServerConfigDataLoader - Located environment: name=rate-hub-consumer-opensearch, profiles=[docker], label=null, version=bf17919cae47920d65737939efa7447c4223b9d7, state=
+2025-07-03 23:58:45.113 [] [main] INFO  GenericScope - BeanFactory id=973d7318-2dca-36de-93bd-206764875de3
+2025-07-03 23:58:46.773 [] [main] INFO  TomcatWebServer - Tomcat initialized with port 8086 (http)
+2025-07-03 23:58:46.806 [] [main] INFO  Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8086"]
+2025-07-03 23:58:46.814 [] [main] INFO  StandardService - Starting service [Tomcat]
+2025-07-03 23:58:46.818 [] [main] INFO  StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-07-03 23:58:46.939 [] [main] INFO  [/] - Initializing Spring embedded WebApplicationContext
+2025-07-03 23:58:46.946 [] [main] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 6881 ms
+2025-07-03 23:58:53.540 [] [main] INFO  DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-07-03 23:58:53.717 [] [main] WARN  LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-07-03 23:58:53.747 [] [main] INFO  EndpointLinksResolver - Exposing 18 endpoints beneath base path '/actuator'
+2025-07-03 23:58:54.122 [] [main] INFO  InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-07-03 23:58:54.199 [] [main] INFO  DiscoveryClient - Initializing Eureka in region us-east-1
+2025-07-03 23:58:54.203 [] [main] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-03 23:58:54.229 [] [main] INFO  DiscoveryClient - Disable delta property : false
+2025-07-03 23:58:54.230 [] [main] INFO  DiscoveryClient - Single vip registry refresh property : null
+2025-07-03 23:58:54.230 [] [main] INFO  DiscoveryClient - Force full registry fetch : false
+2025-07-03 23:58:54.231 [] [main] INFO  DiscoveryClient - Application is null : false
+2025-07-03 23:58:54.231 [] [main] INFO  DiscoveryClient - Registered Applications size is zero : true
+2025-07-03 23:58:54.232 [] [main] INFO  DiscoveryClient - Application version is -1: true
+2025-07-03 23:58:54.232 [] [main] INFO  DiscoveryClient - Getting all instance registry info from the eureka server
+2025-07-03 23:58:54.766 [] [main] INFO  DiscoveryClient - The response status is 200
+2025-07-03 23:58:54.774 [] [main] INFO  DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-07-03 23:58:54.778 [] [main] INFO  InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-07-03 23:58:54.785 [] [main] INFO  DiscoveryClient - Discovery Client initialized at timestamp 1751587134785 with initial instances count: 4
+2025-07-03 23:58:54.825 [] [main] INFO  EurekaServiceRegistry - Registering application RATE-HUB-CONSUMER-OPENSEARCH with eureka with status UP
+2025-07-03 23:58:54.827 [] [main] INFO  DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1751587134827, current=UP, previous=STARTING]
+2025-07-03 23:58:54.834 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_RATE-HUB-CONSUMER-OPENSEARCH/rate-hub-consumer-opensearch:8086: registering service...
+2025-07-03 23:58:54.858 [] [main] INFO  Http11NioProtocol - Starting ProtocolHandler ["http-nio-8086"]
+2025-07-03 23:58:55.008 [] [main] INFO  TomcatWebServer - Tomcat started on port 8086 (http) with context path '/'
+2025-07-03 23:58:55.009 [] [main] INFO  EurekaAutoServiceRegistration - Updating port to 8086
+2025-07-03 23:58:55.054 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_RATE-HUB-CONSUMER-OPENSEARCH/rate-hub-consumer-opensearch:8086 - registration status: 204
+2025-07-03 23:58:55.121 [] [main] INFO  ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [kafka:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-rate-os-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = rate-os
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-07-03 23:58:55.227 [] [main] INFO  KafkaMetricsCollector - initializing Kafka metrics collector
+2025-07-03 23:58:55.657 [] [main] INFO  AppInfoParser - Kafka version: 3.8.1
+2025-07-03 23:58:55.658 [] [main] INFO  AppInfoParser - Kafka commitId: 70d6ff42debf7e17
+2025-07-03 23:58:55.660 [] [main] INFO  AppInfoParser - Kafka startTimeMs: 1751587135654
+2025-07-03 23:58:55.673 [] [main] INFO  LegacyKafkaConsumer - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Subscribed to topic(s): ratehub.raw
+2025-07-03 23:58:55.690 [] [main] INFO  ConsumerConfig - ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = latest
+	bootstrap.servers = [kafka:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-rate-os-2
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = rate-os
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-07-03 23:58:55.693 [] [main] INFO  KafkaMetricsCollector - initializing Kafka metrics collector
+2025-07-03 23:58:55.704 [] [main] INFO  AppInfoParser - Kafka version: 3.8.1
+2025-07-03 23:58:55.705 [] [main] INFO  AppInfoParser - Kafka commitId: 70d6ff42debf7e17
+2025-07-03 23:58:55.706 [] [main] INFO  AppInfoParser - Kafka startTimeMs: 1751587135704
+2025-07-03 23:58:55.708 [] [main] INFO  LegacyKafkaConsumer - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Subscribed to topic(s): ratehub.calculated
+2025-07-03 23:58:55.777 [] [main] INFO  RateHubConsumerOpensearchApplication - Started RateHubConsumerOpensearchApplication in 20.345 seconds (process running for 24.976)
+2025-07-03 23:58:56.545 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  Metadata - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Cluster ID: 2qgg8_BFQ36_61db7Xta1g
+2025-07-03 23:58:56.547 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Discovered group coordinator kafka:9092 (id: 2147483646 rack: null)
+2025-07-03 23:58:56.544 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  Metadata - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Cluster ID: 2qgg8_BFQ36_61db7Xta1g
+2025-07-03 23:58:56.558 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Discovered group coordinator kafka:9092 (id: 2147483646 rack: null)
+2025-07-03 23:58:56.560 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] (Re-)joining group
+2025-07-03 23:58:56.560 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] (Re-)joining group
+2025-07-03 23:58:56.611 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Request joining group due to: need to re-join with the given member-id: consumer-rate-os-1-8bb1c79e-e757-4a01-b89a-a265a6ed2338
+2025-07-03 23:58:56.612 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] (Re-)joining group
+2025-07-03 23:58:56.617 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Request joining group due to: need to re-join with the given member-id: consumer-rate-os-2-1f98902b-dd1e-4a43-ae87-12868e0f2f23
+2025-07-03 23:58:56.618 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] (Re-)joining group
+2025-07-03 23:58:59.650 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Successfully joined group with generation Generation{generationId=19, memberId='consumer-rate-os-1-8bb1c79e-e757-4a01-b89a-a265a6ed2338', protocol='range'}
+2025-07-03 23:58:59.659 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Successfully joined group with generation Generation{generationId=19, memberId='consumer-rate-os-2-1f98902b-dd1e-4a43-ae87-12868e0f2f23', protocol='range'}
+2025-07-03 23:58:59.680 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Finished assignment for group at generation 19: {consumer-rate-os-1-8bb1c79e-e757-4a01-b89a-a265a6ed2338=Assignment(partitions=[ratehub.raw-0]), consumer-rate-os-2-1f98902b-dd1e-4a43-ae87-12868e0f2f23=Assignment(partitions=[ratehub.calculated-0])}
+2025-07-03 23:58:59.704 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Successfully synced group in generation Generation{generationId=19, memberId='consumer-rate-os-1-8bb1c79e-e757-4a01-b89a-a265a6ed2338', protocol='range'}
+2025-07-03 23:58:59.709 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Notifying assignor about the new Assignment(partitions=[ratehub.raw-0])
+2025-07-03 23:58:59.715 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Successfully synced group in generation Generation{generationId=19, memberId='consumer-rate-os-2-1f98902b-dd1e-4a43-ae87-12868e0f2f23', protocol='range'}
+2025-07-03 23:58:59.717 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerCoordinator - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Notifying assignor about the new Assignment(partitions=[ratehub.calculated-0])
+2025-07-03 23:58:59.718 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-rate-os-2, groupId=rate-os] Adding newly assigned partitions: ratehub.calculated-0
+2025-07-03 23:58:59.724 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-rate-os-1, groupId=rate-os] Adding newly assigned partitions: ratehub.raw-0
+2025-07-03 23:58:59.743 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  ConsumerUtils - Setting offset for partition ratehub.calculated-0 to the committed offset FetchPosition{offset=68680, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}
+2025-07-03 23:58:59.747 [] [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO  KafkaMessageListenerContainer - rate-os: partitions assigned: [ratehub.calculated-0]
+2025-07-03 23:58:59.748 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  ConsumerUtils - Setting offset for partition ratehub.raw-0 to the committed offset FetchPosition{offset=103879, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}
+2025-07-03 23:58:59.749 [] [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  KafkaMessageListenerContainer - rate-os: partitions assigned: [ratehub.raw-0]

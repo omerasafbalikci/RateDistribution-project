@@ -12,7 +12,7 @@ WORKDIR /app
 
 COPY --from=builder /build/target/rate-hub-*.jar app.jar
 
-RUN mkdir /config
+RUN mkdir -p /config/formulas
 ENV TZ=Europe/Istanbul
 EXPOSE 8087
 

@@ -1,0 +1,788 @@
+2025-07-03 23:01:06.423 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-03 23:05:20.141 [] [background-preinit] INFO  Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-07-03 23:05:20.507 [] [main] INFO  AuthServiceApplication - Starting AuthServiceApplication v0.0.1-SNAPSHOT using Java 21.0.7 with PID 1 (/app.jar started by root in /)
+2025-07-03 23:05:20.572 [] [main] DEBUG AuthServiceApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-07-03 23:05:20.585 [] [main] INFO  AuthServiceApplication - The following 1 profile is active: "docker"
+2025-07-03 23:05:21.639 [] [main] INFO  ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+2025-07-03 23:05:21.660 [] [main] INFO  ConfigServerConfigDataLoader - Located environment: name=auth-service, profiles=[default], label=null, version=bf17919cae47920d65737939efa7447c4223b9d7, state=
+2025-07-03 23:05:21.707 [] [main] INFO  ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+2025-07-03 23:05:21.708 [] [main] INFO  ConfigServerConfigDataLoader - Located environment: name=auth-service, profiles=[docker], label=null, version=bf17919cae47920d65737939efa7447c4223b9d7, state=
+2025-07-03 23:05:41.304 [] [main] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-07-03 23:05:41.381 [] [main] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-03 23:05:43.487 [] [main] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1876 ms. Found 3 JPA repository interfaces.
+2025-07-03 23:05:44.164 [] [main] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-07-03 23:05:44.181 [] [main] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-07-03 23:05:44.563 [] [main] INFO  RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ratedistribution.auth.repository.RoleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-07-03 23:05:44.567 [] [main] INFO  RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ratedistribution.auth.repository.TokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-07-03 23:05:44.581 [] [main] INFO  RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ratedistribution.auth.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-07-03 23:05:44.586 [] [main] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 153 ms. Found 0 Redis repository interfaces.
+2025-07-03 23:05:49.232 [] [main] INFO  GenericScope - BeanFactory id=1b0d3377-b80a-348a-9738-cf32f1a608be
+2025-07-03 23:05:53.459 [] [main] INFO  TomcatWebServer - Tomcat initialized with port 8081 (http)
+2025-07-03 23:05:53.557 [] [main] INFO  Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2025-07-03 23:05:53.561 [] [main] INFO  StandardService - Starting service [Tomcat]
+2025-07-03 23:05:53.569 [] [main] INFO  StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-07-03 23:05:53.839 [] [main] INFO  [/] - Initializing Spring embedded WebApplicationContext
+2025-07-03 23:05:53.857 [] [main] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 32118 ms
+2025-07-03 23:06:00.002 [] [main] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-03 23:06:00.917 [] [main] INFO  Version - HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-07-03 23:06:01.101 [] [main] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-07-03 23:06:02.405 [] [main] INFO  SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-03 23:06:02.487 [] [main] INFO  HikariDataSource - HikariPool-1 - Starting...
+2025-07-03 23:06:02.983 [] [main] INFO  HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6d76aa05
+2025-07-03 23:06:02.993 [] [main] INFO  HikariDataSource - HikariPool-1 - Start completed.
+2025-07-03 23:06:03.418 [] [main] INFO  pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-03 23:06:10.253 [] [main] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-03 23:06:11.100 [] [main] INFO  LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-03 23:06:15.220 [] [main] INFO  InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2025-07-03 23:06:15.654 [] [main] INFO  QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-07-03 23:06:18.957 [] [main] TRACE UserServiceImpl - Initializing JedisPool with Redis Host: redis and Port: 6380
+2025-07-03 23:06:20.375 [] [main] TRACE UserServiceImpl - Exiting init method in UserServiceImpl
+2025-07-03 23:06:45.304 [] [main] INFO  EndpointLinksResolver - Exposing 18 endpoints beneath base path '/actuator'
+2025-07-03 23:06:45.653 [] [main] INFO  DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-07-03 23:06:46.015 [] [main] WARN  LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-07-03 23:06:46.363 [] [main] INFO  InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-07-03 23:06:46.416 [] [main] INFO  DiscoveryClient - Initializing Eureka in region us-east-1
+2025-07-03 23:06:46.424 [] [main] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-03 23:06:46.444 [] [main] INFO  DiscoveryClient - Disable delta property : false
+2025-07-03 23:06:46.445 [] [main] INFO  DiscoveryClient - Single vip registry refresh property : null
+2025-07-03 23:06:46.445 [] [main] INFO  DiscoveryClient - Force full registry fetch : false
+2025-07-03 23:06:46.446 [] [main] INFO  DiscoveryClient - Application is null : false
+2025-07-03 23:06:46.446 [] [main] INFO  DiscoveryClient - Registered Applications size is zero : true
+2025-07-03 23:06:46.447 [] [main] INFO  DiscoveryClient - Application version is -1: true
+2025-07-03 23:06:46.447 [] [main] INFO  DiscoveryClient - Getting all instance registry info from the eureka server
+2025-07-03 23:06:47.407 [] [main] INFO  DiscoveryClient - The response status is 200
+2025-07-03 23:06:47.413 [] [main] INFO  DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-07-03 23:06:47.419 [] [main] INFO  InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-07-03 23:06:47.427 [] [main] INFO  DiscoveryClient - Discovery Client initialized at timestamp 1751584007427 with initial instances count: 2
+2025-07-03 23:06:47.438 [] [main] INFO  EurekaServiceRegistry - Registering application AUTH-SERVICE with eureka with status UP
+2025-07-03 23:06:47.440 [] [main] INFO  DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1751584007440, current=UP, previous=STARTING]
+2025-07-03 23:06:47.446 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_AUTH-SERVICE/auth-service:8081: registering service...
+2025-07-03 23:06:47.459 [] [main] INFO  Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2025-07-03 23:06:47.533 [] [main] INFO  TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2025-07-03 23:06:47.538 [] [main] INFO  EurekaAutoServiceRegistration - Updating port to 8081
+2025-07-03 23:06:47.553 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_AUTH-SERVICE/auth-service:8081 - registration status: 204
+2025-07-03 23:06:47.582 [] [main] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-07-03 23:06:47.731 [] [main] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#20309fde:0/SimpleConnection@2fcd3128 [delegate=amqp://guest@172.18.0.5:5672/, localPort=33172]
+2025-07-03 23:06:47.754 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-create) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-07-03 23:06:47.754 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-update) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-07-03 23:06:47.755 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-delete) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-07-03 23:06:47.756 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-restore) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-07-03 23:06:47.756 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-add-role) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-07-03 23:06:47.756 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-remove-role) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-07-03 23:06:48.027 [] [main] INFO  AuthServiceApplication - Started AuthServiceApplication in 98.231 seconds (process running for 107.678)
+2025-07-03 23:07:18.914 [] [http-nio-8081-exec-1] INFO  [/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-03 23:07:18.916 [] [http-nio-8081-exec-1] INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-03 23:07:18.937 [] [http-nio-8081-exec-1] INFO  DispatcherServlet - Completed initialization in 14 ms
+2025-07-03 23:07:20.953 [] [http-nio-8081-exec-1] TRACE UserController - Entering login method in UserController
+2025-07-03 23:07:20.968 [] [http-nio-8081-exec-1] TRACE UserServiceImpl - Entering login method in UserServiceImpl
+2025-07-03 23:07:20.972 [] [http-nio-8081-exec-1] DEBUG UserServiceImpl - Attempting to authenticate user: omerasafbalikci
+2025-07-03 23:07:21.239 [] [http-nio-8081-exec-1] TRACE UserDetailsServiceImpl - Entering loadUserByUsername with username: omerasafbalikci
+2025-07-03 23:07:21.326 [] [http-nio-8081-exec-1] INFO  UserDetailsServiceImpl - User found: omerasafbalikci
+2025-07-03 23:07:21.337 [] [http-nio-8081-exec-1] DEBUG UserDetailsServiceImpl - Mapping role ADMIN to authority ROLE_ADMIN
+2025-07-03 23:07:21.337 [] [http-nio-8081-exec-1] INFO  UserDetailsServiceImpl - User authorities: [ROLE_ADMIN]
+2025-07-03 23:07:21.346 [] [http-nio-8081-exec-1] TRACE UserDetailsServiceImpl - Exiting loadUserByUsername method in UserDetailsServiceImpl with username: omerasafbalikci
+2025-07-03 23:07:21.803 [] [http-nio-8081-exec-1] INFO  UserServiceImpl - User authenticated successfully: omerasafbalikci
+2025-07-03 23:07:21.803 [] [http-nio-8081-exec-1] TRACE UserServiceImpl - Entering getRolesAsString method in UserServiceImpl
+2025-07-03 23:07:21.804 [] [http-nio-8081-exec-1] TRACE UserServiceImpl - Exiting getRolesAsString method in UserServiceImpl
+2025-07-03 23:07:21.804 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Entering generateAccessToken method in JwtUtils class with username: omerasafbalikci
+2025-07-03 23:07:22.068 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 3600000
+2025-07-03 23:07:22.233 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-07-03 23:07:22.239 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-07-03 23:07:22.387 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3NTE1ODQwNDIsImV4cCI6MTc1MTU4NzY0Mn0.G44MSu3NnTEd2gIuXxf8vvpsCfU1jOEydIv3-hXg8-oXLCkXVIWrARIOrnM9z-rz
+2025-07-03 23:07:22.391 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Exiting generateAccessToken method in JwtUtils class with accessToken: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3NTE1ODQwNDIsImV4cCI6MTc1MTU4NzY0Mn0.G44MSu3NnTEd2gIuXxf8vvpsCfU1jOEydIv3-hXg8-oXLCkXVIWrARIOrnM9z-rz
+2025-07-03 23:07:22.391 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Entering generateRefreshToken method in JwtUtils class with username: omerasafbalikci
+2025-07-03 23:07:22.391 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 86400000
+2025-07-03 23:07:22.393 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-07-03 23:07:22.393 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-07-03 23:07:22.407 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJpYXQiOjE3NTE1ODQwNDIsImV4cCI6MTc1MTY3MDQ0Mn0.YDwuKofGpwf-1m8jtRgpifNUPqrwLJbc6N3Qgz2_U8LxFZt3CKVWOJOoV3oSZEha
+2025-07-03 23:07:22.407 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Exiting generateRefreshToken method in JwtUtils class with refreshToken: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJpYXQiOjE3NTE1ODQwNDIsImV4cCI6MTc1MTY3MDQ0Mn0.YDwuKofGpwf-1m8jtRgpifNUPqrwLJbc6N3Qgz2_U8LxFZt3CKVWOJOoV3oSZEha
+2025-07-03 23:07:22.407 [] [http-nio-8081-exec-1] TRACE UserServiceImpl - Entering revokeAllTokensByUser method in UserServiceImpl
+2025-07-03 23:07:22.407 [] [http-nio-8081-exec-1] DEBUG UserServiceImpl - Revoking all tokens for user ID: 3
+2025-07-03 23:07:22.833 [] [http-nio-8081-exec-1] INFO  UserServiceImpl - Token revoked for user ID: 3
+2025-07-03 23:07:22.953 [] [http-nio-8081-exec-1] TRACE UserServiceImpl - Exiting revokeAllTokensByUser method in UserServiceImpl
+2025-07-03 23:07:22.963 [] [http-nio-8081-exec-1] TRACE UserServiceImpl - Entering saveUserToken method in UserServiceImpl
+2025-07-03 23:07:22.967 [] [http-nio-8081-exec-1] DEBUG UserServiceImpl - Saving token for user: omerasafbalikci
+2025-07-03 23:07:23.081 [] [http-nio-8081-exec-1] INFO  UserServiceImpl - Token saved in Redis for user: omerasafbalikci
+2025-07-03 23:07:23.081 [] [http-nio-8081-exec-1] TRACE UserServiceImpl - Exiting saveUserToken method in UserServiceImpl
+2025-07-03 23:07:23.081 [] [http-nio-8081-exec-1] TRACE UserServiceImpl - Exiting login method in UserServiceImpl
+2025-07-03 23:07:23.086 [] [http-nio-8081-exec-1] TRACE UserController - Exiting login method in UserController
+2025-07-03 23:11:46.441 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-03 23:16:23.632 [] [http-nio-8081-exec-3] TRACE UserController - Entering login method in UserController
+2025-07-03 23:16:23.637 [] [http-nio-8081-exec-3] TRACE UserServiceImpl - Entering login method in UserServiceImpl
+2025-07-03 23:16:23.640 [] [http-nio-8081-exec-3] DEBUG UserServiceImpl - Attempting to authenticate user: omerasafbalikci
+2025-07-03 23:16:23.729 [] [http-nio-8081-exec-3] TRACE UserDetailsServiceImpl - Entering loadUserByUsername with username: omerasafbalikci
+2025-07-03 23:16:23.975 [] [http-nio-8081-exec-3] INFO  UserDetailsServiceImpl - User found: omerasafbalikci
+2025-07-03 23:16:23.978 [] [http-nio-8081-exec-3] DEBUG UserDetailsServiceImpl - Mapping role ADMIN to authority ROLE_ADMIN
+2025-07-03 23:16:23.980 [] [http-nio-8081-exec-3] INFO  UserDetailsServiceImpl - User authorities: [ROLE_ADMIN]
+2025-07-03 23:16:23.983 [] [http-nio-8081-exec-3] TRACE UserDetailsServiceImpl - Exiting loadUserByUsername method in UserDetailsServiceImpl with username: omerasafbalikci
+2025-07-03 23:16:24.102 [] [http-nio-8081-exec-3] INFO  UserServiceImpl - User authenticated successfully: omerasafbalikci
+2025-07-03 23:16:24.103 [] [http-nio-8081-exec-3] TRACE UserServiceImpl - Entering getRolesAsString method in UserServiceImpl
+2025-07-03 23:16:24.103 [] [http-nio-8081-exec-3] TRACE UserServiceImpl - Exiting getRolesAsString method in UserServiceImpl
+2025-07-03 23:16:24.104 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Entering generateAccessToken method in JwtUtils class with username: omerasafbalikci
+2025-07-03 23:16:24.122 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 3600000
+2025-07-03 23:16:24.128 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-07-03 23:16:24.130 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-07-03 23:16:24.175 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3NTE1ODQ1ODQsImV4cCI6MTc1MTU4ODE4NH0.3Ao5mYGqlnc4idOLlRkEFajDr9BJmED7hoq_HwsIp12MwXzj3zQZcfd-xwd2D5z9
+2025-07-03 23:16:24.176 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Exiting generateAccessToken method in JwtUtils class with accessToken: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3NTE1ODQ1ODQsImV4cCI6MTc1MTU4ODE4NH0.3Ao5mYGqlnc4idOLlRkEFajDr9BJmED7hoq_HwsIp12MwXzj3zQZcfd-xwd2D5z9
+2025-07-03 23:16:24.176 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Entering generateRefreshToken method in JwtUtils class with username: omerasafbalikci
+2025-07-03 23:16:24.176 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 86400000
+2025-07-03 23:16:24.177 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-07-03 23:16:24.178 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-07-03 23:16:24.184 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJpYXQiOjE3NTE1ODQ1ODQsImV4cCI6MTc1MTY3MDk4NH0.3YpCd6NJbmHNlgf_BtnMs0FWAFnnUI-iNqu3FYdNXBhEx-H4WLbik_uqehwNjL4M
+2025-07-03 23:16:24.184 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Exiting generateRefreshToken method in JwtUtils class with refreshToken: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJpYXQiOjE3NTE1ODQ1ODQsImV4cCI6MTc1MTY3MDk4NH0.3YpCd6NJbmHNlgf_BtnMs0FWAFnnUI-iNqu3FYdNXBhEx-H4WLbik_uqehwNjL4M
+2025-07-03 23:16:24.185 [] [http-nio-8081-exec-3] TRACE UserServiceImpl - Entering revokeAllTokensByUser method in UserServiceImpl
+2025-07-03 23:16:24.185 [] [http-nio-8081-exec-3] DEBUG UserServiceImpl - Revoking all tokens for user ID: 3
+2025-07-03 23:16:24.367 [] [http-nio-8081-exec-3] INFO  UserServiceImpl - Token revoked for user ID: 3
+2025-07-03 23:16:24.412 [] [http-nio-8081-exec-3] TRACE UserServiceImpl - Exiting revokeAllTokensByUser method in UserServiceImpl
+2025-07-03 23:16:24.412 [] [http-nio-8081-exec-3] TRACE UserServiceImpl - Entering saveUserToken method in UserServiceImpl
+2025-07-03 23:16:24.412 [] [http-nio-8081-exec-3] DEBUG UserServiceImpl - Saving token for user: omerasafbalikci
+2025-07-03 23:16:24.440 [] [http-nio-8081-exec-3] INFO  UserServiceImpl - Token saved in Redis for user: omerasafbalikci
+2025-07-03 23:16:24.440 [] [http-nio-8081-exec-3] TRACE UserServiceImpl - Exiting saveUserToken method in UserServiceImpl
+2025-07-03 23:16:24.441 [] [http-nio-8081-exec-3] TRACE UserServiceImpl - Exiting login method in UserServiceImpl
+2025-07-03 23:16:24.441 [] [http-nio-8081-exec-3] TRACE UserController - Exiting login method in UserController
+2025-07-03 23:16:46.441 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-03 23:21:46.421 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-03 23:26:46.238 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-03 23:27:31.028 [] [AsyncReporter{ZipkinWebClientSender{http://zipkin:9411/api/v2/spans}}] WARN  AsyncReporter$BoundedAsyncReporter - Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
+2025-07-03 23:27:31.056 [] [AsyncReporter{ZipkinWebClientSender{http://zipkin:9411/api/v2/spans}}] WARN  AsyncReporter$BoundedAsyncReporter - Dropped 2 spans due to WebClientRequestException(Failed to resolve 'zipkin' [A(1)])
+org.springframework.web.reactive.function.client.WebClientRequestException: Failed to resolve 'zipkin' [A(1)]
+	at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:137) ~[spring-webflux-6.2.2.jar!/:6.2.2]
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ Request to POST http://zipkin:9411/api/v2/spans [DefaultWebClient]
+Original Stack Trace:
+		at org.springframework.web.reactive.function.client.ExchangeFunctions$DefaultExchangeFunction.lambda$wrapException$9(ExchangeFunctions.java:137) ~[spring-webflux-6.2.2.jar!/:6.2.2]
+		at reactor.core.publisher.MonoErrorSupplied.subscribe(MonoErrorSupplied.java:55) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4576) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onError(FluxPeek.java:222) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.MonoNext$NextSubscriber.onError(MonoNext.java:93) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.MonoFlatMapMany$FlatMapManyMain.onError(MonoFlatMapMany.java:205) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.SerializedSubscriber.onError(SerializedSubscriber.java:124) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.whenError(FluxRetryWhen.java:229) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenOtherSubscriber.onError(FluxRetryWhen.java:279) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onError(FluxContextWrite.java:121) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.maybeOnError(FluxConcatMapNoPrefetch.java:327) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.onNext(FluxConcatMapNoPrefetch.java:212) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.SinkManyEmitterProcessor.drain(SinkManyEmitterProcessor.java:476) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.SinkManyEmitterProcessor$EmitterInner.drainParent(SinkManyEmitterProcessor.java:620) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxPublish$PubSubInner.request(FluxPublish.java:874) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.request(FluxConcatMapNoPrefetch.java:337) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.request(FluxContextWrite.java:136) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.Operators$DeferredSubscription.request(Operators.java:1743) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxRetryWhen$RetryWhenMainSubscriber.onError(FluxRetryWhen.java:196) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.netty.http.client.HttpClientConnect$MonoHttpConnect$ClientTransportSubscriber.onError(HttpClientConnect.java:318) ~[reactor-netty-http-1.2.2.jar!/:1.2.2]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.netty.resources.DefaultPooledConnectionProvider$DisposableAcquire.onError(DefaultPooledConnectionProvider.java:174) ~[reactor-netty-core-1.2.2.jar!/:1.2.2]
+		at reactor.netty.internal.shaded.reactor.pool.AbstractPool$Borrower.fail(AbstractPool.java:479) ~[reactor-netty-core-1.2.2.jar!/:1.2.2]
+		at reactor.netty.internal.shaded.reactor.pool.SimpleDequePool.lambda$drainLoop$9(SimpleDequePool.java:442) ~[reactor-netty-core-1.2.2.jar!/:1.2.2]
+		at reactor.core.publisher.FluxDoOnEach$DoOnEachSubscriber.onError(FluxDoOnEach.java:186) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.MonoCreate$DefaultMonoSink.error(MonoCreate.java:205) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.netty.resources.DefaultPooledConnectionProvider$PooledConnectionAllocator$PooledConnectionInitializer.onError(DefaultPooledConnectionProvider.java:593) ~[reactor-netty-core-1.2.2.jar!/:1.2.2]
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.secondError(MonoFlatMap.java:241) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.MonoFlatMap$FlatMapInner.onError(MonoFlatMap.java:315) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:106) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.Operators.error(Operators.java:198) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.MonoError.subscribe(MonoError.java:53) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4576) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onError(FluxOnErrorResume.java:103) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.netty.transport.TransportConnector$MonoChannelPromise.tryFailure(TransportConnector.java:576) ~[reactor-netty-core-1.2.2.jar!/:1.2.2]
+		at reactor.netty.transport.TransportConnector.lambda$doResolveAndConnect$11(TransportConnector.java:375) ~[reactor-netty-core-1.2.2.jar!/:1.2.2]
+		at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:557) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.setFailure(DefaultPromise.java:110) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.resolver.InetSocketAddressResolver$2.operationComplete(InetSocketAddressResolver.java:86) ~[netty-resolver-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:583) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:559) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:118) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.resolver.dns.DnsResolveContext.finishResolve(DnsResolveContext.java:1158) ~[netty-resolver-dns-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.resolver.dns.DnsResolveContext.tryToFinishResolve(DnsResolveContext.java:1097) ~[netty-resolver-dns-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.resolver.dns.DnsResolveContext.query(DnsResolveContext.java:455) ~[netty-resolver-dns-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.resolver.dns.DnsResolveContext.access$700(DnsResolveContext.java:70) ~[netty-resolver-dns-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.resolver.dns.DnsResolveContext$2.operationComplete(DnsResolveContext.java:524) ~[netty-resolver-dns-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:583) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:559) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:118) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.resolver.dns.DnsQueryContext.finishFailure(DnsQueryContext.java:343) ~[netty-resolver-dns-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.resolver.dns.DnsQueryContext$4.run(DnsQueryContext.java:278) ~[netty-resolver-dns-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.PromiseTask.runTask(PromiseTask.java:98) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:156) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:408) ~[netty-transport-classes-epoll-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+		at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+	Suppressed: java.lang.Exception: #block terminated with an error
+		at reactor.core.publisher.BlockingSingleSubscriber.blockingGet(BlockingSingleSubscriber.java:104) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at reactor.core.publisher.Mono.block(Mono.java:1779) ~[reactor-core-3.7.2.jar!/:3.7.2]
+		at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinWebClientSender.postSpans(ZipkinWebClientSender.java:58) ~[spring-boot-actuator-autoconfigure-3.4.2.jar!/:3.4.2]
+		at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.HttpSender.postSpans(HttpSender.java:69) ~[spring-boot-actuator-autoconfigure-3.4.2.jar!/:3.4.2]
+		at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.HttpSender.postSpans(HttpSender.java:41) ~[spring-boot-actuator-autoconfigure-3.4.2.jar!/:3.4.2]
+		at zipkin2.reporter.BaseHttpSender.send(BaseHttpSender.java:123) ~[zipkin-reporter-3.4.3.jar!/:?]
+		at zipkin2.reporter.internal.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:266) ~[zipkin-reporter-3.4.3.jar!/:?]
+		at zipkin2.reporter.internal.AsyncReporter$Flusher.run(AsyncReporter.java:352) ~[zipkin-reporter-3.4.3.jar!/:?]
+		at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: java.net.UnknownHostException: Failed to resolve 'zipkin' [A(1)]
+	at io.netty.resolver.dns.DnsResolveContext.finishResolve(DnsResolveContext.java:1150) ~[netty-resolver-dns-4.1.117.Final.jar!/:4.1.117.Final]
+	at io.netty.resolver.dns.DnsResolveContext.tryToFinishResolve(DnsResolveContext.java:1097) ~[netty-resolver-dns-4.1.117.Final.jar!/:4.1.117.Final]
+	at io.netty.resolver.dns.DnsResolveContext.query(DnsResolveContext.java:455) ~[netty-resolver-dns-4.1.117.Final.jar!/:4.1.117.Final]
+	at io.netty.resolver.dns.DnsResolveContext.access$700(DnsResolveContext.java:70) ~[netty-resolver-dns-4.1.117.Final.jar!/:4.1.117.Final]
+	at io.netty.resolver.dns.DnsResolveContext$2.operationComplete(DnsResolveContext.java:524) ~[netty-resolver-dns-4.1.117.Final.jar!/:4.1.117.Final]
+	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:590) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+	at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:583) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+	at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:559) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+	at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:492) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+	at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:636) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+	at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:629) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+	at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:118) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+	at io.netty.resolver.dns.DnsQueryContext.finishFailure(DnsQueryContext.java:343) ~[netty-resolver-dns-4.1.117.Final.jar!/:4.1.117.Final]
+	at io.netty.resolver.dns.DnsQueryContext$4.run(DnsQueryContext.java:278) ~[netty-resolver-dns-4.1.117.Final.jar!/:4.1.117.Final]
+	at io.netty.util.concurrent.PromiseTask.runTask(PromiseTask.java:98) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+	at io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:156) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:173) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:166) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:408) ~[netty-transport-classes-epoll-4.1.117.Final.jar!/:4.1.117.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.117.Final.jar!/:4.1.117.Final]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: io.netty.resolver.dns.DnsNameResolverTimeoutException: [8470: /127.0.0.11:53] DefaultDnsQuestion(zipkin. IN A) query '8470' via UDP timed out after 5000 milliseconds (no stack trace available)
+2025-07-03 23:28:22.974 [] [http-nio-8081-exec-5] TRACE UserController - Entering login method in UserController
+2025-07-03 23:28:22.980 [] [http-nio-8081-exec-5] TRACE UserServiceImpl - Entering login method in UserServiceImpl
+2025-07-03 23:28:22.985 [] [http-nio-8081-exec-5] DEBUG UserServiceImpl - Attempting to authenticate user: omerasafbalikci
+2025-07-03 23:28:23.517 [] [http-nio-8081-exec-5] TRACE UserDetailsServiceImpl - Entering loadUserByUsername with username: omerasafbalikci
+2025-07-03 23:28:25.404 [] [http-nio-8081-exec-5] INFO  UserDetailsServiceImpl - User found: omerasafbalikci
+2025-07-03 23:28:25.417 [] [http-nio-8081-exec-5] DEBUG UserDetailsServiceImpl - Mapping role ADMIN to authority ROLE_ADMIN
+2025-07-03 23:28:25.419 [] [http-nio-8081-exec-5] INFO  UserDetailsServiceImpl - User authorities: [ROLE_ADMIN]
+2025-07-03 23:28:25.434 [] [http-nio-8081-exec-5] TRACE UserDetailsServiceImpl - Exiting loadUserByUsername method in UserDetailsServiceImpl with username: omerasafbalikci
+2025-07-03 23:28:25.835 [] [http-nio-8081-exec-5] INFO  UserServiceImpl - User authenticated successfully: omerasafbalikci
+2025-07-03 23:28:25.836 [] [http-nio-8081-exec-5] TRACE UserServiceImpl - Entering getRolesAsString method in UserServiceImpl
+2025-07-03 23:28:25.837 [] [http-nio-8081-exec-5] TRACE UserServiceImpl - Exiting getRolesAsString method in UserServiceImpl
+2025-07-03 23:28:25.848 [] [http-nio-8081-exec-5] TRACE JwtServiceImpl - Entering generateAccessToken method in JwtUtils class with username: omerasafbalikci
+2025-07-03 23:28:25.888 [] [http-nio-8081-exec-5] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 3600000
+2025-07-03 23:28:25.904 [] [http-nio-8081-exec-5] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-07-03 23:28:25.913 [] [http-nio-8081-exec-5] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-07-03 23:28:26.057 [] [http-nio-8081-exec-5] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3NTE1ODUzMDUsImV4cCI6MTc1MTU4ODkwNX0.9WqWiwig5Q-JDvLuW674qeN2XH9Kk4Iu3QVL6I_NVHWwBEQu0-YukNWlymG8fYgF
+2025-07-03 23:28:26.057 [] [http-nio-8081-exec-5] TRACE JwtServiceImpl - Exiting generateAccessToken method in JwtUtils class with accessToken: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3NTE1ODUzMDUsImV4cCI6MTc1MTU4ODkwNX0.9WqWiwig5Q-JDvLuW674qeN2XH9Kk4Iu3QVL6I_NVHWwBEQu0-YukNWlymG8fYgF
+2025-07-03 23:28:26.057 [] [http-nio-8081-exec-5] TRACE JwtServiceImpl - Entering generateRefreshToken method in JwtUtils class with username: omerasafbalikci
+2025-07-03 23:28:26.058 [] [http-nio-8081-exec-5] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 86400000
+2025-07-03 23:28:26.058 [] [http-nio-8081-exec-5] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-07-03 23:28:26.058 [] [http-nio-8081-exec-5] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-07-03 23:28:26.071 [] [http-nio-8081-exec-5] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJpYXQiOjE3NTE1ODUzMDYsImV4cCI6MTc1MTY3MTcwNn0.p0FTIDOw3jGs5zbbBz_61FNLAm1hA04mAXbw6mggijX7nyL4tNOh5RCBy2m-B2B0
+2025-07-03 23:28:26.071 [] [http-nio-8081-exec-5] TRACE JwtServiceImpl - Exiting generateRefreshToken method in JwtUtils class with refreshToken: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJpYXQiOjE3NTE1ODUzMDYsImV4cCI6MTc1MTY3MTcwNn0.p0FTIDOw3jGs5zbbBz_61FNLAm1hA04mAXbw6mggijX7nyL4tNOh5RCBy2m-B2B0
+2025-07-03 23:28:26.078 [] [http-nio-8081-exec-5] TRACE UserServiceImpl - Entering revokeAllTokensByUser method in UserServiceImpl
+2025-07-03 23:28:26.078 [] [http-nio-8081-exec-5] DEBUG UserServiceImpl - Revoking all tokens for user ID: 3
+2025-07-03 23:28:26.277 [] [http-nio-8081-exec-5] INFO  UserServiceImpl - Token revoked for user ID: 3
+2025-07-03 23:28:26.472 [] [http-nio-8081-exec-5] TRACE UserServiceImpl - Exiting revokeAllTokensByUser method in UserServiceImpl
+2025-07-03 23:28:26.473 [] [http-nio-8081-exec-5] TRACE UserServiceImpl - Entering saveUserToken method in UserServiceImpl
+2025-07-03 23:28:26.475 [] [http-nio-8081-exec-5] DEBUG UserServiceImpl - Saving token for user: omerasafbalikci
+2025-07-03 23:28:26.683 [] [http-nio-8081-exec-5] INFO  UserServiceImpl - Token saved in Redis for user: omerasafbalikci
+2025-07-03 23:28:26.684 [] [http-nio-8081-exec-5] TRACE UserServiceImpl - Exiting saveUserToken method in UserServiceImpl
+2025-07-03 23:28:26.684 [] [http-nio-8081-exec-5] TRACE UserServiceImpl - Exiting login method in UserServiceImpl
+2025-07-03 23:28:26.703 [] [http-nio-8081-exec-5] TRACE UserController - Exiting login method in UserController
+2025-07-03 23:31:46.166 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-03 23:36:46.196 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-03 23:37:28.559 [] [http-nio-8081-exec-7] TRACE UserController - Entering login method in UserController
+2025-07-03 23:37:28.564 [] [http-nio-8081-exec-7] TRACE UserServiceImpl - Entering login method in UserServiceImpl
+2025-07-03 23:37:28.569 [] [http-nio-8081-exec-7] DEBUG UserServiceImpl - Attempting to authenticate user: omerasafbalikci
+2025-07-03 23:37:28.729 [] [http-nio-8081-exec-7] TRACE UserDetailsServiceImpl - Entering loadUserByUsername with username: omerasafbalikci
+2025-07-03 23:37:29.528 [] [http-nio-8081-exec-7] INFO  UserDetailsServiceImpl - User found: omerasafbalikci
+2025-07-03 23:37:29.529 [] [http-nio-8081-exec-7] DEBUG UserDetailsServiceImpl - Mapping role ADMIN to authority ROLE_ADMIN
+2025-07-03 23:37:29.532 [] [http-nio-8081-exec-7] INFO  UserDetailsServiceImpl - User authorities: [ROLE_ADMIN]
+2025-07-03 23:37:29.535 [] [http-nio-8081-exec-7] TRACE UserDetailsServiceImpl - Exiting loadUserByUsername method in UserDetailsServiceImpl with username: omerasafbalikci
+2025-07-03 23:37:29.681 [] [http-nio-8081-exec-7] INFO  UserServiceImpl - User authenticated successfully: omerasafbalikci
+2025-07-03 23:37:29.682 [] [http-nio-8081-exec-7] TRACE UserServiceImpl - Entering getRolesAsString method in UserServiceImpl
+2025-07-03 23:37:29.683 [] [http-nio-8081-exec-7] TRACE UserServiceImpl - Exiting getRolesAsString method in UserServiceImpl
+2025-07-03 23:37:29.686 [] [http-nio-8081-exec-7] TRACE JwtServiceImpl - Entering generateAccessToken method in JwtUtils class with username: omerasafbalikci
+2025-07-03 23:37:29.738 [] [http-nio-8081-exec-7] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 3600000
+2025-07-03 23:37:29.755 [] [http-nio-8081-exec-7] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-07-03 23:37:29.764 [] [http-nio-8081-exec-7] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-07-03 23:37:29.891 [] [http-nio-8081-exec-7] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3NTE1ODU4NDksImV4cCI6MTc1MTU4OTQ0OX0.zDSGQVkHpIGmTrJXBEykmHxoN9W4ILCjbG8pwu8nI2KQ1zIutkQKKwXAPpjp99ZT
+2025-07-03 23:37:29.891 [] [http-nio-8081-exec-7] TRACE JwtServiceImpl - Exiting generateAccessToken method in JwtUtils class with accessToken: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3NTE1ODU4NDksImV4cCI6MTc1MTU4OTQ0OX0.zDSGQVkHpIGmTrJXBEykmHxoN9W4ILCjbG8pwu8nI2KQ1zIutkQKKwXAPpjp99ZT
+2025-07-03 23:37:29.892 [] [http-nio-8081-exec-7] TRACE JwtServiceImpl - Entering generateRefreshToken method in JwtUtils class with username: omerasafbalikci
+2025-07-03 23:37:29.893 [] [http-nio-8081-exec-7] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 86400000
+2025-07-03 23:37:29.893 [] [http-nio-8081-exec-7] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-07-03 23:37:29.894 [] [http-nio-8081-exec-7] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-07-03 23:37:29.898 [] [http-nio-8081-exec-7] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJpYXQiOjE3NTE1ODU4NDksImV4cCI6MTc1MTY3MjI0OX0.5d11WAjpTKgKdTYQJ4gS0cM6KilxKRY4u2V_tsjiXzqY2J9dn8Qgq5v3h34qyTd9
+2025-07-03 23:37:29.898 [] [http-nio-8081-exec-7] TRACE JwtServiceImpl - Exiting generateRefreshToken method in JwtUtils class with refreshToken: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJpYXQiOjE3NTE1ODU4NDksImV4cCI6MTc1MTY3MjI0OX0.5d11WAjpTKgKdTYQJ4gS0cM6KilxKRY4u2V_tsjiXzqY2J9dn8Qgq5v3h34qyTd9
+2025-07-03 23:37:29.898 [] [http-nio-8081-exec-7] TRACE UserServiceImpl - Entering revokeAllTokensByUser method in UserServiceImpl
+2025-07-03 23:37:29.899 [] [http-nio-8081-exec-7] DEBUG UserServiceImpl - Revoking all tokens for user ID: 3
+2025-07-03 23:37:29.974 [] [http-nio-8081-exec-7] INFO  UserServiceImpl - Token revoked for user ID: 3
+2025-07-03 23:37:30.044 [] [http-nio-8081-exec-7] TRACE UserServiceImpl - Exiting revokeAllTokensByUser method in UserServiceImpl
+2025-07-03 23:37:30.045 [] [http-nio-8081-exec-7] TRACE UserServiceImpl - Entering saveUserToken method in UserServiceImpl
+2025-07-03 23:37:30.045 [] [http-nio-8081-exec-7] DEBUG UserServiceImpl - Saving token for user: omerasafbalikci
+2025-07-03 23:37:30.097 [] [http-nio-8081-exec-7] INFO  UserServiceImpl - Token saved in Redis for user: omerasafbalikci
+2025-07-03 23:37:30.097 [] [http-nio-8081-exec-7] TRACE UserServiceImpl - Exiting saveUserToken method in UserServiceImpl
+2025-07-03 23:37:30.097 [] [http-nio-8081-exec-7] TRACE UserServiceImpl - Exiting login method in UserServiceImpl
+2025-07-03 23:37:30.100 [] [http-nio-8081-exec-7] TRACE UserController - Exiting login method in UserController
+2025-07-03 23:41:46.296 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-03 23:46:15.069 [] [DiscoveryClient-%d] WARN  TimedSupervisorTask - task supervisor timed out
+java.util.concurrent.TimeoutException: null
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:204) ~[?:?]
+	at com.netflix.discovery.TimedSupervisorTask.run(TimedSupervisorTask.java:65) ~[eureka-client-2.0.4.jar!/:2.0.4]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[?:?]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[?:?]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[?:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2025-07-03 23:46:51.492 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-03 23:47:10.439 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://discovery-server:8761/eureka/}, exception=null stacktrace=java.util.concurrent.CancellationException
+	at org.apache.hc.core5.concurrent.BasicFuture.getResult(BasicFuture.java:87)
+	at org.apache.hc.core5.concurrent.BasicFuture.get(BasicFuture.java:115)
+	at org.apache.hc.core5.pool.StrictConnPool$1.get(StrictConnPool.java:183)
+	at org.apache.hc.core5.pool.StrictConnPool$1.get(StrictConnPool.java:177)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager$3.get(PoolingHttpClientConnectionManager.java:344)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.acquireEndpoint(InternalExecRuntime.java:111)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:127)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:192)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:150)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:113)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:174)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99)
+	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:71)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:117)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$3(RestTemplateTransportClientFactory.java:141)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:88)
+	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:72)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:702)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.getApplicationsInternal(RestTemplateEurekaHttpClient.java:174)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.getDelta(RestTemplateEurekaHttpClient.java:186)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.DiscoveryClient.getAndUpdateDelta(DiscoveryClient.java:1080)
+	at com.netflix.discovery.DiscoveryClient.fetchRegistry(DiscoveryClient.java:963)
+	at com.netflix.discovery.DiscoveryClient.refreshRegistry(DiscoveryClient.java:1473)
+	at com.netflix.discovery.DiscoveryClient$CacheRefreshThread.run(DiscoveryClient.java:1441)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+2025-07-03 23:47:11.587 [] [DiscoveryClient-CacheRefreshExecutor-%d] WARN  RetryableEurekaHttpClient - Request execution failed with message: null
+2025-07-03 23:47:13.958 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - DiscoveryClient_AUTH-SERVICE/auth-service:8081 - was unable to refresh its cache! This periodic background refresh will be retried in 30 seconds. status = Cannot execute request on any known server stacktrace = com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.DiscoveryClient.getAndUpdateDelta(DiscoveryClient.java:1080)
+	at com.netflix.discovery.DiscoveryClient.fetchRegistry(DiscoveryClient.java:963)
+	at com.netflix.discovery.DiscoveryClient.refreshRegistry(DiscoveryClient.java:1473)
+	at com.netflix.discovery.DiscoveryClient$CacheRefreshThread.run(DiscoveryClient.java:1441)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+2025-07-03 23:47:44.110 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://discovery-server:8761/eureka/}, exception=I/O error on GET request for "http://discovery-server:8761/eureka/apps/delta": discovery-server: Temporary failure in name resolution stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://discovery-server:8761/eureka/apps/delta": discovery-server: Temporary failure in name resolution
+	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:702)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.getApplicationsInternal(RestTemplateEurekaHttpClient.java:174)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.getDelta(RestTemplateEurekaHttpClient.java:186)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.DiscoveryClient.getAndUpdateDelta(DiscoveryClient.java:1080)
+	at com.netflix.discovery.DiscoveryClient.fetchRegistry(DiscoveryClient.java:963)
+	at com.netflix.discovery.DiscoveryClient.refreshRegistry(DiscoveryClient.java:1473)
+	at com.netflix.discovery.DiscoveryClient$CacheRefreshThread.run(DiscoveryClient.java:1441)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.net.UnknownHostException: discovery-server: Temporary failure in name resolution
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Inet6AddressImpl.java:52)
+	at java.base/java.net.InetAddress$PlatformResolver.lookupByName(InetAddress.java:1211)
+	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1828)
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:1139)
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688)
+	at org.apache.hc.client5.http.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:48)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:169)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:490)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:164)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:174)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:144)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:192)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:150)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:113)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:174)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99)
+	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:71)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:117)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$3(RestTemplateTransportClientFactory.java:141)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:88)
+	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:72)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
+	... 23 more
+
+2025-07-03 23:47:44.291 [] [DiscoveryClient-CacheRefreshExecutor-%d] WARN  RetryableEurekaHttpClient - Request execution failed with message: I/O error on GET request for "http://discovery-server:8761/eureka/apps/delta": discovery-server: Temporary failure in name resolution
+2025-07-03 23:47:44.516 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - DiscoveryClient_AUTH-SERVICE/auth-service:8081 - was unable to refresh its cache! This periodic background refresh will be retried in 30 seconds. status = Cannot execute request on any known server stacktrace = com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.DiscoveryClient.getAndUpdateDelta(DiscoveryClient.java:1080)
+	at com.netflix.discovery.DiscoveryClient.fetchRegistry(DiscoveryClient.java:963)
+	at com.netflix.discovery.DiscoveryClient.refreshRegistry(DiscoveryClient.java:1473)
+	at com.netflix.discovery.DiscoveryClient$CacheRefreshThread.run(DiscoveryClient.java:1441)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+2025-07-03 23:48:26.555 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://discovery-server:8761/eureka/}, exception=I/O error on GET request for "http://discovery-server:8761/eureka/apps/delta": discovery-server: Temporary failure in name resolution stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://discovery-server:8761/eureka/apps/delta": discovery-server: Temporary failure in name resolution
+	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:702)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.getApplicationsInternal(RestTemplateEurekaHttpClient.java:174)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.getDelta(RestTemplateEurekaHttpClient.java:186)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.DiscoveryClient.getAndUpdateDelta(DiscoveryClient.java:1080)
+	at com.netflix.discovery.DiscoveryClient.fetchRegistry(DiscoveryClient.java:963)
+	at com.netflix.discovery.DiscoveryClient.refreshRegistry(DiscoveryClient.java:1473)
+	at com.netflix.discovery.DiscoveryClient$CacheRefreshThread.run(DiscoveryClient.java:1441)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.net.UnknownHostException: discovery-server: Temporary failure in name resolution
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Inet6AddressImpl.java:52)
+	at java.base/java.net.InetAddress$PlatformResolver.lookupByName(InetAddress.java:1211)
+	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1828)
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:1139)
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688)
+	at org.apache.hc.client5.http.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:48)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:169)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:490)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:164)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:174)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:144)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:192)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:150)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:113)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:174)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99)
+	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:71)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:117)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$3(RestTemplateTransportClientFactory.java:141)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:88)
+	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:72)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
+	... 23 more
+
+2025-07-03 23:48:26.604 [] [DiscoveryClient-CacheRefreshExecutor-%d] WARN  RetryableEurekaHttpClient - Request execution failed with message: I/O error on GET request for "http://discovery-server:8761/eureka/apps/delta": discovery-server: Temporary failure in name resolution
+2025-07-03 23:48:26.618 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - DiscoveryClient_AUTH-SERVICE/auth-service:8081 - was unable to refresh its cache! This periodic background refresh will be retried in 30 seconds. status = Cannot execute request on any known server stacktrace = com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.DiscoveryClient.getAndUpdateDelta(DiscoveryClient.java:1080)
+	at com.netflix.discovery.DiscoveryClient.fetchRegistry(DiscoveryClient.java:963)
+	at com.netflix.discovery.DiscoveryClient.refreshRegistry(DiscoveryClient.java:1473)
+	at com.netflix.discovery.DiscoveryClient$CacheRefreshThread.run(DiscoveryClient.java:1441)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+2025-07-03 23:49:07.984 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  RedirectingEurekaHttpClient - Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://discovery-server:8761/eureka/}, exception=I/O error on GET request for "http://discovery-server:8761/eureka/apps/delta": discovery-server: Temporary failure in name resolution stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://discovery-server:8761/eureka/apps/delta": discovery-server: Temporary failure in name resolution
+	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:702)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.getApplicationsInternal(RestTemplateEurekaHttpClient.java:174)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.getDelta(RestTemplateEurekaHttpClient.java:186)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
+	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.DiscoveryClient.getAndUpdateDelta(DiscoveryClient.java:1080)
+	at com.netflix.discovery.DiscoveryClient.fetchRegistry(DiscoveryClient.java:963)
+	at com.netflix.discovery.DiscoveryClient.refreshRegistry(DiscoveryClient.java:1473)
+	at com.netflix.discovery.DiscoveryClient$CacheRefreshThread.run(DiscoveryClient.java:1441)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.net.UnknownHostException: discovery-server: Temporary failure in name resolution
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Inet6AddressImpl.java:52)
+	at java.base/java.net.InetAddress$PlatformResolver.lookupByName(InetAddress.java:1211)
+	at java.base/java.net.InetAddress.getAddressesFromNameService(InetAddress.java:1828)
+	at java.base/java.net.InetAddress$NameServiceAddresses.get(InetAddress.java:1139)
+	at java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1818)
+	at java.base/java.net.InetAddress.getAllByName(InetAddress.java:1688)
+	at org.apache.hc.client5.http.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:48)
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:169)
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:490)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:164)
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:174)
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:144)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:192)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:150)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:113)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:174)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99)
+	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:71)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:117)
+	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$3(RestTemplateTransportClientFactory.java:141)
+	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:88)
+	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:72)
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
+	... 23 more
+
+2025-07-03 23:49:07.991 [] [DiscoveryClient-CacheRefreshExecutor-%d] WARN  RetryableEurekaHttpClient - Request execution failed with message: I/O error on GET request for "http://discovery-server:8761/eureka/apps/delta": discovery-server: Temporary failure in name resolution
+2025-07-03 23:49:08.003 [] [DiscoveryClient-CacheRefreshExecutor-%d] INFO  DiscoveryClient - DiscoveryClient_AUTH-SERVICE/auth-service:8081 - was unable to refresh its cache! This periodic background refresh will be retried in 30 seconds. status = Cannot execute request on any known server stacktrace = com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$7.execute(EurekaHttpClientDecorator.java:152)
+	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
+	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getDelta(EurekaHttpClientDecorator.java:149)
+	at com.netflix.discovery.DiscoveryClient.getAndUpdateDelta(DiscoveryClient.java:1080)
+	at com.netflix.discovery.DiscoveryClient.fetchRegistry(DiscoveryClient.java:963)
+	at com.netflix.discovery.DiscoveryClient.refreshRegistry(DiscoveryClient.java:1473)
+	at com.netflix.discovery.DiscoveryClient$CacheRefreshThread.run(DiscoveryClient.java:1441)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+2025-07-03 23:57:38.628 [] [background-preinit] INFO  Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-07-03 23:57:38.984 [] [main] INFO  AuthServiceApplication - Starting AuthServiceApplication v0.0.1-SNAPSHOT using Java 21.0.7 with PID 1 (/app.jar started by root in /)
+2025-07-03 23:57:39.019 [] [main] DEBUG AuthServiceApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-07-03 23:57:39.032 [] [main] INFO  AuthServiceApplication - The following 1 profile is active: "docker"
+2025-07-03 23:57:39.264 [] [main] INFO  ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+2025-07-03 23:57:39.264 [] [main] INFO  ConfigServerConfigDataLoader - Located environment: name=auth-service, profiles=[default], label=null, version=bf17919cae47920d65737939efa7447c4223b9d7, state=
+2025-07-03 23:57:39.264 [] [main] INFO  ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+2025-07-03 23:57:39.279 [] [main] INFO  ConfigServerConfigDataLoader - Located environment: name=auth-service, profiles=[docker], label=null, version=bf17919cae47920d65737939efa7447c4223b9d7, state=
+2025-07-03 23:57:47.262 [] [main] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-07-03 23:57:47.264 [] [main] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-03 23:57:47.900 [] [main] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 580 ms. Found 3 JPA repository interfaces.
+2025-07-03 23:57:47.993 [] [main] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-07-03 23:57:47.997 [] [main] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-07-03 23:57:48.067 [] [main] INFO  RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ratedistribution.auth.repository.RoleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-07-03 23:57:48.068 [] [main] INFO  RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ratedistribution.auth.repository.TokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-07-03 23:57:48.085 [] [main] INFO  RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ratedistribution.auth.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-07-03 23:57:48.085 [] [main] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 37 ms. Found 0 Redis repository interfaces.
+2025-07-03 23:57:50.018 [] [main] INFO  GenericScope - BeanFactory id=1b0d3377-b80a-348a-9738-cf32f1a608be
+2025-07-03 23:57:52.859 [] [main] INFO  TomcatWebServer - Tomcat initialized with port 8081 (http)
+2025-07-03 23:57:52.956 [] [main] INFO  Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2025-07-03 23:57:52.983 [] [main] INFO  StandardService - Starting service [Tomcat]
+2025-07-03 23:57:52.985 [] [main] INFO  StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-07-03 23:57:53.123 [] [main] INFO  [/] - Initializing Spring embedded WebApplicationContext
+2025-07-03 23:57:53.126 [] [main] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 13835 ms
+2025-07-03 23:57:57.514 [] [main] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-03 23:57:57.932 [] [main] INFO  Version - HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-07-03 23:57:58.172 [] [main] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-07-03 23:57:59.445 [] [main] INFO  SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-03 23:57:59.567 [] [main] INFO  HikariDataSource - HikariPool-1 - Starting...
+2025-07-03 23:58:00.075 [] [main] INFO  HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6015c745
+2025-07-03 23:58:00.077 [] [main] INFO  HikariDataSource - HikariPool-1 - Start completed.
+2025-07-03 23:58:00.278 [] [main] INFO  pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-03 23:58:02.041 [] [main] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-03 23:58:02.322 [] [main] INFO  LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-03 23:58:03.350 [] [main] INFO  InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2025-07-03 23:58:03.497 [] [main] INFO  QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-07-03 23:58:04.544 [] [main] TRACE UserServiceImpl - Initializing JedisPool with Redis Host: redis and Port: 6380
+2025-07-03 23:58:04.814 [] [main] TRACE UserServiceImpl - Exiting init method in UserServiceImpl
+2025-07-03 23:58:08.080 [] [main] INFO  EndpointLinksResolver - Exposing 18 endpoints beneath base path '/actuator'
+2025-07-03 23:58:08.188 [] [main] INFO  DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-07-03 23:58:08.265 [] [main] WARN  LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-07-03 23:58:08.395 [] [main] INFO  InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-07-03 23:58:08.438 [] [main] INFO  DiscoveryClient - Initializing Eureka in region us-east-1
+2025-07-03 23:58:08.442 [] [main] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-03 23:58:08.451 [] [main] INFO  DiscoveryClient - Disable delta property : false
+2025-07-03 23:58:08.452 [] [main] INFO  DiscoveryClient - Single vip registry refresh property : null
+2025-07-03 23:58:08.452 [] [main] INFO  DiscoveryClient - Force full registry fetch : false
+2025-07-03 23:58:08.452 [] [main] INFO  DiscoveryClient - Application is null : false
+2025-07-03 23:58:08.452 [] [main] INFO  DiscoveryClient - Registered Applications size is zero : true
+2025-07-03 23:58:08.452 [] [main] INFO  DiscoveryClient - Application version is -1: true
+2025-07-03 23:58:08.452 [] [main] INFO  DiscoveryClient - Getting all instance registry info from the eureka server
+2025-07-03 23:58:08.735 [] [main] INFO  DiscoveryClient - The response status is 200
+2025-07-03 23:58:08.743 [] [main] INFO  DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-07-03 23:58:08.747 [] [main] INFO  InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-07-03 23:58:08.750 [] [main] INFO  DiscoveryClient - Discovery Client initialized at timestamp 1751587088749 with initial instances count: 2
+2025-07-03 23:58:08.755 [] [main] INFO  EurekaServiceRegistry - Registering application AUTH-SERVICE with eureka with status UP
+2025-07-03 23:58:08.756 [] [main] INFO  DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1751587088756, current=UP, previous=STARTING]
+2025-07-03 23:58:08.760 [] [main] INFO  Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2025-07-03 23:58:08.766 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_AUTH-SERVICE/auth-service:8081: registering service...
+2025-07-03 23:58:08.808 [] [main] INFO  TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2025-07-03 23:58:08.810 [] [main] INFO  EurekaAutoServiceRegistration - Updating port to 8081
+2025-07-03 23:58:08.826 [] [main] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-07-03 23:58:08.849 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_AUTH-SERVICE/auth-service:8081 - registration status: 204
+2025-07-03 23:58:08.920 [] [main] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#70ea72e:0/SimpleConnection@77ba34da [delegate=amqp://guest@172.18.0.7:5672/, localPort=38824]
+2025-07-03 23:58:08.937 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-create) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-07-03 23:58:08.939 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-update) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-07-03 23:58:08.940 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-delete) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-07-03 23:58:08.940 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-restore) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-07-03 23:58:08.942 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-add-role) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-07-03 23:58:08.943 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-remove-role) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-07-03 23:58:09.089 [] [main] INFO  AuthServiceApplication - Started AuthServiceApplication in 38.65 seconds (process running for 43.52)
+2025-07-03 23:58:41.835 [] [http-nio-8081-exec-1] INFO  [/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-03 23:58:41.836 [] [http-nio-8081-exec-1] INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-03 23:58:41.842 [] [http-nio-8081-exec-1] INFO  DispatcherServlet - Completed initialization in 6 ms
+2025-07-03 23:58:42.645 [] [http-nio-8081-exec-1] TRACE UserController - Entering login method in UserController
+2025-07-03 23:58:42.651 [] [http-nio-8081-exec-1] TRACE UserServiceImpl - Entering login method in UserServiceImpl
+2025-07-03 23:58:42.652 [] [http-nio-8081-exec-1] DEBUG UserServiceImpl - Attempting to authenticate user: omerasafbalikci
+2025-07-03 23:58:42.837 [] [http-nio-8081-exec-1] TRACE UserDetailsServiceImpl - Entering loadUserByUsername with username: omerasafbalikci
+2025-07-03 23:58:42.881 [] [http-nio-8081-exec-1] INFO  UserDetailsServiceImpl - User found: omerasafbalikci
+2025-07-03 23:58:42.885 [] [http-nio-8081-exec-1] DEBUG UserDetailsServiceImpl - Mapping role ADMIN to authority ROLE_ADMIN
+2025-07-03 23:58:42.886 [] [http-nio-8081-exec-1] INFO  UserDetailsServiceImpl - User authorities: [ROLE_ADMIN]
+2025-07-03 23:58:42.892 [] [http-nio-8081-exec-1] TRACE UserDetailsServiceImpl - Exiting loadUserByUsername method in UserDetailsServiceImpl with username: omerasafbalikci
+2025-07-03 23:58:43.107 [] [http-nio-8081-exec-1] INFO  UserServiceImpl - User authenticated successfully: omerasafbalikci
+2025-07-03 23:58:43.107 [] [http-nio-8081-exec-1] TRACE UserServiceImpl - Entering getRolesAsString method in UserServiceImpl
+2025-07-03 23:58:43.108 [] [http-nio-8081-exec-1] TRACE UserServiceImpl - Exiting getRolesAsString method in UserServiceImpl
+2025-07-03 23:58:43.109 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Entering generateAccessToken method in JwtUtils class with username: omerasafbalikci
+2025-07-03 23:58:43.165 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 3600000
+2025-07-03 23:58:43.210 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-07-03 23:58:43.212 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-07-03 23:58:43.262 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3NTE1ODcxMjMsImV4cCI6MTc1MTU5MDcyM30.4CwxG5UlMdaR-T2Tq5QWZJyLT5PyKeYaIvQCexi811qLC7UHqfk43APn1isieIPP
+2025-07-03 23:58:43.263 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Exiting generateAccessToken method in JwtUtils class with accessToken: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3NTE1ODcxMjMsImV4cCI6MTc1MTU5MDcyM30.4CwxG5UlMdaR-T2Tq5QWZJyLT5PyKeYaIvQCexi811qLC7UHqfk43APn1isieIPP
+2025-07-03 23:58:43.264 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Entering generateRefreshToken method in JwtUtils class with username: omerasafbalikci
+2025-07-03 23:58:43.265 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 86400000
+2025-07-03 23:58:43.266 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-07-03 23:58:43.271 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-07-03 23:58:43.275 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJpYXQiOjE3NTE1ODcxMjMsImV4cCI6MTc1MTY3MzUyM30.uOfbA7mcGneKoVqwaxOaItOXka6zDiWJuypIlxxZ9B4cBBzEJKc0t55JeDtiolY8
+2025-07-03 23:58:43.278 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Exiting generateRefreshToken method in JwtUtils class with refreshToken: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJpYXQiOjE3NTE1ODcxMjMsImV4cCI6MTc1MTY3MzUyM30.uOfbA7mcGneKoVqwaxOaItOXka6zDiWJuypIlxxZ9B4cBBzEJKc0t55JeDtiolY8
+2025-07-03 23:58:43.278 [] [http-nio-8081-exec-1] TRACE UserServiceImpl - Entering revokeAllTokensByUser method in UserServiceImpl
+2025-07-03 23:58:43.278 [] [http-nio-8081-exec-1] DEBUG UserServiceImpl - Revoking all tokens for user ID: 3
+2025-07-03 23:58:43.462 [] [http-nio-8081-exec-1] INFO  UserServiceImpl - Token revoked for user ID: 3
+2025-07-03 23:58:43.543 [] [http-nio-8081-exec-1] TRACE UserServiceImpl - Exiting revokeAllTokensByUser method in UserServiceImpl
+2025-07-03 23:58:43.543 [] [http-nio-8081-exec-1] TRACE UserServiceImpl - Entering saveUserToken method in UserServiceImpl
+2025-07-03 23:58:43.545 [] [http-nio-8081-exec-1] DEBUG UserServiceImpl - Saving token for user: omerasafbalikci
+2025-07-03 23:58:43.588 [] [http-nio-8081-exec-1] INFO  UserServiceImpl - Token saved in Redis for user: omerasafbalikci
+2025-07-03 23:58:43.588 [] [http-nio-8081-exec-1] TRACE UserServiceImpl - Exiting saveUserToken method in UserServiceImpl
+2025-07-03 23:58:43.588 [] [http-nio-8081-exec-1] TRACE UserServiceImpl - Exiting login method in UserServiceImpl
+2025-07-03 23:58:43.590 [] [http-nio-8081-exec-1] TRACE UserController - Exiting login method in UserController

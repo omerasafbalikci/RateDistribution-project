@@ -274,16 +274,13 @@ public class Coordinator implements RateListener, ConfigChangeListener, AutoClos
      * @param def the CalcDef to calculate
      */
     private void calculate(CalcDef def) {
-        // 1) Build vars
         Map<String, Rate> vars = new HashMap<>();
         for (String dep : def.getDependsOn()) {
             Map<String, Rate> per = platformRates.get(dep);
             if (per == null || per.isEmpty()) return;
             per.forEach((pf, r) -> vars.put(pf + "_" + dep, r));
         }
-        // 2) Flatten to BigDecimal map
         Map<String, BigDecimal> flat = flatten(vars, def.getHelpers());
-        // 3) Ensure every subscriber contributed
         for (String dep : def.getDependsOn()) {
             for (Subscriber sub : subscribers) {
                 String bidKey = sub.name() + "_" + dep + "_bid";
@@ -294,7 +291,6 @@ public class Coordinator implements RateListener, ConfigChangeListener, AutoClos
                 }
             }
         }
-        // 4) Evaluate
         try {
             ExpressionEvaluator ev = def.getCustomEvaluator();
             if (ev == null) return;

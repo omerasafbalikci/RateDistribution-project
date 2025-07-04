@@ -1,0 +1,93 @@
+2025-07-04 08:12:44.528 [] [background-preinit] INFO  Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-07-04 08:12:44.695 [] [main] INFO  ConfigServerApplication - Starting ConfigServerApplication v0.0.1-SNAPSHOT using Java 21.0.7 with PID 1 (/app.jar started by root in /)
+2025-07-04 08:12:44.697 [] [main] DEBUG ConfigServerApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-07-04 08:12:44.698 [] [main] INFO  ConfigServerApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-04 08:12:47.491 [] [main] INFO  GenericScope - BeanFactory id=3fc2552f-3cb1-3d29-a470-686acc4ddbb3
+2025-07-04 08:12:48.195 [] [main] INFO  TomcatWebServer - Tomcat initialized with port 8888 (http)
+2025-07-04 08:12:48.222 [] [main] INFO  Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+2025-07-04 08:12:48.232 [] [main] INFO  StandardService - Starting service [Tomcat]
+2025-07-04 08:12:48.234 [] [main] INFO  StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-07-04 08:12:48.360 [] [main] INFO  [/] - Initializing Spring embedded WebApplicationContext
+2025-07-04 08:12:48.376 [] [main] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3536 ms
+2025-07-04 08:12:53.926 [] [main] INFO  EndpointLinksResolver - Exposing 17 endpoints beneath base path '/actuator'
+2025-07-04 08:12:54.047 [] [main] INFO  Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+2025-07-04 08:12:54.145 [] [main] INFO  TomcatWebServer - Tomcat started on port 8888 (http) with context path '/'
+2025-07-04 08:12:54.210 [] [main] INFO  ConfigServerApplication - Started ConfigServerApplication in 10.261 seconds (process running for 13.236)
+2025-07-04 08:13:08.064 [] [http-nio-8888-exec-1] INFO  [/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-04 08:13:08.065 [] [http-nio-8888-exec-1] INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-04 08:13:08.068 [] [http-nio-8888-exec-1] INFO  DispatcherServlet - Completed initialization in 3 ms
+2025-07-04 08:13:13.107 [] [AsyncReporter{ZipkinRestTemplateSender{http://localhost:9411/api/v2/spans}}] WARN  AsyncReporter$BoundedAsyncReporter - Spans were dropped due to exceptions. All subsequent errors will be logged at FINE level.
+2025-07-04 08:13:13.113 [] [AsyncReporter{ZipkinRestTemplateSender{http://localhost:9411/api/v2/spans}}] WARN  AsyncReporter$BoundedAsyncReporter - Dropped 2 spans due to ResourceAccessException(I/O error on POST request for "http://localhost:9411/api/v2/spans": Connect to http://localhost:9411 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused)
+org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:9411/api/v2/spans": Connect to http://localhost:9411 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused
+	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926) ~[spring-web-6.2.2.jar!/:6.2.2]
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906) ~[spring-web-6.2.2.jar!/:6.2.2]
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841) ~[spring-web-6.2.2.jar!/:6.2.2]
+	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:702) ~[spring-web-6.2.2.jar!/:6.2.2]
+	at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinRestTemplateSender.postSpans(ZipkinRestTemplateSender.java:50) ~[spring-boot-actuator-autoconfigure-3.4.2.jar!/:3.4.2]
+	at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.HttpSender.postSpans(HttpSender.java:69) ~[spring-boot-actuator-autoconfigure-3.4.2.jar!/:3.4.2]
+	at org.springframework.boot.actuate.autoconfigure.tracing.zipkin.HttpSender.postSpans(HttpSender.java:41) ~[spring-boot-actuator-autoconfigure-3.4.2.jar!/:3.4.2]
+	at zipkin2.reporter.BaseHttpSender.send(BaseHttpSender.java:123) ~[zipkin-reporter-3.4.3.jar!/:?]
+	at zipkin2.reporter.internal.AsyncReporter$BoundedAsyncReporter.flush(AsyncReporter.java:266) ~[zipkin-reporter-3.4.3.jar!/:?]
+	at zipkin2.reporter.internal.AsyncReporter$Flusher.run(AsyncReporter.java:352) ~[zipkin-reporter-3.4.3.jar!/:?]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:9411 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[?:?]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682) ~[?:?]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542) ~[?:?]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592) ~[?:?]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[?:?]
+	at java.base/java.net.Socket.connect(Socket.java:751) ~[?:?]
+	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:216) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:490) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:164) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:174) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:144) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:192) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:150) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:113) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:174) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183) ~[httpclient5-5.4.1.jar!/:5.4.1]
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99) ~[spring-web-6.2.2.jar!/:6.2.2]
+	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:71) ~[spring-web-6.2.2.jar!/:6.2.2]
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81) ~[spring-web-6.2.2.jar!/:6.2.2]
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900) ~[spring-web-6.2.2.jar!/:6.2.2]
+	... 9 more
+2025-07-04 08:13:27.628 [] [http-nio-8888-exec-5] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-3671680407058534560/discovery-server.yml]' via location 'file:/tmp/config-repo-3671680407058534560/'
+2025-07-04 08:13:28.283 [] [http-nio-8888-exec-6] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-3671680407058534560/auth-service.properties]' via location 'file:/tmp/config-repo-3671680407058534560/'
+2025-07-04 08:13:28.284 [] [http-nio-8888-exec-6] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-3671680407058534560/auth-service.yml]' via location 'file:/tmp/config-repo-3671680407058534560/'
+2025-07-04 08:13:28.973 [] [http-nio-8888-exec-10] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-3671680407058534560/user-management-service.properties]' via location 'file:/tmp/config-repo-3671680407058534560/'
+2025-07-04 08:13:28.975 [] [http-nio-8888-exec-10] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-3671680407058534560/user-management-service.yml]' via location 'file:/tmp/config-repo-3671680407058534560/'
+2025-07-04 08:13:29.669 [] [http-nio-8888-exec-9] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-3671680407058534560/discovery-server-docker.yml]' via location 'file:/tmp/config-repo-3671680407058534560/'
+2025-07-04 08:13:29.671 [] [http-nio-8888-exec-9] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-3671680407058534560/discovery-server.yml]' via location 'file:/tmp/config-repo-3671680407058534560/'
+2025-07-04 08:13:30.398 [] [http-nio-8888-exec-8] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-3671680407058534560/api-gateway.yml]' via location 'file:/tmp/config-repo-3671680407058534560/'
+2025-07-04 08:13:31.104 [] [http-nio-8888-exec-7] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-3671680407058534560/rest-data-provider.yml]' via location 'file:/tmp/config-repo-3671680407058534560/'
+2025-07-04 08:13:31.741 [] [http-nio-8888-exec-4] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-3671680407058534560/api-gateway-docker.yml]' via location 'file:/tmp/config-repo-3671680407058534560/'
+2025-07-04 08:13:31.760 [] [http-nio-8888-exec-4] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-3671680407058534560/api-gateway.yml]' via location 'file:/tmp/config-repo-3671680407058534560/'
+2025-07-04 08:13:32.529 [] [http-nio-8888-exec-2] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-3671680407058534560/user-management-service-docker.properties]' via location 'file:/tmp/config-repo-3671680407058534560/'
+2025-07-04 08:13:32.530 [] [http-nio-8888-exec-2] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-3671680407058534560/user-management-service-docker.yml]' via location 'file:/tmp/config-repo-3671680407058534560/'
+2025-07-04 08:13:32.530 [] [http-nio-8888-exec-2] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-3671680407058534560/user-management-service.properties]' via location 'file:/tmp/config-repo-3671680407058534560/'
+2025-07-04 08:13:32.531 [] [http-nio-8888-exec-2] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-3671680407058534560/user-management-service.yml]' via location 'file:/tmp/config-repo-3671680407058534560/'
+2025-07-04 08:13:33.167 [] [http-nio-8888-exec-1] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-3671680407058534560/auth-service-docker.properties]' via location 'file:/tmp/config-repo-3671680407058534560/'
+2025-07-04 08:13:33.167 [] [http-nio-8888-exec-1] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-3671680407058534560/auth-service-docker.yml]' via location 'file:/tmp/config-repo-3671680407058534560/'
+2025-07-04 08:13:33.168 [] [http-nio-8888-exec-1] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-3671680407058534560/auth-service.properties]' via location 'file:/tmp/config-repo-3671680407058534560/'
+2025-07-04 08:13:33.168 [] [http-nio-8888-exec-1] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-3671680407058534560/auth-service.yml]' via location 'file:/tmp/config-repo-3671680407058534560/'
+2025-07-04 08:13:33.848 [] [http-nio-8888-exec-3] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-3671680407058534560/rest-data-provider-docker.yml]' via location 'file:/tmp/config-repo-3671680407058534560/'
+2025-07-04 08:15:41.660 [] [http-nio-8888-exec-3] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-3671680407058534560/rate-hub-consumer-db.properties]' via location 'file:/tmp/config-repo-3671680407058534560/'
+2025-07-04 08:15:41.681 [] [http-nio-8888-exec-3] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-3671680407058534560/rate-hub-consumer-db.yml]' via location 'file:/tmp/config-repo-3671680407058534560/'
+2025-07-04 08:15:42.811 [] [http-nio-8888-exec-5] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-3671680407058534560/rate-hub-consumer-db-docker.properties]' via location 'file:/tmp/config-repo-3671680407058534560/'
+2025-07-04 08:15:42.812 [] [http-nio-8888-exec-5] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-3671680407058534560/rate-hub-consumer-db-docker.yml]' via location 'file:/tmp/config-repo-3671680407058534560/'
+2025-07-04 08:15:42.813 [] [http-nio-8888-exec-5] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-3671680407058534560/rate-hub-consumer-db.properties]' via location 'file:/tmp/config-repo-3671680407058534560/'
+2025-07-04 08:15:42.814 [] [http-nio-8888-exec-5] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-3671680407058534560/rate-hub-consumer-db.yml]' via location 'file:/tmp/config-repo-3671680407058534560/'
+2025-07-04 08:15:43.438 [] [http-nio-8888-exec-6] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-3671680407058534560/rate-hub-consumer-opensearch.yml]' via location 'file:/tmp/config-repo-3671680407058534560/'
+2025-07-04 08:15:44.294 [] [http-nio-8888-exec-10] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-3671680407058534560/rate-hub-consumer-opensearch-docker.yml]' via location 'file:/tmp/config-repo-3671680407058534560/'
+2025-07-04 08:15:44.295 [] [http-nio-8888-exec-10] INFO  NativeEnvironmentRepository - Adding property source: Config resource 'file [/tmp/config-repo-3671680407058534560/rate-hub-consumer-opensearch.yml]' via location 'file:/tmp/config-repo-3671680407058534560/'
+2025-07-04 08:49:34.836 [] [SpringApplicationShutdownHook] INFO  GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-04 08:49:34.872 [] [tomcat-shutdown] INFO  GracefulShutdown - Graceful shutdown complete

@@ -1,0 +1,195 @@
+2025-07-04 07:25:21.958 [] [main] INFO  DiscoveryServerApplication - Starting DiscoveryServerApplication v0.0.1-SNAPSHOT using Java 21.0.7 with PID 1 (/app.jar started by root in /)
+2025-07-04 07:25:22.018 [] [main] DEBUG DiscoveryServerApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-07-04 07:25:22.041 [] [main] INFO  DiscoveryServerApplication - The following 1 profile is active: "docker"
+2025-07-04 07:25:22.312 [] [main] INFO  ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+2025-07-04 07:25:22.313 [] [main] INFO  ConfigServerConfigDataLoader - Located environment: name=discovery-server, profiles=[default], label=null, version=bf17919cae47920d65737939efa7447c4223b9d7, state=
+2025-07-04 07:25:22.314 [] [main] INFO  ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+2025-07-04 07:25:22.315 [] [main] INFO  ConfigServerConfigDataLoader - Located environment: name=discovery-server, profiles=[docker], label=null, version=bf17919cae47920d65737939efa7447c4223b9d7, state=
+2025-07-04 07:25:29.093 [] [main] INFO  GenericScope - BeanFactory id=5b434d59-ebcd-3ef8-9bf6-df65a66a93f5
+2025-07-04 07:25:31.339 [] [main] INFO  TomcatWebServer - Tomcat initialized with port 8761 (http)
+2025-07-04 07:25:31.428 [] [main] INFO  Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8761"]
+2025-07-04 07:25:31.453 [] [main] INFO  StandardService - Starting service [Tomcat]
+2025-07-04 07:25:31.466 [] [main] INFO  StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-07-04 07:25:31.736 [] [main] INFO  [/] - Initializing Spring embedded WebApplicationContext
+2025-07-04 07:25:31.739 [] [main] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 9420 ms
+2025-07-04 07:25:38.125 [] [main] INFO  DiscoveryJerseyProvider - Using JSON encoding codec LegacyJacksonJson
+2025-07-04 07:25:38.150 [] [main] INFO  DiscoveryJerseyProvider - Using JSON decoding codec LegacyJacksonJson
+2025-07-04 07:25:39.284 [] [main] INFO  DiscoveryJerseyProvider - Using XML encoding codec XStreamXml
+2025-07-04 07:25:39.290 [] [main] INFO  DiscoveryJerseyProvider - Using XML decoding codec XStreamXml
+2025-07-04 07:25:40.063 [] [main] INFO  OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-07-04 07:25:46.703 [] [main] WARN  LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-07-04 07:25:46.938 [] [main] INFO  InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-07-04 07:25:47.197 [] [main] INFO  DiscoveryClient - Initializing Eureka in region us-east-1
+2025-07-04 07:25:47.198 [] [main] INFO  DiscoveryClient - Client configured to neither register nor query for data.
+2025-07-04 07:25:47.231 [] [main] INFO  DiscoveryClient - Discovery Client initialized at timestamp 1751613947231 with initial instances count: 0
+2025-07-04 07:25:47.550 [] [main] INFO  DefaultEurekaServerContext - Initializing ...
+2025-07-04 07:25:47.559 [] [main] INFO  PeerEurekaNodes - Adding new peer nodes [http://localhost:8761/eureka/]
+2025-07-04 07:25:47.887 [] [main] INFO  DiscoveryJerseyProvider - Using JSON encoding codec LegacyJacksonJson
+2025-07-04 07:25:47.909 [] [main] INFO  DiscoveryJerseyProvider - Using JSON decoding codec LegacyJacksonJson
+2025-07-04 07:25:47.909 [] [main] INFO  DiscoveryJerseyProvider - Using XML encoding codec XStreamXml
+2025-07-04 07:25:47.910 [] [main] INFO  DiscoveryJerseyProvider - Using XML decoding codec XStreamXml
+2025-07-04 07:25:48.230 [] [main] INFO  PeerEurekaNodes - Replica node URL:  http://localhost:8761/eureka/
+2025-07-04 07:25:48.296 [] [main] INFO  AbstractInstanceRegistry - Finished initializing remote region registries. All known remote regions: []
+2025-07-04 07:25:48.302 [] [main] INFO  DefaultEurekaServerContext - Initialized
+2025-07-04 07:25:48.373 [] [main] INFO  EndpointLinksResolver - Exposing 18 endpoints beneath base path '/actuator'
+2025-07-04 07:25:48.608 [] [main] INFO  EurekaServiceRegistry - Registering application DISCOVERY-SERVER with eureka with status UP
+2025-07-04 07:25:48.624 [] [main] INFO  Http11NioProtocol - Starting ProtocolHandler ["http-nio-8761"]
+2025-07-04 07:25:48.739 [] [Thread-10] INFO  EurekaServerBootstrap - isAws returned false
+2025-07-04 07:25:48.740 [] [Thread-10] INFO  EurekaServerBootstrap - Initialized server context
+2025-07-04 07:25:48.740 [] [Thread-10] INFO  PeerAwareInstanceRegistryImpl - Got 1 instances from neighboring DS node
+2025-07-04 07:25:48.740 [] [Thread-10] INFO  PeerAwareInstanceRegistryImpl - Renew threshold is: 1
+2025-07-04 07:25:48.741 [] [Thread-10] INFO  PeerAwareInstanceRegistryImpl - Changing status to UP
+2025-07-04 07:25:48.744 [] [Thread-10] INFO  EurekaServerInitializerConfiguration - Started Eureka Server
+2025-07-04 07:25:48.790 [] [main] INFO  TomcatWebServer - Tomcat started on port 8761 (http) with context path '/'
+2025-07-04 07:25:48.792 [] [main] INFO  EurekaAutoServiceRegistration - Updating port to 8761
+2025-07-04 07:25:48.885 [] [main] INFO  DiscoveryServerApplication - Started DiscoveryServerApplication in 35.213 seconds (process running for 42.998)
+2025-07-04 07:25:51.054 [] [http-nio-8761-exec-2] INFO  [/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-04 07:25:51.054 [] [http-nio-8761-exec-2] INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-04 07:25:51.056 [] [http-nio-8761-exec-2] INFO  DispatcherServlet - Completed initialization in 2 ms
+2025-07-04 07:25:52.147 [] [http-nio-8761-exec-3] INFO  AbstractInstanceRegistry - Registered instance API-GATEWAY/api-gateway:8080 with status UP (replication=false)
+2025-07-04 07:25:53.236 [] [http-nio-8761-exec-4] INFO  AbstractInstanceRegistry - Registered instance API-GATEWAY/api-gateway:8080 with status UP (replication=true)
+2025-07-04 07:25:57.606 [] [http-nio-8761-exec-5] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/dd7fe589a4a3:rest-data-provider with status UP (replication=false)
+2025-07-04 07:25:58.121 [] [http-nio-8761-exec-6] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/dd7fe589a4a3:rest-data-provider with status UP (replication=true)
+2025-07-04 07:26:05.722 [] [http-nio-8761-exec-9] INFO  AbstractInstanceRegistry - Registered instance USER-MANAGEMENT-SERVICE/user-management-service:8082 with status UP (replication=false)
+2025-07-04 07:26:06.254 [] [http-nio-8761-exec-10] INFO  AbstractInstanceRegistry - Registered instance USER-MANAGEMENT-SERVICE/user-management-service:8082 with status UP (replication=true)
+2025-07-04 07:26:13.149 [] [http-nio-8761-exec-3] INFO  AbstractInstanceRegistry - Registered instance AUTH-SERVICE/auth-service:8081 with status UP (replication=false)
+2025-07-04 07:26:13.660 [] [http-nio-8761-exec-4] INFO  AbstractInstanceRegistry - Registered instance AUTH-SERVICE/auth-service:8081 with status UP (replication=true)
+2025-07-04 07:26:48.743 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-07-04 07:27:48.742 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-07-04 07:28:40.079 [] [http-nio-8761-exec-3] INFO  AbstractInstanceRegistry - Registered instance RATE-HUB-CONSUMER-OPENSEARCH/rate-hub-consumer-opensearch:8086 with status UP (replication=false)
+2025-07-04 07:28:40.602 [] [http-nio-8761-exec-4] INFO  AbstractInstanceRegistry - Registered instance RATE-HUB-CONSUMER-OPENSEARCH/rate-hub-consumer-opensearch:8086 with status UP (replication=true)
+2025-07-04 07:28:47.557 [] [http-nio-8761-exec-9] INFO  AbstractInstanceRegistry - Registered instance RATE-HUB-CONSUMER-DB/rate-hub-consumer-db:8085 with status UP (replication=false)
+2025-07-04 07:28:48.088 [] [http-nio-8761-exec-10] INFO  AbstractInstanceRegistry - Registered instance RATE-HUB-CONSUMER-DB/rate-hub-consumer-db:8085 with status UP (replication=true)
+2025-07-04 07:28:48.746 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 8ms
+2025-07-04 07:29:48.745 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-07-04 07:30:48.745 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-07-04 07:31:48.745 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-07-04 07:32:48.746 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-07-04 07:33:48.745 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-07-04 07:34:48.745 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-07-04 07:35:48.745 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-07-04 07:36:48.745 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-07-04 07:37:48.745 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-07-04 07:38:48.745 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-07-04 07:39:48.745 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-07-04 07:40:22.992 [] [http-nio-8761-exec-6] INFO  AbstractInstanceRegistry - Registered instance RATE-HUB-CONSUMER-DB/rate-hub-consumer-db:8085 with status DOWN (replication=false)
+2025-07-04 07:40:23.169 [] [http-nio-8761-exec-7] INFO  AbstractInstanceRegistry - Registered instance RATE-HUB-CONSUMER-OPENSEARCH/rate-hub-consumer-opensearch:8086 with status DOWN (replication=false)
+2025-07-04 07:40:23.510 [] [http-nio-8761-exec-8] INFO  AbstractInstanceRegistry - Registered instance RATE-HUB-CONSUMER-DB/rate-hub-consumer-db:8085 with status DOWN (replication=true)
+2025-07-04 07:40:23.512 [] [http-nio-8761-exec-8] INFO  AbstractInstanceRegistry - Registered instance RATE-HUB-CONSUMER-OPENSEARCH/rate-hub-consumer-opensearch:8086 with status DOWN (replication=true)
+2025-07-04 07:40:26.983 [] [http-nio-8761-exec-10] INFO  AbstractInstanceRegistry - Cancelled instance RATE-HUB-CONSUMER-OPENSEARCH/rate-hub-consumer-opensearch:8086 (replication=false)
+2025-07-04 07:40:27.517 [] [http-nio-8761-exec-2] WARN  AbstractInstanceRegistry - DS: Registry: cancel failed because Lease is not registered for: RATE-HUB-CONSUMER-OPENSEARCH/rate-hub-consumer-opensearch:8086
+2025-07-04 07:40:27.518 [] [http-nio-8761-exec-2] INFO  InstanceResource - Not Found (Cancel): RATE-HUB-CONSUMER-OPENSEARCH - rate-hub-consumer-opensearch:8086
+2025-07-04 07:40:27.520 [] [TaskBatchingWorker-target_localhost-7] WARN  ReplicationTask - The replication of task RATE-HUB-CONSUMER-OPENSEARCH/rate-hub-consumer-opensearch:8086:Cancel@localhost failed with response code 404
+2025-07-04 07:40:27.521 [] [TaskBatchingWorker-target_localhost-7] WARN  PeerEurekaNode - RATE-HUB-CONSUMER-OPENSEARCH/rate-hub-consumer-opensearch:8086:Cancel@localhost: missing entry.
+2025-07-04 07:40:27.564 [] [http-nio-8761-exec-5] INFO  AbstractInstanceRegistry - Cancelled instance RATE-HUB-CONSUMER-DB/rate-hub-consumer-db:8085 (replication=false)
+2025-07-04 07:40:28.069 [] [http-nio-8761-exec-8] WARN  AbstractInstanceRegistry - DS: Registry: cancel failed because Lease is not registered for: RATE-HUB-CONSUMER-DB/rate-hub-consumer-db:8085
+2025-07-04 07:40:28.069 [] [http-nio-8761-exec-8] INFO  InstanceResource - Not Found (Cancel): RATE-HUB-CONSUMER-DB - rate-hub-consumer-db:8085
+2025-07-04 07:40:28.072 [] [TaskBatchingWorker-target_localhost-6] WARN  ReplicationTask - The replication of task RATE-HUB-CONSUMER-DB/rate-hub-consumer-db:8085:Cancel@localhost failed with response code 404
+2025-07-04 07:40:28.072 [] [TaskBatchingWorker-target_localhost-6] WARN  PeerEurekaNode - RATE-HUB-CONSUMER-DB/rate-hub-consumer-db:8085:Cancel@localhost: missing entry.
+2025-07-04 07:40:29.474 [] [http-nio-8761-exec-9] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/dd7fe589a4a3:rest-data-provider with status DOWN (replication=false)
+2025-07-04 07:40:29.984 [] [http-nio-8761-exec-3] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/dd7fe589a4a3:rest-data-provider with status DOWN (replication=true)
+2025-07-04 07:40:33.248 [] [http-nio-8761-exec-2] INFO  AbstractInstanceRegistry - Cancelled instance REST-DATA-PROVIDER/dd7fe589a4a3:rest-data-provider (replication=false)
+2025-07-04 07:40:33.758 [] [http-nio-8761-exec-4] WARN  AbstractInstanceRegistry - DS: Registry: cancel failed because Lease is not registered for: REST-DATA-PROVIDER/dd7fe589a4a3:rest-data-provider
+2025-07-04 07:40:33.759 [] [http-nio-8761-exec-4] INFO  InstanceResource - Not Found (Cancel): REST-DATA-PROVIDER - dd7fe589a4a3:rest-data-provider
+2025-07-04 07:40:33.761 [] [TaskBatchingWorker-target_localhost-9] WARN  ReplicationTask - The replication of task REST-DATA-PROVIDER/dd7fe589a4a3:rest-data-provider:Cancel@localhost failed with response code 404
+2025-07-04 07:40:33.761 [] [TaskBatchingWorker-target_localhost-9] WARN  PeerEurekaNode - REST-DATA-PROVIDER/dd7fe589a4a3:rest-data-provider:Cancel@localhost: missing entry.
+2025-07-04 07:40:33.914 [] [http-nio-8761-exec-6] INFO  AbstractInstanceRegistry - Registered instance USER-MANAGEMENT-SERVICE/user-management-service:8082 with status DOWN (replication=false)
+2025-07-04 07:40:34.423 [] [http-nio-8761-exec-7] INFO  AbstractInstanceRegistry - Registered instance USER-MANAGEMENT-SERVICE/user-management-service:8082 with status DOWN (replication=true)
+2025-07-04 07:40:37.832 [] [http-nio-8761-exec-3] INFO  AbstractInstanceRegistry - Cancelled instance USER-MANAGEMENT-SERVICE/user-management-service:8082 (replication=false)
+2025-07-04 07:40:38.344 [] [http-nio-8761-exec-5] WARN  AbstractInstanceRegistry - DS: Registry: cancel failed because Lease is not registered for: USER-MANAGEMENT-SERVICE/user-management-service:8082
+2025-07-04 07:40:38.345 [] [http-nio-8761-exec-5] INFO  InstanceResource - Not Found (Cancel): USER-MANAGEMENT-SERVICE - user-management-service:8082
+2025-07-04 07:40:38.347 [] [TaskBatchingWorker-target_localhost-1] WARN  ReplicationTask - The replication of task USER-MANAGEMENT-SERVICE/user-management-service:8082:Cancel@localhost failed with response code 404
+2025-07-04 07:40:38.347 [] [TaskBatchingWorker-target_localhost-1] WARN  PeerEurekaNode - USER-MANAGEMENT-SERVICE/user-management-service:8082:Cancel@localhost: missing entry.
+2025-07-04 07:40:38.538 [] [http-nio-8761-exec-4] INFO  AbstractInstanceRegistry - Registered instance AUTH-SERVICE/auth-service:8081 with status DOWN (replication=false)
+2025-07-04 07:40:39.052 [] [http-nio-8761-exec-6] INFO  AbstractInstanceRegistry - Registered instance AUTH-SERVICE/auth-service:8081 with status DOWN (replication=true)
+2025-07-04 07:40:45.053 [] [http-nio-8761-exec-3] INFO  AbstractInstanceRegistry - Cancelled instance AUTH-SERVICE/auth-service:8081 (replication=false)
+2025-07-04 07:40:45.563 [] [http-nio-8761-exec-5] WARN  AbstractInstanceRegistry - DS: Registry: cancel failed because Lease is not registered for: AUTH-SERVICE/auth-service:8081
+2025-07-04 07:40:45.563 [] [http-nio-8761-exec-5] INFO  InstanceResource - Not Found (Cancel): AUTH-SERVICE - auth-service:8081
+2025-07-04 07:40:45.564 [] [TaskBatchingWorker-target_localhost-16] WARN  ReplicationTask - The replication of task AUTH-SERVICE/auth-service:8081:Cancel@localhost failed with response code 404
+2025-07-04 07:40:45.565 [] [TaskBatchingWorker-target_localhost-16] WARN  PeerEurekaNode - AUTH-SERVICE/auth-service:8081:Cancel@localhost: missing entry.
+2025-07-04 07:40:45.876 [] [http-nio-8761-exec-4] INFO  AbstractInstanceRegistry - Registered instance API-GATEWAY/api-gateway:8080 with status DOWN (replication=false)
+2025-07-04 07:40:46.392 [] [http-nio-8761-exec-6] INFO  AbstractInstanceRegistry - Registered instance API-GATEWAY/api-gateway:8080 with status DOWN (replication=true)
+2025-07-04 07:40:48.301 [] [ReplicaAwareInstanceRegistry - RenewalThresholdUpdater] INFO  PeerAwareInstanceRegistryImpl - Current renewal threshold is : 3
+2025-07-04 07:40:48.746 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 4ms
+2025-07-04 07:40:51.407 [] [http-nio-8761-exec-8] INFO  AbstractInstanceRegistry - Cancelled instance API-GATEWAY/api-gateway:8080 (replication=false)
+2025-07-04 07:40:51.914 [] [http-nio-8761-exec-3] WARN  AbstractInstanceRegistry - DS: Registry: cancel failed because Lease is not registered for: API-GATEWAY/api-gateway:8080
+2025-07-04 07:40:51.914 [] [http-nio-8761-exec-3] INFO  InstanceResource - Not Found (Cancel): API-GATEWAY - api-gateway:8080
+2025-07-04 07:40:51.915 [] [TaskBatchingWorker-target_localhost-6] WARN  ReplicationTask - The replication of task API-GATEWAY/api-gateway:8080:Cancel@localhost failed with response code 404
+2025-07-04 07:40:51.915 [] [TaskBatchingWorker-target_localhost-6] WARN  PeerEurekaNode - API-GATEWAY/api-gateway:8080:Cancel@localhost: missing entry.
+2025-07-04 07:42:30.624 [] [main] INFO  DiscoveryServerApplication - Starting DiscoveryServerApplication v0.0.1-SNAPSHOT using Java 21.0.7 with PID 1 (/app.jar started by root in /)
+2025-07-04 07:42:30.653 [] [main] DEBUG DiscoveryServerApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-07-04 07:42:30.655 [] [main] INFO  DiscoveryServerApplication - The following 1 profile is active: "docker"
+2025-07-04 07:42:30.831 [] [main] INFO  ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+2025-07-04 07:42:30.834 [] [main] INFO  ConfigServerConfigDataLoader - Located environment: name=discovery-server, profiles=[default], label=null, version=bf17919cae47920d65737939efa7447c4223b9d7, state=
+2025-07-04 07:42:30.851 [] [main] INFO  ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+2025-07-04 07:42:30.853 [] [main] INFO  ConfigServerConfigDataLoader - Located environment: name=discovery-server, profiles=[docker], label=null, version=bf17919cae47920d65737939efa7447c4223b9d7, state=
+2025-07-04 07:42:38.720 [] [main] INFO  GenericScope - BeanFactory id=5b434d59-ebcd-3ef8-9bf6-df65a66a93f5
+2025-07-04 07:42:42.207 [] [main] INFO  TomcatWebServer - Tomcat initialized with port 8761 (http)
+2025-07-04 07:42:42.375 [] [main] INFO  Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8761"]
+2025-07-04 07:42:42.381 [] [main] INFO  StandardService - Starting service [Tomcat]
+2025-07-04 07:42:42.384 [] [main] INFO  StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-07-04 07:42:43.132 [] [main] INFO  [/] - Initializing Spring embedded WebApplicationContext
+2025-07-04 07:42:43.138 [] [main] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 12275 ms
+2025-07-04 07:42:52.116 [] [main] INFO  DiscoveryJerseyProvider - Using JSON encoding codec LegacyJacksonJson
+2025-07-04 07:42:52.117 [] [main] INFO  DiscoveryJerseyProvider - Using JSON decoding codec LegacyJacksonJson
+2025-07-04 07:42:53.779 [] [main] INFO  DiscoveryJerseyProvider - Using XML encoding codec XStreamXml
+2025-07-04 07:42:53.788 [] [main] INFO  DiscoveryJerseyProvider - Using XML decoding codec XStreamXml
+2025-07-04 07:42:54.804 [] [main] INFO  OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-07-04 07:43:03.559 [] [main] WARN  LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-07-04 07:43:03.766 [] [main] INFO  InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-07-04 07:43:03.936 [] [main] INFO  DiscoveryClient - Initializing Eureka in region us-east-1
+2025-07-04 07:43:03.953 [] [main] INFO  DiscoveryClient - Client configured to neither register nor query for data.
+2025-07-04 07:43:03.978 [] [main] INFO  DiscoveryClient - Discovery Client initialized at timestamp 1751614983973 with initial instances count: 0
+2025-07-04 07:43:04.203 [] [main] INFO  DefaultEurekaServerContext - Initializing ...
+2025-07-04 07:43:04.211 [] [main] INFO  PeerEurekaNodes - Adding new peer nodes [http://localhost:8761/eureka/]
+2025-07-04 07:43:04.402 [] [main] INFO  DiscoveryJerseyProvider - Using JSON encoding codec LegacyJacksonJson
+2025-07-04 07:43:04.426 [] [main] INFO  DiscoveryJerseyProvider - Using JSON decoding codec LegacyJacksonJson
+2025-07-04 07:43:04.426 [] [main] INFO  DiscoveryJerseyProvider - Using XML encoding codec XStreamXml
+2025-07-04 07:43:04.427 [] [main] INFO  DiscoveryJerseyProvider - Using XML decoding codec XStreamXml
+2025-07-04 07:43:04.641 [] [main] INFO  PeerEurekaNodes - Replica node URL:  http://localhost:8761/eureka/
+2025-07-04 07:43:04.780 [] [main] INFO  AbstractInstanceRegistry - Finished initializing remote region registries. All known remote regions: []
+2025-07-04 07:43:04.780 [] [main] INFO  DefaultEurekaServerContext - Initialized
+2025-07-04 07:43:04.863 [] [main] INFO  EndpointLinksResolver - Exposing 18 endpoints beneath base path '/actuator'
+2025-07-04 07:43:05.333 [] [main] INFO  EurekaServiceRegistry - Registering application DISCOVERY-SERVER with eureka with status UP
+2025-07-04 07:43:05.366 [] [main] INFO  Http11NioProtocol - Starting ProtocolHandler ["http-nio-8761"]
+2025-07-04 07:43:05.430 [] [Thread-10] INFO  EurekaServerBootstrap - isAws returned false
+2025-07-04 07:43:05.474 [] [Thread-10] INFO  EurekaServerBootstrap - Initialized server context
+2025-07-04 07:43:05.475 [] [Thread-10] INFO  PeerAwareInstanceRegistryImpl - Got 1 instances from neighboring DS node
+2025-07-04 07:43:05.475 [] [Thread-10] INFO  PeerAwareInstanceRegistryImpl - Renew threshold is: 1
+2025-07-04 07:43:05.476 [] [Thread-10] INFO  PeerAwareInstanceRegistryImpl - Changing status to UP
+2025-07-04 07:43:05.509 [] [Thread-10] INFO  EurekaServerInitializerConfiguration - Started Eureka Server
+2025-07-04 07:43:05.522 [] [main] INFO  TomcatWebServer - Tomcat started on port 8761 (http) with context path '/'
+2025-07-04 07:43:05.530 [] [main] INFO  EurekaAutoServiceRegistration - Updating port to 8761
+2025-07-04 07:43:05.592 [] [main] INFO  DiscoveryServerApplication - Started DiscoveryServerApplication in 44.274 seconds (process running for 51.576)
+2025-07-04 07:43:09.908 [] [http-nio-8761-exec-1] INFO  [/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-04 07:43:09.915 [] [http-nio-8761-exec-1] INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-04 07:43:09.929 [] [http-nio-8761-exec-1] INFO  DispatcherServlet - Completed initialization in 13 ms
+2025-07-04 07:43:10.946 [] [http-nio-8761-exec-2] INFO  AbstractInstanceRegistry - Registered instance API-GATEWAY/api-gateway:8080 with status UP (replication=false)
+2025-07-04 07:43:11.801 [] [http-nio-8761-exec-3] INFO  AbstractInstanceRegistry - Registered instance API-GATEWAY/api-gateway:8080 with status UP (replication=true)
+2025-07-04 07:43:14.410 [] [http-nio-8761-exec-6] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/dd7fe589a4a3:rest-data-provider with status UP (replication=false)
+2025-07-04 07:43:14.926 [] [http-nio-8761-exec-7] INFO  AbstractInstanceRegistry - Registered instance REST-DATA-PROVIDER/dd7fe589a4a3:rest-data-provider with status UP (replication=true)
+2025-07-04 07:43:23.990 [] [http-nio-8761-exec-9] INFO  AbstractInstanceRegistry - Registered instance USER-MANAGEMENT-SERVICE/user-management-service:8082 with status UP (replication=false)
+2025-07-04 07:43:24.501 [] [http-nio-8761-exec-10] INFO  AbstractInstanceRegistry - Registered instance USER-MANAGEMENT-SERVICE/user-management-service:8082 with status UP (replication=true)
+2025-07-04 07:43:29.437 [] [http-nio-8761-exec-3] INFO  AbstractInstanceRegistry - Registered instance AUTH-SERVICE/auth-service:8081 with status UP (replication=false)
+2025-07-04 07:43:29.962 [] [http-nio-8761-exec-4] INFO  AbstractInstanceRegistry - Registered instance AUTH-SERVICE/auth-service:8081 with status UP (replication=true)
+2025-07-04 07:44:05.476 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-07-04 07:45:05.476 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 0ms
+2025-07-04 07:45:23.749 [] [http-nio-8761-exec-7] INFO  AbstractInstanceRegistry - Registered instance RATE-HUB-CONSUMER-OPENSEARCH/rate-hub-consumer-opensearch:8086 with status UP (replication=false)
+2025-07-04 07:45:24.228 [] [http-nio-8761-exec-8] INFO  AbstractInstanceRegistry - Registered instance RATE-HUB-CONSUMER-OPENSEARCH/rate-hub-consumer-opensearch:8086 with status UP (replication=true)
+2025-07-04 07:45:28.643 [] [http-nio-8761-exec-9] INFO  AbstractInstanceRegistry - Registered instance RATE-HUB-CONSUMER-DB/rate-hub-consumer-db:8085 with status UP (replication=false)
+2025-07-04 07:45:29.154 [] [http-nio-8761-exec-2] INFO  AbstractInstanceRegistry - Registered instance RATE-HUB-CONSUMER-DB/rate-hub-consumer-db:8085 with status UP (replication=true)
+2025-07-04 07:46:05.476 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-07-04 07:47:05.477 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-07-04 07:48:05.477 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-07-04 07:49:05.477 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 5ms
+2025-07-04 07:50:05.477 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-07-04 07:51:05.477 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-07-04 07:52:05.477 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-07-04 07:53:05.477 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-07-04 07:54:05.477 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-07-04 07:55:05.478 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms
+2025-07-04 07:56:05.477 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-07-04 07:57:05.477 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-07-04 07:58:04.784 [] [ReplicaAwareInstanceRegistry - RenewalThresholdUpdater] INFO  PeerAwareInstanceRegistryImpl - Current renewal threshold is : 11
+2025-07-04 07:58:05.477 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 1ms
+2025-07-04 07:59:05.477 [] [Eureka-EvictionTimer] INFO  AbstractInstanceRegistry - Running the evict task with compensationTime 2ms

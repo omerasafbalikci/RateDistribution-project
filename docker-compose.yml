@@ -37,12 +37,26 @@ services:
 
   # FILEBEAT
   filebeat:
-    image: docker.elastic.co/beats/filebeat:8.11.3
+    image: docker.elastic.co/beats/filebeat-oss:7.12.1
     container_name: filebeat
     user: root
     volumes:
       - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
       - ./logs:/var/log/myapps:ro
+    depends_on:
+      logstash:
+        condition: service_started
+    networks:
+      - microservices-net
+
+  # LOGSTASH
+  logstash:
+    image: opensearchproject/logstash-oss-with-opensearch-output-plugin:8.9.0
+    container_name: logstash
+    environment:
+      - LS_JAVA_OPTS=-Xms512m -Xmx512m
+    volumes:
+      - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
     depends_on:
       opensearch:
         condition: service_healthy
@@ -334,6 +348,7 @@ services:
       - "8084:8084"
     volumes:
       - ./tcp-data-provider/config:/config:rw
+      - ./logs:/logs
     networks:
       - microservices-net
     depends_on:
@@ -346,7 +361,11 @@ services:
     image: omerasafbalikci/rate-hub
     container_name: rate-hub
     volumes:
-      - ./RateDistribution-project/rate-hub/config:/config
+      - ./rate-hub/config:/config
+      - ./rate-hub/formulas:/config/formulas
+      - ./logs:/app/logs
+    environment:
+      TZ: Europe/Istanbul
     networks:
       - microservices-net
     depends_on:

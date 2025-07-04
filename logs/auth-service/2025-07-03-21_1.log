@@ -1,0 +1,350 @@
+2025-07-03 21:00:24.960 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-03 21:01:01.976 [] [http-nio-8081-exec-3] TRACE UserController - Entering login method in UserController
+2025-07-03 21:01:01.977 [] [http-nio-8081-exec-3] TRACE UserServiceImpl - Entering login method in UserServiceImpl
+2025-07-03 21:01:01.978 [] [http-nio-8081-exec-3] DEBUG UserServiceImpl - Attempting to authenticate user: omerasafbalikci
+2025-07-03 21:01:01.983 [] [http-nio-8081-exec-3] TRACE UserDetailsServiceImpl - Entering loadUserByUsername with username: omerasafbalikci
+2025-07-03 21:01:02.000 [] [http-nio-8081-exec-3] INFO  UserDetailsServiceImpl - User found: omerasafbalikci
+2025-07-03 21:01:02.000 [] [http-nio-8081-exec-3] DEBUG UserDetailsServiceImpl - Mapping role ADMIN to authority ROLE_ADMIN
+2025-07-03 21:01:02.000 [] [http-nio-8081-exec-3] INFO  UserDetailsServiceImpl - User authorities: [ROLE_ADMIN]
+2025-07-03 21:01:02.000 [] [http-nio-8081-exec-3] TRACE UserDetailsServiceImpl - Exiting loadUserByUsername method in UserDetailsServiceImpl with username: omerasafbalikci
+2025-07-03 21:01:02.081 [] [http-nio-8081-exec-3] INFO  UserServiceImpl - User authenticated successfully: omerasafbalikci
+2025-07-03 21:01:02.083 [] [http-nio-8081-exec-3] TRACE UserServiceImpl - Entering getRolesAsString method in UserServiceImpl
+2025-07-03 21:01:02.083 [] [http-nio-8081-exec-3] TRACE UserServiceImpl - Exiting getRolesAsString method in UserServiceImpl
+2025-07-03 21:01:02.083 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Entering generateAccessToken method in JwtUtils class with username: omerasafbalikci
+2025-07-03 21:01:02.085 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 3600000
+2025-07-03 21:01:02.088 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-07-03 21:01:02.088 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-07-03 21:01:02.092 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3NTE1NzY0NjIsImV4cCI6MTc1MTU4MDA2Mn0.PSPirNbqNtRxnenjkwf6P0tuBOGcjkvCNPjxnkXDG8FtJA7bWxgf9QSwA_22GYse
+2025-07-03 21:01:02.092 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Exiting generateAccessToken method in JwtUtils class with accessToken: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3NTE1NzY0NjIsImV4cCI6MTc1MTU4MDA2Mn0.PSPirNbqNtRxnenjkwf6P0tuBOGcjkvCNPjxnkXDG8FtJA7bWxgf9QSwA_22GYse
+2025-07-03 21:01:02.094 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Entering generateRefreshToken method in JwtUtils class with username: omerasafbalikci
+2025-07-03 21:01:02.095 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 86400000
+2025-07-03 21:01:02.096 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-07-03 21:01:02.097 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-07-03 21:01:02.099 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJpYXQiOjE3NTE1NzY0NjIsImV4cCI6MTc1MTY2Mjg2Mn0.QUWKnIs-gvD6JX3bOkeOsQiLI-mva6XYYLcyd4oBeUqpfs4JSIrCDZ_2dYgAz_29
+2025-07-03 21:01:02.100 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Exiting generateRefreshToken method in JwtUtils class with refreshToken: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJpYXQiOjE3NTE1NzY0NjIsImV4cCI6MTc1MTY2Mjg2Mn0.QUWKnIs-gvD6JX3bOkeOsQiLI-mva6XYYLcyd4oBeUqpfs4JSIrCDZ_2dYgAz_29
+2025-07-03 21:01:02.100 [] [http-nio-8081-exec-3] TRACE UserServiceImpl - Entering revokeAllTokensByUser method in UserServiceImpl
+2025-07-03 21:01:02.101 [] [http-nio-8081-exec-3] DEBUG UserServiceImpl - Revoking all tokens for user ID: 3
+2025-07-03 21:01:02.110 [] [http-nio-8081-exec-3] INFO  UserServiceImpl - Token revoked for user ID: 3
+2025-07-03 21:01:02.120 [] [http-nio-8081-exec-3] TRACE UserServiceImpl - Exiting revokeAllTokensByUser method in UserServiceImpl
+2025-07-03 21:01:02.121 [] [http-nio-8081-exec-3] TRACE UserServiceImpl - Entering saveUserToken method in UserServiceImpl
+2025-07-03 21:01:02.122 [] [http-nio-8081-exec-3] DEBUG UserServiceImpl - Saving token for user: omerasafbalikci
+2025-07-03 21:01:02.142 [] [http-nio-8081-exec-3] INFO  UserServiceImpl - Token saved in Redis for user: omerasafbalikci
+2025-07-03 21:01:02.142 [] [http-nio-8081-exec-3] TRACE UserServiceImpl - Exiting saveUserToken method in UserServiceImpl
+2025-07-03 21:01:02.142 [] [http-nio-8081-exec-3] TRACE UserServiceImpl - Exiting login method in UserServiceImpl
+2025-07-03 21:01:02.145 [] [http-nio-8081-exec-3] TRACE UserController - Exiting login method in UserController
+2025-07-03 21:01:25.078 [] [http-nio-8081-exec-4] TRACE UserController - Entering login method in UserController
+2025-07-03 21:01:25.078 [] [http-nio-8081-exec-4] TRACE UserServiceImpl - Entering login method in UserServiceImpl
+2025-07-03 21:01:25.078 [] [http-nio-8081-exec-4] DEBUG UserServiceImpl - Attempting to authenticate user: omerasafbalikci
+2025-07-03 21:01:25.091 [] [http-nio-8081-exec-4] TRACE UserDetailsServiceImpl - Entering loadUserByUsername with username: omerasafbalikci
+2025-07-03 21:01:25.102 [] [http-nio-8081-exec-4] INFO  UserDetailsServiceImpl - User found: omerasafbalikci
+2025-07-03 21:01:25.102 [] [http-nio-8081-exec-4] DEBUG UserDetailsServiceImpl - Mapping role ADMIN to authority ROLE_ADMIN
+2025-07-03 21:01:25.103 [] [http-nio-8081-exec-4] INFO  UserDetailsServiceImpl - User authorities: [ROLE_ADMIN]
+2025-07-03 21:01:25.103 [] [http-nio-8081-exec-4] TRACE UserDetailsServiceImpl - Exiting loadUserByUsername method in UserDetailsServiceImpl with username: omerasafbalikci
+2025-07-03 21:01:25.190 [] [http-nio-8081-exec-4] INFO  UserServiceImpl - User authenticated successfully: omerasafbalikci
+2025-07-03 21:01:25.191 [] [http-nio-8081-exec-4] TRACE UserServiceImpl - Entering getRolesAsString method in UserServiceImpl
+2025-07-03 21:01:25.191 [] [http-nio-8081-exec-4] TRACE UserServiceImpl - Exiting getRolesAsString method in UserServiceImpl
+2025-07-03 21:01:25.191 [] [http-nio-8081-exec-4] TRACE JwtServiceImpl - Entering generateAccessToken method in JwtUtils class with username: omerasafbalikci
+2025-07-03 21:01:25.191 [] [http-nio-8081-exec-4] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 3600000
+2025-07-03 21:01:25.191 [] [http-nio-8081-exec-4] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-07-03 21:01:25.191 [] [http-nio-8081-exec-4] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-07-03 21:01:25.192 [] [http-nio-8081-exec-4] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3NTE1NzY0ODUsImV4cCI6MTc1MTU4MDA4NX0.rr-TpuxVCjuodFDwuOQTYw6oHDR6SbMq6JIFIbgiPB-vXOkxpU2jZTSziuamMFAE
+2025-07-03 21:01:25.193 [] [http-nio-8081-exec-4] TRACE JwtServiceImpl - Exiting generateAccessToken method in JwtUtils class with accessToken: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3NTE1NzY0ODUsImV4cCI6MTc1MTU4MDA4NX0.rr-TpuxVCjuodFDwuOQTYw6oHDR6SbMq6JIFIbgiPB-vXOkxpU2jZTSziuamMFAE
+2025-07-03 21:01:25.193 [] [http-nio-8081-exec-4] TRACE JwtServiceImpl - Entering generateRefreshToken method in JwtUtils class with username: omerasafbalikci
+2025-07-03 21:01:25.193 [] [http-nio-8081-exec-4] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 86400000
+2025-07-03 21:01:25.193 [] [http-nio-8081-exec-4] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-07-03 21:01:25.193 [] [http-nio-8081-exec-4] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-07-03 21:01:25.195 [] [http-nio-8081-exec-4] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJpYXQiOjE3NTE1NzY0ODUsImV4cCI6MTc1MTY2Mjg4NX0.Sc0jk0nT2iclT5kt2T1chPfzp4JztqrT3tqoXw_0Tt36F-C0wjxV3pDVZ6pxkI0b
+2025-07-03 21:01:25.196 [] [http-nio-8081-exec-4] TRACE JwtServiceImpl - Exiting generateRefreshToken method in JwtUtils class with refreshToken: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJpYXQiOjE3NTE1NzY0ODUsImV4cCI6MTc1MTY2Mjg4NX0.Sc0jk0nT2iclT5kt2T1chPfzp4JztqrT3tqoXw_0Tt36F-C0wjxV3pDVZ6pxkI0b
+2025-07-03 21:01:25.196 [] [http-nio-8081-exec-4] TRACE UserServiceImpl - Entering revokeAllTokensByUser method in UserServiceImpl
+2025-07-03 21:01:25.196 [] [http-nio-8081-exec-4] DEBUG UserServiceImpl - Revoking all tokens for user ID: 3
+2025-07-03 21:01:25.205 [] [http-nio-8081-exec-4] INFO  UserServiceImpl - Token revoked for user ID: 3
+2025-07-03 21:01:25.214 [] [http-nio-8081-exec-4] TRACE UserServiceImpl - Exiting revokeAllTokensByUser method in UserServiceImpl
+2025-07-03 21:01:25.214 [] [http-nio-8081-exec-4] TRACE UserServiceImpl - Entering saveUserToken method in UserServiceImpl
+2025-07-03 21:01:25.214 [] [http-nio-8081-exec-4] DEBUG UserServiceImpl - Saving token for user: omerasafbalikci
+2025-07-03 21:01:25.222 [] [http-nio-8081-exec-4] INFO  UserServiceImpl - Token saved in Redis for user: omerasafbalikci
+2025-07-03 21:01:25.223 [] [http-nio-8081-exec-4] TRACE UserServiceImpl - Exiting saveUserToken method in UserServiceImpl
+2025-07-03 21:01:25.223 [] [http-nio-8081-exec-4] TRACE UserServiceImpl - Exiting login method in UserServiceImpl
+2025-07-03 21:01:25.223 [] [http-nio-8081-exec-4] TRACE UserController - Exiting login method in UserController
+2025-07-03 21:05:24.952 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-03 21:10:24.945 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-03 21:10:44.483 [] [http-nio-8081-exec-7] TRACE UserController - Entering login method in UserController
+2025-07-03 21:10:44.484 [] [http-nio-8081-exec-7] TRACE UserServiceImpl - Entering login method in UserServiceImpl
+2025-07-03 21:10:44.485 [] [http-nio-8081-exec-7] DEBUG UserServiceImpl - Attempting to authenticate user: omerasafbalikci
+2025-07-03 21:10:44.519 [] [http-nio-8081-exec-7] TRACE UserDetailsServiceImpl - Entering loadUserByUsername with username: omerasafbalikci
+2025-07-03 21:10:44.658 [] [http-nio-8081-exec-7] INFO  UserDetailsServiceImpl - User found: omerasafbalikci
+2025-07-03 21:10:44.660 [] [http-nio-8081-exec-7] DEBUG UserDetailsServiceImpl - Mapping role ADMIN to authority ROLE_ADMIN
+2025-07-03 21:10:44.660 [] [http-nio-8081-exec-7] INFO  UserDetailsServiceImpl - User authorities: [ROLE_ADMIN]
+2025-07-03 21:10:44.662 [] [http-nio-8081-exec-7] TRACE UserDetailsServiceImpl - Exiting loadUserByUsername method in UserDetailsServiceImpl with username: omerasafbalikci
+2025-07-03 21:10:44.762 [] [http-nio-8081-exec-7] INFO  UserServiceImpl - User authenticated successfully: omerasafbalikci
+2025-07-03 21:10:44.762 [] [http-nio-8081-exec-7] TRACE UserServiceImpl - Entering getRolesAsString method in UserServiceImpl
+2025-07-03 21:10:44.762 [] [http-nio-8081-exec-7] TRACE UserServiceImpl - Exiting getRolesAsString method in UserServiceImpl
+2025-07-03 21:10:44.762 [] [http-nio-8081-exec-7] TRACE JwtServiceImpl - Entering generateAccessToken method in JwtUtils class with username: omerasafbalikci
+2025-07-03 21:10:44.769 [] [http-nio-8081-exec-7] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 3600000
+2025-07-03 21:10:44.771 [] [http-nio-8081-exec-7] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-07-03 21:10:44.773 [] [http-nio-8081-exec-7] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-07-03 21:10:44.803 [] [http-nio-8081-exec-7] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3NTE1NzcwNDQsImV4cCI6MTc1MTU4MDY0NH0.NT-OKYxqCfIbx131L4XY0v4_QT2Z7B8nD_eLHPvTi7aLijczlSbu2u1bJJbKg1eI
+2025-07-03 21:10:44.804 [] [http-nio-8081-exec-7] TRACE JwtServiceImpl - Exiting generateAccessToken method in JwtUtils class with accessToken: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3NTE1NzcwNDQsImV4cCI6MTc1MTU4MDY0NH0.NT-OKYxqCfIbx131L4XY0v4_QT2Z7B8nD_eLHPvTi7aLijczlSbu2u1bJJbKg1eI
+2025-07-03 21:10:44.805 [] [http-nio-8081-exec-7] TRACE JwtServiceImpl - Entering generateRefreshToken method in JwtUtils class with username: omerasafbalikci
+2025-07-03 21:10:44.806 [] [http-nio-8081-exec-7] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 86400000
+2025-07-03 21:10:44.807 [] [http-nio-8081-exec-7] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-07-03 21:10:44.807 [] [http-nio-8081-exec-7] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-07-03 21:10:44.811 [] [http-nio-8081-exec-7] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJpYXQiOjE3NTE1NzcwNDQsImV4cCI6MTc1MTY2MzQ0NH0.M7ixAnvVRqmH868XHxW3UvPH7TC9d1oBvOJJVp3Pwxec82n-BeW-QfZVaGxKAdRQ
+2025-07-03 21:10:44.812 [] [http-nio-8081-exec-7] TRACE JwtServiceImpl - Exiting generateRefreshToken method in JwtUtils class with refreshToken: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJpYXQiOjE3NTE1NzcwNDQsImV4cCI6MTc1MTY2MzQ0NH0.M7ixAnvVRqmH868XHxW3UvPH7TC9d1oBvOJJVp3Pwxec82n-BeW-QfZVaGxKAdRQ
+2025-07-03 21:10:44.812 [] [http-nio-8081-exec-7] TRACE UserServiceImpl - Entering revokeAllTokensByUser method in UserServiceImpl
+2025-07-03 21:10:44.812 [] [http-nio-8081-exec-7] DEBUG UserServiceImpl - Revoking all tokens for user ID: 3
+2025-07-03 21:10:44.865 [] [http-nio-8081-exec-7] INFO  UserServiceImpl - Token revoked for user ID: 3
+2025-07-03 21:10:44.893 [] [http-nio-8081-exec-7] TRACE UserServiceImpl - Exiting revokeAllTokensByUser method in UserServiceImpl
+2025-07-03 21:10:44.893 [] [http-nio-8081-exec-7] TRACE UserServiceImpl - Entering saveUserToken method in UserServiceImpl
+2025-07-03 21:10:44.893 [] [http-nio-8081-exec-7] DEBUG UserServiceImpl - Saving token for user: omerasafbalikci
+2025-07-03 21:10:44.908 [] [http-nio-8081-exec-7] INFO  UserServiceImpl - Token saved in Redis for user: omerasafbalikci
+2025-07-03 21:10:44.908 [] [http-nio-8081-exec-7] TRACE UserServiceImpl - Exiting saveUserToken method in UserServiceImpl
+2025-07-03 21:10:44.908 [] [http-nio-8081-exec-7] TRACE UserServiceImpl - Exiting login method in UserServiceImpl
+2025-07-03 21:10:44.908 [] [http-nio-8081-exec-7] TRACE UserController - Exiting login method in UserController
+2025-07-03 21:10:45.929 [] [http-nio-8081-exec-9] TRACE UserController - Entering login method in UserController
+2025-07-03 21:10:45.930 [] [http-nio-8081-exec-9] TRACE UserServiceImpl - Entering login method in UserServiceImpl
+2025-07-03 21:10:45.930 [] [http-nio-8081-exec-9] DEBUG UserServiceImpl - Attempting to authenticate user: super
+2025-07-03 21:10:45.932 [] [http-nio-8081-exec-9] TRACE UserDetailsServiceImpl - Entering loadUserByUsername with username: super
+2025-07-03 21:10:45.960 [] [http-nio-8081-exec-9] INFO  UserDetailsServiceImpl - User found: super
+2025-07-03 21:10:45.960 [] [http-nio-8081-exec-9] DEBUG UserDetailsServiceImpl - Mapping role ADMIN to authority ROLE_ADMIN
+2025-07-03 21:10:45.961 [] [http-nio-8081-exec-9] DEBUG UserDetailsServiceImpl - Mapping role OPERATOR to authority ROLE_OPERATOR
+2025-07-03 21:10:45.961 [] [http-nio-8081-exec-9] DEBUG UserDetailsServiceImpl - Mapping role ANALYST to authority ROLE_ANALYST
+2025-07-03 21:10:45.961 [] [http-nio-8081-exec-9] INFO  UserDetailsServiceImpl - User authorities: [ROLE_OPERATOR, ROLE_ANALYST, ROLE_ADMIN]
+2025-07-03 21:10:45.962 [] [http-nio-8081-exec-9] TRACE UserDetailsServiceImpl - Exiting loadUserByUsername method in UserDetailsServiceImpl with username: super
+2025-07-03 21:10:46.065 [] [http-nio-8081-exec-9] INFO  UserServiceImpl - User authenticated successfully: super
+2025-07-03 21:10:46.065 [] [http-nio-8081-exec-9] TRACE UserServiceImpl - Entering getRolesAsString method in UserServiceImpl
+2025-07-03 21:10:46.066 [] [http-nio-8081-exec-9] TRACE UserServiceImpl - Exiting getRolesAsString method in UserServiceImpl
+2025-07-03 21:10:46.066 [] [http-nio-8081-exec-9] TRACE JwtServiceImpl - Entering generateAccessToken method in JwtUtils class with username: super
+2025-07-03 21:10:46.066 [] [http-nio-8081-exec-9] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 3600000
+2025-07-03 21:10:46.067 [] [http-nio-8081-exec-9] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-07-03 21:10:46.067 [] [http-nio-8081-exec-9] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-07-03 21:10:46.072 [] [http-nio-8081-exec-9] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc1MTU3NzA0NiwiZXhwIjoxNzUxNTgwNjQ2fQ.arGGuI-2XPCHe3XoZKOAUS9WtM9UAKLHe_b5ZLeHQcSxEG8pXyv6CE9ghKTJfStD
+2025-07-03 21:10:46.072 [] [http-nio-8081-exec-9] TRACE JwtServiceImpl - Exiting generateAccessToken method in JwtUtils class with accessToken: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc1MTU3NzA0NiwiZXhwIjoxNzUxNTgwNjQ2fQ.arGGuI-2XPCHe3XoZKOAUS9WtM9UAKLHe_b5ZLeHQcSxEG8pXyv6CE9ghKTJfStD
+2025-07-03 21:10:46.072 [] [http-nio-8081-exec-9] TRACE JwtServiceImpl - Entering generateRefreshToken method in JwtUtils class with username: super
+2025-07-03 21:10:46.073 [] [http-nio-8081-exec-9] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 86400000
+2025-07-03 21:10:46.075 [] [http-nio-8081-exec-9] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-07-03 21:10:46.078 [] [http-nio-8081-exec-9] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-07-03 21:10:46.082 [] [http-nio-8081-exec-9] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsImlhdCI6MTc1MTU3NzA0NiwiZXhwIjoxNzUxNjYzNDQ2fQ.D2Y2qX2aoozTYz-9JhU-DgEqCCUreBFjooyvmQKdDBstbaGGyVpkgrgIkHHS3VnX
+2025-07-03 21:10:46.084 [] [http-nio-8081-exec-9] TRACE JwtServiceImpl - Exiting generateRefreshToken method in JwtUtils class with refreshToken: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsImlhdCI6MTc1MTU3NzA0NiwiZXhwIjoxNzUxNjYzNDQ2fQ.D2Y2qX2aoozTYz-9JhU-DgEqCCUreBFjooyvmQKdDBstbaGGyVpkgrgIkHHS3VnX
+2025-07-03 21:10:46.084 [] [http-nio-8081-exec-9] TRACE UserServiceImpl - Entering revokeAllTokensByUser method in UserServiceImpl
+2025-07-03 21:10:46.084 [] [http-nio-8081-exec-9] DEBUG UserServiceImpl - Revoking all tokens for user ID: 4
+2025-07-03 21:10:46.090 [] [http-nio-8081-exec-9] INFO  UserServiceImpl - Token revoked for user ID: 4
+2025-07-03 21:10:46.098 [] [http-nio-8081-exec-9] TRACE UserServiceImpl - Exiting revokeAllTokensByUser method in UserServiceImpl
+2025-07-03 21:10:46.099 [] [http-nio-8081-exec-9] TRACE UserServiceImpl - Entering saveUserToken method in UserServiceImpl
+2025-07-03 21:10:46.100 [] [http-nio-8081-exec-9] DEBUG UserServiceImpl - Saving token for user: super
+2025-07-03 21:10:46.166 [] [http-nio-8081-exec-9] INFO  UserServiceImpl - Token saved in Redis for user: super
+2025-07-03 21:10:46.168 [] [http-nio-8081-exec-9] TRACE UserServiceImpl - Exiting saveUserToken method in UserServiceImpl
+2025-07-03 21:10:46.171 [] [http-nio-8081-exec-9] TRACE UserServiceImpl - Exiting login method in UserServiceImpl
+2025-07-03 21:10:46.173 [] [http-nio-8081-exec-9] TRACE UserController - Exiting login method in UserController
+2025-07-03 21:15:24.935 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-03 21:19:45.595 [] [http-nio-8081-exec-1] TRACE UserController - Entering login method in UserController
+2025-07-03 21:19:45.625 [] [http-nio-8081-exec-1] TRACE UserServiceImpl - Entering login method in UserServiceImpl
+2025-07-03 21:19:45.629 [] [http-nio-8081-exec-1] DEBUG UserServiceImpl - Attempting to authenticate user: omerasafbalikci
+2025-07-03 21:19:45.752 [] [http-nio-8081-exec-1] TRACE UserDetailsServiceImpl - Entering loadUserByUsername with username: omerasafbalikci
+2025-07-03 21:19:46.153 [] [http-nio-8081-exec-1] INFO  UserDetailsServiceImpl - User found: omerasafbalikci
+2025-07-03 21:19:46.156 [] [http-nio-8081-exec-1] DEBUG UserDetailsServiceImpl - Mapping role ADMIN to authority ROLE_ADMIN
+2025-07-03 21:19:46.159 [] [http-nio-8081-exec-1] INFO  UserDetailsServiceImpl - User authorities: [ROLE_ADMIN]
+2025-07-03 21:19:46.166 [] [http-nio-8081-exec-1] TRACE UserDetailsServiceImpl - Exiting loadUserByUsername method in UserDetailsServiceImpl with username: omerasafbalikci
+2025-07-03 21:19:46.336 [] [http-nio-8081-exec-1] INFO  UserServiceImpl - User authenticated successfully: omerasafbalikci
+2025-07-03 21:19:46.337 [] [http-nio-8081-exec-1] TRACE UserServiceImpl - Entering getRolesAsString method in UserServiceImpl
+2025-07-03 21:19:46.338 [] [http-nio-8081-exec-1] TRACE UserServiceImpl - Exiting getRolesAsString method in UserServiceImpl
+2025-07-03 21:19:46.339 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Entering generateAccessToken method in JwtUtils class with username: omerasafbalikci
+2025-07-03 21:19:46.354 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 3600000
+2025-07-03 21:19:46.357 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-07-03 21:19:46.360 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-07-03 21:19:46.436 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3NTE1Nzc1ODYsImV4cCI6MTc1MTU4MTE4Nn0.LRvJuyhbIu5q9Czz1HvpDViMp3v6spjmO8LwPgSbW-LmtWjftPbd3EXVOpAtyX9t
+2025-07-03 21:19:46.437 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Exiting generateAccessToken method in JwtUtils class with accessToken: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3NTE1Nzc1ODYsImV4cCI6MTc1MTU4MTE4Nn0.LRvJuyhbIu5q9Czz1HvpDViMp3v6spjmO8LwPgSbW-LmtWjftPbd3EXVOpAtyX9t
+2025-07-03 21:19:46.437 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Entering generateRefreshToken method in JwtUtils class with username: omerasafbalikci
+2025-07-03 21:19:46.437 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 86400000
+2025-07-03 21:19:46.438 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-07-03 21:19:46.438 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-07-03 21:19:46.443 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJpYXQiOjE3NTE1Nzc1ODYsImV4cCI6MTc1MTY2Mzk4Nn0.OCxOnkJ-1FMtjBAjyybHhaVKPjN5_qh6wx2USiE8I94N-X9sGziVi9zLxFmsil4G
+2025-07-03 21:19:46.465 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Exiting generateRefreshToken method in JwtUtils class with refreshToken: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJpYXQiOjE3NTE1Nzc1ODYsImV4cCI6MTc1MTY2Mzk4Nn0.OCxOnkJ-1FMtjBAjyybHhaVKPjN5_qh6wx2USiE8I94N-X9sGziVi9zLxFmsil4G
+2025-07-03 21:19:46.468 [] [http-nio-8081-exec-1] TRACE UserServiceImpl - Entering revokeAllTokensByUser method in UserServiceImpl
+2025-07-03 21:19:46.469 [] [http-nio-8081-exec-1] DEBUG UserServiceImpl - Revoking all tokens for user ID: 3
+2025-07-03 21:19:46.558 [] [http-nio-8081-exec-1] INFO  UserServiceImpl - Token revoked for user ID: 3
+2025-07-03 21:19:46.614 [] [http-nio-8081-exec-1] TRACE UserServiceImpl - Exiting revokeAllTokensByUser method in UserServiceImpl
+2025-07-03 21:19:46.614 [] [http-nio-8081-exec-1] TRACE UserServiceImpl - Entering saveUserToken method in UserServiceImpl
+2025-07-03 21:19:46.614 [] [http-nio-8081-exec-1] DEBUG UserServiceImpl - Saving token for user: omerasafbalikci
+2025-07-03 21:19:46.644 [] [http-nio-8081-exec-1] INFO  UserServiceImpl - Token saved in Redis for user: omerasafbalikci
+2025-07-03 21:19:46.645 [] [http-nio-8081-exec-1] TRACE UserServiceImpl - Exiting saveUserToken method in UserServiceImpl
+2025-07-03 21:19:46.645 [] [http-nio-8081-exec-1] TRACE UserServiceImpl - Exiting login method in UserServiceImpl
+2025-07-03 21:19:46.646 [] [http-nio-8081-exec-1] TRACE UserController - Exiting login method in UserController
+2025-07-03 21:20:24.930 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-03 21:25:24.945 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-03 21:28:47.679 [] [http-nio-8081-exec-3] TRACE UserController - Entering login method in UserController
+2025-07-03 21:28:47.754 [] [http-nio-8081-exec-3] TRACE UserServiceImpl - Entering login method in UserServiceImpl
+2025-07-03 21:28:47.759 [] [http-nio-8081-exec-3] DEBUG UserServiceImpl - Attempting to authenticate user: omerasafbalikci
+2025-07-03 21:28:47.901 [] [http-nio-8081-exec-3] TRACE UserDetailsServiceImpl - Entering loadUserByUsername with username: omerasafbalikci
+2025-07-03 21:28:48.438 [] [http-nio-8081-exec-3] INFO  UserDetailsServiceImpl - User found: omerasafbalikci
+2025-07-03 21:28:48.440 [] [http-nio-8081-exec-3] DEBUG UserDetailsServiceImpl - Mapping role ADMIN to authority ROLE_ADMIN
+2025-07-03 21:28:48.441 [] [http-nio-8081-exec-3] INFO  UserDetailsServiceImpl - User authorities: [ROLE_ADMIN]
+2025-07-03 21:28:48.444 [] [http-nio-8081-exec-3] TRACE UserDetailsServiceImpl - Exiting loadUserByUsername method in UserDetailsServiceImpl with username: omerasafbalikci
+2025-07-03 21:28:48.671 [] [http-nio-8081-exec-3] INFO  UserServiceImpl - User authenticated successfully: omerasafbalikci
+2025-07-03 21:28:48.671 [] [http-nio-8081-exec-3] TRACE UserServiceImpl - Entering getRolesAsString method in UserServiceImpl
+2025-07-03 21:28:48.671 [] [http-nio-8081-exec-3] TRACE UserServiceImpl - Exiting getRolesAsString method in UserServiceImpl
+2025-07-03 21:28:48.672 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Entering generateAccessToken method in JwtUtils class with username: omerasafbalikci
+2025-07-03 21:28:48.688 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 3600000
+2025-07-03 21:28:48.693 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-07-03 21:28:48.695 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-07-03 21:28:48.753 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3NTE1NzgxMjgsImV4cCI6MTc1MTU4MTcyOH0.F_-V9AJPSsjBlVpdJqbXB8xQ12SZZAktr3hImkhof9kM0Chh_YnWwuaU7fdyknTi
+2025-07-03 21:28:48.753 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Exiting generateAccessToken method in JwtUtils class with accessToken: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJyb2xlcyI6WyJBRE1JTiJdLCJpYXQiOjE3NTE1NzgxMjgsImV4cCI6MTc1MTU4MTcyOH0.F_-V9AJPSsjBlVpdJqbXB8xQ12SZZAktr3hImkhof9kM0Chh_YnWwuaU7fdyknTi
+2025-07-03 21:28:48.753 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Entering generateRefreshToken method in JwtUtils class with username: omerasafbalikci
+2025-07-03 21:28:48.754 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 86400000
+2025-07-03 21:28:48.754 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-07-03 21:28:48.754 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-07-03 21:28:48.757 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJpYXQiOjE3NTE1NzgxMjgsImV4cCI6MTc1MTY2NDUyOH0.oogmhqm7Owx2vNfqomdkXzIOrg300ucWBj3lOj-QnYi7B54_shiGnBlZZ2CGJ2TE
+2025-07-03 21:28:48.757 [] [http-nio-8081-exec-3] TRACE JwtServiceImpl - Exiting generateRefreshToken method in JwtUtils class with refreshToken: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJvbWVyYXNhZmJhbGlrY2kiLCJpYXQiOjE3NTE1NzgxMjgsImV4cCI6MTc1MTY2NDUyOH0.oogmhqm7Owx2vNfqomdkXzIOrg300ucWBj3lOj-QnYi7B54_shiGnBlZZ2CGJ2TE
+2025-07-03 21:28:48.757 [] [http-nio-8081-exec-3] TRACE UserServiceImpl - Entering revokeAllTokensByUser method in UserServiceImpl
+2025-07-03 21:28:48.757 [] [http-nio-8081-exec-3] DEBUG UserServiceImpl - Revoking all tokens for user ID: 3
+2025-07-03 21:28:48.839 [] [http-nio-8081-exec-3] INFO  UserServiceImpl - Token revoked for user ID: 3
+2025-07-03 21:28:48.931 [] [http-nio-8081-exec-3] TRACE UserServiceImpl - Exiting revokeAllTokensByUser method in UserServiceImpl
+2025-07-03 21:28:48.932 [] [http-nio-8081-exec-3] TRACE UserServiceImpl - Entering saveUserToken method in UserServiceImpl
+2025-07-03 21:28:48.932 [] [http-nio-8081-exec-3] DEBUG UserServiceImpl - Saving token for user: omerasafbalikci
+2025-07-03 21:28:48.967 [] [http-nio-8081-exec-3] INFO  UserServiceImpl - Token saved in Redis for user: omerasafbalikci
+2025-07-03 21:28:48.968 [] [http-nio-8081-exec-3] TRACE UserServiceImpl - Exiting saveUserToken method in UserServiceImpl
+2025-07-03 21:28:48.968 [] [http-nio-8081-exec-3] TRACE UserServiceImpl - Exiting login method in UserServiceImpl
+2025-07-03 21:28:48.968 [] [http-nio-8081-exec-3] TRACE UserController - Exiting login method in UserController
+2025-07-03 21:30:24.963 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-03 21:30:35.948 [] [SpringApplicationShutdownHook] INFO  EurekaServiceRegistry - Unregistering application AUTH-SERVICE with eureka with status DOWN
+2025-07-03 21:30:35.964 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1751578235962, current=DOWN, previous=UP]
+2025-07-03 21:30:35.969 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_AUTH-SERVICE/auth-service:8081: registering service...
+2025-07-03 21:30:36.225 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_AUTH-SERVICE/auth-service:8081 - registration status: 204
+2025-07-03 21:30:36.516 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-07-03 21:30:36.519 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-07-03 21:30:36.527 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-07-03 21:30:36.536 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-07-03 21:30:36.538 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-07-03 21:30:36.549 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-2] INFO  SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-07-03 21:30:36.780 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-07-03 21:30:36.778 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-07-03 21:30:36.817 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-07-03 21:30:36.821 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-07-03 21:30:36.845 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#4-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-07-03 21:30:36.879 [] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#5-2] INFO  SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-07-03 21:30:37.104 [] [SpringApplicationShutdownHook] INFO  GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-03 21:30:37.842 [] [tomcat-shutdown] INFO  GracefulShutdown - Graceful shutdown complete
+2025-07-03 21:30:42.634 [] [SpringApplicationShutdownHook] TRACE UserServiceImpl - Shutting down JedisPool
+2025-07-03 21:30:42.778 [] [SpringApplicationShutdownHook] INFO  LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-03 21:30:43.096 [] [SpringApplicationShutdownHook] INFO  HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-07-03 21:30:43.235 [] [SpringApplicationShutdownHook] INFO  HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-07-03 21:30:44.174 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Shutting down DiscoveryClient ...
+2025-07-03 21:38:22.288 [] [background-preinit] INFO  Version - HV000001: Hibernate Validator 8.0.2.Final
+2025-07-03 21:38:22.876 [] [main] INFO  AuthServiceApplication - Starting AuthServiceApplication v0.0.1-SNAPSHOT using Java 21.0.7 with PID 1 (/app.jar started by root in /)
+2025-07-03 21:38:22.940 [] [main] DEBUG AuthServiceApplication - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-07-03 21:38:23.022 [] [main] INFO  AuthServiceApplication - The following 1 profile is active: "docker"
+2025-07-03 21:38:23.640 [] [main] INFO  ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+2025-07-03 21:38:23.641 [] [main] INFO  ConfigServerConfigDataLoader - Located environment: name=auth-service, profiles=[default], label=null, version=bf17919cae47920d65737939efa7447c4223b9d7, state=
+2025-07-03 21:38:23.641 [] [main] INFO  ConfigServerConfigDataLoader - Fetching config from server at : http://config-server:8888
+2025-07-03 21:38:23.642 [] [main] INFO  ConfigServerConfigDataLoader - Located environment: name=auth-service, profiles=[docker], label=null, version=bf17919cae47920d65737939efa7447c4223b9d7, state=
+2025-07-03 21:38:39.690 [] [main] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-07-03 21:38:39.693 [] [main] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-03 21:38:40.401 [] [main] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 642 ms. Found 3 JPA repository interfaces.
+2025-07-03 21:38:40.512 [] [main] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-07-03 21:38:40.514 [] [main] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-07-03 21:38:40.623 [] [main] INFO  RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ratedistribution.auth.repository.RoleRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-07-03 21:38:40.623 [] [main] INFO  RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ratedistribution.auth.repository.TokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-07-03 21:38:40.623 [] [main] INFO  RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.ratedistribution.auth.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-07-03 21:38:40.623 [] [main] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 23 ms. Found 0 Redis repository interfaces.
+2025-07-03 21:38:42.547 [] [main] INFO  GenericScope - BeanFactory id=1b0d3377-b80a-348a-9738-cf32f1a608be
+2025-07-03 21:38:46.342 [] [main] INFO  TomcatWebServer - Tomcat initialized with port 8081 (http)
+2025-07-03 21:38:46.440 [] [main] INFO  Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2025-07-03 21:38:46.451 [] [main] INFO  StandardService - Starting service [Tomcat]
+2025-07-03 21:38:46.459 [] [main] INFO  StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-07-03 21:38:46.641 [] [main] INFO  [/] - Initializing Spring embedded WebApplicationContext
+2025-07-03 21:38:46.669 [] [main] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 22913 ms
+2025-07-03 21:38:50.925 [] [main] INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-03 21:38:51.390 [] [main] INFO  Version - HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-07-03 21:38:51.661 [] [main] INFO  RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-07-03 21:38:52.577 [] [main] INFO  SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-07-03 21:38:52.702 [] [main] INFO  HikariDataSource - HikariPool-1 - Starting...
+2025-07-03 21:38:53.166 [] [main] INFO  HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2403c1c5
+2025-07-03 21:38:53.169 [] [main] INFO  HikariDataSource - HikariPool-1 - Start completed.
+2025-07-03 21:38:53.313 [] [main] INFO  pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-07-03 21:38:56.009 [] [main] INFO  JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-07-03 21:38:56.245 [] [main] INFO  LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-03 21:38:57.788 [] [main] INFO  InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2025-07-03 21:38:58.045 [] [main] INFO  QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-07-03 21:38:59.476 [] [main] TRACE UserServiceImpl - Initializing JedisPool with Redis Host: redis and Port: 6380
+2025-07-03 21:38:59.710 [] [main] TRACE UserServiceImpl - Exiting init method in UserServiceImpl
+2025-07-03 21:39:03.170 [] [main] INFO  EndpointLinksResolver - Exposing 18 endpoints beneath base path '/actuator'
+2025-07-03 21:39:03.300 [] [main] INFO  DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-07-03 21:39:03.361 [] [main] WARN  LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-07-03 21:39:03.504 [] [main] INFO  InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-07-03 21:39:03.534 [] [main] INFO  DiscoveryClient - Initializing Eureka in region us-east-1
+2025-07-03 21:39:03.539 [] [main] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-03 21:39:03.549 [] [main] INFO  DiscoveryClient - Disable delta property : false
+2025-07-03 21:39:03.549 [] [main] INFO  DiscoveryClient - Single vip registry refresh property : null
+2025-07-03 21:39:03.549 [] [main] INFO  DiscoveryClient - Force full registry fetch : false
+2025-07-03 21:39:03.550 [] [main] INFO  DiscoveryClient - Application is null : false
+2025-07-03 21:39:03.550 [] [main] INFO  DiscoveryClient - Registered Applications size is zero : true
+2025-07-03 21:39:03.550 [] [main] INFO  DiscoveryClient - Application version is -1: true
+2025-07-03 21:39:03.550 [] [main] INFO  DiscoveryClient - Getting all instance registry info from the eureka server
+2025-07-03 21:39:03.785 [] [main] INFO  DiscoveryClient - The response status is 200
+2025-07-03 21:39:03.788 [] [main] INFO  DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-07-03 21:39:03.790 [] [main] INFO  InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-07-03 21:39:03.791 [] [main] INFO  DiscoveryClient - Discovery Client initialized at timestamp 1751578743791 with initial instances count: 2
+2025-07-03 21:39:03.805 [] [main] INFO  EurekaServiceRegistry - Registering application AUTH-SERVICE with eureka with status UP
+2025-07-03 21:39:03.806 [] [main] INFO  DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1751578743806, current=UP, previous=STARTING]
+2025-07-03 21:39:03.809 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_AUTH-SERVICE/auth-service:8081: registering service...
+2025-07-03 21:39:03.812 [] [main] INFO  Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2025-07-03 21:39:03.831 [] [main] INFO  TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2025-07-03 21:39:03.833 [] [main] INFO  EurekaAutoServiceRegistration - Updating port to 8081
+2025-07-03 21:39:03.843 [] [main] INFO  CachingConnectionFactory - Attempting to connect to: [rabbitmq:5672]
+2025-07-03 21:39:03.867 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_AUTH-SERVICE/auth-service:8081 - registration status: 204
+2025-07-03 21:39:03.916 [] [main] INFO  CachingConnectionFactory - Created new connection: rabbitConnectionFactory#22445d8e:0/SimpleConnection@2eac48ea [delegate=amqp://guest@172.18.0.5:5672/, localPort=36106]
+2025-07-03 21:39:03.925 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-create) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-07-03 21:39:03.925 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-update) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-07-03 21:39:03.926 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-delete) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-07-03 21:39:03.926 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-restore) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-07-03 21:39:03.927 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-add-role) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-07-03 21:39:03.927 [] [main] INFO  RabbitAdmin - Auto-declaring a non-durable, auto-delete, or exclusive Queue (user-queue-remove-role) durable:false, auto-delete:false, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2025-07-03 21:39:04.033 [] [main] INFO  AuthServiceApplication - Started AuthServiceApplication in 53.836 seconds (process running for 62.749)
+2025-07-03 21:39:57.186 [] [http-nio-8081-exec-1] INFO  [/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-03 21:39:57.190 [] [http-nio-8081-exec-1] INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-03 21:39:57.197 [] [http-nio-8081-exec-1] INFO  DispatcherServlet - Completed initialization in 5 ms
+2025-07-03 21:39:57.356 [] [http-nio-8081-exec-1] TRACE UserController - Entering login method in UserController
+2025-07-03 21:39:57.359 [] [http-nio-8081-exec-1] TRACE UserServiceImpl - Entering login method in UserServiceImpl
+2025-07-03 21:39:57.359 [] [http-nio-8081-exec-1] DEBUG UserServiceImpl - Attempting to authenticate user: super
+2025-07-03 21:39:57.434 [] [http-nio-8081-exec-1] TRACE UserDetailsServiceImpl - Entering loadUserByUsername with username: super
+2025-07-03 21:39:57.450 [] [http-nio-8081-exec-1] INFO  UserDetailsServiceImpl - User found: super
+2025-07-03 21:39:57.451 [] [http-nio-8081-exec-1] DEBUG UserDetailsServiceImpl - Mapping role ADMIN to authority ROLE_ADMIN
+2025-07-03 21:39:57.451 [] [http-nio-8081-exec-1] DEBUG UserDetailsServiceImpl - Mapping role OPERATOR to authority ROLE_OPERATOR
+2025-07-03 21:39:57.451 [] [http-nio-8081-exec-1] DEBUG UserDetailsServiceImpl - Mapping role ANALYST to authority ROLE_ANALYST
+2025-07-03 21:39:57.451 [] [http-nio-8081-exec-1] INFO  UserDetailsServiceImpl - User authorities: [ROLE_OPERATOR, ROLE_ANALYST, ROLE_ADMIN]
+2025-07-03 21:39:57.454 [] [http-nio-8081-exec-1] TRACE UserDetailsServiceImpl - Exiting loadUserByUsername method in UserDetailsServiceImpl with username: super
+2025-07-03 21:39:57.534 [] [http-nio-8081-exec-1] INFO  UserServiceImpl - User authenticated successfully: super
+2025-07-03 21:39:57.534 [] [http-nio-8081-exec-1] TRACE UserServiceImpl - Entering getRolesAsString method in UserServiceImpl
+2025-07-03 21:39:57.534 [] [http-nio-8081-exec-1] TRACE UserServiceImpl - Exiting getRolesAsString method in UserServiceImpl
+2025-07-03 21:39:57.535 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Entering generateAccessToken method in JwtUtils class with username: super
+2025-07-03 21:39:57.572 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 3600000
+2025-07-03 21:39:57.608 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-07-03 21:39:57.609 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-07-03 21:39:57.633 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc1MTU3ODc5NywiZXhwIjoxNzUxNTgyMzk3fQ.UtXnJy6idbSQphpdC3XdG7bdFB85LxQpSzfRbdCkjW2cVTvh77QDvc7o_SsiNyvu
+2025-07-03 21:39:57.633 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Exiting generateAccessToken method in JwtUtils class with accessToken: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsInJvbGVzIjpbIkFETUlOIiwiT1BFUkFUT1IiLCJBTkFMWVNUIl0sImlhdCI6MTc1MTU3ODc5NywiZXhwIjoxNzUxNTgyMzk3fQ.UtXnJy6idbSQphpdC3XdG7bdFB85LxQpSzfRbdCkjW2cVTvh77QDvc7o_SsiNyvu
+2025-07-03 21:39:57.633 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Entering generateRefreshToken method in JwtUtils class with username: super
+2025-07-03 21:39:57.634 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Entering buildToken method in JwtUtils class with claims and expiration: 86400000
+2025-07-03 21:39:57.634 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Entering getSignInKey method in JwtUtils class
+2025-07-03 21:39:57.634 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Exiting getSignInKey method in JwtUtils class with key
+2025-07-03 21:39:57.636 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Exiting buildToken method in JwtUtils class with token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsImlhdCI6MTc1MTU3ODc5NywiZXhwIjoxNzUxNjY1MTk3fQ.6BhCCb1J_pxoUEgP47zRvc3d5mBM76y6hsVKk9mO8CaM1mtTKtNs_NfyHqVxPPJb
+2025-07-03 21:39:57.637 [] [http-nio-8081-exec-1] TRACE JwtServiceImpl - Exiting generateRefreshToken method in JwtUtils class with refreshToken: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJzdXBlciIsImlhdCI6MTc1MTU3ODc5NywiZXhwIjoxNzUxNjY1MTk3fQ.6BhCCb1J_pxoUEgP47zRvc3d5mBM76y6hsVKk9mO8CaM1mtTKtNs_NfyHqVxPPJb
+2025-07-03 21:39:57.637 [] [http-nio-8081-exec-1] TRACE UserServiceImpl - Entering revokeAllTokensByUser method in UserServiceImpl
+2025-07-03 21:39:57.637 [] [http-nio-8081-exec-1] DEBUG UserServiceImpl - Revoking all tokens for user ID: 4
+2025-07-03 21:39:57.732 [] [http-nio-8081-exec-1] INFO  UserServiceImpl - Token revoked for user ID: 4
+2025-07-03 21:39:57.825 [] [http-nio-8081-exec-1] TRACE UserServiceImpl - Exiting revokeAllTokensByUser method in UserServiceImpl
+2025-07-03 21:39:57.826 [] [http-nio-8081-exec-1] TRACE UserServiceImpl - Entering saveUserToken method in UserServiceImpl
+2025-07-03 21:39:57.826 [] [http-nio-8081-exec-1] DEBUG UserServiceImpl - Saving token for user: super
+2025-07-03 21:39:57.870 [] [http-nio-8081-exec-1] INFO  UserServiceImpl - Token saved in Redis for user: super
+2025-07-03 21:39:57.870 [] [http-nio-8081-exec-1] TRACE UserServiceImpl - Exiting saveUserToken method in UserServiceImpl
+2025-07-03 21:39:57.870 [] [http-nio-8081-exec-1] TRACE UserServiceImpl - Exiting login method in UserServiceImpl
+2025-07-03 21:39:57.872 [] [http-nio-8081-exec-1] TRACE UserController - Exiting login method in UserController
+2025-07-03 21:44:03.532 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-03 21:49:03.517 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-03 21:54:03.504 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-03 21:59:03.492 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration

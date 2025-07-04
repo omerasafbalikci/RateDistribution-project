@@ -87,7 +87,6 @@ public class DynamicScriptFormulaEngine implements ExpressionEvaluator {
         }
     }
 
-
     private BigDecimal evalGroovy(String script, Map<String, Rate> vars, Map<String, BigDecimal> helpers) {
         try {
             Binding binding = new Binding();

@@ -1,0 +1,16 @@
+2025-07-04 00:03:04.811 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-04 00:08:04.822 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-04 00:13:04.809 [] [AsyncResolver-bootstrap-executor-%d] INFO  ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-04 00:17:11.336 [] [SpringApplicationShutdownHook] INFO  EurekaServiceRegistry - Unregistering application USER-MANAGEMENT-SERVICE with eureka with status DOWN
+2025-07-04 00:17:11.341 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1751588231339, current=DOWN, previous=UP]
+2025-07-04 00:17:11.342 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_USER-MANAGEMENT-SERVICE/user-management-service:8082: registering service...
+2025-07-04 00:17:11.398 [] [DiscoveryClient-InstanceInfoReplicator-%d] INFO  DiscoveryClient - DiscoveryClient_USER-MANAGEMENT-SERVICE/user-management-service:8082 - registration status: 204
+2025-07-04 00:17:11.516 [] [SpringApplicationShutdownHook] INFO  GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-07-04 00:17:11.567 [] [tomcat-shutdown] INFO  GracefulShutdown - Graceful shutdown complete
+2025-07-04 00:17:11.855 [] [SpringApplicationShutdownHook] INFO  LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-07-04 00:17:11.956 [] [SpringApplicationShutdownHook] INFO  HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-07-04 00:17:12.041 [] [SpringApplicationShutdownHook] INFO  HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-07-04 00:17:12.617 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Shutting down DiscoveryClient ...
+2025-07-04 00:17:15.619 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Unregistering ...
+2025-07-04 00:17:15.642 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - DiscoveryClient_USER-MANAGEMENT-SERVICE/user-management-service:8082 - deregister  status: 200
+2025-07-04 00:17:15.643 [] [SpringApplicationShutdownHook] INFO  DiscoveryClient - Completed shut down of DiscoveryClient
